@@ -1,0 +1,244 @@
+.Whowe-main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.who-page {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 3vmax;
+}
+
+.who-top {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.who-top h5 {
+    font-size: 1.9vmax;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.who-top p {
+    font-size: 1.2vmax;
+    width: 70%;
+}
+
+.know-btn {
+    color: #003266;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 2px solid #003266;
+    box-shadow: 0 2px #003f80;
+    margin-top: 0.5vmax;
+    padding: 10px 20px;
+    cursor: pointer;
+    background: none;
+}
+
+.who-btm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 2vmax;
+}
+
+.who-btm h6 {
+    font-size: 1.4vmax;
+    text-transform: capitalize;
+    margin-left: 1vmax;
+}
+
+.who-slide {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1vmax;
+}
+
+.slider-container {
+    text-align: center;
+    width: 100%;
+    /* margin: 0px 10px; */
+    /* padding-top: 1vmax; */
+    padding-bottom: 1vmax;
+    margin-bottom: 2vmax !important;
+}
+
+.slick-slide .w-box {
+    padding: 0px;
+    /* box-shadow: 0px 1px 2px 0px #929292; */
+    border: 0.2px solid #cfcfcf;
+    height: 430px;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0 10px;
+}
+
+.slick-slide .w-box img {
+    width: 100%;
+    height: 250px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.slick-slide .w-box h6 {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1vmax;
+}
+
+.slick-slide .w-box p {
+    text-align: center;
+    width: 90%;
+    height: 80px;
+}
+
+.slick-slide .w-box .get {
+    margin-bottom: 1vmax;
+    color: #003266;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 2px solid #003266;
+    -webkit-box-shadow: 0 2px #003f80;
+    -moz-box-shadow: 0 2px #003f80;
+    box-shadow: 0 2px #003f80;
+}
+
+.slick-slide .w-box .get button {
+    padding: 10px 20px;
+    color: #003f80;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    background: none;
+    font-weight: 600;
+}
+
+/* Style for Left Arrow */
+.slick-prev {
+    left: -40px;
+    /* Adjust position */
+    z-index: 10;
+    font-size: 24px;
+    color: #003266 !important;
+    /* Blue to contrast with white */
+    background-color: rgba(30, 30, 30, 0.8) !important;
+    /* White background with slight transparency */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); */
+    cursor: pointer;
+}
+
+/* Style for Right Arrow */
+.slick-next {
+    right: -40px;
+    /* Adjust position */
+    z-index: 10;
+    font-size: 24px;
+    color: #003266 !important;
+    /* Blue color */
+    background-color: rgba(27, 27, 27, 0.8) !important;
+    /* Transparent white */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); */
+    cursor: pointer;
+}
+
+/* Remove default Slick arrows */
+.slick-prev::before,
+.slick-next::before {
+    content: '';
+}
+
+.slick-dots {
+
+    position: absolute;
+    bottom: -50px !important;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+
+
+
+.slick-dots li button {
+    font-size: 10px;
+    margin-top: 2vmax;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50%;
+    background: gray !important;
+}
+
+.slick-dots li.slick-active button {
+    background: #003f80 !important;
+}
+
+.slick-dots li button:before {
+    display: none;
+    visibility: hidden;
+}
+
+@media (max-width:600px) {
+    .Whowe-main {
+        width: 100%;
+    }
+
+    .who-page {
+        width: 95%;
+    }
+
+    .who-top h5 {
+        font-size: 3vmax;
+    }
+
+    .who-top p {
+        font-size: 2vmax;
+        width: 95%;
+    }
+
+
+    .who-btm {
+        width: 100%;
+    }
+
+    .who-btm h6 {
+        font-size: 2vmax;
+    }
+
+
+}

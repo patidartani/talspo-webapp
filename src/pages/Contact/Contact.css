@@ -1,0 +1,307 @@
+.Contact-main{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+}
+.Contact-main .contact-page{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          margin-bottom: 2vmax;
+
+}
+.Contact-main .contact-page .contact-top{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          background: #003266;
+          color:#fff;
+          /* padding: 4vmax; */
+}
+.Contact-main .contact-page .contact-top h5{
+          width: 85%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color:#fff;
+          margin-top: 2vmax;
+          font-size: 2.3vmax;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+}
+
+.Contact-main .contact-page .contact-top p{
+          width: 85%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color:#fff;
+          font-size: 1.2vmax;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: lighter;
+}
+.Contact-main .contact-page .contact-btm{
+          width: 85%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-direction: row-reverse;
+          margin-top: 2vmax;
+          gap: 2vmax;
+}
+.Contact-main .contact-page .contact-btm .left-gif{
+       width: 50%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       background: #000;
+}
+.Contact-main .contact-page .contact-btm .left-gif iframe{
+       width: 100%;
+       height: 520px;
+       object-fit: cover;
+}
+.Contact-main .contact-page .contact-btm .form-page{
+          width: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0px 1px 3px 0px rgba(123, 123, 163, 0.895);
+          border-radius: 5px;
+          padding-left: 2vmax;
+          padding-right: 2vmax;
+          flex-direction: column;
+          padding-top: 1vmax;
+          padding-bottom: 0.5vmax;
+}
+
+
+.Contact-main .contact-page .contact-btm .form-page h5{
+      font-weight: 700;
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 0.2px;
+      font-size: 1.5vmax;
+}
+.Contact-main .contact-page .contact-btm .form-page p{
+       font-family: Arial, Helvetica, sans-serif;
+       letter-spacing: 0.2px;
+       text-align: center;
+       font-size: 1vmax;
+ }
+
+.Contact-main .contact-page .contact-btm .form-page form{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          gap: 1.2vmax;
+}
+
+.Contact-main .contact-page .contact-btm .form-page form .ipt{
+          width: 100%;
+          border-radius: 5px;
+}
+.Contact-main .contact-page .contact-btm .form-page form .ipt input{
+          width: 100%;
+          border-radius: 5px;
+          padding: 0.5vmax 1vmax;
+          outline: none;
+          border: none;
+          border: 1px solid #bdbdbd;
+}
+
+.Contact-main .contact-page .contact-btm .form-page form .ipt select{
+          width: 100%;
+          border-radius: 5px;
+          padding: 0.4vmax 0.6vmax;
+          outline: none;
+          color: #565656;
+          border: none;
+          border: 1px solid #bdbdbd;
+}
+.Contact-main .contact-page .contact-btm .form-page form .ipt .opt{
+       color: #565656;
+}
+.Contact-main .contact-page .contact-btm .form-page form .ipt textarea{
+          width: 100%;
+          border-radius: 5px;
+          padding: 0.7vmax 1vmax;
+          outline: none;
+          border: none;
+          border: 1px solid #bdbdbd;
+}
+
+.Contact-main .contact-page .contact-btm .form-page form .btn-cont{
+          color: #003266;
+          font-weight: 600;
+          border-radius: 5px;
+          border: 2px solid #003266;
+          -webkit-box-shadow: 0 2px #003f80;
+          -moz-box-shadow: 0 2px #003f80;
+          box-shadow: 0 2px #003f80;
+          margin-bottom: 0.5vmax;
+
+}
+.Contact-main .contact-page .contact-btm .form-page form .btn-cont button{
+          padding: 10px 20px;
+          color: #003f80;
+          border: none;
+          cursor: pointer;
+          border-radius: 10px;
+          font-size: 0.9rem;
+          background: none;
+          font-weight: 600;
+}
+/* Input field focus effect */
+.Contact-main .contact-page .contact-btm .form-page form .ipt input:focus,
+.Contact-main .contact-page .contact-btm .form-page form .ipt select:focus,
+.Contact-main .contact-page .contact-btm .form-page form .ipt textarea:focus {
+  border: 0.2px solid #003f80; /* Blue border on focus */
+  outline: none;
+}
+
+
+
+
+
+@media (max-width:600px) {
+          .Contact-main{
+                    width: 100%;
+          }
+          .Contact-main .contact-page{
+                    width: 100%;
+                    padding-bottom: 3vmax;
+          }
+          .Contact-main .contact-page .contact-top{
+                    width: 100%;
+          }
+          .Contact-main .contact-page .contact-top h5{
+                    width: 90%;
+                    font-size: 3.5vmax;     
+          }
+          
+          .Contact-main .contact-page .contact-top p{
+                    width: 90%;          
+                    font-size: 1.8vmax;           
+          }
+          .Contact-main .contact-page .contact-btm{
+                    width: 95%;
+                    flex-direction: column-reverse;
+          }
+          
+.Contact-main .contact-page .contact-btm .left-gif{
+       width: 100%;
+}
+
+         
+          .Contact-main .contact-page .contact-btm .form-page{
+                    width: 100%;
+          }
+          .Contact-main .contact-page .contact-btm .form-page h5{
+           font-size: 3vmax;
+    }
+    .Contact-main .contact-page .contact-btm .form-page p{
+       font-size: 2vmax;
+}
+          
+          .Contact-main .contact-page .contact-btm .form-page form{
+                    gap: 2vmax;
+                    margin-top: 0vmax;
+          }
+          
+          .Contact-main .contact-page .contact-btm .form-page form .ipt input{
+                    padding: 1.8vmax 1vmax;
+          }
+          
+          .Contact-main .contact-page .contact-btm .form-page form .ipt select{
+                    padding: 1.8vmax 0.6vmax;
+          }
+          .Contact-main .contact-page .contact-btm .form-page form .ipt textarea{
+                    padding: 0.8vmax 1vmax;
+                    
+          }
+          
+          .Contact-main .contact-page .contact-btm .form-page form .btn-cont{
+                   margin-bottom: 2vmax;
+          }
+           
+}
+
+
+@media (min-width:600px) and (max-width:1150px) {
+          .Contact-main{
+                    width: 100%;
+          }
+          .Contact-main .contact-page{
+                    width: 100%;
+                    padding-bottom: 3vmax;
+          }
+          .Contact-main .contact-page .contact-top{
+                    width: 100%;
+          }
+          .Contact-main .contact-page .contact-top h5{
+                    width: 90%;
+                    font-size: 3.5vmax;     
+          }
+          
+          .Contact-main .contact-page .contact-top p{
+                    width: 90%;          
+                    font-size: 1.8vmax;           
+          }
+          .Contact-main .contact-page .contact-btm{
+                    width: 90%;
+          }
+          .Contact-main .contact-page .contact-btm p{
+                 margin-top: 3vmax;
+                 text-align: center;
+                 font-size: 2.5vmax;           
+          }
+          .Contact-main .contact-page .contact-btm .form-page{
+                    width: 100%;
+          }
+          
+          .Contact-main .contact-page .contact-btm .form-page form{
+                    gap: 3vmax;
+                    margin-top: 2vmax;
+          }
+          
+          .Contact-main .contact-page .contact-btm .form-page form .ipt input{
+                    padding: 1.8vmax 1vmax;
+          }
+          
+          .Contact-main .contact-page .contact-btm .form-page form .ipt select{
+                    padding: 1.8vmax 0.6vmax;
+          }
+          .Contact-main .contact-page .contact-btm .form-page form .ipt textarea{
+                    padding: 0.8vmax 1vmax;
+                    
+          }
+          
+          .Contact-main .contact-page .contact-btm .form-page form .btn-cont{
+                    color: #003266;
+                    font-weight: 600;
+                    border-radius: 5px;
+                    border: 2px solid #003266;
+                    -webkit-box-shadow: 0 2px #003f80;
+                    -moz-box-shadow: 0 2px #003f80;
+                    box-shadow: 0 2px #003f80;
+          }
+          .Contact-main .contact-page .contact-btm .form-page form .btn-cont button{
+                    padding: 10px 20px;
+                    color: #003f80;
+                    border: none;
+                    cursor: pointer;
+                    border-radius: 10px;
+                    font-size: 0.9rem;
+                    background: none;
+                    font-weight: 600;
+          }        
+}
+
+

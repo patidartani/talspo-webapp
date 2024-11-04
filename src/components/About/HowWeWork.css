@@ -1,0 +1,72 @@
+.HowWeWork-main{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+}
+.HowWeWork-main .how-tp{
+          width: 80%;
+          margin-top: 3vmax;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: row;
+}
+.HowWeWork-main .how-tp .how-left{
+          width: 50%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-direction: column;
+          gap: 1vmax;
+}
+.HowWeWork-main .how-tp .how-left h6{
+         font-size: 2.5vmax;
+         font-weight: 600;
+}
+.HowWeWork-main .how-tp .how-left p{
+          font-size: 1.3vmax;
+ }
+ .HowWeWork-main .how-tp .how-right{
+          width: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+}
+.HowWeWork-main .how-tp .how-right img{
+          width: 100%;
+}
+.HowWeWork-main .how-btm{
+          width: 80%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+}
+
+
+@media (max-width:600px) {
+          .HowWeWork-main{
+                    width: 100%;
+          }
+          .HowWeWork-main .how-tp{
+                    width: 95%;
+                    flex-direction: column;
+          }
+          .HowWeWork-main .how-tp .how-left{
+                    width: 100%;
+          }
+          .HowWeWork-main .how-tp .how-left h6{
+                   font-size: 3.4vmax;
+          }
+          .HowWeWork-main .how-tp .how-left p{
+                    font-size: 1.5vmax;
+           }
+           .HowWeWork-main .how-tp .how-right{
+                    width: 100%;
+          }
+          .HowWeWork-main .how-tp .how-right img{
+                    width: 100%;
+          }               
+}

@@ -1,0 +1,604 @@
+.Opportunity-main{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+}
+.Opportunity-main .opportunity-page{
+          width: 80%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+}
+.Opportunity-main .opportunity-page .opportunity1{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: row;
+}
+.Opportunity-main .opportunity-page .opportunity1 .opt-left{
+          width: 50%;
+          display: flex;
+          align-items: flex-start;
+          justify-content:flex-start;
+          flex-direction: column;
+          padding-left: 4vmax;
+          font-family: Arial, Helvetica, sans-serif;
+}
+.Opportunity-main .opportunity-page .opportunity1 .opt-left h5{
+      font-size: 3vmax;
+      font-weight: 700;
+}
+.Opportunity-main .opportunity-page .opportunity1 .opt-left p{
+          width: 70%;
+          margin-top: 1vmax;
+          letter-spacing: 1px;
+    }
+.Opportunity-main .opportunity-page .opportunity1 .opt-right{
+          width: 50%;
+          display: flex;
+          align-items: center;
+          justify-content:center;
+}
+.Opportunity-main .opportunity-page .opportunity1 .opt-right img{
+          width: 90%;
+}
+/* ------------------------------------------------ */
+ .Opportunity-main .opportunity-page .opportunity2{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: column;
+         font-family: Arial, Helvetica, sans-serif;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 h5{
+         font-size: 2vmax;
+         font-weight: 700;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm{
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-direction: row;
+          margin-top: 2vmax;
+          margin-bottom: 2vmax;
+          gap: 2vmax;
+
+ }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page{
+          width: 35%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: column;
+          border: 1px solid #c4c4c4;
+          border-radius: 10px;
+          padding: 0.5vmax;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page h6{
+          font-weight: 600;
+          font-size: 1.5vmax;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm{
+          width: 95%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: column;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category{
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-direction: column;
+     gap: 0.6vmax;
+
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category h4{
+   font-size: 1.1vmax;
+   color: #7a7a7a;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .category .selected-categories{
+     width: 100%;
+     border: 1px solid #c5c5c5;
+     padding: 0.5vmax;
+     border-radius: 5px;
+     display: flex;
+     flex-wrap: wrap;
+     align-items: flex-start;
+     justify-content: flex-start;
+     gap: 0.2vmax;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category  .selected-categories  h1{
+     font-size: 1vmax;
+     background: #003266;
+     color: #fff;
+     padding: 0.5vmax;
+     border-radius: 5px;
+     font-weight: lighter;
+     cursor: pointer;
+   }
+   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category .category-search{
+     width: 100%;
+   }
+   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category .category-search select{
+     width: 100%;
+     outline: none;
+     border: 1px solid #c5c5c5;
+     border-radius: 5px;
+     padding: 0.5vmax 0.5vmax;
+     color: #6b6b6b;
+   }
+
+ .on-off {
+     display: flex;
+     flex-direction: column;
+     gap: 1vmax;
+     align-items: flex-start;
+     justify-content: center;
+     width: 100%;
+     margin-top: 2vmax;
+ }
+ 
+ .toggle-option {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+ 
+ .toggle-option h4 {
+     font-size: 1.1vmax;
+     color: #7a7a7a;
+ }
+ 
+ .toggle-switch {
+     width: 50px;
+     height: 25px;
+     border-radius: 20px;
+     background-color: gray;
+     position: relative;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+ }
+ 
+ .toggle-switch.on {
+     background-color: #003266;
+ }
+ 
+ .toggle-knob {
+     width: 23px;
+     height: 23px;
+     border-radius: 50%;
+     background-color: white;
+     position: absolute;
+     top: 1px;
+     left: 1px;
+     transition: transform 0.3s ease;
+ }
+ 
+ .toggle-switch.on .toggle-knob {
+     transform: translateX(25px);
+ }
+ 
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .duration{
+      margin-top: 1vmax;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .duration h4{
+      font-size: 1.1vmax;
+      color: #7a7a7a;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .duration .duration-search{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .duration .duration-search select{
+      width: 100%;
+      outline: none;
+      border-radius: 5px;
+      border: 1px solid #c5c5c5;
+      padding: 0.5vmax 0.5vmax;
+      color: #6b6b6b;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .clear-all{
+     width: 100%;
+     display: flex;
+     align-items: flex-end;
+     justify-content: flex-end;
+     margin-top: 1vmax;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .clear-all a{
+    text-decoration: none;
+ }
+ /* --------------------------------------offer job css----------------------------- */
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page{
+     width: 65%;
+     display: flex;
+     align-items: flex-start;
+     justify-content: flex-start;
+     flex-direction: column;
+     gap: 1vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box{
+     width: 100%;
+     border: 1px solid #c4c4c4;
+     border-radius: 10px;
+     padding: 0.6vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box h5{
+     width: 100%;
+     display: flex;
+     align-items: flex-start;
+     justify-content: flex-start;
+     font-size: 1.2vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box span{
+     width: 100%;
+     display: flex;
+     align-items: flex-start;
+     justify-content: flex-start;
+     font-size: 0.9vmax;
+     color: #717171;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box small{
+     width: 100%;
+     display: flex;
+     align-items: flex-start;
+     justify-content: flex-start;
+     font-size: 0.9vmax;
+     color: #717171;
+     margin-top: 0.4vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .deadline{
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     margin-top: 2vmax;
+     flex-direction: row;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .deadline .d-one{
+     width: 22%;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     flex-direction: column;
+     gap: 0.5vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .deadline .d-one h4{
+     font-size: 0.9vmax;
+     letter-spacing: 0.5px;
+     font-weight: 600;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .deadline .d-one h6{
+     font-size: 1vmax;
+     letter-spacing: 0.2px;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items{
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     flex-direction: row;
+     gap: 1vmax;
+     margin-top: 0.2vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-left{
+     width: 40%;
+     display: flex;
+     padding: 1vmax;
+     align-items: center;
+     justify-content: space-between;
+     flex-direction: row;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-left h3{
+     font-size: 1vmax;
+     background: #cfcfcf41;
+     padding: 0.4vmax 0.7vmax;
+     border-radius: 20px;
+     color: #7a7a7a;
+   }
+   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-right{
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-right a{
+  text-decoration: none;
+  }
+
+  .pagination {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin: 20px 0;
+     width: 100%;
+   }
+   
+   .page-item {
+     margin: 0 5px;
+   }
+   
+   .page-link {
+     display: inline-block;
+     padding: 10px 15px;
+     border: 1px solid #ccc; 
+     border-radius: 4px; 
+     text-decoration: none;
+     color: #333;
+     transition: background-color 0.3s;
+   }
+   
+   .page-link:hover {
+     background-color: #f0f0f0; 
+   }
+   
+   .active .page-link {
+     background-color: #003266; 
+     color: white;
+   }
+   
+   .previous-item, .next-item {
+     margin: 0 10px; 
+   }
+   
+@media (max-width:600px) {
+     .Opportunity-main{
+          width: 100%;
+}
+.Opportunity-main .opportunity-page{
+          width: 95%;
+}
+.Opportunity-main .opportunity-page .opportunity1{
+          width: 100%;
+          flex-direction: column;
+}
+.Opportunity-main .opportunity-page .opportunity1 .opt-left{
+          width: 95%;
+          padding-left: 0vmax;
+          margin-top: 4vmax;
+}
+.Opportunity-main .opportunity-page .opportunity1 .opt-left h5{
+      font-size: 4vmax;
+}
+.Opportunity-main .opportunity-page .opportunity1 .opt-left p{
+          width: 95%;
+    }
+.Opportunity-main .opportunity-page .opportunity1 .opt-right{
+          width: 95%;
+}
+.Opportunity-main .opportunity-page .opportunity1 .opt-right img{
+          width: 95%;
+}
+/* ------------------------------------------------ */
+ .Opportunity-main .opportunity-page .opportunity2{
+          width: 100%;
+          margin-top: 2vmax;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 h5{
+         font-size: 3vmax;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm{
+          width: 100%;
+          margin-top: 3vmax;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page{
+     width: 95%;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page h6{
+     font-size: 2.5vmax;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category h4{
+font-size: 2vmax;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category  .selected-categories  h1{
+font-size: 2vmax;
+padding: 1vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category .category-search{
+width: 100%;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category .category-search select{
+padding: 1vmax 0.5vmax;
+}
+
+.toggle-option h4 {
+font-size: 2vmax;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .duration{
+ margin-top: 3vmax;
+
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .duration h4{
+ font-size: 2vmax;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .duration .duration-search select{
+ padding: 1vmax 0.5vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .clear-all{
+margin-top: 2vmax;
+}
+
+ /* --------------------------------------offer job css----------------------------- */
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page{
+     width: 95%;
+     gap: 2vmax;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box h5{
+     font-size: 2.5vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box span{
+     font-size: 2vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box small{
+     font-size: 2vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .deadline .d-one h4{
+     font-size: 1.2vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .deadline .d-one h6{
+     font-size: 1vmax;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-left{
+     width: 60%;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-left h3{
+     font-size: 1.3vmax;
+   }
+   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-right{
+      width: 40%;
+   }
+   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-right a{
+  font-size: 1.3vmax;
+  }
+}
+
+@media (min-width:600px) and (max-width:1050px) {
+     .Opportunity-main{
+          width: 100%;
+}
+.Opportunity-main .opportunity-page{
+          width: 95%;
+}
+.Opportunity-main .opportunity-page .opportunity1{
+          width: 100%;
+          flex-direction: column;
+}
+.Opportunity-main .opportunity-page .opportunity1 .opt-left{
+          width: 95%;
+          padding-left: 0vmax;
+          margin-top: 4vmax;
+}
+.Opportunity-main .opportunity-page .opportunity1 .opt-left h5{
+      font-size: 4vmax;
+}
+.Opportunity-main .opportunity-page .opportunity1 .opt-left p{
+          width: 95%;
+    }
+.Opportunity-main .opportunity-page .opportunity1 .opt-right{
+          width: 95%;
+}
+.Opportunity-main .opportunity-page .opportunity1 .opt-right img{
+          width: 95%;
+}
+/* ------------------------------------------------ */
+ .Opportunity-main .opportunity-page .opportunity2{
+          width: 100%;
+          margin-top: 2vmax;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 h5{
+         font-size: 3vmax;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm{
+          width: 100%;
+          margin-top: 3vmax;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+ }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page{
+     width: 95%;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page h6{
+     font-size: 2.5vmax;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category h4{
+font-size: 2vmax;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category  .selected-categories  h1{
+font-size: 2vmax;
+padding: 1vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category .category-search{
+width: 100%;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category .category-search select{
+padding: 1vmax 0.5vmax;
+}
+
+.toggle-option h4 {
+font-size: 2vmax;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .duration{
+ margin-top: 3vmax;
+
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .duration h4{
+ font-size: 2vmax;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .duration .duration-search select{
+ padding: 1vmax 0.5vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .clear-all{
+margin-top: 2vmax;
+}
+
+ /* --------------------------------------offer job css----------------------------- */
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page{
+     width: 95%;
+     gap: 2vmax;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box h5{
+     font-size: 2.5vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box span{
+     font-size: 2vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box small{
+     font-size: 2vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .deadline .d-one h4{
+     font-size: 1.2vmax;
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .deadline .d-one h6{
+     font-size: 1vmax;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-left{
+     width: 60%;
+}
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-left h3{
+     font-size: 1.3vmax;
+   }
+   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-right{
+      width: 40%;
+   }
+   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-right a{
+  font-size: 1.3vmax;
+  }
+}
+

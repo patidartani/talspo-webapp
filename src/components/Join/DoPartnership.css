@@ -1,0 +1,570 @@
+.DoPatnership-main {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+}
+
+.DoPatnership-main .partner-one {
+          width: 80%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: row;
+}
+
+.DoPatnership-main .partner-one .p-left {
+          width: 50%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          flex-direction: column;
+}
+
+.DoPatnership-main .partner-one .p-left h5 {
+          font-size: 2.8vmax;
+          font-weight: 800;
+          letter-spacing: 0.6px;
+          font-family: Arial, Helvetica, sans-serif;
+}
+
+.DoPatnership-main .partner-one .p-left p {
+          font-size: 1.2vmax;
+          letter-spacing: 0.6px;
+          font-family: Arial, Helvetica, sans-serif;
+}
+
+.DoPatnership-main .partner-one .p-right {
+          width: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+}
+
+.DoPatnership-main .partner-one .p-right img {
+          width: 80%;
+}
+
+/* ---------------------------------- */
+
+
+/* Container styling for 'Our Partners' section */
+.DoPatnership-main .partner-two {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          margin-top: 20px;
+}
+
+.DoPatnership-main .partner-two h6 {
+          font-size: 2.2vmax;
+          font-weight: 700;
+          margin-bottom: 20px;
+}
+
+/* Swiper main container */
+.slider-partner .mySwiper {
+          width: 100%;
+          max-width: 80vw;
+          /* Controls the Swiper width relative to viewport */
+          height: 400px;
+          overflow: hidden;
+          /* Hide overflow */
+}
+
+/* Slide styling */
+.mySwiper .swiper-slide {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          color: #333;
+          border-radius: 8px;
+          overflow: hidden;
+          /* Ensure content doesn't overflow */
+}
+
+.our-partner {
+          width: 80%;
+          padding-top: 2vmax;
+          background: #ddd;
+          border-radius: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 2vmax;
+          text-align: center;
+}
+
+.our-partner h5 {
+          font-size: 1.5vmax;
+          letter-spacing: 1px;
+}
+
+.our-partner .p-text {
+          width: 100%;
+          background: #005bb5;
+          padding: 1vmax;
+          font-size: 1vmax;
+          border-bottom-left-radius: 15px;
+          border-bottom-right-radius: 15px;
+          color: #a9a9a9;
+
+}
+
+
+
+/* Pagination styling */
+.mySwiper .swiper-pagination-bullet {
+          background-color: #333;
+          /* Default bullet color */
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+          background-color: #333;
+          /* Active bullet color */
+}
+
+/* Navigation arrows styling */
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+          color: #333;
+}
+
+.mySwiper .swiper-button-next:hover,
+.mySwiper .swiper-button-prev:hover {
+          color: #005bb5;
+          /* Darker color on hover */
+}
+
+/* ---------------------------------------------------------        */
+.DoPatnership-main .partner-three {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: row;
+          margin-top: 5vmax;
+
+}
+
+.DoPatnership-main .partner-three .pt-left {
+          width: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+}
+
+.DoPatnership-main .partner-three .pt-left img {
+          width: 35%;
+}
+
+.DoPatnership-main .partner-three .pt-right {
+          width: 50%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          flex-direction: column;
+          font-family: Arial, Helvetica, sans-serif;
+}
+
+.DoPatnership-main .partner-three .pt-right h4 {
+          font-size: 2.3vmax;
+          font-weight: bolder;
+}
+
+.DoPatnership-main .partner-three .pt-right span {
+          font-size: 1.2vmax;
+}
+.DoPatnership-main .partner-three .pt-right a {
+          font-size: 1.2vmax;
+          color: #000;
+          margin-top: 1vmax;
+          text-decoration: none;
+}
+/* ---------------------------------------------- */
+.DoPatnership-main .partner-four{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          margin-top: 5vmax;
+          margin-bottom: 5vmax;
+}
+.DoPatnership-main .partner-four h5{
+         font-size: 2.2vmax;
+         font-weight: 700;
+}
+.DoPatnership-main .partner-four p{
+          font-size: 1.2vmax;
+          margin-top: 1vmax;
+          text-align: center;
+          width: 40%;
+ }
+ .DoPatnership-main .partner-four .partner-form{
+          width: 45%;
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          flex-direction: column;
+          box-shadow: 0px 1px 2px 1px #001a285c;
+          margin-top: 1vmax;
+          padding: 1vmax;
+          border-radius: 10px;
+ }
+ .DoPatnership-main .partner-four .partner-form h6{
+        font-size: 1.4vmax;
+        font-weight: 700;
+        letter-spacing: 1px;
+ }
+ .DoPatnership-main .partner-four .partner-form  form{
+          width: 95%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: column;
+          margin-top: 1vmax;
+          gap: 1vmax;
+   }
+   .DoPatnership-main .partner-four .partner-form  form .p-inp{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: column;
+   }
+   .DoPatnership-main .partner-four .partner-form  form .p-inp input{
+            width: 100%;
+          display: flex;
+          align-items: center;
+          border-radius: 5px;
+          border: 0.2px solid #dadada;
+          padding: 0.5vmax 1vmax;
+          margin-top: 0.5vmax;
+          outline: none;
+          background-color: #fff;
+   }
+   .DoPatnership-main .partner-four .partner-form  form .p-inp p{
+          width: 100%;
+          font-size: 1vmax;
+ }
+   .DoPatnership-main .partner-four .partner-form  form .p-inp textarea{
+            width: 100%;
+          display: flex;
+          align-items: center;
+          border-radius: 5px;
+          border: 0.2px solid #dadada;
+          padding: 0.5vmax 1vmax;
+          margin-top: 0.5vmax;
+          background-color: #fff;
+          outline: none;
+
+   }
+   .DoPatnership-main .partner-four .partner-form  form .p-btn{
+          color: #003266;
+          font-weight: 600;
+          border-radius: 5px;
+          border: 2px solid #003266;
+          -webkit-box-shadow: 0 2px #003f80;
+          -moz-box-shadow: 0 2px #003f80;
+          box-shadow: 0 2px #003f80;
+          margin-top: 0.5vmax;
+ }
+ .DoPatnership-main .partner-four .partner-form  form .p-btn button{
+          padding: 10px 25px;
+          color: #003f80;
+          border: none;
+          cursor: pointer;
+          border-radius: 10px;
+          font-size: 0.9rem;
+          background: none;
+          font-weight: 600;
+ }
+
+
+ @media (max-width:600px) {
+       .DoPatnership-main {
+              width: 100%;
+    }
+    .DoPatnership-main .partner-one {
+              width: 95%;
+              flex-direction: column;
+              margin-top: 3vmax;
+    }
+    .DoPatnership-main .partner-one .p-left {
+              width: 100%;
+              align-items: center;
+    }
+    .DoPatnership-main .partner-one .p-left h5 {
+              font-size: 4vmax;
+    }
+    .DoPatnership-main .partner-one .p-left p {
+              font-size: 2vmax;
+              text-align: center;
+    }
+    
+    .DoPatnership-main .partner-one .p-right {
+              width: 100%;
+    }
+    .DoPatnership-main .partner-one .p-right img {
+              width: 70%;
+    }
+    
+    /* ---------------------------------- */
+    
+    
+    /* Container styling for 'Our Partners' section */
+    .DoPatnership-main .partner-two {
+              width: 100%;
+    }
+    
+    .DoPatnership-main .partner-two h6 {
+              font-size: 4vmax;
+    }
+        .slider-partner .mySwiper {
+              width: 100%;
+              max-width: 80vw;
+              height: 400px;
+    }
+    .mySwiper .swiper-slide {
+       height: 350px !important;
+              font-size: 1.5rem;
+    }
+    .our-partner {
+              width: 100%;
+       height: 350px !important;
+              padding-top: 2vmax;
+              justify-content: space-between;
+              gap: 0vmax;
+    }
+    
+    .our-partner h5 {
+              font-size: 2.4vmax;
+              margin-top: 1vmax;
+    }
+    
+    .our-partner .p-text {
+              font-size: 2vmax;
+    
+    }
+    .mySwiper .swiper-button-next,
+    .mySwiper .swiper-button-prev {
+             display: none;
+    }
+    /* --------------------------------------------------------- */
+    .DoPatnership-main .partner-three {
+              width: 100%;
+              flex-direction: column-reverse;    
+    }
+    .DoPatnership-main .partner-three .pt-left {
+              width: 100%;
+              margin-top: 4vmax;
+    }
+    
+    .DoPatnership-main .partner-three .pt-left img {
+              width: 50%;
+    }
+    
+    .DoPatnership-main .partner-three .pt-right {
+              width: 90%;
+              display: flex;
+              align-items :center;
+    }
+    
+    .DoPatnership-main .partner-three .pt-right h4 {
+              font-size: 3vmax;
+    }
+    
+    .DoPatnership-main .partner-three .pt-right span {
+              font-size: 2vmax;
+              text-align: center;
+    }
+    .DoPatnership-main .partner-three .pt-right a {
+              font-size: 2vmax;
+    }
+    /* ---------------------------------------------- */
+    .DoPatnership-main .partner-four{
+              width: 100%;
+    }
+    .DoPatnership-main .partner-four h5{
+             font-size: 3.3vmax;
+    }
+    .DoPatnership-main .partner-four p{
+              font-size: 2vmax;
+              width: 90%;
+     }
+     .DoPatnership-main .partner-four .partner-form{
+              width: 95%;
+     }
+     .DoPatnership-main .partner-four .partner-form h6{
+            font-size: 2vmax;
+     }
+       .DoPatnership-main .partner-four .partner-form  form .p-inp input{
+              padding: 1.5vmax 1vmax;
+       }
+       .DoPatnership-main .partner-four .partner-form  form .p-inp p{
+              width: 100%;
+              font-size: 1vmax;
+     }
+       .DoPatnership-main .partner-four .partner-form  form .p-inp textarea{
+              padding: 5vmax 1vmax;
+
+       }
+       .DoPatnership-main .partner-four .partner-form  form .p-inp p{
+           font-size: 1.8vmax;
+           text-align: center;
+           width: 100%;
+
+       }
+     .DoPatnership-main .partner-four .partner-form  form .p-btn button{
+              padding: 10px 40px;
+     }
+     
+ }
+
+ @media (min-width:600px) and (max-width:1050px) {
+       @media (max-width:600px) {
+              .DoPatnership-main {
+                     width: 100%;
+           }
+           .DoPatnership-main .partner-one {
+                     width: 95%;
+                     flex-direction: column;
+                     margin-top: 3vmax;
+           }
+           .DoPatnership-main .partner-one .p-left {
+                     width: 100%;
+                     align-items: center;
+           }
+           .DoPatnership-main .partner-one .p-left h5 {
+                     font-size: 4vmax;
+           }
+           .DoPatnership-main .partner-one .p-left p {
+                     font-size: 2vmax;
+                     text-align: center;
+           }
+           
+           .DoPatnership-main .partner-one .p-right {
+                     width: 100%;
+           }
+           .DoPatnership-main .partner-one .p-right img {
+                     width: 70%;
+           }
+           
+           /* ---------------------------------- */
+           
+           
+           /* Container styling for 'Our Partners' section */
+           .DoPatnership-main .partner-two {
+                     width: 100%;
+           }
+           
+           .DoPatnership-main .partner-two h6 {
+                     font-size: 4vmax;
+           }
+               .slider-partner .mySwiper {
+                     width: 100%;
+                     max-width: 80vw;
+                     height: 400px;
+           }
+           .mySwiper .swiper-slide {
+              height: 350px !important;
+                     font-size: 1.5rem;
+           }
+           .our-partner {
+                     width: 100%;
+              height: 350px !important;
+                     padding-top: 2vmax;
+                     justify-content: space-between;
+                     gap: 0vmax;
+           }
+           
+           .our-partner h5 {
+                     font-size: 2.4vmax;
+                     margin-top: 1vmax;
+           }
+           
+           .our-partner .p-text {
+                     font-size: 2vmax;
+           
+           }
+           .mySwiper .swiper-button-next,
+           .mySwiper .swiper-button-prev {
+                    display: none;
+           }
+           /* --------------------------------------------------------- */
+           .DoPatnership-main .partner-three {
+                     width: 100%;
+                     flex-direction: column-reverse;    
+           }
+           .DoPatnership-main .partner-three .pt-left {
+                     width: 100%;
+                     margin-top: 4vmax;
+           }
+           
+           .DoPatnership-main .partner-three .pt-left img {
+                     width: 50%;
+           }
+           
+           .DoPatnership-main .partner-three .pt-right {
+                     width: 90%;
+                     display: flex;
+                     align-items :center;
+           }
+           
+           .DoPatnership-main .partner-three .pt-right h4 {
+                     font-size: 3vmax;
+           }
+           
+           .DoPatnership-main .partner-three .pt-right span {
+                     font-size: 2vmax;
+                     text-align: center;
+           }
+           .DoPatnership-main .partner-three .pt-right a {
+                     font-size: 2vmax;
+           }
+           /* ---------------------------------------------- */
+           .DoPatnership-main .partner-four{
+                     width: 100%;
+           }
+           .DoPatnership-main .partner-four h5{
+                    font-size: 3.3vmax;
+           }
+           .DoPatnership-main .partner-four p{
+                     font-size: 2vmax;
+                     width: 90%;
+            }
+            .DoPatnership-main .partner-four .partner-form{
+                     width: 95%;
+            }
+            .DoPatnership-main .partner-four .partner-form h6{
+                   font-size: 2vmax;
+            }
+              .DoPatnership-main .partner-four .partner-form  form .p-inp input{
+                     padding: 1.5vmax 1vmax;
+              }
+              .DoPatnership-main .partner-four .partner-form  form .p-inp p{
+                     width: 100%;
+                     font-size: 1vmax;
+            }
+              .DoPatnership-main .partner-four .partner-form  form .p-inp textarea{
+                     padding: 5vmax 1vmax;
+       
+              }
+              .DoPatnership-main .partner-four .partner-form  form .p-inp p{
+                  font-size: 1.8vmax;
+                  text-align: center;
+                  width: 100%;
+       
+              }
+            .DoPatnership-main .partner-four .partner-form  form .p-btn button{
+                     padding: 10px 40px;
+            }
+            
+        }
+ }

@@ -1,0 +1,154 @@
+.AboutUs-container{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content:center;
+}
+.AboutUs-container .about-content{
+          width: 70%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: column;
+}
+.AboutUs-container .about-content .about-top{
+          width: 100%;
+          height: 300px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: row;
+          margin-top: 2vmax;
+}
+
+.AboutUs-container .about-content .about-top .a-left{
+          width: 50%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 1vmax;
+          flex-direction: column;
+}
+.AboutUs-container .about-content .about-top .a-left h6{
+          font-size: 3vmax;
+          font-weight: 600;
+  }
+  .AboutUs-container .about-content .about-top .a-left p{
+          font-size: 1.6vmax;
+          letter-spacing: 0.3px;
+  }
+.AboutUs-container .about-content .about-top .a-right{
+          width: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+}
+
+.AboutUs-container .about-content .about-top .a-right img{
+          width: 85%;
+}
+
+.AboutUs-container .about-content .about-btm{
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-direction: column;
+          margin-top: 2vmax;
+          gap: 2vmax;
+}
+.AboutUs-container .about-content .about-btm .about-box{
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-direction: column;
+          gap: 1vmax;
+}
+.AboutUs-container .about-content .about-btm .about-box h5{
+        font-weight: 600;
+}
+.AboutUs-container .about-content .about-btm .about-box .about-img{
+          width: 100%;
+          height: 300px;
+          background: #aeaeae;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+}
+
+@media (max-width:600px) {
+          .AboutUs-container{
+                    width: 100%;
+          }
+          .AboutUs-container .about-content{
+                    width: 95%;
+          }
+          .AboutUs-container .about-content .about-top{
+                    width: 100%;
+                    height: 200px;
+                    flex-direction: column;
+          }  
+          .AboutUs-container .about-content .about-top .a-left{
+                    width: 100%;
+          }
+          .AboutUs-container .about-content .about-top .a-left h6{
+                    font-size: 4vmax;
+            }
+            .AboutUs-container .about-content .about-top .a-left p{
+                    font-size: 2.5vmax;
+            }
+          .AboutUs-container .about-content .about-top .a-right{
+                    width: 100%;
+          }
+          
+          .AboutUs-container .about-content .about-top .a-right img{
+                    width: 100%;
+          }    
+          .AboutUs-container .about-content .about-btm{
+                    width: 100%;
+                    margin-top: 25vmax;
+          }
+          .AboutUs-container .about-content .about-btm .about-box{
+                    width: 100%;
+
+          }
+}
+
+@media (min-width:600px) and (max-width:1050px) {
+          .AboutUs-container{
+                    width: 100%;
+          }
+          .AboutUs-container .about-content{
+                    width: 95%;
+          }
+          .AboutUs-container .about-content .about-top{
+                    width: 100%;
+                    height: 200px;
+                    flex-direction: column;
+          }  
+          .AboutUs-container .about-content .about-top .a-left{
+                    width: 100%;
+          }
+          .AboutUs-container .about-content .about-top .a-left h6{
+                    font-size: 4vmax;
+            }
+            .AboutUs-container .about-content .about-top .a-left p{
+                    font-size: 2.5vmax;
+            }
+          .AboutUs-container .about-content .about-top .a-right{
+                    width: 100%;
+          }
+          
+          .AboutUs-container .about-content .about-top .a-right img{
+                    width: 100%;
+          }    
+          .AboutUs-container .about-content .about-btm{
+                    width: 100%;
+                    margin-top: 25vmax;
+          }
+          .AboutUs-container .about-content .about-btm .about-box{
+                    width: 100%;
+
+          }
+}
