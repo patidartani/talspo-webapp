@@ -43,7 +43,40 @@
           align-items: center;
           justify-content: center;
           flex-direction: column;
+          margin-top: 2vmax;
+          gap: 2vmax;
+          margin-bottom: 3vmax;
 }
+.HowWeWork-main .how-btm .work-box h6{
+         font-weight: 600;
+         font-size: 1.5vmax;
+         letter-spacing: 0.5px;
+}
+.HowWeWork-main .how-btm .work-box p{
+     font-size: 1.1vmax;
+     color: rgb(80, 80, 80);
+ }
+  
+ .HowWeWork-main .how-btm .work-box .last-flex{
+     display: flex;
+     flex-direction: column;
+     margin-top: 2vmax;
+ }
+ .HowWeWork-main .how-btm .work-box .last-flex .span-flex{
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+          padding-left: 2vmax;
+          margin-top: 1vmax;
+      }
+.HowWeWork-main .how-btm .work-box a{
+       text-decoration: none;
+ }
+ .HowWeWork-main .how-btm .work-box small{
+      font-weight: 600;
+      color: #000;
+    }
 
 
 @media (max-width:600px) {
