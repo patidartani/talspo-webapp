@@ -1,0 +1,259 @@
+.Signin-main {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+}
+
+.Signin-main .Signin-page {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          margin-bottom: 7vmax;
+          margin-top: 5vmax;
+
+}
+
+.Signin-main .Signin-page .form-signin {
+          width: 40%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          border-radius: 5px;
+          box-shadow: 0px 1px 2px 1px #001a285c;
+          margin-top: 1vmax;
+          padding: 1vmax;
+          background-color: #fff;
+}
+
+.Signin-main .Signin-page .form-signin h5 {
+          font-size: 2vmax;
+          font-weight: 700;
+          letter-spacing: 0.2px;
+          font-family: Arial, Helvetica, sans-serif;
+}
+
+.Signin-main .Signin-page .form-signin form {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 0.5vmax;
+}
+
+.Signin-main .Signin-page .form-signin form .ipt {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+}
+
+
+
+.Signin-main .Signin-page .form-signin form .ipt {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+}
+
+.Signin-main .Signin-page .form-signin form .ipt .input-container {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          border-radius: 5px;
+          border: 0.2px solid #dadada;
+          padding: 0.5vmax 1vmax;
+          margin-top: 0.5vmax;
+          background-color: #fff;
+}
+
+.Signin-main .Signin-page .form-signin form .ipt .input-container i {
+          font-size: 1.2vmax;
+          margin-right: 1vmax;
+          color: #828282;
+}
+
+.Signin-main .Signin-page .form-signin form .ipt .input-container input {
+          width: 100%;
+          border: none;
+          outline: none;
+          font-size: 1vmax;
+}
+
+.Signin-main .Signin-page .form-signin form .button-container {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          margin-top: 1vmax;
+}
+
+.Signin-main .Signin-page .form-signin form .btn-signup,
+.btn-linkedin {
+          flex: 1;
+          margin-right: 10px;
+          padding: 0.6vmax;
+          font-size: 1vmax;
+          cursor: pointer;
+          border: none;
+          border-radius: 5px;
+          transition: box-shadow 0.3s ease;
+}
+
+.Signin-main .Signin-page .form-signin form .btn-signup {
+          background-color: #002145;
+          color: #fff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5),
+                    0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.Signin-main .Signin-page .form-signin form .btn-linkedin {
+          background-color: #0077b5;
+          color: #fff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5),
+                    0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.Signin-main .Signin-page .form-signin form .btn-signup:hover,
+.btn-linkedin:hover {
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6),
+                    0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.Signin-main .Signin-page .form-signin form .button-container .btn-linkedin {
+          margin-right: 0;
+}
+
+.Signin-main .Signin-page .form-signin form .btn-linkedin i {
+          margin-right: 0.1em;
+}
+
+.Signin-main .Signin-page .form-signin form .remember-forgot-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          margin-top: 0.5vmax;
+}
+
+.Signin-main .Signin-page .form-signin form .remember-me {
+          display: flex;
+          align-items: center;
+}
+
+.Signin-main .Signin-page .form-signin form .remember-me input {
+          margin-right: 0.2em;
+          margin-top: 0.2vmax;
+}
+
+.Signin-main .Signin-page .form-signin form .forgot-password {
+          color: #0077b5;
+          text-decoration: none;
+          font-size: 1vmax;
+}
+
+.Signin-main .Signin-page .form-signin form .forgot-password:hover {
+          text-decoration: underline;
+}
+
+.Signin-main .Signin-page .form-signin .signup-prompt {
+          margin-top: 1.5vmax;
+          text-align: center;
+}
+
+.Signin-main .Signin-page .form-signin .signup-prompt p {
+          font-size: 1vmax;
+          margin: 0;
+}
+
+.Signin-main .Signin-page .form-signin .signup-prompt .signup-link {
+          color: #0077b5;
+          text-decoration: none;
+}
+
+.Signin-main .Signin-page .form-signin .signup-prompt .signup-link:hover {
+          text-decoration: underline;
+}
+
+@media (max-width:600px) {
+          .Signin-main {
+                    width: 100%;
+          }
+          .Signin-main .Signin-page .form-signin {
+                    width: 90%;
+                    padding: 2vmax;
+          }
+          .Signin-main .Signin-page .form-signin h5 {
+                    font-size: 3vmax;
+          }
+          .Signin-main .Signin-page .form-signin form .ipt .input-container {
+                    padding: 1.4vmax 1vmax;
+          }
+          .Signin-main .Signin-page .form-signin form .ipt .input-container i {
+                    font-size: 2vmax;
+          }
+          .Signin-main .Signin-page .form-signin form .ipt .input-container input {
+                    font-size: 2vmax;
+          }
+
+          .Signin-main .Signin-page .form-signin form .btn-signup,
+          .btn-linkedin {
+                    padding: 1.7vmax;
+                    font-size: 1.3vmax; 
+          }
+
+          .Signin-main .Signin-page .form-signin form .remember-forgot-container {
+                    margin-top: 1vmax;
+          }
+          .Signin-main .Signin-page .form-signin form .forgot-password {
+                    font-size: 2vmax;
+          }
+
+          .Signin-main .Signin-page .form-signin .signup-prompt p {
+                    font-size: 2vmax;
+          }
+}
+@media (min-width:600px)and(max-width:1050px) {
+          .Signin-main {
+                    width: 100%;
+          }
+          .Signin-main .Signin-page .form-signin {
+                    width: 90%;
+                    padding: 2vmax;
+          }
+          .Signin-main .Signin-page .form-signin h5 {
+                    font-size: 3vmax;
+          }
+          .Signin-main .Signin-page .form-signin form .ipt .input-container {
+                    padding: 1.4vmax 1vmax;
+          }
+          .Signin-main .Signin-page .form-signin form .ipt .input-container i {
+                    font-size: 2vmax;
+          }
+          .Signin-main .Signin-page .form-signin form .ipt .input-container input {
+                    font-size: 2vmax;
+          }
+
+          .Signin-main .Signin-page .form-signin form .btn-signup,
+          .btn-linkedin {
+                    padding: 1vmax;
+                    font-size: 1.4vmax;
+          }
+
+          .Signin-main .Signin-page .form-signin form .remember-forgot-container {
+                    margin-top: 1vmax;
+          }
+          .Signin-main .Signin-page .form-signin form .forgot-password {
+                    font-size: 2vmax;
+          }
+
+          .Signin-main .Signin-page .form-signin .signup-prompt p {
+                    font-size: 2vmax;
+          }
+}

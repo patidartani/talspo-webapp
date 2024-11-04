@@ -1,0 +1,424 @@
+.Signup-main {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+}
+.Signup-main .Signup-page {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          margin-bottom: 5vmax;
+}
+.Signup-main .Signup-page .form-page {
+          width: 40%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          border-radius: 5px;
+          box-shadow: 0px 1px 2px 1px #001a285c;
+          margin-top: 1vmax;
+          padding: 1vmax;
+          background-color: #fff;
+}
+.Signup-main .Signup-page .form-page h5 {
+          font-size: 2vmax;
+          font-weight: 700;
+          letter-spacing: 0.2px;
+          font-family: Arial, Helvetica, sans-serif;
+}
+.Signup-main .Signup-page .form-page p {
+          font-size: 1.1vmax;
+          letter-spacing: 0.2px;
+          font-family: Arial, Helvetica, sans-serif;
+}
+
+.Signup-main .Signup-page .form-page form {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 0.5vmax;
+}
+
+.Signup-main .Signup-page .form-page form .ipt {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+}
+
+ .input-container {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          border-radius: 5px;
+          border: 0.2px solid #dadada;
+          padding: 0.5vmax 1vmax;
+          margin-top: 0.5vmax;
+          background-color: #fff;
+}
+
+ .input-container i {
+          font-size: 1.2vmax;
+          margin-right: 1vmax;
+          color: #828282;
+}
+
+ .input-container input {
+          width: 100%;
+          border: none;
+          outline: none;
+          font-size: 1vmax;
+}
+
+.phone-container {
+          display: flex;
+          width: 100%;
+          gap: 1vmax;
+          margin-top: 0.5vmax;
+}
+
+.country-code {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          border-radius: 5px;
+          border: 0.2px solid #dadada;
+          padding: 0.5vmax;
+          background-color: #fff;
+}
+
+.country-code i {
+          font-size: 1.2vmax;
+          margin-right: 0.5vmax;
+          color: #828282;
+}
+
+.country-code select {
+          width: 100%;
+          border: none;
+          outline: none;
+          font-size: 1vmax;
+          background-color: transparent;
+          color: #5f5f5f;
+
+}
+
+.phone-number {
+          flex: 3;
+          display: flex;
+          align-items: center;
+          border-radius: 5px;
+          border: 0.2px solid #dadada;
+          padding: 0.5vmax 1vmax;
+          background-color: #fff;
+}
+
+.phone-number i {
+          font-size: 1.2vmax;
+          margin-right: 1vmax;
+          color: #828282;
+}
+
+.phone-number input {
+          width: 100%;
+          border: none;
+          outline: none;
+          font-size: 1vmax;
+}
+
+
+.dob-label {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          margin-top: 0.5vmax;
+          gap: 0.5vmax;
+          font-size: 1vmax;
+          margin-left: 0.5vmax;
+          width: 100%;
+          color: #333;
+        }
+        
+        .dob-label i {
+          font-size: 1.2vmax;
+          color: #828282;
+        }
+        .dob-container {
+          display: flex;
+          width: 100%;
+          gap: 1vmax;
+          margin-top: 0.5vmax;
+        }
+        
+        .dob-container select {
+          flex: 1;
+          padding: 0.5vmax;
+          border: 0.2px solid #dadada;
+          border-radius: 5px;
+          background-color: #fff;
+          font-size: 1vmax;
+          color: #5f5f5f;
+        }
+
+        .gender-label {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          margin-top: 0.5vmax;
+          gap: 0.5vmax;
+          font-size: 1vmax;
+          margin-left: 0.5vmax;
+          width: 100%;
+          color: #333;
+        }
+        .gender-container{
+          display: flex;
+          width: 100%;
+          gap: 1vmax;
+          margin-top: 0.5vmax;
+        }
+      .gender-container   select{
+          flex: 1;
+          padding: 0.5vmax;
+          border: 0.2px solid #dadada;
+          border-radius: 5px;
+          background-color: #fff;
+          font-size: 1vmax;
+          outline: none;
+          color: #5f5f5f;
+        }
+        .gender-label i {
+          font-size: 1.2vmax;
+          color: #828282;
+        }
+        .referral-text {
+          cursor: pointer;
+          color: #007bff;
+          margin-top: 0.5vmax;
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          text-align: center;
+          font-size: 1vmax;
+          margin-left: 0.3vmax;
+        }   
+.checkbox-container {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          margin-top: 0.5vmax;
+        }
+        
+        .checkbox-container input {
+          margin-right: 0.3vmax;
+          margin-top: 0.2vmax;
+        }
+        
+        .checkbox-container a {
+          color: #007bff;
+          text-decoration: none;
+          margin: 0.2vmax;
+        }
+        
+        .checkbox-container a:hover {
+          text-decoration: underline;
+        }
+
+
+      .button-container {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%; 
+    margin-top: 1vmax;
+}
+.btn-signup, .btn-linkedin {
+    flex: 1; 
+    margin-right: 10px; 
+    padding: 0.6vmax;
+    font-size: 1vmax; 
+    cursor: pointer; 
+    border: none;
+    border-radius: 5px; 
+    transition: box-shadow 0.3s ease;
+}
+.btn-signup {
+    background-color: #002145; 
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 
+                0 2px 4px rgba(0, 0, 0, 0.3); 
+}
+.btn-linkedin {
+    background-color: #0077b5;
+    color: #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 
+                0 2px 4px rgba(0, 0, 0, 0.3); 
+}
+.btn-signup:hover, .btn-linkedin:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6),
+                0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+.button-container .btn-linkedin {
+    margin-right: 0; 
+}
+.btn-linkedin i {
+    margin-right: 0.1em; 
+}
+@media (max-width:600px) {
+          .Signup-main {
+                    width: 100%;
+          }
+          .Signup-main .Signup-page .form-page {
+                    width: 90%;
+                    margin-top: 2vmax;
+                    padding: 2vmax;
+          }
+          .Signup-main .Signup-page .form-page h5 {
+                    font-size: 3.5vmax;
+          }
+          .Signup-main .Signup-page .form-page p {
+                    font-size: 2vmax;
+          }
+          .Signup-main .Signup-page .form-page form {
+                    gap: 0.9vmax;
+          }
+           .input-container {
+                    padding: 1.2vmax 1vmax;
+          }
+           .input-container i {
+                    font-size:2.6vmax;
+          }
+           .input-container input {
+                    font-size: 2vmax;
+          }
+          .country-code {
+                    padding: 1.5vmax;
+          }
+          .country-code i {
+                    font-size: 2vmax;
+          }
+          .country-code select {
+                    font-size: 2vmax;
+          
+          }
+          .phone-number i {
+                    font-size: 2.5vmax;
+          }
+          .phone-number input {
+                    font-size: 2vmax;
+          }
+          .dob-label {
+                    font-size: 2vmax;
+                  }
+                  .dob-label i {
+                    font-size: 2.4vmax;
+                  }
+                  .dob-container select {
+                    padding: 1.4vmax;
+                    font-size: 2vmax;
+                  }
+                  .gender-label {
+                    font-size: 2vmax;
+                  }
+                .gender-container   select{
+                    padding: 1.4vmax;
+                    font-size: 2vmax;
+                  }
+                  .gender-label i {
+                    font-size: 2vmax;
+                  }
+                  .referral-text {
+                    font-size: 2vmax;
+                  }
+          .checkbox-container {
+                    font-size: 1.4vmax;
+                  }
+          .btn-signup, .btn-linkedin {
+              padding: 1.5vmax;
+              font-size: 1.3vmax; 
+          }
+                
+}
+@media (min-width:600px)  and (max-width:1050px){
+          .Signup-main {
+                    width: 100%;
+          }
+          .Signup-main .Signup-page .form-page {
+                    width: 90%;
+                    margin-top: 2vmax;
+                    padding: 2vmax;
+          }
+          .Signup-main .Signup-page .form-page h5 {
+                    font-size: 3.5vmax;
+          }
+          .Signup-main .Signup-page .form-page p {
+                    font-size: 2vmax;
+          }
+          .Signup-main .Signup-page .form-page form {
+                    gap: 0.9vmax;
+          }
+           .input-container {
+                    padding: 1.2vmax 1vmax;
+          }
+           .input-container i {
+                    font-size:2.6vmax;
+          }
+           .input-container input {
+                    font-size: 2vmax;
+          }
+          .country-code {
+                    padding: 1.5vmax;
+          }
+          .country-code i {
+                    font-size: 2vmax;
+          }
+          .country-code select {
+                    font-size: 2vmax;
+          
+          }
+          .phone-number i {
+                    font-size: 2.5vmax;
+          }
+          .phone-number input {
+                    font-size: 2vmax;
+          }
+          .dob-label {
+                    font-size: 2vmax;
+                  }
+                  .dob-label i {
+                    font-size: 2.4vmax;
+                  }
+                  .dob-container select {
+                    padding: 1.4vmax;
+                    font-size: 2vmax;
+                  }
+                  .gender-label {
+                    font-size: 2vmax;
+                  }
+                .gender-container   select{
+                    padding: 1.4vmax;
+                    font-size: 2vmax;
+                  }
+                  .gender-label i {
+                    font-size: 2vmax;
+                  }
+                  .referral-text {
+                    font-size: 2vmax;
+                  }
+          .checkbox-container {
+                    font-size: 1.4vmax;
+                  }
+          .btn-signup, .btn-linkedin {
+              padding: 1.5vmax;
+              font-size: 1.3vmax; 
+          }
+                
+}

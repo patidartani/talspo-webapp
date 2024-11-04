@@ -1,0 +1,162 @@
+.TalspoHere-main {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #003266;
+    /* Talspo page ke background-color ke saath match ho gaya */
+    color: #ffff;
+    padding: 1vmax;
+}
+
+.TalspoHere-main .Talspo-page {
+    width: 70%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(0, 50, 102, .75), rgba(0, 50, 102, .75)), url(../../assets/images/map2.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.TalspoHere-main .Talspo-page .talspo-text {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.TalspoHere-main .Talspo-page .talspo-text h5 {
+    font-size: 2.7vmax;
+    font-weight: 600;
+}
+
+.TalspoHere-main .Talspo-page .talspo-text h6 {
+    font-size: 1.3vmax;
+    margin-top: 1vmax;
+    letter-spacing: 1px;
+}
+
+.TalspoHere-main .Talspo-page .talspo-text .talspo-search {
+    position: relative;
+    width: 100%;
+    border-radius: 50px;
+    margin-top: 2vmax;
+
+}
+
+.TalspoHere-main .Talspo-page .talspo-text .talspo-search .search-input {
+    width: 100%;
+    border-radius: 50px;
+    outline: none;
+    padding: 0.5vmax 3vmax 0.5vmax 1vmax;
+}
+
+@keyframes oscillate {
+    0% {
+        transform: translateY(-50%) rotate(-15deg);
+    }
+
+    50% {
+        transform: translateY(-50%) rotate(15deg);
+    }
+
+    100% {
+        transform: translateY(-50%) rotate(-15deg);
+    }
+}
+
+.search {
+    position: absolute;
+    right: 1vmax;
+    top: 50%;
+    width: 1.5vmax;
+    height: 1.8vmax;
+    animation: oscillate 1.5s ease-in-out infinite;
+}
+
+
+.TalspoHere-main .Talspo-page .talspo-text .talspo-search input {
+    width: 100%;
+    border-radius: 50px;
+    outline: none;
+    padding: 0.5vmax 1vmax;
+
+}
+
+.TalspoHere-main .Talspo-page .talspo-text p {
+    margin-top: 1vmax;
+    font-size: 1.2vmax;
+    font-weight: lighter;
+    letter-spacing: 0.2px;
+}
+
+.TalspoHere-main .Talspo-page .talspo-text .map4 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.TalspoHere-main .Talspo-page .talspo-text .map4 button {
+    padding: 0.7vmax 3.5vmax;
+    border: none;
+    border-radius: 5px;
+    flex-direction: column;
+    display: flex;
+    box-shadow: 0px 1px 2px 1px #001a285c;
+}
+
+.TalspoHere-main .Talspo-page .talspo-text .map4 button a {
+    text-decoration: none;
+    font-size: 0.8vmax;
+    color: #000;
+    font-weight: 600;
+
+}
+
+@media (max-width:600px) {
+    .TalspoHere-main {
+        width: 100%;
+        height: 300px;
+    }
+    .TalspoHere-main .Talspo-page {
+        width: 100%;
+        height: 300px;
+    }
+    .TalspoHere-main .Talspo-page .talspo-text {
+        width: 100%;
+    }
+    .TalspoHere-main .Talspo-page .talspo-text h5 {
+        font-size: 3vmax;
+    }
+    .search {
+        width: 2.5vmax;
+        height: 3vmax;
+    }
+}
+@media (min-width:600px) and (max-width:1050px){
+    .TalspoHere-main {
+        width: 100%;
+        height: 300px;
+    }
+    .TalspoHere-main .Talspo-page {
+        width: 100%;
+        height: 300px;
+    }
+    .TalspoHere-main .Talspo-page .talspo-text {
+        width: 100%;
+    }
+    .TalspoHere-main .Talspo-page .talspo-text h5 {
+        font-size: 3vmax;
+    }
+    .search {
+        width: 2.5vmax;
+        height: 3vmax;
+    }
+}

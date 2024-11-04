@@ -1,0 +1,215 @@
+.LernerTrainer-main{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 1vmax;
+          background: #ebe6e68c;
+          font-family: Arial, Helvetica, sans-serif;
+        
+}
+.LernerTrainer-main .trainer{
+          width: 80%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          flex-direction: column;
+}
+.LernerTrainer-main .trainer h5{
+      font-size: 2vmax;
+      font-weight: 700;
+       color:#003f80;
+       margin-top: 1.5vmax;
+}
+.LernerTrainer-main .trainer .parts{
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: space-evenly;
+     flex-direction: row;
+     margin-top: 2vmax;
+    }
+ .LernerTrainer-main .trainer .parts span{
+          width: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: row; 
+ }
+ .LernerTrainer-main .trainer .parts span img{
+      width: 50px;     
+ }
+.LernerTrainer-main .trainer .parts span a{
+           color: #003f80;
+           text-decoration: none;
+           font-weight: 700;
+           font-size: 2vmax;
+ }
+ .LernerTrainer-main .trainer .part-btm{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: row;
+          margin-top: 3vmax;
+          margin-bottom: 2vmax;
+ }
+
+ .LernerTrainer-main .trainer .part-btm .part-left{
+          width: 60%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-direction: column;
+          padding: 2vmax;
+ }
+ .LernerTrainer-main .trainer .part-btm .part-left span{
+         font-weight: 600;
+         letter-spacing: 0.3px;
+ }
+ .LernerTrainer-main .trainer .part-btm .part-left small{
+          font-weight: 600;
+          letter-spacing: 0.3px;
+          margin-top: 2vmax;
+          font-size: 1.1vmax;
+  }
+  .LernerTrainer-main .trainer .part-btm .part-left  .btuns-part{
+          margin-top: 2vmax;
+          gap: 2vmax;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          flex-direction: row;
+  }
+  .LernerTrainer-main .trainer .part-btm .part-left  .btuns-part   .learn-p {
+          background-color: #003266;
+          border-radius: 5px;
+          border: 2px solid #003266;
+          -webkit-box-shadow: 0 2px #003f80;
+          -moz-box-shadow: 0 2px #003f80;
+          box-shadow: 0 2px #003f80;
+  }
+  .LernerTrainer-main .trainer .part-btm .part-left  .btuns-part  .learn-p button{
+          padding: 10px 20px;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+          border-radius: 10px;
+          font-size: 0.9rem;
+          background: none;
+  }
+  .LernerTrainer-main .trainer .part-btm .part-left  .btuns-part   .know-p {
+          color: #003266;
+          border-radius: 5px;
+          border: 2px solid #003266;
+          -webkit-box-shadow: 0 2px #003f80;
+          -moz-box-shadow: 0 2px #003f80;
+          box-shadow: 0 2px #003f80;
+  }
+  .LernerTrainer-main .trainer .part-btm .part-left  .btuns-part  .know-p button{
+          padding: 10px 20px;
+          color: #003f80;
+          border: none;
+          cursor: pointer;
+          border-radius: 10px;
+          font-size: 0.9rem;
+          background: none;
+  }
+ .LernerTrainer-main .trainer .part-btm .part-right{
+          width: 40%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+ }
+ .LernerTrainer-main .trainer .part-btm .part-right video{
+          width: 90%
+ }
+
+@media (max-width:600px) {
+          .LernerTrainer-main .trainer{
+                    width: 95%;
+          }
+          .LernerTrainer-main .trainer h5{
+                font-size: 3.4vmax;
+          }
+          .LernerTrainer-main .trainer .parts{
+               justify-content: space-between;
+              }
+           .LernerTrainer-main .trainer .parts span img{
+                width: 40px;     
+           }
+          .LernerTrainer-main .trainer .parts span a{
+                     font-size: 3vmax;
+           }
+           .LernerTrainer-main .trainer .part-btm{
+                    flex-direction: column-reverse;
+           }
+          
+           .LernerTrainer-main .trainer .part-btm .part-left{
+                    width:100%;
+               margin-top: 2vmax;
+           }
+           .LernerTrainer-main .trainer .part-btm .part-left span{
+                   font-weight:300;
+                   font-size: 2vmax;
+           }
+           .LernerTrainer-main .trainer .part-btm .part-left small{
+                    font-size: 2vmax;
+                   font-weight:300;
+
+            }
+            .LernerTrainer-main .trainer .part-btm .part-left  .btuns-part{
+                    justify-content: space-between;
+                    gap: 1vmax;
+                    margin-top: 3vmax;
+            }
+           .LernerTrainer-main .trainer .part-btm .part-right{
+                    width: 100%;
+           }
+              
+}
+@media (min-width:600px) and (max-width:1050px) {
+          .LernerTrainer-main .trainer{
+                    width: 95%;
+          }
+          .LernerTrainer-main .trainer h5{
+                font-size: 3.4vmax;
+          }
+          .LernerTrainer-main .trainer .parts{
+               justify-content: space-between;
+              }
+           .LernerTrainer-main .trainer .parts span img{
+                width: 40px;     
+           }
+          .LernerTrainer-main .trainer .parts span a{
+                     font-size: 3vmax;
+           }
+           .LernerTrainer-main .trainer .part-btm{
+                    flex-direction: column-reverse;
+           }
+          
+           .LernerTrainer-main .trainer .part-btm .part-left{
+                    width:100%;
+               margin-top: 2vmax;
+           }
+           .LernerTrainer-main .trainer .part-btm .part-left span{
+                   font-weight:300;
+                   font-size: 2vmax;
+           }
+           .LernerTrainer-main .trainer .part-btm .part-left small{
+                    font-size: 2vmax;
+                   font-weight:300;
+
+            }
+            .LernerTrainer-main .trainer .part-btm .part-left  .btuns-part{
+                    justify-content: space-between;
+                    gap: 1vmax;
+                    margin-top: 3vmax;
+            }
+           .LernerTrainer-main .trainer .part-btm .part-right{
+                    width: 100%;
+           }
+              
+}
+

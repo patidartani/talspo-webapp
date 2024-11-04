@@ -6,7 +6,10 @@
           justify-content: center;
           position: fixed;
           z-index: 111;
-          box-shadow: 2px 2px 5px 2px rgb(201, 201, 201);
+          top: 0;
+          background: #fff;
+          position: sticky;
+          box-shadow: 0px 1px 2px 1px rgb(201, 201, 201);
 }
 
 .Navbar-main .navbar-page {
@@ -31,7 +34,7 @@
 .Navbar-main .navbar-page .nav-mid {
           width: 35%;
           border: 1px solid #b2b2b2;
-          border-radius: 50px;
+          border-radius: 10px;
 }
 
 .Navbar-main .navbar-page .nav-mid .search-container {
@@ -39,7 +42,7 @@
           align-items: center;
           background-color: #fff;
           padding: 4px 10px;
-          border-radius: 50px;
+          border-radius: 10px;
 }
 
 .Navbar-main .navbar-page .nav-mid .search-icon {
@@ -97,64 +100,108 @@
 }
 
 .Navbar-main .navbar-page .nav-right .links .sign-in-btn {
-          width: 20%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+    color: #003266;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 2px solid #003266;
+    -webkit-box-shadow: 0 2px #003f80;
+    -moz-box-shadow: 0 2px #003f80;
+    box-shadow: 0 2px #003f80;
 }
 
 .Navbar-main .navbar-page .nav-right .links .sign-in-btn button {
           padding: 10px 20px;
-          background-color: #ff6347;
-          color: #fff;
+          color: #003f80;
           border: none;
           cursor: pointer;
           border-radius: 10px;
-          font-size: 1rem;
+          font-size: 0.9rem;
+          background: none;
+          font-weight: 600;
 }
 
-.Navbar-main .navbar-page .nav-right .links .sign-in-btn button:hover {
-          background-color: #ff4500;
+
+
+/* Shared Styles for About and Join Dropdowns */
+
+.about-dropdown, 
+.join-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 140px;
+  background-color: #fff;
+  border: 1px solid #b2b2b2;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+/* Apply smaller font size with !important to ensure it applies */
+.about-dropdown a, 
+.join-dropdown a {
+  font-size: 14px !important;  /* Force smaller font size */
+  padding: 5px 10px;
+  color: #6e6e6e;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+/* Hover effect */
+.about-dropdown a:hover, 
+.join-dropdown a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Container Styles */
+.about-us, .join-us {
+  position: relative;
 }
 
 
 
-
-.about-us {
-          position: relative; /* For positioning the dropdown */
-        }
-        
-        .about-dropdown {
-          display: flex;
-          flex-direction: column;
-          position: absolute;
-          top: 100%; /* Position below the About Us link */
-          left: 0;
-          width: 170px; /* Set the desired width for the dropdown */
-          background-color: #fff; /* Match with your navbar's background */
-          border: 1px solid #b2b2b2;
-          border-radius: 4px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-          z-index: 100; /* Ensure it appears above other content */
-        }
-        
-        .about-dropdown a {
-          padding: 8px 15px;
-          color: #000;
-          text-decoration: none;
-          transition: background 0.3s ease;
-        }
-        
-        .about-dropdown a:hover {
-          background-color: #f0f0f0; /* Change background on hover */
-        }
-        
-
-
-
+.about-dropdown-responsive{
+  display: none;
+}
+.join-dropdown-responsive{
+  display: none;
+}
 
 
 @media (max-width: 600px) {
+
+  .about-dropdown-responsive,
+  .join-dropdown-responsive {
+    display: initial;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .about-dropdown-responsive a,
+  .join-dropdown-responsive a {
+    font-size: 1.1rem ;
+    padding:-3px 20px;
+    color: #6e6e6e;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  #res-hide{
+    display: none;
+  }
+
+
+  .about-dropdown{
+    display: none;
+  }
+  .join-dropdown{
+    display: none;
+  }
+
+  
           .Navbar-main .navbar-page {
                    
                     gap: 4vmax;
@@ -221,8 +268,8 @@
           .Navbar-main .navbar-page .nav-right .links.active {
                     display: flex;
                     position: absolute;
-                    top: 0px;
-                    right: 0;
+                    top: -15px;
+                    right: -9px;
                     background-color: #fff;
                     width: 100%;
                     height: 100vh;
@@ -237,10 +284,11 @@
           .Navbar-main .navbar-page .nav-right a {
                     color: #000;
                     /* background: #000; */
-                    padding-top: 3vmax;
+                    padding-top: 2vmax;
                     text-decoration: none;
-                    font-size: 1.3rem;
+                    font-size: 1.2rem;
                     width: 100%;
+    font-weight: 500;
           }
           
           .Navbar-main .navbar-page .nav-right .links .link-item {
@@ -252,7 +300,7 @@
                     position: absolute;
                     right: 0px;
                     width: 95%;
-                    top: 50px;
+                    top: 40px;
           }
           
 .Navbar-main .navbar-page .nav-right .links .sign-in-btn {
@@ -261,7 +309,7 @@
                     position: absolute;
                     right: 0px;
                     width: 95%;
-                    top: 320px;
+                    top: 550px;
 }
 
 .Navbar-main .navbar-page .nav-right .links .sign-in-btn button {
@@ -272,7 +320,7 @@
                     display: initial;
                     font-size: 1.5rem;
                     position: absolute;
-                    top: 10px;
+                    top: 5px;
                     right: 10px;
                     cursor: pointer;
           }
@@ -280,10 +328,33 @@
 }
 
 
-@media (min-width: 600px) and (max-width:1150px) {
+@media (min-width: 600px) and (max-width:1150px){
+
+  .about-dropdown-responsive,
+  .join-dropdown-responsive {
+    display: initial;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .about-dropdown-responsive a,
+  .join-dropdown-responsive a {
+    font-size: 1.1rem ;
+    padding:-3px 20px;
+    color: #6e6e6e;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  #res-hide{
+    display: none;
+  }
+
+  
           .Navbar-main .navbar-page {
                    
-                    gap: 5vmax;
+                    gap: 4vmax;
           }
           .Navbar-main .navbar-page .nav-left {
                     width: 40%;
@@ -347,15 +418,15 @@
           .Navbar-main .navbar-page .nav-right .links.active {
                     display: flex;
                     position: absolute;
-                    top: 0px;
-                    right: 0;
+                    top: -15px;
+                    right: -20px;
                     background-color: #fff;
                     width: 100%;
                     height: 100vh;
                     flex-direction: column;
                     justify-content: flex-start;
                     align-items: flex-start;
-                    padding: 200px;
+                    padding: 150px;
                     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
                     z-index: 100;
           }
@@ -363,10 +434,11 @@
           .Navbar-main .navbar-page .nav-right a {
                     color: #000;
                     /* background: #000; */
-                    padding-top: 3vmax;
+                    padding-top: 2vmax;
                     text-decoration: none;
                     font-size: 1.3rem;
                     width: 100%;
+    font-weight: 500;
           }
           
           .Navbar-main .navbar-page .nav-right .links .link-item {
@@ -378,7 +450,7 @@
                     position: absolute;
                     right: 0px;
                     width: 95%;
-                    top: 50px;
+                    top: 40px;
           }
           
 .Navbar-main .navbar-page .nav-right .links .sign-in-btn {
@@ -387,18 +459,18 @@
                     position: absolute;
                     right: 0px;
                     width: 95%;
-                    top: 400px;
+                    top: 650px;
 }
 
 .Navbar-main .navbar-page .nav-right .links .sign-in-btn button {
-          padding: 10px 35px;
+          padding: 10px 40px;
           font-size: 1.2rem;
 }
           .Navbar-main .navbar-page .nav-right .links .close-icon {
                     display: initial;
-                    font-size: 1.5rem;
+                    font-size: 2.5rem;
                     position: absolute;
-                    top: 10px;
+                    top: 5px;
                     right: 10px;
                     cursor: pointer;
           }

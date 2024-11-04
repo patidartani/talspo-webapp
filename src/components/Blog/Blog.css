@@ -1,0 +1,419 @@
+.Blog-main{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 3vmax;
+}
+.Blog-main .blogs{
+          width: 80%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+}
+.Blog-main .blogs .blog-top{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: row;
+}
+.Blog-main .blogs .blog-top .blog-left{
+          width: 50%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-direction: column;
+          padding-left: 3vmax;
+}
+.Blog-main .blogs .blog-top .blog-left h5{
+         font-weight: 700;
+         font-size: 3vmax;
+}
+.Blog-main .blogs .blog-top .blog-left p{
+          font-size: 1.3vmax;
+ }
+ .Blog-main .blogs .blog-top .blog-right{
+          width: 50%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+}
+.Blog-main .blogs .blog-top .blog-right img{
+   width: 80%;
+}
+
+.Blog-main .blogs .blog2{
+          width: 95%;
+          padding-top: 1.5vmax;
+          padding-bottom: 1.5vmax;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          background-color: rgb(241, 243, 255);
+}
+.Blog-main .blogs .blog2 .b-one{
+          width: 70%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 0.5vmax;
+}
+.Blog-main .blogs .blog2 .b-one h5{
+       font-size: 1vmax;
+}
+.Blog-main .blogs .blog2 .b-one a{
+      text-decoration: none;
+   }
+   .Blog-main .blogs .blog2 .b-two{
+         width: 70%;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         flex-direction: row;
+         gap: 1vmax;
+         margin-top: 0.5vmax;
+   }
+   .Blog-main .blogs .blog2 .b-two .blog-box{
+          width: 50%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          flex-direction: column;
+          background: #fff;
+             padding: 0.6vmax;
+             gap: 2vmax;
+    }
+    .Blog-main .blogs .blog2 .b-two .blog-box h6{
+         font-weight: 600;
+         font-size: 1.4vmax;
+    }
+
+    .Blog-main .blogs  .Blog-search{
+          width: 95%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 3vmax;
+    }
+    .Blog-main .blogs  .Blog-search .ipt-blg{
+          width: 40%;
+          padding: 0.5vmax 1vmax;
+          border: 1px solid #9f9f9f;
+          border-radius: 50px;
+    }
+    .Blog-main .blogs  .Blog-search .ipt-blg input{
+          width: 100%;
+          border-radius: 50px;
+          outline: none;
+          border: none;
+    }
+     
+    .Blog-main .blogs     .blog-container{
+          width: 95%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-direction: column;
+          margin-top: 3vmax;
+    }
+    .Blog-main .blogs     .blog-container   .blog-content{
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-direction: row;
+          gap: 2vmax;
+          margin-top: 2vmax;
+    }
+    .Blog-main .blogs     .blog-container   .blog-content   .blog_list{
+          width: 70%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: column;
+          gap: 4vmax;
+    }
+    .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg{
+          border-bottom: 1px solid #b7b7b7;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: row;
+          height: 150px;
+          gap: 1vmax;
+          padding-bottom: 1.5vmax;
+    }
+    .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg .bl-img{
+          width: 30%;
+          height: 150px;
+          background: #b9b9b9;
+          border-radius: 10px;
+    }
+    .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text{
+          width: 70%;
+          height: 150px;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-direction: column;
+          gap: 0.5vmax;
+    }
+    .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text h5{
+         font-weight: 600;
+         color: #003266;
+         font-size: 1.5vmax;
+    }
+    .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num{
+         gap: 2vmax;
+         width: 100%;
+         display: flex;
+     }
+     .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num span{
+        background-color: #003266;
+        padding: 0.2vmax 1.5vmax;
+        border-radius: 50px;
+        color: #fff;
+        font-size: 1vmax;
+      }
+     .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num h1{
+         font-size: 1vmax;
+         color: #7a7a7a;
+         margin-top: 0.2vmax;
+      }
+ 
+
+    .Blog-main .blogs     .blog-container   .blog-content   .Blogs_img{
+          width: 30%;
+          display: flex;
+          align-items: center;
+          justify-content:center;
+    }
+    .Blog-main .blogs     .blog-container   .blog-content   .Blogs_img img{
+          width: 100%;
+          margin-top: 10vmax;
+    }
+
+@media (max-width : 600px) {
+      .Blog-main{
+            width: 100%;
+  }
+  .Blog-main .blogs{
+            width: 95%;
+  }
+  .Blog-main .blogs .blog-top{
+            width: 100%;
+            flex-direction: column;
+  }
+  .Blog-main .blogs .blog-top .blog-left{
+            width: 100%;
+            margin-top: 3vmax;
+            padding-left: 0vmax;
+  }
+  .Blog-main .blogs .blog-top .blog-left h5{
+           font-size: 5vmax;
+  }
+  .Blog-main .blogs .blog-top .blog-left p{
+            font-size: 3vmax;
+   }
+   .Blog-main .blogs .blog-top .blog-right{
+            width: 100%;
+  }
+  .Blog-main .blogs .blog-top .blog-right img{
+     width: 100%;
+  }
+  
+  .Blog-main .blogs .blog2{
+            width: 100%;
+  }
+  .Blog-main .blogs .blog2 .b-one{
+            width: 90%;
+  }
+  .Blog-main .blogs .blog2 .b-one h5{
+         font-size: 2vmax;
+  }
+  .Blog-main .blogs .blog2 .b-one a{
+        margin-bottom: 1vmax;
+     }
+     .Blog-main .blogs .blog2 .b-two{
+           width: 90%;
+           flex-direction: column;
+     }
+     .Blog-main .blogs .blog2 .b-two .blog-box{
+            width: 100%;
+      }
+      .Blog-main .blogs .blog2 .b-two .blog-box h6{
+           font-size: 2vmax;
+      }
+  
+      .Blog-main .blogs  .Blog-search{
+            width: 100%;
+            margin-top: 4vmax;
+      }
+      .Blog-main .blogs  .Blog-search .ipt-blg{
+            width: 90%;
+            padding: 1.4vmax 3vmax;
+      }
+  
+      .Blog-main .blogs     .blog-container{
+            width: 100%;
+            margin-top: 5vmax;
+      }
+      .Blog-main .blogs     .blog-container   .blog-content{
+            width: 100%;
+            flex-direction: column-reverse;
+      }
+      .Blog-main .blogs     .blog-container   .blog-content   .blog_list{
+            width: 100%;
+            gap: 4vmax;
+      }
+      .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg{
+            width: 100%;
+            flex-direction: column;
+            height: 400px;
+      }
+      .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg .bl-img{
+            width: 100%;
+            height: 200px;
+      }
+      .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text{
+            width: 100%;
+            height: 200px;
+      }
+      .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text h5{
+           font-size: 1.5vmax;
+      }
+      .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num{
+           gap: 5vmax;
+           width: 100%;
+       }
+       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num span{
+          padding: 1vmax 5vmax;
+          font-size: 2vmax;
+        }
+       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num h1{
+           font-size: 3vmax;
+        }
+   
+  
+      .Blog-main .blogs     .blog-container   .blog-content   .Blogs_img{
+            width: 100%;
+      }
+      .Blog-main .blogs     .blog-container   .blog-content   .Blogs_img img{
+            margin-top: 0vmax;
+      }
+    
+}
+
+@media (min-width : 600px) and (max-width:1050px) {
+ .Blog-main{
+            width: 100%;
+  }
+  .Blog-main .blogs{
+            width: 95%;
+  }
+  .Blog-main .blogs .blog-top{
+            width: 100%;
+            flex-direction: column;
+  }
+  .Blog-main .blogs .blog-top .blog-left{
+            width: 100%;
+            margin-top: 3vmax;
+            padding-left: 0vmax;
+  }
+  .Blog-main .blogs .blog-top .blog-left h5{
+           font-size: 5vmax;
+  }
+  .Blog-main .blogs .blog-top .blog-left p{
+            font-size: 3vmax;
+   }
+   .Blog-main .blogs .blog-top .blog-right{
+            width: 100%;
+  }
+  .Blog-main .blogs .blog-top .blog-right img{
+     width: 100%;
+  }
+  .Blog-main .blogs .blog2{
+            width: 100%;
+  }
+  .Blog-main .blogs .blog2 .b-one{
+            width: 90%;
+  }
+  .Blog-main .blogs .blog2 .b-one h5{
+         font-size: 2vmax;
+  }
+  .Blog-main .blogs .blog2 .b-one a{
+        margin-bottom: 1vmax;
+     }
+     .Blog-main .blogs .blog2 .b-two{
+           width: 90%;
+           flex-direction: column;
+     }
+     .Blog-main .blogs .blog2 .b-two .blog-box{
+            width: 100%;
+      }
+      .Blog-main .blogs .blog2 .b-two .blog-box h6{
+           font-size: 2vmax;
+      }
+  
+      .Blog-main .blogs  .Blog-search{
+            width: 100%;
+            margin-top: 4vmax;
+      }
+      .Blog-main .blogs  .Blog-search .ipt-blg{
+            width: 90%;
+            padding: 1.4vmax 3vmax;
+      }
+  
+      .Blog-main .blogs     .blog-container{
+            width: 100%;
+            margin-top: 5vmax;
+      }
+      .Blog-main .blogs     .blog-container   .blog-content{
+            width: 100%;
+            flex-direction: column-reverse;
+      }
+      .Blog-main .blogs     .blog-container   .blog-content   .blog_list{
+            width: 100%;
+            gap: 4vmax;
+      }
+      .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg{
+            width: 100%;
+            flex-direction: column;
+            height: 400px;
+      }
+      .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg .bl-img{
+            width: 100%;
+            height: 200px;
+      }
+      .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text{
+            width: 100%;
+            height: 200px;
+      }
+      .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text h5{
+           font-size: 1.5vmax;
+      }
+      .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num{
+           gap: 5vmax;
+           width: 100%;
+       }
+       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num span{
+          padding: 1vmax 5vmax;
+          font-size: 2vmax;
+        }
+       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num h1{
+           font-size: 3vmax;
+        }
+   
+  
+      .Blog-main .blogs     .blog-container   .blog-content   .Blogs_img{
+            width: 100%;
+      }
+      .Blog-main .blogs     .blog-container   .blog-content   .Blogs_img img{
+            margin-top: 0vmax;
+      }
+    
+}
