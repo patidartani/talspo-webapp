@@ -13,8 +13,8 @@ import client5 from "../../assets/images/client5.png"
 import skill from "../../assets/images/skill.png"
 
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules'; 
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Autoplay } from 'swiper/modules'; 
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import TalspoHere from './TalspoHere'
@@ -23,17 +23,16 @@ import LernerTrainer from './LernerTrainer'
 
 const Home = () => {
 
-  const images = [
-    'https://cdni.iconscout.com/illustration/premium/thumb/online-job-application-illustration-download-in-svg-png-gif-file-formats--portal-apply-cv-resume-business-people-pack-illustrations-4609375.png',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlIYiLIbT9KBKocXUKR7CTO1WYC2gIIll1F4VT8GYeIFpBlXlUVhoeun19ZBeDyJgEltQ&usqp=CAU'
-  ];
+  // const images = [
+  //   'https://cdni.iconscout.com/illustration/premium/thumb/online-job-application-illustration-download-in-svg-png-gif-file-formats--portal-apply-cv-resume-business-people-pack-illustrations-4609375.png',
+  //   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlIYiLIbT9KBKocXUKR7CTO1WYC2gIIll1F4VT8GYeIFpBlXlUVhoeun19ZBeDyJgEltQ&usqp=CAU'
+  // ];
 
   return (
     <div className='Home-main'>
 <div className="Home-page">
           <Navbar />
 
-          {/* <SliderHome /> */}
 
 {/* ---------------------------------------------------------------------------------- */}
 <div className="Home">
@@ -54,21 +53,19 @@ const Home = () => {
       </div>
 
       <div className="right">
-        <Swiper
+        {/* <Swiper
           modules={[Autoplay]}
           spaceBetween={30}
           slidesPerView={1}
           loop={true}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
         >
-          {/* First Image Slide */}
           <SwiperSlide>
             <div className="swiper-image-container">
               <img src={images[0]} alt="Slide 1" />
             </div>
           </SwiperSlide>
 
-          {/* Video Slide */}
           <SwiperSlide>
   <div className="video-container">
     <iframe
@@ -84,13 +81,24 @@ const Home = () => {
 </SwiperSlide>
 
 
-          {/* Second Image Slide */}
           <SwiperSlide>
             <div className="swiper-image-container">
               <img src={images[0]} alt="Slide 1" />
             </div>
           </SwiperSlide>
-        </Swiper>
+        </Swiper> */}
+     {/* ------------------------------- */}
+        
+     <iframe
+      width="100%"
+      height="315"
+      src="https://www.youtube.com/embed/hMjaZKCh3Nc?autoplay=1&mute=1&loop=1&playlist=hMjaZKCh3Nc"
+      frameBorder="0"
+      allow="autoplay; encrypted-media"
+      allowFullScreen
+      title="Talspo Video"
+    ></iframe>
+
       </div>
     </div>
 
