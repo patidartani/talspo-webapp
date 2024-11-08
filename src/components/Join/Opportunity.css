@@ -10,6 +10,8 @@
           align-items: center;
           justify-content: center;
           flex-direction: column;
+          margin-top: 5vmax
+
 }
 .Opportunity-main .opportunity-page .opportunity1{
           width: 100%;

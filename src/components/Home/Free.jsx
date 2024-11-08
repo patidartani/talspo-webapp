@@ -6,7 +6,7 @@ const Free = () => {
     <div className='Free-main'>
           <h6>YOU ARE AT THE RIGHT PLACE, WHERE YOU CAN BE A TEACHER, LEARNER OR BOTH AT THE SAME TIME.</h6>
           <div className="free-btn">
-                    <button>SIGN UP ON TALSPO, IT'S FREE!</button>
+                    <button>Contact  Us</button>
           </div>
     </div>
   )

@@ -1,420 +1,135 @@
-.JoinTeam-main {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex-direction: column;
-  }
-  
-  .JoinTeam-main .join1 {
-          width: 80%;
-          height: 400px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex-direction: row;
-          margin-top: 1vmax;
-          background-repeat: no-repeat;
-          background-position: right;
-          background-size: contain;
-          background-image: url(../../assets/images/join1New.jpg);
-  }
-  
-  .JoinTeam-main .join1 .join1-left {
-          width: 50%;
-          display: flex;
-          margin-left: 2vmax;
-          align-items: flex-start;
-          justify-content: space-between;
-          flex-direction: column;
-  }
-  
-  .JoinTeam-main .join1 .join1-left h5 {
-          font-size: 2.7vmax;
-          font-weight: 700;
-          margin-bottom: 2vmax;
-  }
-  
-  .JoinTeam-main .join1 .join1-left span {
-          font-size: 1.5vmax;
-  }
-  
-  
-  .JoinTeam-main .join2 {
-          width: 80%;
-          height: 400px;
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-          flex-direction: column;
-          margin-top: 5vmax;
-          background-repeat: no-repeat;
-  
-          background-size: 50% 100%;
-          /* Cover the full width */
-          background-position: left;
-          background-origin: content-box;
-          background-image: url(https://www.objectgears.eu/content20/img/cloud.svg);
-  }
-  
-  
-  .JoinTeam-main .join2 .join2-text {
-          width: 45%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex-direction: column;
-  }
-  
-  .JoinTeam-main .join2 .join2-text h5 {
-          font-size: 2vmax;
-          font-weight: 700;
-          margin-bottom: 1vmax;
-          font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .JoinTeam-main .join2 .join2-text p {
-          font-size: 1.1vmax;
-          letter-spacing: 0.3px;
-          font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  /* ----------------------------------------------- */
-  
-  
-  .JoinTeam-main .join3 {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: column;
-          margin-top: 4vmax;
-  }
-  
-  .JoinTeam-main .join3 h5 {
-          font-size: 2vmax;
-          font-weight: 700;
-          font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .JoinTeam-main .join3 .join3-slider {
-          width: 80%;
-          height: 350px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-top: 2vmax;
-          margin-bottom: 2vmax;
-          position: relative;
-  }
-  
-  .JoinTeam-main .join3 .join3-slider .swiper-button-next {
-          color: #000;
-          font-size: 18px;
-  }
-  
-  .JoinTeam-main .join3 .join3-slider .swiper-button-prev {
-          color: #000;
-          font-size: 18px;
-  }
-  
-   .mySwiper {
-          width: 85%;
-          height: auto;
-          display: flex;
-          align-items: center;
-          justify-content: space-evenly;
-  }
-  
-  .swiper-slide {
-          height: 350px;
-          text-align: center;
-          font-size: 15px;
-          background: #fff;
-          display: flex;
-          border: 3px solid #e1e1e1;
-          justify-content: center;
-          align-items: center;
-  }
-  
-  .join3-box {
-          height: 350px;
-          display: flex;
-          align-items: flex-start;
-          justify-content: space-between;
-          flex-direction: column;
-          padding-top: 1.2vmax;
-  }
-  
-  .join3-box img {
-          width: 20%;
-  }
-  
-  .join3-box p {
-          font-size: 1.2vmax;
-          text-align: start;
-          width: 100%;
-          padding-left: 1vmax;
-          padding-right: 0.7vmax;
-  }
-  
-  .join3-box .box-text {
-          width: 100%;
-          display: flex;
-          border-top: 3px solid #e1e1e1;
-          align-items: center;
-          justify-content: center;
-          flex-direction: row;
-          padding: 0.5vmax;
-  }
-  
-  .join3-box .box-text .circle {
-          width: 22%;
-          height: 70px;
-          border-radius: 50px;
-          object-fit: cover;
-  
-          border: 3px solid #e1e1e1;
-  }
-  
-  .join3-box .box-text .circle img {
-          width: 100%;
-          height: 70px;
-          object-fit: cover;
-          border-radius: 50px;
-  
-  }
-  
-  .join3-box .box-text .text-name {
-          width: 70%;
-  }
-  
-  .join3-box .box-text .text-name span {
-          font-weight: 700;
-          font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .join3-box .box-text .text-name h6 {
-          font-weight: lighter;
-          letter-spacing: 0.5px;
-  }
-  
-  /* ----------------------------------------------- */
-  .JoinTeam-main .join4 {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: column;
-          margin-top: 3vmax;
-  }
-  
-  .JoinTeam-main .join4 small {
-          font-size: 1.1vmax;
-          font-weight: 400;
-          font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .JoinTeam-main .join4 p {
-          font-size: 1.1vmax;
-          font-weight: 500;
-          font-family: Arial, Helvetica, sans-serif;
-          margin-top: 2vmax;
-  }
-  
-  .JoinTeam-main .join4 .join4-bx {
-          width: 70%;
-          box-shadow: 0px 1px 2px 1px #001a285c;
-          border-radius: 10px;
-          padding: 2vmax;
-          margin-top: 1vmax;
-          margin-bottom: 2vmax;
-  }
-  
-  .JoinTeam-main .join4 .join4-bx h5 {
-          font-size: 2vmax;
-          font-family: Arial, Helvetica, sans-serif;
-          font-weight: 700;
-          letter-spacing: 0.5px;
-  }
-  
-  .JoinTeam-main .join4 .join4-bx .join4-Btm {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: space-evenly;
-          flex-direction: row;
-  }
-  
-  .JoinTeam-main .join4 .join4-bx .join4-Btm .interest {
-          width: 30%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex-direction: column;
-          margin-top: 1vmax;
-  }
-  
-  .JoinTeam-main .join4 .join4-bx .join4-Btm .interest .int-img {
-          width: 35%;
-          height: 100px;
-          display: flex;
-          background: #dadada;
-          align-items: center;
-          justify-content: center;
-          object-fit: cover;
-          border-radius: 50px;
-  }
-  
-  .JoinTeam-main .join4 .join4-bx .join4-Btm .interest .int-img2 {
-          width: 35%;
-          height: 100px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          object-fit: cover;
-          border-radius: 50px;
-  }
-  
-  .JoinTeam-main .join4 .join4-bx .join4-Btm .interest .int-img2 img {
-          width: 100%;
-          height: 100px;
-  }
-  
-  .JoinTeam-main .join4 .join4-bx .join4-Btm .interest .int-img img {
-          width: 90%;
-          height: 90px;
-  }
-  
-  .JoinTeam-main .join4 .join4-bx .join4-Btm .interest a {
-          margin-top: 1vmax;
-          text-decoration: none;
-          font-size: 1.2vmax;
-  }
-  
-  
-  @media (max-width:600px) {
-          .JoinTeam-main .join1 {
-                  width: 95%;
-                  height: 250px;
-                  margin-top: 5vmax;
-                  background-position: left;
-                  background-size: contain;
-                  background-image: url(../../assets/images/join1New.jpg);
-          }
-  
-          .JoinTeam-main .join1 .join1-left {
-                  width: 100%;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  margin-left: 0vmax;
-                  padding-bottom: 25vmax;
-          }
-  
-          .JoinTeam-main .join1 .join1-left h5 {
-                  font-size: 3.2vmax;
-                  font-weight: 700;
-                  margin-bottom: 1vmax;
-          }
-  
-          .JoinTeam-main .join1 .join1-left span {
-                  font-size: 2.2vmax;
-          }
-  
-  
-          .JoinTeam-main .join2 {
-                  width: 95%;
-                  height: 350px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  margin-top: 0vmax;
-                  background-repeat: no-repeat;
-                  background-size: 90% 100%;
-                  /* Cover the full width */
-                  background-position: center;
-                  background-origin: content-box;
-                  background-image: url(https://www.objectgears.eu/content20/img/cloud.svg);
-          }
-  
-  
-          .JoinTeam-main .join2 .join2-text {
-                  width: 100%;
-                  text-align: center;
-                  margin-bottom: 1vmax;
-          }
-  
-          .JoinTeam-main .join2 .join2-text h5 {
-                  font-size: 3vmax;
-                  margin-bottom: 2vmax;
-          }
-  
-          .JoinTeam-main .join2 .join2-text p {
-                  font-size: 2vmax;
-                  letter-spacing: 0.4px;
-          }
-          /* ----------------------------------------------- */
-         .JoinTeam-main .join3 {
-                  width: 100%;
-          }
-          .JoinTeam-main .join3 h5 {
-                  font-size: 3.5vmax;
-          }
-          .JoinTeam-main .join3 .join3-slider {
-                  width: 95%;
-                  height: 350px;
-          }
-          .mySwiper {
-                  width: 85%;
-                  height: auto;
-          }
-  
-          .swiper-slide {
-                  width: 100% !important;
-          }
-  
-          .join3-box img {
-                  width: 20%;
-          }
-          .join3-box p {
-                  font-size: 2.3vmax;
-          }
-  .join3-box .box-text .circle {
-                  width: 40%;
-                  height: 100px;
-          }
-   .join3-box .box-text .circle img {
-                  width: 100%;
-                  height: 100px;
-          }
-          /* ----------------------------------------------- */
-          .JoinTeam-main .join4 small {
-                  font-size: 1.8vmax;
-                  width: 95%;
-                  text-align: center;
-          }
-          .JoinTeam-main .join4 p {
-                  font-size: 2.1vmax;
-                  width: 95%;
-                  text-align: center;
-          }
-          .JoinTeam-main .join4 .join4-bx {
-                  width: 95%;
-          }
-          .JoinTeam-main .join4 .join4-bx h5 {
-                  font-size: 3vmax;
-          }
-          .JoinTeam-main .join4 .join4-bx .join4-Btm {
-                  width: 100%;
-                  flex-direction: column;
-                  gap: 3vmax;
-          }
-          .JoinTeam-main .join4 .join4-bx .join4-Btm .interest {
-                  width: 100%;
-          }
-  
-          .JoinTeam-main .join4 .join4-bx .join4-Btm .interest a {
-                  font-size: 2vmax;
-          }
-  }
+useEffect(() => {
+  // You can replace this with API fetch for real data
+  const initialSkills = [
+    {
+      name: "Web Developer",
+      salary: 60000,
+      currency: "USD",
+      description: "Builds and maintains websites. Ensures optimal user experience.",
+      img: 'https://media.istockphoto.com/id/2148178472/photo/hispanic-programmers-collaborating-on-software-development-in-a-modern-office-setting.webp?a=1&b=1&s=612x612&w=0&k=20&c=cOn7tCfq87FzKSSp1Vn2j0b0c8Puw0eKD-GY6JKexJU=',
+      status: "Full-Time",
+      location: "Remote",
+      pinCode: "12345",
+      area: "Downtown",
+      city: "New York",
+      state: "NY",
+      country: "USA"
+    },
+    {
+      name: "Data Scientist",
+      salary: 70000,
+      currency: "USD",
+      description: "Analyzes complex data sets. Provides actionable business insights.",
+      img: 'https://plus.unsplash.com/premium_photo-1661764256397-af154e87b1b3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YnVzaW5lc3N8ZW58MHx8MHx8fDA%3D',
+      status: "Contract",
+      location: "On-Site",
+      pinCode: "67890",
+      area: "Uptown",
+      city: "Los Angeles",
+      state: "CA",
+      country: "USA"
+    },
+    {
+      name: "9-to-5 Employee",
+      salary: 50000,
+      currency: "USD",
+      description: "Contributes to company goals. Works regular hours in a team environment.",
+      img: 'https://images.unsplash.com/photo-1664575599730-0814817939de?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YnVzaW5lc3N8ZW58MHx8MHx8fDA%3D',
+      status: "Part-Time",
+      location: "Hybrid",
+      pinCode: "112233",
+      area: "Midtown",
+      city: "Chicago",
+      state: "IL",
+      country: "USA"
+    },
+    {
+      name: "Entrepreneur",
+      salary: 80000,
+      currency: "USD",
+      description: "Starts and manages a business. Takes on various leadership roles.",
+      img: 'https://plus.unsplash.com/premium_photo-1661277816311-28cced31f998?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YnVzaW5lc3N8ZW58MHx8MHx8fDA%3D',
+      status: "Self-Employed",
+      location: "Variable",
+      pinCode: "33445",
+      area: "Business District",
+      city: "San Francisco",
+      state: "CA",
+      country: "USA"
+    },
+    {
+      name: "Networker",
+      salary: 55000,
+      currency: "USD",
+      description: "Builds relationships in the industry. Enhances career opportunities.",
+      img: 'https://images.unsplash.com/photo-1665686306265-c52ee9054479?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJ1c2luZXNzfGVufDB8fDB8fHww',
+      status: "Freelance",
+      location: "Remote",
+      pinCode: "99887",
+      area: "Virtual",
+      city: "Seattle",
+      state: "WA",
+      country: "USA"
+    },
+    {
+      name: "Digital Marketer",
+      salary: 65000,
+      currency: "USD",
+      description: "Promotes products online. Uses analytics for strategic marketing.",
+      img: 'https://media.istockphoto.com/id/2012746933/photo/cyber-security-black-man-and-code-reflection-in-eyewear-hacking-and-software-update-in-office.webp?a=1&b=1&s=612x612&w=0&k=20&c=bJxHjbTcJUx_GqkhBpHfUJuuQ0raaN3dJo1KIP4oaRE=',
+      status: "Part-Time",
+      location: "Hybrid",
+      pinCode: "44556",
+      area: "Tech Hub",
+      city: "Austin",
+      state: "TX",
+      country: "USA"
+    },
+    {
+      name: "Software Engineer",
+      salary: 95000,
+      currency: "USD",
+      description: "Develops applications and software systems for various purposes.",
+      img: 'https://images.pexels.com/photos/16129724/pexels-photo-16129724/free-photo-of-man-working-on-computers-coding.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      status: "Full-Time",
+      location: "Remote",
+      pinCode: "77777",
+      area: "Tech Park",
+      city: "Boston",
+      state: "MA",
+      country: "USA"
+    },
+    {
+      name: "Project Manager",
+      salary: 75000,
+      currency: "USD",
+      description: "Manages project timelines, resources, and team dynamics.",
+      img: 'https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      status: "Contract",
+      location: "On-Site",
+      pinCode: "88999",
+      area: "Downtown",
+      city: "San Diego",
+      state: "CA",
+      country: "USA"
+    },
+    {
+      name: "Graphic Designer",
+      salary: 45000,
+      currency: "USD",
+      description: "Designs visual content for digital media and marketing.",
+      img: 'https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      status: "Freelance",
+      location: "Remote",
+      pinCode: "55678",
+      area: "Creative Hub",
+      city: "Denver",
+      state: "CO",
+      country: "USA"
+    },
+   
+  ];
+
+  setSkills(initialSkills);
+  setFilteredSkills(initialSkills); // Initially set to all skills
+}, []);

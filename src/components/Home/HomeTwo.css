@@ -1,0 +1,97 @@
+.HomeTwo_main{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+}
+.HomeTwo_main .Home-Two{
+          width: 85%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: row;
+          margin-bottom: 5vmax;
+          margin-top: 3vmax;
+}
+.HomeTwo_main .Two_left{
+          width: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+}
+.HomeTwo_main .Two_left img{
+          width: 80%;
+}
+.HomeTwo_main .Two_Right{
+          width: 50%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          flex-direction: column;
+}
+.HomeTwo_main .Two_Right h5{
+         font-size: 2vmax;
+         font-weight: 600;
+         color: #003f80;
+}
+.HomeTwo_main .Two_Right .kn{
+          color: #003266;
+          border-radius: 5px;
+          border: 2px solid #003266;
+          -webkit-box-shadow: 0 2px #003f80;
+          -moz-box-shadow: 0 2px #003f80;
+          box-shadow: 0 2px #003f80;    
+ }
+ .HomeTwo_main .Two_Right .kn button{
+          padding: 10px 20px;
+          color: #003f80;
+          border: none;
+          cursor: pointer;
+          background: none;
+          border-radius: 10px;
+          font-size: 0.9rem;
+          background: none;     
+ }
+
+
+ @media (max-width:600px) {
+          .HomeTwo_main{
+                    width: 100%;
+          }
+          .HomeTwo_main .Home-Two{
+                    width: 95%;
+                    flex-direction: column-reverse;
+          }
+          .HomeTwo_main .Two_left{
+                    width: 100%;
+          }
+          .HomeTwo_main .Two_left img{
+                    width: 100%;
+                    margin-top: 3vmax;
+          }
+          .HomeTwo_main .Two_Right{
+                    width: 100%;
+          }
+          .HomeTwo_main .Two_Right h5{
+                   font-size: 4vmax;
+          }
+          .HomeTwo_main .Two_Right .kn{
+                    color: #003266;
+                    border-radius: 5px;
+                    border: 2px solid #003266;
+                    -webkit-box-shadow: 0 2px #003f80;
+                    -moz-box-shadow: 0 2px #003f80;
+                    box-shadow: 0 2px #003f80;    
+           }
+           .HomeTwo_main .Two_Right .kn button{
+                    padding: 10px 20px;
+                    color: #003f80;
+                    border: none;
+                    cursor: pointer;
+                    background: none;
+                    border-radius: 10px;
+                    font-size: 0.9rem;
+                    background: none;     
+           }      
+ }
