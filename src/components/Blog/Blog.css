@@ -11,6 +11,7 @@
           align-items: center;
           justify-content: center;
           flex-direction: column;
+          margin-top: 5vmax;
 }
 .Blog-main .blogs .blog-top{
           width: 100%;
@@ -75,9 +76,10 @@
          flex-direction: row;
          gap: 1vmax;
          margin-top: 0.5vmax;
+         flex-wrap: wrap;
    }
    .Blog-main .blogs .blog2 .b-two .blog-box{
-          width: 50%;
+          width: 49%;
           display: flex;
           align-items: flex-start;
           justify-content: center;

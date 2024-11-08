@@ -10,6 +10,8 @@
           align-items: center;
           justify-content: space-between;
           flex-direction: column;
+          margin-top: 5vmax
+
 }
 .AboutUs-container .about-content .about-top{
           width: 100%;

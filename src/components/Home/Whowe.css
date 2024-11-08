@@ -5,13 +5,124 @@
     justify-content: center;
 }
 
+/* --------------------------------------------------------------------- */
+
+.Whowe-main .modal-overlay-slide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(237, 236, 236, 0.906);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content {
+    background: white;
+    box-shadow: 0px 1px 2px 1px #001a285c;
+    border-radius: 8px;
+    width: 45%;
+    padding: 1vmax;
+    margin-top: 5vmax;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content .modal-close {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2vmax;
+    flex-direction: row;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content h5 {
+    font-size: 1.2vmax;
+    font-weight: 700;
+    color: #003266;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.3vmax;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt {
+    width: 100%;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt.full {
+    grid-column: span 2;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt input,
+  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt textarea,
+  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt button {
+    width: 100%;
+    padding: 0.3vmax 1vmax;
+    border-radius: 5px;
+    border: 1px solid #bdbdbd;
+    outline: none;
+  }
+  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt-select.full {
+    grid-column: span 2;
+  }
+
+  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt-checkbox {
+    grid-column: span 2; /* Makes it full width */
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.2vmax;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt-checkbox h6 {
+    font-size: 1vmax;
+    color: #003266;
+    font-weight: 600;
+    margin-bottom: 0.4vmax;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt-checkbox label {
+    display: flex;
+    align-items: center;
+    font-size: 0.9vmax;
+    color: #333;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt-checkbox input[type="checkbox"] {
+    margin-right: 0.5vmax;
+    transform: scale(1.2); /* Increase checkbox size for better visibility */
+  }
+  
+  
+  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt-select select {
+    width: 100% !important;
+    padding: 0.4vmax 1vmax;
+    border-radius: 5px;
+    border: 1px solid #bdbdbd;
+    outline: none;
+  }
+  
+  
+  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt button {
+    background: #003266;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+         
+/* --------------------------------------------------------------------- */
 .who-page {
-    width: 80%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 3vmax;
+    margin-top: 2vmax;
 }
 
 .who-top {
@@ -51,26 +162,182 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    margin-top: 2vmax;
+    margin-top: 3vmax;
 }
 
 .who-btm h6 {
-    font-size: 1.4vmax;
+    font-size: 1.8vmax;
     text-transform: capitalize;
     margin-left: 1vmax;
+    color: #003266;
+    font-weight: 700
+}
+
+.who-btm .search-bar-skill-responsive{
+  display: none;
+}
+.who-btm .search-bar-skill {
+  width: 100%;
+  display: flex;
+  align-self: flex-start;
+  justify-content: space-between;
+  gap: 1vmax;
+  padding: 1vmax;
+  border-radius: 5px;
+  margin-bottom: 0.5vmax;
+  margin-top: 0.5vmax;
+}
+
+.who-btm .search-bar-skill .skill-ipt {
+  width: 100%;
+  position: relative;
+}
+
+.who-btm .search-bar-skill .skill-ipt input {
+  width: 100%;
+  padding: 0.5vmax 1vmax;
+  padding-right: 2.5vmax; /* Space for icon */
+  outline: none;
+  border: 1px solid #848484;
+  border-radius: 5px;
+}
+
+.who-btm .search-bar-skill .skill-ipt .input-icon {
+  position: absolute;
+  right: 10px;
+  top: 20%;
+  transform: translateY(-50%);
+  width: 1.5vmax; /* Adjust size */
+  height: auto;
+  animation: skill 1.5s infinite linear;
+}
+@keyframes skill {
+  from {
+      transform: rotateY(0deg);
+  }
+  to {
+      transform: rotateY(180deg);
+  }
+}
+
+.who-btm .search-bar-skill .map-btn,
+.who-btm .search-bar-skill .skill-btn,
+.who-btm .search-bar-skill .sort-dropdown {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.who-btm .search-bar-skill .map-btn button,
+.who-btm .search-bar-skill .skill-btn button{
+  width: 100%;
+  background: #003266;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5vmax 1vmax;
+}
+
+.who-btm .search-bar-skill .sort-dropdown select {
+  font-size: 1vmax;
+  padding: 0.6vmax 1vmax;
+  border-radius: 5px;
+  outline: none;
 }
 
 .who-slide {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     margin-top: 1vmax;
+    gap: 1vmax;
+}
+
+.who-slide .home-map{
+   width: 30%;
+   height: 450px;
+}
+.who-slide .home-map iframe{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+.home-map {
+  position: relative;
+}
+
+.map-arrow-icon {
+  position: absolute;
+  top: 0px; /* Position above the map */
+  left: 20%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  color: #003266; /* Icon color */
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.map-arrow-icon h6{
+  font-size: 1vmax;
+  padding: 0.6vmax 1.3vmax;
+
+}
+.map-arrow-icon h6 i{
+  font-size: 1vmax;
+}
+.map-arrow-icon:hover {
+  transform: translateX(-50%) scale(1.1); /* Enlarge slightly on hover */
+}
+
+/* Overlay styles */
+.map-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Transparent dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.map-overlay-content {
+  position: relative;
+  background: #fff;
+  padding: 1vmax;
+  border-radius: 10px;
+  width: 85%; /* Adjust width as needed */
+  height: 600px;
+  margin-top: 4vmax;
+}
+
+.map-overlay-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.9vmax;
+  cursor: pointer;
+  color: #003266;
+  background-color: #fff;
+  padding: 0.4vmax 0.8vmax;
+}
+
+/* Style for the iframe */
+.map-overlay iframe {
+  border-radius: 5px;
+  width: 100%;
+  height: 400px;
 }
 
 .slider-container {
     text-align: center;
-    width: 100%;
+    width: 70%;
     /* margin: 0px 10px; */
     /* padding-top: 1vmax; */
     padding-bottom: 1vmax;
@@ -81,164 +348,350 @@
     padding: 0px;
     /* box-shadow: 0px 1px 2px 0px #929292; */
     border: 0.2px solid #cfcfcf;
-    height: 430px;
-    text-align: center;
+    height: 450px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    margin: 0 10px;
+    margin: 0 5px;
 }
 
 .slick-slide .w-box img {
     width: 100%;
-    height: 250px;
+    height: 220px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
-.slick-slide .w-box h6 {
-    width: 100%;
-    height: 50px;
+.slick-slide .w-box .text-panel{
+    width: 95%;
+    height: 230px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.slick-slide .w-box .text-panel h5 {
     margin-top: 1vmax;
+    font-weight: 700;
+    font-size: 1.5vmax;
 }
 
-.slick-slide .w-box p {
-    text-align: center;
-    width: 90%;
-    height: 80px;
-}
-
-.slick-slide .w-box .get {
-    margin-bottom: 1vmax;
-    color: #003266;
-    font-weight: 600;
-    border-radius: 5px;
-    border: 2px solid #003266;
-    -webkit-box-shadow: 0 2px #003f80;
-    -moz-box-shadow: 0 2px #003f80;
-    box-shadow: 0 2px #003f80;
-}
-
-.slick-slide .w-box .get button {
-    padding: 10px 20px;
-    color: #003f80;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    background: none;
-    font-weight: 600;
-}
-
-/* Style for Left Arrow */
-.slick-prev {
-    left: -40px;
-    /* Adjust position */
-    z-index: 10;
-    font-size: 24px;
-    color: #003266 !important;
-    /* Blue to contrast with white */
-    background-color: rgba(30, 30, 30, 0.8) !important;
-    /* White background with slight transparency */
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); */
-    cursor: pointer;
-}
-
-/* Style for Right Arrow */
-.slick-next {
-    right: -40px;
-    /* Adjust position */
-    z-index: 10;
-    font-size: 24px;
-    color: #003266 !important;
-    /* Blue color */
-    background-color: rgba(27, 27, 27, 0.8) !important;
-    /* Transparent white */
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); */
-    cursor: pointer;
-}
-
-/* Remove default Slick arrows */
-.slick-prev::before,
-.slick-next::before {
-    content: '';
-}
-
-.slick-dots {
-
-    position: absolute;
-    bottom: -50px !important;
-    display: block;
+.slick-slide .w-box .text-panel p {
+    font-size: 1vmax;
     width: 100%;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    text-align: center;
+    text-align: start;
+}
+.slick-slide .w-box .text-panel .ss{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.slick-slide .w-box .text-panel .ss small{
+   letter-spacing: 1px;
+}
+.slick-slide .w-box span{
+    font-size: 1vmax;
+    margin-top: 0.5vmax;
+    font-weight: 600;
+
 }
 
-
-
-.slick-dots li button {
-    font-size: 10px;
-    margin-top: 2vmax;
-    width: 12px !important;
-    height: 12px !important;
-    border-radius: 50%;
-    background: gray !important;
-}
-
-.slick-dots li.slick-active button {
-    background: #003f80 !important;
-}
-
-.slick-dots li button:before {
-    display: none;
-    visibility: hidden;
+.slick-slide .w-box .text-panel  .get {
+   width: 100%;
+   margin-top: 0.5vmax;
+   padding: 0.5vmax 1vmax;
+   background-color: #003f80; 
+   color: #fff; 
+   padding: 0.5vmax 1vmax;
+   border: none;
+   border-radius: 5px;
 }
 
 @media (max-width:600px) {
+    
     .Whowe-main {
         width: 100%;
     }
-
     .who-page {
         width: 95%;
     }
-
-    .who-top h5 {
+  .who-top h5 {
         font-size: 3vmax;
     }
-
-    .who-top p {
+   .who-top p {
         font-size: 2vmax;
         width: 95%;
     }
-
-
     .who-btm {
         width: 100%;
     }
-
     .who-btm h6 {
-        font-size: 2vmax;
-    }
+        font-size: 3vmax;
+    } 
+  .Whowe-main .modal-overlay-slide    .modal-content {
+    width: 90%;
+  }
+  .Whowe-main .modal-overlay-slide    .modal-content .modal-close {
+ font-size: 3vmax;
+  }
+  .Whowe-main .modal-overlay-slide    .modal-content  h5{
+   font-size: 2vmax;
+     }
+    .Whowe-main .modal-overlay-slide    .modal-content  form .e-ipt button {
+        padding: 1.5vmax 1vmax;
+        }            
+   
 
+.who-btm .search-bar-skill{
+  display: none;
+}
+
+.who-btm .search-bar-skill-responsive{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vmax;
+  margin-top: 1vmax;
+
+}
+
+.who-btm .search-bar-skill-responsive .skill-ipt {
+  width: 100%;
+  position: relative;
+}
+
+.who-btm .search-bar-skill-responsive .skill-ipt input {
+  width: 100%;
+  padding: 1.3vmax 1vmax;
+  padding-right: 2.5vmax;
+  outline: none;
+  border: 1px solid #848484;
+  border-radius: 5px;
+}
+
+.who-btm .search-bar-skill-responsive .skill-ipt .input-icon {
+  position: absolute;
+  right: 10px;
+  top: 20%;
+  transform: translateY(-50%);
+  width: 3vmax; /* Adjust size */
+  height: auto;
+  animation: skill 1.5s infinite linear;
+}
+@keyframes skill {
+  from {
+      transform: rotateY(0deg);
+  }
+  to {
+      transform: rotateY(180deg);
+  }
+}
+
+.who-btm .search-bar-skill-responsive .map-btn,
+.who-btm .search-bar-skill-responsive .skill-btn,
+.who-btm .search-bar-skill-responsive .sort-dropdown {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.who-btm .search-bar-skill-responsive .map-btn button,
+.who-btm .search-bar-skill-responsive .skill-btn button{
+  width: 100%;
+  background: #003266;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 1.4vmax 1vmax;
+}
+
+.who-btm .search-bar-skill-responsive .sort-dropdown select {
+  font-size: 2vmax;
+  padding: 1.5vmax 1vmax;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.who-btm .who-slide{
+  display: flex;
+  flex-direction: column;
+}
+.who-slide .home-map{
+  width: 100%;
+}
+.slider-container{
+  width: 100%;
+}
+.slick-slide .w-box .text-panel{
+    width: 95%;
+    height: 230px;
+}
+
+.slick-slide .w-box .text-panel h5 {
+    font-size: 3vmax;
+}
+
+.slick-slide .w-box .text-panel p {
+    font-size: 2vmax;
+}
+
+.slick-slide .w-box span{
+    font-size: 2vmax;
+
+}
+.slick-slide .w-box .text-panel  .get {
+  width: 100%;
+  margin-top: 2vmax;
+  background-color: #003f80; 
+  padding: 1.6vmax 1vmax;
+}
+
+}
+
+@media (min-width:600px) and (max-width:1050px) {
+    
+  .Whowe-main {
+      width: 100%;
+  }
+  .who-page {
+      width: 95%;
+  }
+.who-top h5 {
+      font-size: 3vmax;
+  }
+ .who-top p {
+      font-size: 2vmax;
+      width: 95%;
+  }
+  .who-btm {
+      width: 100%;
+  }
+  .who-btm h6 {
+      font-size: 3vmax;
+  } 
+.Whowe-main .modal-overlay-slide    .modal-content {
+  width: 90%;
+}
+.Whowe-main .modal-overlay-slide    .modal-content .modal-close {
+font-size: 3vmax;
+}
+.Whowe-main .modal-overlay-slide    .modal-content  h5{
+ font-size: 2vmax;
+   }
+  .Whowe-main .modal-overlay-slide    .modal-content  form .e-ipt button {
+      padding: 1.5vmax 1vmax;
+      }            
+ 
+
+.who-btm .search-bar-skill{
+display: none;
+}
+
+.who-btm .search-bar-skill-responsive{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1vmax;
+margin-top: 1vmax;
+
+}
+
+.who-btm .search-bar-skill-responsive .skill-ipt {
+width: 100%;
+position: relative;
+}
+
+.who-btm .search-bar-skill-responsive .skill-ipt input {
+width: 100%;
+padding: 1.3vmax 1vmax;
+padding-right: 2.5vmax;
+outline: none;
+border: 1px solid #848484;
+border-radius: 5px;
+}
+
+.who-btm .search-bar-skill-responsive .skill-ipt .input-icon {
+position: absolute;
+right: 10px;
+top: 20%;
+transform: translateY(-50%);
+width: 3vmax; /* Adjust size */
+height: auto;
+animation: skill 1.5s infinite linear;
+}
+@keyframes skill {
+from {
+    transform: rotateY(0deg);
+}
+to {
+    transform: rotateY(180deg);
+}
+}
+
+.who-btm .search-bar-skill-responsive .map-btn,
+.who-btm .search-bar-skill-responsive .skill-btn,
+.who-btm .search-bar-skill-responsive .sort-dropdown {
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.who-btm .search-bar-skill-responsive .map-btn button,
+.who-btm .search-bar-skill-responsive .skill-btn button{
+width: 100%;
+background: #003266;
+color: #fff;
+border: none;
+border-radius: 5px;
+padding: 1.4vmax 1vmax;
+}
+
+.who-btm .search-bar-skill-responsive .sort-dropdown select {
+font-size: 2vmax;
+padding: 1.5vmax 1vmax;
+width: 100%;
+border-radius: 5px;
+}
+
+.who-btm .who-slide{
+display: flex;
+flex-direction: column;
+}
+.who-slide .home-map{
+width: 100%;
+}
+.slider-container{
+width: 100%;
+}
+.slick-slide .w-box .text-panel{
+  width: 95%;
+  height: 230px;
+}
+
+.slick-slide .w-box .text-panel h5 {
+  font-size: 3vmax;
+}
+
+.slick-slide .w-box .text-panel p {
+  font-size: 2vmax;
+}
+
+.slick-slide .w-box span{
+  font-size: 2vmax;
+
+}
+.slick-slide .w-box .text-panel  .get {
+width: 100%;
+margin-top: 2vmax;
+background-color: #003f80; 
+padding: 1.6vmax 1vmax;
+}
 
 }

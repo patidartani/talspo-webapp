@@ -12,6 +12,8 @@
           align-items: center;
           justify-content: center;
           flex-direction: row;
+          margin-top: 5vmax
+
 }
 
 .DoPatnership-main .partner-one .p-left {

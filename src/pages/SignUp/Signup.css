@@ -4,13 +4,22 @@
           align-items: center;
           justify-content: center;
 }
+/* src/Signup.css */
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
 .Signup-main .Signup-page {
           width: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-direction: column;
-          margin-bottom: 5vmax;
+          margin-bottom: 3vmax;
 }
 .Signup-main .Signup-page .form-page {
           width: 40%;
@@ -20,7 +29,7 @@
           flex-direction: column;
           border-radius: 5px;
           box-shadow: 0px 1px 2px 1px #001a285c;
-          margin-top: 1vmax;
+          margin-top: 7vmax;
           padding: 1vmax;
           background-color: #fff;
 }

@@ -3,6 +3,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
+
 }
 .Achive-main .Achive-page{
           width: 100%;
@@ -11,6 +12,7 @@
           justify-content: center;
           flex-direction: column;
           margin-bottom: 2vmax;
+          margin-top: 5vmax
 
 }
 .Achive-main .Achive-page .achive-top{

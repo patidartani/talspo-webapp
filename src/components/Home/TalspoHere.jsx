@@ -1,10 +1,14 @@
 import React from 'react'
 import "./TalspoHere.css"
 import LogoImg from "../../assets/images/talspoIcon.png"
+import Navbar from '../../pages/Navbar/Navbar'
+import Footer from "../../pages/Footer/Footer"
 
 
 const TalspoHere = () => {
   return (
+<>
+<Navbar />
 <div className='TalspoHere-main'>
 <div className="Talspo-page">
 {/* ---------------------------- */}
@@ -29,6 +33,8 @@ const TalspoHere = () => {
 
 </div>
 </div>
+<Footer />
+</>
   )
 }
 
