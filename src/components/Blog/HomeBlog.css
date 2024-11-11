@@ -35,6 +35,7 @@
 }
 .HomeBlog-main .home-blog .home-blog-right .h-blg-right{
           width: 24%;
+          height: 500px;
           display: flex;
           align-items: flex-start;
           justify-content: space-between;
@@ -45,6 +46,7 @@
 }
 .HomeBlog-main .home-blog .home-blog-right .h-blg-right img{
           width: 100%;
+          height: 200px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
 

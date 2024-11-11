@@ -17,6 +17,8 @@ import AboutUs from "./components/About/AboutUs"
 import HowWeWork from "./components/About/HowWeWork"
 import TalspoHere from "./components/Home/TalspoHere"
 import Tca from "./components/Join/Tca"
+import BlogDetail from "./components/Blog/BlogDetail"
+import Loading from "./pages/loading/Loading"
 
 const App = () => {
   return (
@@ -38,12 +40,12 @@ const App = () => {
         <Route path="/how-we-work" element={<HowWeWork/>} />
         <Route path="/talspo-here" element={<TalspoHere/>} />
         <Route path="/tca" element={<Tca/>} />
-
-
+        <Route path="/blog-detail" element={<BlogDetail/>} />
 
         <Route  path='/language' element={<LanguageTranslate />}/>
 
-
+        <Route  path='/loading' element={<Loading />}/>
+ 
 
 
       </Routes>

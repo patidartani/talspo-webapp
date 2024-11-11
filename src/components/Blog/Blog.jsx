@@ -5,12 +5,13 @@ import BlogImg from "../../assets/images/blogimg.png";
 import BlogMan from "../../assets/images/BlogMan.png";
 import Footer from '../../pages/Footer/Footer';
 import { recentBlogPosts, featuredBlogPosts } from '../../apiService';
+import Loading from '../../pages/loading/Loading'; // Import the Loading component
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState([]);
-    const [featuredBlogs, setFeaturedBlogs] = useState([]);
-  
+  const [featuredBlogs, setFeaturedBlogs] = useState([]);
   const [showAllPosts, setShowAllPosts] = useState(false);
+  const [loading, setLoading] = useState(true); // Loading state for the entire page
 
   useEffect(() => {
     const loadRecentBlogs = async () => {
@@ -33,13 +34,21 @@ const Blog = () => {
       }
     };
 
-    loadRecentBlogs();
-    loadFeaturedBlogs();
+    const fetchData = async () => {
+      await Promise.all([loadRecentBlogs(), loadFeaturedBlogs()]);
+      setLoading(false); // Stop loading once both data sets are fetched
+    };
+
+    fetchData();
   }, []);
 
   const toggleShowAll = () => {
     setShowAllPosts(!showAllPosts);
   };
+
+  if (loading) {
+    return <Loading />; // Show loading indicator until data is loaded
+  }
 
   return (
     <>

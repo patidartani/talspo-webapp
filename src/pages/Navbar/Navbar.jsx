@@ -30,6 +30,13 @@ const Navbar = () => {
     setIsNavActive(!isNavActive);
   };
 
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen(prevState => !prevState); // Toggle open/close on each click of h6
+  };
+
   const handleAboutMouseEnter = () => setIsAboutDropdownVisible(true);
   const handleAboutMouseLeave = () => setIsAboutDropdownVisible(false);
 
@@ -64,7 +71,7 @@ const Navbar = () => {
         <div className="nav-mid">
 <div className="search-container">
   <i className="ri-search-line search-icon"></i>
-  <input type="text" placeholder="Search for Designers, Developers..." className="search-input" />
+  <input type="text" placeholder="Search Here..." className="search-input" />
   <img src={talspoIcon} alt="Talspo Icon" className="search-icon-end" /> {/* Add this line */}
 </div>
 
@@ -114,7 +121,7 @@ const Navbar = () => {
                 onMouseEnter={handleJoinMouseEnter}
                 onMouseLeave={handleJoinMouseLeave}
               >
-                <Link id='res-hide' to="">Join Us</Link>
+                <Link id='res-hide' to="">Join</Link>
                 {isJoinDropdownVisible && (
                   <div className="join-dropdown">
                     <Link to="/join">Join Us</Link>
@@ -171,6 +178,18 @@ const Navbar = () => {
         
 
       </div>
+      <div className="model-dropdown">
+      <h6 onClick={handleToggle} style={{ cursor: "pointer" }}>Model Service Dropdown</h6>
+      {isOpen && (
+        <div className="model-text">
+          <img src={mainLogo} alt="Logo" />
+          <small>
+            Jobs Connect: <span style={{ color: "red" }}>Coming Soon...</span>
+          </small>
+          <small>(*Dynamic Text)</small>
+        </div>
+      )}
+    </div>
     </div>
   );
 };

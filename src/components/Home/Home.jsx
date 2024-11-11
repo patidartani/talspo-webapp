@@ -20,6 +20,7 @@ import HomeTwo from './HomeTwo';
 import HomeBlog from '../Blog/HomeBlog';
 import { useNavigate } from 'react-router-dom';
 import HomeBroach from './HomeBroach';
+import FooterTop from '../../pages/Footer/FooterTop';
 
 const Home = () => {
      const navigate = useNavigate();
@@ -175,8 +176,8 @@ const Home = () => {
 {/* ---------------------------------------------------------------------------------- */}
        <HomeBlog />
        <HomeBroach />
-    <Free />
-       {/* <TalspoHere /> */}
+
+       <FooterTop />
    <Footer />
  
 </div>

@@ -10,16 +10,111 @@
           width: 80%;
           display: flex;
           align-items: center;
-          justify-content: center;
-          flex-direction: column;
+          justify-content: space-between;
+          flex-direction: row;
+          color: red;
 }
-.HomeBroach-main .homebroch h5{
-         font-size: 2vmax;
-        color: #003f80;
-        font-weight: 700;
-}
-.HomeBroach-main .homebroch p{
+.HomeBroach-main .homebroch .broch1{
+       width: 32%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       flex-direction: column;
        text-align: center;
-font-size: 1.1vmax;
-margin-bottom: 2vmax;
 }
+.HomeBroach-main .homebroch  h6{
+      font-weight: 600;
+      font-size: 1.3vmax;
+}
+.HomeBroach-main .homebroch .broch1 img{
+       width: 70%;
+}
+.HomeBroach-main .homebroch .broch2{
+       width: 32%;
+       display: flex;
+       align-items: center;
+       justify-content: space-evenly;
+       flex-direction: row;
+}.HomeBroach-main .homebroch .broch3{
+       width: 32%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       flex-direction: column;
+}
+.HomeBroach-main .homebroch .broch3 button{
+       margin-bottom: 0.5vmax;  
+       border: none;
+       padding: 0.7vmax 1vmax;
+       border-radius: 5px;
+       color: #e4e4e4;
+       font-size: 0.9vmax;
+       font-weight: 600;
+       background-color: #003f80;
+}
+.HomeBroach-main .homebroch .broch3 img{
+       width:70%;
+}
+
+@media (max-width:600px) {
+    .HomeBroach-main .homebroch{
+              width: 95%;
+              flex-direction: column;
+              gap: 5vmax;
+    }
+    .HomeBroach-main .homebroch .broch1{
+           width: 100%;
+    }
+    .HomeBroach-main .homebroch  h6{
+          font-size: 3vmax;
+    }
+    .HomeBroach-main .homebroch .broch1 img{
+           width: 50%;
+    }
+    .HomeBroach-main .homebroch .broch2{
+           width: 100%;
+    }.HomeBroach-main .homebroch .broch3{
+           width: 100%;
+    }
+    .HomeBroach-main .homebroch .broch3 button{
+           padding: 1.4vmax 2vmax;
+           font-size: 1.6vmax;
+          margin-bottom: 2vmax;
+    }
+    .HomeBroach-main .homebroch .broch3 img{
+           width:50%;
+    }
+      
+}
+
+
+@media (min-width:600px) and (max-width:1050px) {
+       .HomeBroach-main .homebroch{
+                 width: 95%;
+                 flex-direction: column;
+                 gap: 5vmax;
+       }
+       .HomeBroach-main .homebroch .broch1{
+              width: 100%;
+       }
+       .HomeBroach-main .homebroch  h6{
+             font-size: 3vmax;
+       }
+       .HomeBroach-main .homebroch .broch1 img{
+              width: 50%;
+       }
+       .HomeBroach-main .homebroch .broch2{
+              width: 100%;
+       }.HomeBroach-main .homebroch .broch3{
+              width: 100%;
+       }
+       .HomeBroach-main .homebroch .broch3 button{
+              padding: 1.4vmax 2vmax;
+              font-size: 1.6vmax;
+             margin-bottom: 2vmax;
+       }
+       .HomeBroach-main .homebroch .broch3 img{
+              width:50%;
+       }
+         
+   }

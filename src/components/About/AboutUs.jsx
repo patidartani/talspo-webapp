@@ -1,38 +1,41 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import "./AboutUs.css";
 import Navbar from "../../pages/Navbar/Navbar";
 import AboutTopImg from "../../assets/images/aboutusTop.webp";
-import Footer from "../../pages/Footer/Footer"
-
-// Array containing data for each about section
-const aboutSections = [
-  {
-    heading: "Heading 1",
-    content1: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium ipsam aliquam, repellendus aspernatur quisquam exercitationem iusto illo ad omnis totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, quisquam.",
-    imageContent: "image, Gif", // Placeholder for image or gif
-    content2: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, est deserunt qui voluptas reiciendis asperiores. Aspernatur illo placeat facere iste sit? Incidunt cupiditate doloremque fugiat possimus officiis rem cumque, est non sint corrupti nesciunt unde! Non esse velit, in quae natus quasi quas! Hic earum repellat vitae quae consequuntur, voluptatum sint soluta deserunt magnam. Non ipsum provident modi totam cum ex doloremque esse saepe quae natus minima corrupti praesentium impedit quia ipsa sequi, illo, iusto facilis quis, nemo aliquid? Explicabo."
-  },
-  {
-    heading: "Heading 2",
-    content1: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium ipsam aliquam, repellendus aspernatur quisquam exercitationem iusto illo ad omnis totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, quisquam.",
-    imageContent: "image, Gif", // Placeholder for image or gif
-    content2: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, est deserunt qui voluptas reiciendis asperiores. Aspernatur illo placeat facere iste sit? Incidunt cupiditate doloremque fugiat possimus officiis rem cumque, est non sint corrupti nesciunt unde! Non esse velit, in quae natus quasi quas! Hic earum repellat vitae quae consequuntur, voluptatum sint soluta deserunt magnam. Non ipsum provident modi totam cum ex doloremque esse saepe quae natus minima corrupti praesentium impedit quia ipsa sequi, illo, iusto facilis quis, nemo aliquid? Explicabo."
-  },
-  {
-    heading: "Heading 3",
-    content1: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium ipsam aliquam, repellendus aspernatur quisquam exercitationem iusto illo ad omnis totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, quisquam.",
-    imageContent: "image, Gif", // Placeholder for image or gif
-    content2: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, est deserunt qui voluptas reiciendis asperiores. Aspernatur illo placeat facere iste sit? Incidunt cupiditate doloremque fugiat possimus officiis rem cumque, est non sint corrupti nesciunt unde! Non esse velit, in quae natus quasi quas! Hic earum repellat vitae quae consequuntur, voluptatum sint soluta deserunt magnam. Non ipsum provident modi totam cum ex doloremque esse saepe quae natus minima corrupti praesentium impedit quia ipsa sequi, illo, iusto facilis quis, nemo aliquid? Explicabo."
-  },
-];
+import Footer from "../../pages/Footer/Footer";
+import { fetchAboutUs } from "../../apiService";
+import Loading from '../../pages/loading/Loading'; 
 
 const AboutUs = () => {
+  const [aboutData, setAboutData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const getAboutUsData = async () => {
+      try {
+        const data = await fetchAboutUs();
+        console.log("Fetched About Us Data Response:", data);
+        setAboutData(data);
+      } catch (error) {
+        console.error("Error fetching About Us data:", error);
+        setAboutData({ error: true, records: [] });
+      } finally {
+        setLoading(false); 
+      }
+    };
+
+    getAboutUsData();
+  }, []);
+
+  if (loading) {
+    return <Loading />; 
+  }
+
   return (
     <>
       <Navbar />
       <div className="AboutUs-container">
         <div className="about-content">
-
           <div className="about-top">
             <div className="a-left">
               <h6>About Us</h6>
@@ -44,18 +47,26 @@ const AboutUs = () => {
           </div>
 
           <div className="about-btm">
-            {aboutSections.map((section, index) => (
-              <div className="about-box" key={index}>
-                <h5>{section.heading}</h5>
-                <p>{section.content1}</p>
-                <div className="about-img">
-                  {section.imageContent}
-                </div>
-                <p>{section.content2}</p>
-              </div>
-            ))}
+            {aboutData ? (
+              aboutData.records && aboutData.records.length > 0 ? (
+                aboutData.records.map((section, index) => (
+                  <div className="about-box" key={index}>
+                    <h5>{section.title}</h5>
+                    <p>{section.description}</p>
+                    <div className="about-img">
+                      <img src={section.image} alt={section.title} />
+                    </div>
+                  </div>
+                ))
+              ) : aboutData.error ? (
+                <p>Something went wrong while fetching the data.</p>
+              ) : (
+                <p>No data available.</p>
+              )
+            ) : (
+              <p>Loading...</p>
+            )}
           </div>
-
         </div>
       </div>
       <Footer />
