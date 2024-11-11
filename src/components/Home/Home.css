@@ -294,6 +294,7 @@ width: 90%;
     width: 100%;
     height: 800px;
     flex-direction: column;
+    margin-top: 7vmax;
   }
   .Home .left{
     width:95%;

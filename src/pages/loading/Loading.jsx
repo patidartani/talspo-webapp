@@ -1,10 +1,12 @@
-import loaderGif from "../../assets/images/giphy.gif"
 import "./Loading.css"
+import talspoIcon from "../../assets/images/talspoIcon.png"
 
 const Loading = () => {
   return (
     <div className='loading'>
-       <img src={loaderGif} alt="Loading..." className="loading-gif" />
+       <div className="loading-logo">
+       <img src={talspoIcon} alt="Loading..." className="loading-gif" />
+       </div>
        <h5>Loading...</h5>
     </div>
   )

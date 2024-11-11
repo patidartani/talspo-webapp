@@ -7,6 +7,10 @@ export const LOGIN_URL = `${BASE_URL}/login-view`;
 export const MESSAGE_URL = `${BASE_URL}/massage-create`;
 export const BLOG_POSTS_URL = `${BASE_URL}/recent-post-view`; 
 export const FEATURED_BLOG_URL = `${BASE_URL}/featured-blogs-view`; 
+export const JOB_POST_URL = `${BASE_URL}/job-post-view`;
+export const ABOUT_US_URL = `${BASE_URL}/about-us-view`;
+export const BLOG_VIEW_URL = `${BASE_URL}/blog-view`;
+
 
 export const recentBlogPosts = async () => {
           try {
@@ -19,7 +23,32 @@ export const recentBlogPosts = async () => {
             return [];
           }
         };
-        
+   
+
+        export const fetchJobPosts = async () => {
+          try {
+            const response = await axios.get(JOB_POST_URL);
+            console.log(" Job Posts Response :", response.data);
+            return response.data.records || []; 
+          } catch (error) {
+            console.error('Error fetching job posts:', error);
+            return [];
+          }
+        };
+           
+
+        export const fetchAboutUs = async () => {
+          try {
+            const response = await axios.get(ABOUT_US_URL);
+            console.log("Fetched About Us Data:", response.data);
+            return response.data || {};
+          } catch (error) {
+            console.error('Error fetching About Us data:', error);
+            return {};
+          }
+        };
+
+             
         export const featuredBlogPosts = async () => {
           try {
             const response = await axios.get(FEATURED_BLOG_URL);
@@ -32,3 +61,14 @@ export const recentBlogPosts = async () => {
           }
         };
         
+
+        export const fetchBlogDetail = async (id) => {
+          try {
+            const response = await axios.get(`${BLOG_VIEW_URL}/${id}`);  // Add the ID to the URL for fetching a specific blog post
+            console.log("Fetched Blog Detail:", response.data);
+            return response.data || {};
+          } catch (error) {
+            console.error('Error fetching blog detail:', error);
+            return {};
+          }
+        };

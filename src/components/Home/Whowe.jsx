@@ -80,20 +80,7 @@ const Whowe = () => {
         state: "IL",
         country: "USA"
       },
-      {
-        name: "Entrepreneur",
-        salary: 80000,
-        currency: "USD",
-        description: "Starts and manages a business. Takes on various leadership roles.",
-        img: 'https://plus.unsplash.com/premium_photo-1661277816311-28cced31f998?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YnVzaW5lc3N8ZW58MHx8MHx8fDA%3D',
-        status: "Self-Employed",
-        location: "Variable",
-        pinCode: "33445",
-        area: "Business District",
-        city: "San Francisco",
-        state: "CA",
-        country: "USA"
-      },
+      
       {
         name: "Networker",
         salary: 55000,
@@ -321,7 +308,7 @@ const Whowe = () => {
   <div className="skill-ipt">
     <input
       type="text"
-      placeholder="Search by Skill"
+      placeholder="Search for Developers, Designers..."
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
     />
@@ -354,7 +341,7 @@ const Whowe = () => {
           <div className="skill-ipt">
     <input
       type="text"
-      placeholder="Search by Skill"
+      placeholder="Search for Developers,Designers..."
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
     />
