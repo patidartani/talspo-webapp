@@ -91,6 +91,14 @@ const Blog = () => {
             </div>
           </div>
 
+
+           <div className="Blog-search">
+            <div className="ipt-blg">
+              <input type="text"  placeholder='Search'/>
+            </div>
+           </div>
+
+
           {/* ----------------- Featured Posts Section ----------------- */}
           <div className="blog-container">
             <h6>Featured Blogs</h6>
@@ -115,7 +123,7 @@ const Blog = () => {
   ) : (
     <p>No featured blog posts available</p>
   )}
-</div>
+               </div>
 
               <div className="Blogs_img">
                 <img src={BlogMan} alt="BlogMan" />
