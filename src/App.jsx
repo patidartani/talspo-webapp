@@ -19,7 +19,9 @@ import TalspoHere from "./components/Home/TalspoHere"
 import Tca from "./components/Join/Tca"
 import BlogDetail from "./components/Blog/BlogDetail"
 import Loading from "./pages/loading/Loading"
-
+import PrivacyPolicy from "./pages/Footer/privacyPolicy/PrivacyPolicy"
+import TermsCondition from "./pages/Footer/privacyPolicy/TermsCondition"
+import TermOfUse from "./pages/Footer/privacyPolicy/TermOfUse"
 const App = () => {
   return (
     <div>
@@ -41,13 +43,11 @@ const App = () => {
         <Route path="/talspo-here" element={<TalspoHere/>} />
         <Route path="/tca" element={<Tca/>} />
         <Route path="/blog-detail/:id" element={<BlogDetail />} />
-
         <Route  path='/language' element={<LanguageTranslate />}/>
-
         <Route  path='/loading' element={<Loading />}/>
- 
-
-
+        <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
+        <Route path="/term-condition" element={<TermsCondition/>}/>
+        <Route path="/term-of-use" element={<TermOfUse/>}/>
       </Routes>
     </div>
   )
