@@ -23,7 +23,7 @@ const FooterTop = () => {
      </div>   
      <div className="footer3">
                  <h6>Follow and get updates via company profile links</h6>
-                 <h5><a href="/">LinkedIn</a>|<a href="">X</a> | <a href="">YouTube</a> | <a href="">F6s</a> | <a href="">Crunchbase</a> <a href="">YourStory</a> <a href="">ProductHunt</a> </h5>
+                 <h5><a href="/">LinkedIn</a>|<a href="">X</a> | <a href="">YouTube</a> | <a href="">F6s</a> | <a href="">Crunchbase</a> | <a href="">YourStory</a> <a href="">ProductHunt</a> </h5>
       </div>      
 
 </div>
