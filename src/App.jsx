@@ -41,7 +41,6 @@ const App = () => {
         <Route path="/talspo-here" element={<TalspoHere/>} />
         <Route path="/tca" element={<Tca/>} />
         <Route path="/blog-detail/:id" element={<BlogDetail />} />
-
         <Route  path='/language' element={<LanguageTranslate />}/>
 
         <Route  path='/loading' element={<Loading />}/>
