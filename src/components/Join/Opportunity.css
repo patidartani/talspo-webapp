@@ -107,7 +107,7 @@
 }
 .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .category .selected-categories{
      width: 100%;
-     border: 1px solid #c5c5c5;
+     /* border: 1px solid #c5c5c5; */
      padding: 0.5vmax;
      border-radius: 5px;
      display: flex;

@@ -28,7 +28,7 @@ const Footer = () => {
                   <small> Talspo Private Limited © 2024 (All rights reserved)   </small>
               </div>
               <div className="f-three">
-                     <h6>Developing In India,</h6>
+                     <h6>Developing In India,(Bharat)</h6>
                      <h6>Providing NEARBY Talent Connectivity Globally</h6>
               </div>
 

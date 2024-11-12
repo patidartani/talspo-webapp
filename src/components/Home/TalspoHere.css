@@ -4,10 +4,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #003266;
+    background-image: url(../../assets/images/MapYellow.png);
     /* Talspo page ke background-color ke saath match ho gaya */
     color: #ffff;
     padding: 1vmax;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 3vmax;
 }
 
 .TalspoHere-main .Talspo-page {
@@ -17,7 +21,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-image: linear-gradient(rgba(0, 50, 102, .75), rgba(0, 50, 102, .75)), url(../../assets/images/map2.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

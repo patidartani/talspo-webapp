@@ -19,6 +19,7 @@ import TalspoHere from "./components/Home/TalspoHere"
 import Tca from "./components/Join/Tca"
 import BlogDetail from "./components/Blog/BlogDetail"
 import Loading from "./pages/loading/Loading"
+import ApplyNow from "./components/Join/ApplyNow"
 
 const App = () => {
   return (
@@ -42,6 +43,8 @@ const App = () => {
         <Route path="/tca" element={<Tca/>} />
         <Route path="/blog-detail/:id" element={<BlogDetail />} />
         <Route  path='/language' element={<LanguageTranslate />}/>
+        <Route  path='/apply' element={<ApplyNow />}/>
+
 
         <Route  path='/loading' element={<Loading />}/>
  

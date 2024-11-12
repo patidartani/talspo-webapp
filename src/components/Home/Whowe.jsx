@@ -98,7 +98,7 @@ const Whowe = () => {
   <div className="modal-content">
 
     <span className="modal-close" >
-    <h5>Contact With HR For More Enquiry</h5>
+    <h5>Direct Connect Human Resources Executive</h5>
       <i onClick={closeModal} style={{ cursor: "pointer" }} className="ri-close-line"></i>
     </span>
     <form>
@@ -149,7 +149,8 @@ const Whowe = () => {
      
       <div className="e-ipt-select full">
   <label>
-    Comfortable with online meetings?
+  Are you comfortable using Zoom, G-meet, etc. for initial meetings,
+if you are not able to visit our office 
     <select name="onlineMeet">
       <option value="">Select an option</option>
       <option value="Yes">Yes</option>
@@ -159,7 +160,7 @@ const Whowe = () => {
 </div>
 
 <div className="e-ipt-checkbox full">
-<h6>Consent:</h6>
+<h6>Consent *:</h6>
         <label>
           <input type="checkbox" name="consent" />
           Agree to be contacted by Talspo via WhatsApp, SMS, Phone, Email, etc.
@@ -212,9 +213,10 @@ const Whowe = () => {
   </div>
   <div className="sort-dropdown">
     <select onChange={(e) => handleSort(e)} value={sortOption}>
-      <option value="">Sort by</option>
+      <option value="" disabled>Sort by</option>
       <option value="jobType"> Experience</option>
       <option value="salary">Trusted/Verified Candidates</option>
+      <option value="active">Actively Looking</option>
     </select>
   </div>
   <div className="skill-btn">
