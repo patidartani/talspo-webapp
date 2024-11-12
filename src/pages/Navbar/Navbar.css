@@ -36,21 +36,23 @@
 }
 .Navbar-main .nav-highlight{
   width: 100%;
-  background: red;
+  background: yellow;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: row;
+  color: red;
 }
 
 .Navbar-main .nav-highlight span{
 font-size: 0.8vmax;
 letter-spacing: 1px;
-color: #181818;
+color: red;
 font-weight: 600;
 }
 .Navbar-main .nav-highlight span a{
  text-decoration: none;
+ color: red;
   }
   
 /* Remove position: sticky since position: fixed is used */
