@@ -13,9 +13,9 @@ const HomeBroach = () => {
                       <img src={YlwImg} alt="" />
                       </div>
                       <div className="broch2">
-                            <img src={networkImg} alt="" />
-                            <img src={networkImg} alt="" />
-                        </div> 
+  <img src={networkImg} alt="" style={{ transform: 'rotate(180deg)' }} />
+  <img src={networkImg} alt="" style={{ transform: 'rotate(0deg)' }} />
+</div>
                         <div className="broch3">
                           <h6>Connect with us</h6>
                           <button>CONTACT US</button>

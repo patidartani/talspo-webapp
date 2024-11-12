@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./Navbar.css"; // Ensure this path is correct
-import mainLogo from "../../assets/images/telspo-logo.png"; // Ensure logo path is correct
+import mainLogo from "../../assets/images/NewmainLogo.png"; 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import talspoIcon from "../../assets/images/talspoIcon.png"
 import { FaGlobe } from "react-icons/fa";
@@ -16,11 +16,11 @@ const Navbar = () => {
   const [isJoinDropdownVisible, setIsJoinDropdownVisible] = useState(false);
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-   // Access the authentication state from Redux
-   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-   const user = useSelector((state) => state.auth.user);
+  // Access the authentication state from Redux
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const user = useSelector((state) => state.auth.user);
 
-   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const homeHandler = () => {
     navigate('/');
@@ -45,8 +45,8 @@ const Navbar = () => {
 
   const handleAuthButtonClick = () => {
     if (isAuthenticated) {
-      dispatch(clearUser()); 
-      navigate('/signin'); 
+      dispatch(clearUser());
+      navigate('/signin');
     } else {
       if (location.pathname === '/signin') {
         navigate('/signup');
@@ -59,9 +59,9 @@ const Navbar = () => {
 
   return (
     <div className="Navbar-main">
-       <div className="nav-highlight">
-      <span>Talspo Patent Technology: <a href="/about-us">Know More</a> </span> <span><a href="/opportunities">We Are Hiring </a></span> <span>Talspo AI - Nearby Skill Discovery Ecosystem: <a href="/about-us">Know More</a></span>
-       </div>
+      <div className="nav-highlight">
+        <span>Talspo Patent Technology: <a href="/about-us">Know More</a> </span> <span><a href="/opportunities">We Are Hiring </a></span> <span>Talspo AI - Nearby Skill Discovery Ecosystem: <a href="/about-us">Know More</a></span>
+      </div>
       <div className="navbar-page">
         <div className="nav-left">
           <div onClick={homeHandler} className="logo">
@@ -69,11 +69,11 @@ const Navbar = () => {
           </div>
         </div>
         <div className="nav-mid">
-<div className="search-container">
-  <i className="ri-search-line search-icon"></i>
-  <input type="text" placeholder="Search Here..." className="search-input" />
-  <img src={talspoIcon} alt="Talspo Icon" className="search-icon-end" /> {/* Add this line */}
-</div>
+          <div className="search-container">
+            <i className="ri-search-line search-icon"></i>
+            <input type="text" placeholder="Search Here..." className="search-input" />
+            <img src={talspoIcon} alt="Talspo Icon" className="search-icon-end" /> {/* Add this line */}
+          </div>
 
         </div>
 
@@ -84,10 +84,10 @@ const Navbar = () => {
             </div>
 
             <div className="link-item">
-            <Link style={{color:"red"}} to="/talspo-here">Talspo Here</Link>
+              <Link  style={{ color: "red" }} to="/talspo-here">Talspo Here</Link>
 
               {/* About Us Section */}
-              <div 
+              <div
                 className="about-us"
                 onMouseEnter={handleAboutMouseEnter}
                 onMouseLeave={handleAboutMouseLeave}
@@ -104,11 +104,11 @@ const Navbar = () => {
                   </div>
                 )}
                 <div className="about-dropdown-responsive">
-                  <Link to="/faq">About Us</Link>
-                  <Link to="/">FAQs</Link>
-                  <Link to="/our-team">Our Team</Link>
-                  <Link to="/achievements">Achievements</Link>
-                  <Link to="/how-we-work">How We Work</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/faq">About Us</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/">FAQs</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/our-team">Our Team</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/achievements">Achievements</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/how-we-work">How We Work</Link>
 
                 </div>
               </div>
@@ -116,7 +116,7 @@ const Navbar = () => {
               <Link to="/services">Services</Link>
 
               {/* Join Us Section */}
-              <div 
+              <div
                 className="join-us"
                 onMouseEnter={handleJoinMouseEnter}
                 onMouseLeave={handleJoinMouseLeave}
@@ -124,7 +124,7 @@ const Navbar = () => {
                 <Link id='res-hide' to="">Join</Link>
                 {isJoinDropdownVisible && (
                   <div className="join-dropdown">
-                    <Link to="/join">Join Us</Link>
+                    <Link  to="/join">Join Us</Link>
                     <Link to="/opportunities">Find Opportunities</Link>
                     <Link to="/partners">Do Partnership</Link>
                     <Link to="/tca"> Campus Ambassador</Link>
@@ -132,10 +132,10 @@ const Navbar = () => {
                   </div>
                 )}
                 <div className="join-dropdown-responsive">
-                  <Link to="/join-us">Join Us</Link>
-                  <Link to="/opportunities">Find Opportunities</Link>
-                  <Link to="/partners">Do Partnership</Link>
-                  <Link to="/tca">Campus Ambassador</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/join-us">Join Us</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/opportunities">Find Opportunities</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/partners">Do Partnership</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/tca">Campus Ambassador</Link>
 
                 </div>
               </div>
@@ -145,28 +145,28 @@ const Navbar = () => {
             </div>
 
             <div className="sign-in-btn">
-            {isAuthenticated ? (
-              <div className="profile-container">
-                <span className="profile-name">{user?.name || 'Profile'}</span>
-                <i className="ri-user-3-fill"></i>
-              </div>
-            ) : (
-              <button onClick={handleAuthButtonClick}>
-                {location.pathname === '/signin' ? 'SIGN UP' : 'SIGN IN'}
-              </button>
-            )}
+              {isAuthenticated ? (
+                <div className="profile-container">
+                  <span className="profile-name">{user?.name || 'Profile'}</span>
+                  <i className="ri-user-3-fill"></i>
+                </div>
+              ) : (
+                <button onClick={handleAuthButtonClick}>
+                  {location.pathname === '/signin' ? 'SIGN UP' : 'SIGN IN'}
+                </button>
+              )}
             </div>
 
-      <div className="language-selector">
-      <FaGlobe className="globe-icon" />
-      <select id="targetLang">
-        <option value="en">Eng</option>
-        <option value="es">Spa</option>
-        <option value="fr">Hi</option>
-      </select>
-    </div>
-            
-            
+            <div className="language-selector">
+              <FaGlobe className="globe-icon" />
+              <select id="targetLang">
+                <option value="en">Eng</option>
+                <option value="es">Spa</option>
+                <option value="fr">Hi</option>
+              </select>
+            </div>
+
+
 
           </div>
 
@@ -174,22 +174,21 @@ const Navbar = () => {
             <i className={`ri-menu-line ${isNavActive ? 'hide' : ''}`}></i>
           </div>
         </div>
- 
-        
+
+
 
       </div>
       <div className="model-dropdown">
-      <h6 onClick={handleToggle} style={{ cursor: "pointer" }}>Model Service Dropdown</h6>
-      {isOpen && (
-        <div className="model-text">
-          <img src={mainLogo} alt="Logo" />
-          <small>
-            Jobs Connect: <span style={{ color: "red" }}>Coming Soon...</span>
-          </small>
-          <small>(*Dynamic Text)</small>
-        </div>
-      )}
-    </div>
+        <h6 onClick={handleToggle} style={{ cursor: "pointer" }}>Model Service</h6>
+        {isOpen && (
+          <div className="model-text">
+            <img src={mainLogo} alt="Logo" />
+            <small>
+              Jobs Connect: <span style={{ color: "red" }}>Coming Soon...</span>
+            </small>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

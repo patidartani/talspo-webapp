@@ -3,40 +3,9 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          flex-direction: column;
-          padding: 2vmax;
 }
 .Free-main h6{
         font-weight: 700;
         letter-spacing: 0.5px;
-        font-size: 1vmax;
+        font-size: 2.2vmax;
 }
-.Free-main .free-btn{
-          margin-top: 1.2vmax;
-          border: 2px solid #003266;
-          -webkit-box-shadow: 0 2px #003f80;
-          -moz-box-shadow: 0 2px #003f80;
-          box-shadow: 0 2px #003f80;
-          background-color: #003266;
-          border-radius: 5px;
-
-  }
-  .Free-main .free-btn button{
-          padding: 10px 25px;
-          color: #fff;
-          border: none;
-          cursor: pointer;
-          border-radius: 10px;
-          font-size: 0.8rem;
-          text-transform: uppercase;
-          background: none;
-          font-weight: 600; 
-  }
-
-@media (max-width:600px) {
-          .Free-main h6{
-                    text-align: center;
-          }
-       
-}
-

@@ -4,8 +4,10 @@ import "./Opportunity.css";
 import Navbar from "../../pages/Navbar/Navbar";
 import opt1Img from "../../assets/images/opt1.png";
 import ReactPaginate from 'react-paginate';
+import { useNavigate } from 'react-router-dom';
 
 const Opportunity = () => {
+  const navigate = useNavigate()
   const ITEMS_PER_PAGE = 5;
   const categories = ['Developer', 'Designer', 'Data Scientist', 'Manager'];
   const durations = ['1 Month', '2 Months', '3 Months', '6 Months', '1 Year'];
@@ -25,6 +27,10 @@ const Opportunity = () => {
     };
     loadJobs();
   }, []);
+
+  const applyHandler = () => {
+    navigate('/apply')
+  }
 
   const toggleWorkFromHome = () => setIsWorkFromHome(!isWorkFromHome);
   const togglePartTime = () => setIsPartTime(!isPartTime);
@@ -171,7 +177,7 @@ const Opportunity = () => {
                         <h3>Flexible Work Hours</h3>
                       </div>
                       <div className="i-right">
-                        <a href="">View Details</a>
+                        <button onClick={applyHandler}>Apply Now</button>
                       </div>
                     </div>
                   </div>

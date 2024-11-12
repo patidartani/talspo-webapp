@@ -130,70 +130,77 @@
           gap: 2vmax;
           margin-top: 2vmax;
     }
-    .Blog-main .blogs     .blog-container   .blog-content   .blog_list{
-          width: 70%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex-direction: column;
-          gap: 4vmax;
-    }
-    .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg{
-          border-bottom: 1px solid #b7b7b7;
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex-direction: row;
-          height: 150px;
-          gap: 1vmax;
-          padding-bottom: 1.5vmax;
-    }
-    .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg .bl-img{
-          width: 30%;
-          height: 150px;
-          background: #b9b9b9;
-          border-radius: 10px;
-    }
-    .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg .bl-img  img{
+  /* Blog List Link */
+.Blog-main .blogs .blog-container .blog-content .blog_list .list-blg {
+      border-bottom: 1px solid #b7b7b7;
       width: 100%;
+      display: flex; /* Flex container for image and text */
+      align-items: center;
+      justify-content: flex-start;
+      gap: 2vmax;
+      padding: 1vmax 0;
+      text-decoration: none; /* Remove text underline */
+      color: inherit; /* Inherit text color */
+    }
+    
+    /* Link Text Block */
+    .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 70%; /* Adjust width as necessary */
+      gap: 1vmax;
+    }
+    
+    /* Image Block */
+    .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-img {
+      width: 30%;
       height: 150px;
+      background: #b9b9b9;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-img img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       border-radius: 10px;
-
-}
-    .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text{
-          width: 70%;
-          height: 150px;
-          display: flex;
-          align-items: flex-start;
-          justify-content: space-between;
-          flex-direction: column;
-          gap: 0.5vmax;
     }
-    .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text h5{
-         font-weight: 600;
-         color: #003266;
-         font-size: 1.5vmax;
+    
+    /* Title Styling */
+    .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text h5 {
+      font-weight: 600;
+      color: #003266;
+      font-size: 1.5vmax;
     }
-    .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num{
-         gap: 2vmax;
-         width: 100%;
-         display: flex;
-     }
-     .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num span{
-        background-color: #003266;
-        padding: 0.2vmax 1.5vmax;
-        border-radius: 50px;
-        color: #fff;
-        font-size: 1vmax;
-      }
-     .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num h1{
-         font-size: 1vmax;
-         color: #7a7a7a;
-         margin-top: 0.2vmax;
-      }
- 
+    
+    /* Date and Subtitle Styling */
+    .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text .num {
+      display: flex;
+      gap: 2vmax;
+    }
+    
+    .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text .num span {
+      background-color: #003266;
+      padding: 0.2vmax 1.5vmax;
+      border-radius: 50px;
+      color: #fff;
+      font-size: 1vmax;
+    }
+    
+    .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text .num h1 {
+      font-size: 1vmax;
+      color: #7a7a7a;
+    }
+    
+    .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text p {
+      font-size: 1vmax;
+      color: #333;
+      margin: 0;
+      padding-bottom: 1vmax;
+    }
+    
 
     .Blog-main .blogs     .blog-container   .blog-content   .Blogs_img{
           width: 30%;

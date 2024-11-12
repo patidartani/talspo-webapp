@@ -1,26 +1,63 @@
-import React from 'react'
-import Navbar from "../../pages/Navbar/Navbar"
-import "./BlogDetail.css"
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Navbar from "../../pages/Navbar/Navbar";
+import { fetchBlogDetail } from '../../apiService';
+import Loading from '../../pages/loading/Loading'; 
+import "./BlogDetail.css";
+import Footer from "../../pages/Footer/Footer"
 
 const BlogDetail = () => {
-  return (
-  <>
-  <Navbar />
-     <div className='BlogDetail-main'>
-        <div className="blog-detail">
-                       <div className="details">
-                          <h5>This is the topic of blog</h5>
-                           <div className="year-d">
-                              <small>2021</small> <span>Designing, Coding, Learning</span>
-                           </div>
-                           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem itaque nihil fugiat nam voluptas voluptatum reiciendis aperiam deserunt at placeat, ut tempora illum quisquam dolor pariatur sunt, expedita odit amet cum ad delectus velit ullam architecto id? Aliquam fuga ad aspernatur odit alias eius vero aperiam qui incidunt, consequatur soluta.</p>
-                            <img className='img-d' src="" alt="" />
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim dolore non maxime aut quae in sapiente! Aperiam consequuntur dolorem vel cum fugiat assumenda, porro facere modi culpa eius at possimus?</p>
-                       </div>
-        </div>
-     </div>
-  </>
-  )
-}
+  const { id } = useParams();
+  const [blogDetail, setBlogDetail] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-export default BlogDetail
+  useEffect(() => {
+    const getBlogDetail = async () => {
+      try {
+        const data = await fetchBlogDetail(id);
+        console.log("Fetched Blog Detail Data component:", data);
+
+        if (!data) {
+          console.error("No blog details found for the given ID");
+          setError(true);
+        } else {
+          setBlogDetail(data);
+          console.log("Blog details state updated:", data);
+        }
+      } catch (error) {
+        console.error("Error fetching blog detail:", error);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getBlogDetail();
+  }, [id]);
+
+  if (loading) return <Loading />;  
+  if (error) return <p>There was an error loading the blog details. Please try again later.</p>;
+
+  return (
+    <>
+      <Navbar />
+      <div className="BlogDetail-main">
+        <div className="blog-detail">
+          <div className="details">
+            <h5>{blogDetail?.title}</h5>
+            <div className="year-d">
+              <small>{blogDetail?.year}</small> <span>Designing, Coding, Learning</span>
+            </div>
+            <p>{blogDetail?.description}</p>
+            <img className="img-d" src={blogDetail?.image} alt={blogDetail?.title} />
+            <p>{blogDetail?.contant}</p>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
+};
+
+export default BlogDetail;
