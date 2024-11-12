@@ -84,7 +84,7 @@ const Navbar = () => {
             </div>
 
             <div className="link-item">
-              <Link style={{ color: "red" }} to="/talspo-here">Talspo Here</Link>
+              <Link  style={{ color: "red" }} to="/talspo-here">Talspo Here</Link>
 
               {/* About Us Section */}
               <div
@@ -104,11 +104,11 @@ const Navbar = () => {
                   </div>
                 )}
                 <div className="about-dropdown-responsive">
-                  <Link to="/faq">About Us</Link>
-                  <Link to="/">FAQs</Link>
-                  <Link to="/our-team">Our Team</Link>
-                  <Link to="/achievements">Achievements</Link>
-                  <Link to="/how-we-work">How We Work</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/faq">About Us</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/">FAQs</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/our-team">Our Team</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/achievements">Achievements</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/how-we-work">How We Work</Link>
 
                 </div>
               </div>
@@ -124,7 +124,7 @@ const Navbar = () => {
                 <Link id='res-hide' to="">Join</Link>
                 {isJoinDropdownVisible && (
                   <div className="join-dropdown">
-                    <Link to="/join">Join Us</Link>
+                    <Link  to="/join">Join Us</Link>
                     <Link to="/opportunities">Find Opportunities</Link>
                     <Link to="/partners">Do Partnership</Link>
                     <Link to="/tca"> Campus Ambassador</Link>
@@ -132,10 +132,10 @@ const Navbar = () => {
                   </div>
                 )}
                 <div className="join-dropdown-responsive">
-                  <Link to="/join-us">Join Us</Link>
-                  <Link to="/opportunities">Find Opportunities</Link>
-                  <Link to="/partners">Do Partnership</Link>
-                  <Link to="/tca">Campus Ambassador</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/join-us">Join Us</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/opportunities">Find Opportunities</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/partners">Do Partnership</Link>
+                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/tca">Campus Ambassador</Link>
 
                 </div>
               </div>

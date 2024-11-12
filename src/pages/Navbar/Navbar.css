@@ -295,10 +295,11 @@ margin-left: 0.5vmax;
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-left: 2vmax;
   }
   .about-dropdown-responsive a,
   .join-dropdown-responsive a {
-    font-size: 1.1rem ;
+    font-size: 1rem ;
     padding:-3px 20px;
     color: #6e6e6e;
     font-weight: 500;
@@ -307,7 +308,7 @@ margin-left: 0.5vmax;
   }
 
   #res-hide{
-    display: none;
+    display: initial;
   }
 
 
@@ -317,8 +318,6 @@ margin-left: 0.5vmax;
   .join-dropdown{
     display: none;
   }
-
-  
           .Navbar-main .navbar-page {
                    
                     gap: 4vmax;
@@ -345,7 +344,6 @@ margin-left: 0.5vmax;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-          /* padding: 5px 10px; */
           }
           
           .Navbar-main .navbar-page .nav-mid .search-icon {
@@ -393,7 +391,7 @@ margin-left: 0.5vmax;
                     flex-direction: column;
                     justify-content: flex-start;
                     align-items: flex-start;
-                    padding: 100px;
+                    padding: 130px;
                     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
                     z-index: 100;
           }
@@ -401,11 +399,12 @@ margin-left: 0.5vmax;
           .Navbar-main .navbar-page .nav-right a {
                     color: #000;
                     /* background: #000; */
-                    padding-top: 2vmax;
+                    padding-top: 1.2vmax;
                     text-decoration: none;
-                    font-size: 1.2rem;
+                    font-size: 1.3rem;
                     width: 100%;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: uppercase;
           }
           
           .Navbar-main .navbar-page .nav-right .links .link-item {
@@ -424,13 +423,13 @@ margin-left: 0.5vmax;
                     align-items: flex-start;
                     justify-content: flex-start;
                     position: absolute;
-                    right: 10px;
-                    width: 90%;
+                    right: 120px;
+                    width: 50%;
                     top: 620px;
 }
 
 .Navbar-main .navbar-page .nav-right .links .sign-in-btn button {
-          padding: 10px 35px;
+          padding: 10px 20px;
           font-size: 1.2rem;
 }
 .Navbar-main .navbar-page .nav-right .links .close-icon {
@@ -445,20 +444,20 @@ margin-left: 0.5vmax;
   align-items: flex-start;
                     justify-content: flex-start;
                     position: absolute;
-                    right: 90px;
+                    right: 120px;
                     width: 50%;
                     top: 680px;
 }
 
 .globe-icon {
-  font-size: 2vmax; /* Globe icon size */
+  font-size: 3vmax; /* Globe icon size */
   color: #003266; /* Adjust color as needed */
 }
 
 .language-selector select {
   border: none;
   background: transparent;
-  font-size: 1.5vmax;
+  font-size: 2vmax;
   color: #333;
   cursor: pointer;
   outline: none;
@@ -466,7 +465,6 @@ margin-left: 0.5vmax;
 
 
 }
-
 
 @media (min-width: 600px) and (max-width:1050px) {
 
@@ -476,10 +474,11 @@ margin-left: 0.5vmax;
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-left: 2vmax;
   }
   .about-dropdown-responsive a,
   .join-dropdown-responsive a {
-    font-size: 1.1rem ;
+    font-size: 1rem ;
     padding:-3px 20px;
     color: #6e6e6e;
     font-weight: 500;
@@ -488,7 +487,7 @@ margin-left: 0.5vmax;
   }
 
   #res-hide{
-    display: none;
+    display: initial;
   }
 
 
@@ -498,8 +497,6 @@ margin-left: 0.5vmax;
   .join-dropdown{
     display: none;
   }
-
-  
           .Navbar-main .navbar-page {
                    
                     gap: 4vmax;
@@ -526,7 +523,6 @@ margin-left: 0.5vmax;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-          /* padding: 5px 10px; */
           }
           
           .Navbar-main .navbar-page .nav-mid .search-icon {
@@ -566,7 +562,7 @@ margin-left: 0.5vmax;
           .Navbar-main .navbar-page .nav-right .links.active {
                     display: flex;
                     position: absolute;
-                    top: -15px;
+                    top: -25px;
                     right: -9px;
                     background-color: #FFFF00;
                     width: 100%;
@@ -574,7 +570,7 @@ margin-left: 0.5vmax;
                     flex-direction: column;
                     justify-content: flex-start;
                     align-items: flex-start;
-                    padding: 100px;
+                    padding: 130px;
                     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
                     z-index: 100;
           }
@@ -582,11 +578,12 @@ margin-left: 0.5vmax;
           .Navbar-main .navbar-page .nav-right a {
                     color: #000;
                     /* background: #000; */
-                    padding-top: 2vmax;
+                    padding-top: 1.2vmax;
                     text-decoration: none;
-                    font-size: 1.2rem;
+                    font-size: 1.3rem;
                     width: 100%;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: uppercase;
           }
           
           .Navbar-main .navbar-page .nav-right .links .link-item {
@@ -605,16 +602,16 @@ margin-left: 0.5vmax;
                     align-items: flex-start;
                     justify-content: flex-start;
                     position: absolute;
-                    right: 0px;
-                    width: 95%;
-                    top: 550px;
+                    right: 120px;
+                    width: 50%;
+                    top: 620px;
 }
 
 .Navbar-main .navbar-page .nav-right .links .sign-in-btn button {
-          padding: 10px 35px;
+          padding: 10px 20px;
           font-size: 1.2rem;
 }
-          .Navbar-main .navbar-page .nav-right .links .close-icon {
+.Navbar-main .navbar-page .nav-right .links .close-icon {
                     display: initial;
                     font-size: 1.5rem;
                     position: absolute;
@@ -622,5 +619,28 @@ margin-left: 0.5vmax;
                     right: 10px;
                     cursor: pointer;
           }
+.language-selector {
+  align-items: flex-start;
+                    justify-content: flex-start;
+                    position: absolute;
+                    right: 120px;
+                    width: 50%;
+                    top: 680px;
+}
+
+.globe-icon {
+  font-size: 3vmax; 
+  color: #003266; 
+}
+
+.language-selector select {
+  border: none;
+  background: transparent;
+  font-size: 2vmax;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+}
+
 
 }

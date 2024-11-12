@@ -4,6 +4,11 @@ import "./Footer.css"
 const Footer = () => {
   return (
     <div className='Footer-main'>
+      <div className="top_add">
+       <h6>
+        <a href="/">Desclaimer</a> | <a href="/">Anti Spam Policy</a> | <a href="/">Legal Certification</a> | <a href="/">IPR Compilance & Other Compilance</a> | <a href="/">GPR Compilance</a> | <a href="/">EULA</a>
+       </h6>
+      </div>
     <div className="footer-page">
 {/* ---------------------------------------------------------- */}
               <div className="f-one">
@@ -30,6 +35,9 @@ const Footer = () => {
 
 {/* ---------------------------------------------------------- */}
 </div>
+    <div className="f_btm">
+       <h1>Total Visitors: <small>234567</small></h1>
+    </div>
 </div>
   )
 }

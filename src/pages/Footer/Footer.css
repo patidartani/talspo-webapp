@@ -2,11 +2,27 @@
           width: 100%;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
           background: #003266;
           color: #fff;
-          height: 120px;
+          height: 150px;
+          flex-direction: column;
+          gap: 0.4vmax;
 }
+.Footer-main .top_add{
+        width: 95% ;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 0.5vmax;
+}
+.Footer-main .top_add h6{
+      font-size: 1.3vmax;
+}
+.Footer-main .top_add h6 a{
+       text-decoration: none;
+       color: #fff;
+  }
 .Footer-main .footer-page{
           width: 95%;
           display: flex;
@@ -74,13 +90,35 @@
          font-weight: lighter;
 }
 
-
+.Footer-main .f_btm{
+        width: 75% ;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+}
+.Footer-main .f_btm h1{
+       font-size: 1vmax;
+       background: #333232;
+       padding: 0.6vmax 2vmax;
+}
+.Footer-main .f_btm h1 small{
+       border: 1px solid #fff;
+       padding: 0.4vmax 2vmax;
+       border-radius: 50px;
+ }
 
 @media (max-width:600px) {
           .Footer-main{
                     width: 100%;
-                    height: 400px;
+                    height: 450px;
           }
+          .Footer-main .top_add{
+                width: 95% ;
+        }
+        .Footer-main .top_add h6{
+              font-size: 2vmax;
+              /* text-align: center; */
+        }
           .Footer-main .footer-page{
                     width: 95%;
                     flex-direction: column;
@@ -111,11 +149,15 @@
                     width:100%;
           }
           .Footer-main .footer-page .f-two .tp{
-                    width: 90%;
+                    width: 95%;
                     margin-top: 2vmax;
                     flex-direction: column;
-                    align-items: center;
+                    align-items: flex-start;
           }
+          .Footer-main .footer-page .f-two .tp a{
+              text-decoration: none;
+              color: #fff;
+        }
           .Footer-main .footer-page .f-two small{
                    font-size: 2vmax;
                    margin-top: 3vmax;
@@ -123,12 +165,23 @@
           
           
           .Footer-main .footer-page .f-three{
-                    width: 90%;
-                    align-items: center;
+                    width: 95%;
+                    align-items: flex-start;
                     margin-top: 3vmax;
           }
           .Footer-main .footer-page .f-three h6{
                    font-size: 2vmax;
           }
+          .Footer-main .f_btm{
+                width: 90% ;
+              margin-top: 1vmax;
+        }
+        .Footer-main .f_btm h1{
+               font-size: 2.4vmax;
+               padding: 1.5vmax 2vmax;
+        }
+        .Footer-main .f_btm h1 small{
+               padding: 1vmax 2.5vmax;
+         }
                    
 }
