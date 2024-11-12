@@ -19,7 +19,7 @@
   justify-content: flex-start;
   margin-bottom: 0.2vmax;
   flex-direction: column;
-  padding-left: 1vmax;
+  padding-left: 1.3vmax;
 }
 .Navbar-main .model-dropdown h6{
  cursor: pointer;
@@ -27,12 +27,16 @@
 }
 .Navbar-main .model-dropdown .model-text{
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   flex-direction: column;
   padding: 0.5vmax;
   border: 3px solid #00FF00;
   background: #fff;
+  width: 15%;
+}
+.Navbar-main .model-dropdown .model-text img{
+ width: 100%;
 }
 .Navbar-main .nav-highlight{
   width: 100%;
@@ -55,7 +59,6 @@ font-weight: 600;
  color: red;
   }
   
-/* Remove position: sticky since position: fixed is used */
 .Navbar-main .navbar-page {
     width: 98%;
     height: 60px;
