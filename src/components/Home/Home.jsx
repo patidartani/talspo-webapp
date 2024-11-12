@@ -178,6 +178,7 @@ const Home = () => {
        <HomeBroach />
 
        <FooterTop />
+       <Free/>
    <Footer />
  
 </div>
