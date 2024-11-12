@@ -7,7 +7,7 @@
           margin-top: 2vmax;
 }
 .HomeBroach-main .homebroch{
-          width: 80%;
+          width: 60%;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -27,7 +27,7 @@
       font-size: 1.3vmax;
 }
 .HomeBroach-main .homebroch .broch1 img{
-       width: 70%;
+       width: 100%;
 }
 .HomeBroach-main .homebroch .broch2{
        width: 32%;
@@ -52,8 +52,11 @@
        font-weight: 600;
        background-color: #003f80;
 }
+.HomeBroach-main .homebroch .broch3 button:hover{
+     background-color: green;
+}
 .HomeBroach-main .homebroch .broch3 img{
-       width:70%;
+       width:100%;
 }
 
 @media (max-width:600px) {
