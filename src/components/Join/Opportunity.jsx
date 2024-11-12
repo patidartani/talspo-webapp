@@ -171,7 +171,7 @@ const Opportunity = () => {
                         <h3>Flexible Work Hours</h3>
                       </div>
                       <div className="i-right">
-                        <a href="">View Details</a>
+                        <button>Apply Now</button>
                       </div>
                     </div>
                   </div>

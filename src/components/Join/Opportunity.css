@@ -10,7 +10,7 @@
           align-items: center;
           justify-content: center;
           flex-direction: column;
-          margin-top: 5vmax
+          margin-top: 7vmax
 
 }
 .Opportunity-main .opportunity-page .opportunity1{
@@ -323,8 +323,12 @@
       align-items: center;
       justify-content: center;
    }
-   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-right a{
-  text-decoration: none;
+   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-right button{
+       background-color: #003266;
+       color: #fff;
+       border: none;
+       border-radius: 5px;
+       padding: 0.5vmax 1vmax;
   }
 
   .pagination {
