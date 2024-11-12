@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay ,Pagination} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 
@@ -63,11 +63,12 @@ const Home = () => {
 
       <div className="right">
       <Swiper
-  modules={[Autoplay]}
+  modules={[Autoplay,Pagination]}
   spaceBetween={30}
   slidesPerView={1}
   loop={true}
   autoplay={{ delay: 3000, disableOnInteraction: false }}
+  pagination={{ clickable: true }} 
 >
   <SwiperSlide>
     <div className="swiper-image-container">
