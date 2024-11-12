@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
-import { MESSAGE_URL } from '../../apiservice'; // Import from apiservice.js
+
 import "./Contact.css";
 import Navbar from "../../pages/Navbar/Navbar";
 import Footer from "../../pages/Footer/Footer";
