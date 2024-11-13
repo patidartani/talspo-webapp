@@ -6,7 +6,7 @@ const Footer = () => {
     <div className='Footer-main'>
       <div className="top_add">
        <h6>
-        <a href="/">Desclaimer</a> | <a href="/">Anti Spam Policy</a> | <a href="/">Legal Certification</a> | <a href="/">IPR Compilance & Other Compilance</a> | <a href="/">GPR Compilance</a> | <a href="/">EULA</a>
+        <a href="/disclaimer">Desclaimer</a> | <a href="/anti-spam-policy">Anti Spam Policy</a> | <a href="/">Legal Certification</a> | <a href="/dmca-policy">IPR Compilance & Other Compilance</a> | <a href="/">GPR Compilance</a> | <a href="/eula-policy">EULA</a>
        </h6>
       </div>
     <div className="footer-page">

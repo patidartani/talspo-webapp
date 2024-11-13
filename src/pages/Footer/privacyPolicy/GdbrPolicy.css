@@ -1,5 +1,5 @@
 
-.cookie_heading{
+.gdbr-policy{
     margin-top: 100px;
     width: 100%;
     display: flex;
@@ -10,7 +10,7 @@
     color:#fff;
 }
 
-.cookie_heading h1{
+.gdbr-policy h1{
     width: 85%;
     display: flex;
     justify-content: space-between;
@@ -23,7 +23,8 @@
     letter-spacing: 1px;
 }
 
-  .cookie_con {
+
+.gdbr_con {
     margin: 2rem 0;
     color: #444;
     font-size: 1rem;
@@ -32,27 +33,53 @@
     margin-right: 15rem;
   }
   
-  .cookie_con p {
+  .gdbr_con h2 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-top: 1.5rem;
+  }
+  
+  .gdbr_con h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 1.2rem;
+  }
+  
+  .gdbr_con h4 {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 1rem;
+  }
+  
+  .gdbr_con p {
     margin-bottom: 1rem;
   }
   
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .cookie_heading {
-      padding: 1.5rem;
-    }
+  .gdbr_con ul {
+    padding-left: 1.5rem;
+  }
   
-    .cookie_heading h1 {
-      font-size: 2rem;
-    }
-    .cookie_con {
+  .gdbr_con li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Link styling */
+  .gdbr_con a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .gdbr_con a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 768px) {
+    .gdbr_con {
       margin-left: 0;
       margin-right: 0;
     }
-    
   }
   @media (max-width: 576px) {
-    .cookie_con {
+    .gdbr_con {
       margin-left: 0;
       margin-right: 0;
     }
