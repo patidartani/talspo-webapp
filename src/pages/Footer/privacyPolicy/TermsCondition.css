@@ -64,4 +64,16 @@
   .terms-container a:hover {
     text-decoration: underline;
   }
-  
+  @media (max-width: 768px) {
+    .terms-container {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  @media (max-width: 576px) {
+    .terms-container {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+  }

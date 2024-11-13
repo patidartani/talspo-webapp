@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container} from "react-bootstrap";
 import Navbar from "../../../pages/Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import "../privacyPolicy/TermOfUse.css"

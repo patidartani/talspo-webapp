@@ -23,7 +23,7 @@ import PrivacyPolicy from "./pages/Footer/privacyPolicy/PrivacyPolicy"
 import TermsCondition from "./pages/Footer/privacyPolicy/TermsCondition"
 import TermOfUse from "./pages/Footer/privacyPolicy/TermOfUse"
 import ApplyNow from "./components/Join/ApplyNow"
-
+import CookiePolicy from "./pages/Footer/privacyPolicy/CookiePolicy"
 const App = () => {
   return (
     <div>
@@ -51,6 +51,7 @@ const App = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         <Route path="/term-condition" element={<TermsCondition/>}/>
         <Route path="/term-of-use" element={<TermOfUse/>}/>
+        <Route path="/cookie-policy" element={<CookiePolicy/>}/>
       </Routes>
     </div>
   )

@@ -20,10 +20,10 @@ const Footer = () => {
               </div>
               <div className="f-two">
                   <div className="tp">
-                    <a href="">Privacy Policy</a>
-                    <a href="">Terms & Conditions</a>
-                    <a href="">Terms Of Use</a>
-                    <a href="">Cookie Policy</a>
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/term-condition">Terms & Conditions</a>
+                    <a href="/term-of-use">Terms Of Use</a>
+                    <a href="/cookie-policy">Cookie Policy</a>
                   </div>
                   <small> Talspo Private Limited © 2024 (All rights reserved)   </small>
               </div>
