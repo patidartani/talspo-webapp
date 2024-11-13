@@ -135,7 +135,8 @@
 }
         
 }
-@media (min-width:600px) and (max-width:1050px) {
+
+@media (min-width:600px) and (max-width:1150px) {
         .HomeBlog-main{
                 width: 100%;
       }
@@ -151,9 +152,18 @@
       .HomeBlog-main .home-blog .home-blog-right{
                 width: 100%;
       }
+
       .HomeBlog-main .home-blog .home-blog-right .h-blg-right{
                 width: 100%;
+          height: 550px;
       }
+      .HomeBlog-main .home-blog .home-blog-right .h-blg-right img{
+        width: 100%;
+        height: 250px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+
+}
 
       .HomeBlog-main .home-blog .home-blog-right .h-blg-right h5{
                 font-size: 3vmax;  

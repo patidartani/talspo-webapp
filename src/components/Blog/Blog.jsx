@@ -7,6 +7,7 @@ import Footer from '../../pages/Footer/Footer';
 import { recentBlogPosts, featuredBlogPosts } from '../../apiService';
 import Loading from '../../pages/loading/Loading'; // Import the Loading component
 import { Link } from 'react-router-dom';
+import IconBlog from "../../assets/images/talspoIcon.png"
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState([]);
@@ -37,7 +38,7 @@ const Blog = () => {
 
     const fetchData = async () => {
       await Promise.all([loadRecentBlogs(), loadFeaturedBlogs()]);
-      setLoading(false); // Stop loading once both data sets are fetched
+      setLoading(false);
     };
 
     fetchData();
@@ -48,7 +49,7 @@ const Blog = () => {
   };
 
   if (loading) {
-    return <Loading />; // Show loading indicator until data is loaded
+    return <Loading />; 
   }
 
   return (
@@ -92,11 +93,14 @@ const Blog = () => {
           </div>
 
 
-           <div className="Blog-search">
-            <div className="ipt-blg">
-              <input type="text"  placeholder='Search'/>
-            </div>
-           </div>
+          <div className="Blog-search">
+  <div className="ipt-blg">
+    <input type="text" placeholder="Search Blogs.." />
+    <img src={IconBlog} alt="Search Icon" />
+  </div>
+</div>
+
+
 
 
           {/* ----------------- Featured Posts Section ----------------- */}

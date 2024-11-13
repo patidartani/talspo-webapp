@@ -466,7 +466,8 @@ margin-left: 0.5vmax;
 
 }
 
-@media (min-width: 600px) and (max-width:1050px) {
+
+@media (min-width: 600px) and (max-width:1150px) {
 
   .about-dropdown-responsive,
   .join-dropdown-responsive {
@@ -562,15 +563,15 @@ margin-left: 0.5vmax;
           .Navbar-main .navbar-page .nav-right .links.active {
                     display: flex;
                     position: absolute;
-                    top: -25px;
-                    right: -9px;
+                    top: -20px;
+                    right: -15px;
                     background-color: #FFFF00;
                     width: 100%;
                     height: 100vh;
                     flex-direction: column;
                     justify-content: flex-start;
                     align-items: flex-start;
-                    padding: 130px;
+                    padding: 300px;
                     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
                     z-index: 100;
           }
@@ -629,8 +630,8 @@ margin-left: 0.5vmax;
 }
 
 .globe-icon {
-  font-size: 3vmax; 
-  color: #003266; 
+  font-size: 3vmax; /* Globe icon size */
+  color: #003266; /* Adjust color as needed */
 }
 
 .language-selector select {
