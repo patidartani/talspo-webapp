@@ -240,14 +240,17 @@ width: 90%;
 }
 /* ----------------------------------------------------------------------------- */
 .home-three {
-  width: 100%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-bottom: 2vmax;
+  padding-bottom: 4vmax;
   overflow: hidden;
-  margin-top: 1vmax;
+  border-top: 1px solid #b4b4b4;
+  border-bottom: 1px solid #b4b4b4;
+
+  margin-top: 2vmax;
 }
 .home-three h5 {
   font-size: 1.8vmax;
@@ -256,7 +259,7 @@ width: 90%;
   color: #003266;
 }
 .h3-tbm {
-  width: 90%;
+  width: 100%;
   overflow: hidden;
   position: relative;
   margin-top: 2vmax;

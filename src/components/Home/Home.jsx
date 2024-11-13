@@ -162,7 +162,7 @@ const Home = () => {
 {/* ---------------------------------------------------------------------------------- */}
 {/* ---------------------------------------------------------------------------------- */}
 <div className="home-three">
-  <h5>Learn more about our partners</h5>
+  <h5>Our Advance Technology Stack Includes</h5>
   <div className="h3-tbm">
     <div className="h3-top">
       <div className="line"><img src={client1} alt="Client 1" /></div>
@@ -176,6 +176,9 @@ const Home = () => {
       <div className="line"><img src={client3} alt="Client 3" /></div>
       <div className="line"><img src={client4} alt="Client 4" /></div>
       <div className="line"><img src={client5} alt="Client 5" /></div>
+      <div className="line"><img src={client3} alt="Client 3" /></div>
+      <div className="line"><img src={client4} alt="Client 4" /></div>
+
     </div>
   </div>
 </div>
