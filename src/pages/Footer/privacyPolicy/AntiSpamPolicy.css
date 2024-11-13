@@ -1,5 +1,5 @@
 
-.cookie_heading{
+.anti-spam-policy{
     margin-top: 100px;
     width: 100%;
     display: flex;
@@ -10,7 +10,7 @@
     color:#fff;
 }
 
-.cookie_heading h1{
+.anti-spam-policy h1{
     width: 85%;
     display: flex;
     justify-content: space-between;
@@ -23,7 +23,7 @@
     letter-spacing: 1px;
 }
 
-  .cookie_con {
+  .anti-spam-con {
     margin: 2rem 0;
     color: #444;
     font-size: 1rem;
@@ -32,27 +32,27 @@
     margin-right: 15rem;
   }
   
-  .cookie_con p {
+  .anti-spam-con p {
     margin-bottom: 1rem;
   }
   
   /* Responsive adjustments */
   @media (max-width: 768px) {
-    .cookie_heading {
+    .anti-spam-policy {
       padding: 1.5rem;
     }
   
-    .cookie_heading h1 {
+    .anti-spam-policy h1 {
       font-size: 2rem;
     }
-    .cookie_con {
+    .anti-spam-con {
       margin-left: 0;
       margin-right: 0;
     }
     
   }
   @media (max-width: 576px) {
-    .cookie_con {
+    .anti-spam-con {
       margin-left: 0;
       margin-right: 0;
     }

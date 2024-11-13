@@ -24,6 +24,11 @@ import TermsCondition from "./pages/Footer/privacyPolicy/TermsCondition"
 import TermOfUse from "./pages/Footer/privacyPolicy/TermOfUse"
 import ApplyNow from "./components/Join/ApplyNow"
 import CookiePolicy from "./pages/Footer/privacyPolicy/CookiePolicy"
+import EULA from "./pages/Footer/privacyPolicy/EULA"
+import Disclaimer from "./pages/Footer/privacyPolicy/Disclaimer"
+import DmcaPolicy from "./pages/Footer/privacyPolicy/DMCA"
+import GdbrPolicy from "./pages/Footer/privacyPolicy/GdbrPolicy"
+import AntiSpamPolicy from "./pages/Footer/privacyPolicy/AntiSpamPolicy"
 const App = () => {
   return (
     <div>
@@ -52,6 +57,11 @@ const App = () => {
         <Route path="/term-condition" element={<TermsCondition/>}/>
         <Route path="/term-of-use" element={<TermOfUse/>}/>
         <Route path="/cookie-policy" element={<CookiePolicy/>}/>
+        <Route path="/eula-policy" element={<EULA/>}/>
+        <Route path="/disclaimer" element={<Disclaimer/>}/>
+        <Route path="/dmca-policy" element={<DmcaPolicy/>}/>
+        <Route path="/gdba-policy" element={<GdbrPolicy/>}/>
+        <Route path="/anti-spam-policy" element={<AntiSpamPolicy/>}/>
       </Routes>
     </div>
   )
