@@ -9,7 +9,15 @@ const ApplyNow = () => {
     yes: false,
     no: false
   });
-  const [jobOption, setJobOption] = useState(""); // To store selected job option
+  const [isJobOptionChecked, setIsJobOptionChecked] = useState(false); // State to track checkbox status
+  const [jobDetails, setJobDetails] = useState({
+    positionTitle: "",
+    jobType: "",
+    location: "",
+    skillsExperience: "",
+    resume: "",
+    linkedinProfile: "",
+  });
 
   const handleCountryCodeChange = (e) => {
     setCountryCode(e.target.value);
@@ -23,8 +31,16 @@ const ApplyNow = () => {
     }));
   };
 
-  const handleJobOptionChange = (e) => {
-    setJobOption(e.target.value);
+  const handleJobOptionCheckboxChange = (e) => {
+    setIsJobOptionChecked(e.target.checked);
+  };
+
+  const handleJobInputChange = (e) => {
+    const { name, value } = e.target;
+    setJobDetails((prev) => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   return (
@@ -48,18 +64,76 @@ const ApplyNow = () => {
                 </label>
               </div>
 
-              {/* Row 2: Getting Job (Dropdown for multiple selection) */}
-              <div className="e-ipt-select full">
-                <label>For Getting Job:</label>
-                <select name="jobOptions" value={jobOption} onChange={handleJobOptionChange}>
-                  <option value="PositionTitle">Job Position Title</option>
-                  <option value="JobType">Job Type</option>
-                  <option value="PreferredLocation">Preferred Job Location</option>
-                  <option value="SkillsExperience">Your Skills & Experience</option>
-                  <option value="UploadResume">Upload Resume</option>
-                  <option value="LinkedInProfile">Insert LinkedIn Profile Link</option>
-                </select>
+              {/* Row 2: Getting Job (Checkbox for selection, show input fields if checked) */}
+              <div className="e-ipt-checkbox full">
+                <label>
+                  <input
+                    type="checkbox"
+                    name="getJob"
+                    onChange={handleJobOptionCheckboxChange}
+                  />
+                For Getting Job 
+                </label>
               </div>
+
+              {/* Conditional Inputs for Job Options */}
+              {isJobOptionChecked && (
+                <>
+                  <div className="e-ipt full">
+                    <input
+                      type="text"
+                      name="positionTitle"
+                      placeholder="Job Position Title"
+                      value={jobDetails.positionTitle}
+                      onChange={handleJobInputChange}
+                    />
+                  </div>
+                  <div className="e-ipt full">
+                    <input
+                      type="text"
+                      name="jobType"
+                      placeholder="Job Type"
+                      value={jobDetails.jobType}
+                      onChange={handleJobInputChange}
+                    />
+                  </div>
+                  <div className="e-ipt full">
+                    <input
+                      type="text"
+                      name="location"
+                      placeholder="Preferred Job Location"
+                      value={jobDetails.location}
+                      onChange={handleJobInputChange}
+                    />
+                  </div>
+                  <div className="e-ipt full">
+                    <input
+                      type="text"
+                      name="skillsExperience"
+                      placeholder="Your Skills & Experience"
+                      value={jobDetails.skillsExperience}
+                      onChange={handleJobInputChange}
+                    />
+                  </div>
+                  <div className="e-ipt full">
+                    <input
+                      type="file"
+                      name="resume"
+                      onChange={handleJobInputChange}
+                    />
+                    <label>Upload Resume</label>
+                  </div>
+                  <div className="e-ipt full">
+                    <input
+                      type="text"
+                      name="linkedinProfile"
+                      placeholder="Insert LinkedIn Profile Link"
+                      value={jobDetails.linkedinProfile}
+                      onChange={handleJobInputChange}
+                    />
+                  </div>
+                </>
+              )}
 
               {/* Row 3: Personal Information (Name + Date of Birth) */}
               <div className="e-ipt half">
@@ -135,12 +209,12 @@ const ApplyNow = () => {
 
               {/* Row 8: Consent */}
               <div className="e-ipt-checkbox full">
-  <h6>Consent <span style={{ color: 'red' }}>*</span>:</h6>
-  <label>
-    <input type="checkbox" name="consent" required />
-    Agree to be contacted by Talspo via WhatsApp, SMS, Phone, Email, etc.
-  </label>
-</div>
+                <h6>Consent <span style={{ color: 'red' }}>*</span>:</h6>
+                <label>
+                  <input type="checkbox" name="consent" required />
+                  Agree to be contacted by Talspo via WhatsApp, SMS, Phone, Email, etc.
+                </label>
+              </div>
 
               {/* Row 9: Subscribe */}
               <div className="e-ipt-checkbox full">

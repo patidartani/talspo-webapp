@@ -102,7 +102,6 @@ const Whowe = () => {
       <i onClick={closeModal} style={{ cursor: "pointer" }} className="ri-close-line"></i>
     </span>
     <form>
-      {/* Row 1: Job Information */}
       <div className="e-ipt half">
         <input type="text" placeholder="Job Position Title" name="jobTitle" />
       </div>
@@ -110,7 +109,6 @@ const Whowe = () => {
         <input type="text" placeholder="Job Type" name="jobType" />
       </div>
 
-      {/* Row 2: Location & Skills */}
       <div className="e-ipt half">
         <input type="text" placeholder="Preferred Job Location" name="preferredLocation" />
       </div>
@@ -118,7 +116,6 @@ const Whowe = () => {
         <input type="text" placeholder="Your Skills & Experience" name="skills" />
       </div>
 
-      {/* Row 3: LinkedIn & Resume */}
       <div className="e-ipt full">
         <input type="url" placeholder="LinkedIn Profile Link" name="linkedin" />
       </div>
@@ -277,8 +274,11 @@ if you are not able to visit our office
                         <small>Status: {skill.status}</small>
 
                         </div>
+                        
+                        <div className="hh">
                         <span>Location: {skill.location}</span>
-                        <small>Job Type : {skill.jobtype}</small>
+                        <span>Job Type : {skill.jobtype}</span>
+                        </div>
 
                         <button className="get" onClick={openModal}>Connect</button>
                      </div>
