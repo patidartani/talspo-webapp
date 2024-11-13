@@ -5,6 +5,8 @@ import "./Contact.css";
 import Navbar from "../../pages/Navbar/Navbar";
 import Footer from "../../pages/Footer/Footer";
 
+const MESSAGE_URL = "https://dev.talspo.com/admin/api/massage-create";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -40,7 +42,7 @@ const Contact = () => {
         massage: formData.message, 
       };
   
-      // console.log("Data being sent:", dataToSend);
+      console.log("Data being sent:", dataToSend);
   
       const response = await fetch(MESSAGE_URL, {
         method: 'POST',
@@ -49,7 +51,7 @@ const Contact = () => {
       });
   
       const result = await response.json();
-      // console.log("Response:", result);
+      console.log("Response:", result);
   
       // Use result.status instead of result.result to check for success
       if (response.ok && result.status) {

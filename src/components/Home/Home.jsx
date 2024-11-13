@@ -15,12 +15,13 @@ import client4 from "../../assets/images/client4.svg"
 import client5 from "../../assets/images/client5.png"
 import skill from "../../assets/images/skill.png"
 import Free from './Free'
-import LernerTrainer from './LernerTrainer'
+// import LernerTrainer from './LernerTrainer'
 import HomeTwo from './HomeTwo';
 import HomeBlog from '../Blog/HomeBlog';
 import { useNavigate } from 'react-router-dom';
 import HomeBroach from './HomeBroach';
 import FooterTop from '../../pages/Footer/FooterTop';
+import gifImg from "../../assets/images/homeslidergif.gif"
 
 const Home = () => {
      const navigate = useNavigate();
@@ -33,9 +34,10 @@ const Home = () => {
   };
 
   const images = [
-    'https://mintbook.com/blog/wp-content/uploads/2019/09/Top-10-Secrets-to-Improve-Learning-Skills-min.png',
-    'https://static.vecteezy.com/system/resources/thumbnails/001/879/458/small_2x/digital-library-to-get-ideas-inspiration-and-solutions-online-learning-for-students-reading-app-online-books-education-by-blog-illustration-landing-page-card-banner-brochure-flyer-free-vector.jpg'
+    'https://static.vecteezy.com/system/resources/thumbnails/001/879/458/small_2x/digital-library-to-get-ideas-inspiration-and-solutions-online-learning-for-students-reading-app-online-books-education-by-blog-illustration-landing-page-card-banner-brochure-flyer-free-vector.jpg',
+    gifImg
   ];
+  
 
 
   return (
@@ -63,41 +65,44 @@ const Home = () => {
 
       <div className="right">
       <Swiper
-  modules={[Autoplay,Pagination]}
-  spaceBetween={30}
-  slidesPerView={1}
-  loop={true}
-  autoplay={{ delay: 3000, disableOnInteraction: false }}
-  pagination={{ clickable: true }} 
->
-  <SwiperSlide>
-    <div className="swiper-image-container">
-      <img src={images[0]} alt="Slide 1" />
-    </div>
-  </SwiperSlide>
+        modules={[Autoplay, Pagination]}
+        spaceBetween={30}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+      >
+        {/* First Image Slide */}
+        <SwiperSlide>
+          <div className="swiper-image-container">
+            <img src={images[0]} alt="Slide 1" />
+          </div>
+        </SwiperSlide>
 
-  <SwiperSlide>
-    <div className="video-container">
-      <iframe
-        width="100%"
-        height="315"
-        src="https://www.youtube.com/embed/hMjaZKCh3Nc?autoplay=1&mute=1&loop=1&playlist=hMjaZKCh3Nc"
-        frameBorder="0"
-        allow="autoplay; encrypted-media"
-        allowFullScreen
-        title="Talspo Video"
-      ></iframe>
-    </div>
-  </SwiperSlide>
+        {/* Video Slide */}
+        <SwiperSlide>
+          <div className="video-container">
+            <iframe
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/hMjaZKCh3Nc?autoplay=1&mute=1&loop=1&playlist=hMjaZKCh3Nc"
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              title="Talspo Video"
+            ></iframe>
+          </div>
+        </SwiperSlide>
 
-  <SwiperSlide>
-    <div className="swiper-image-container">
-      <img src={images[1]} alt="Slide 2" />
+        <SwiperSlide>
+          <div className="swiper-image-container">
+            <img src={images[1]} alt="Slide 2" style={{ width: '50%' }} />
+          </div>
+        </SwiperSlide>
+      </Swiper>
     </div>
-  </SwiperSlide>
-</Swiper>
 
-      </div>
+
     </div>        
         {/* <LernerTrainer />      */}
         <HomeTwo />

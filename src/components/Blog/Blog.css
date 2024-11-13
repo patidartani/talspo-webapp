@@ -93,25 +93,53 @@
          font-size: 1.4vmax;
     }
 
-    .Blog-main .blogs  .Blog-search{
-          width: 95%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-top: 3vmax;
+    .Blog-main .blogs .Blog-search {
+      width: 95%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 3vmax;
     }
-    .Blog-main .blogs  .Blog-search .ipt-blg{
-          width: 40%;
-          padding: 0.5vmax 1vmax;
-          border: 1px solid #9f9f9f;
-          border-radius: 50px;
+    
+    .Blog-main .blogs .Blog-search .ipt-blg {
+      width: 40%;
+      padding: 0.5vmax 1vmax;
+      border: 1px solid #9f9f9f;
+      border-radius: 50px;
+      position: relative; 
     }
-    .Blog-main .blogs  .Blog-search .ipt-blg input{
-          width: 100%;
-          border-radius: 50px;
-          outline: none;
-          border: none;
+    
+    .Blog-main .blogs .Blog-search .ipt-blg input {
+      width: 100%;
+      padding-right: 38px;
+      padding-left: 10px; 
+      border-radius: 50px;
+      outline: none;
+      border: none;
+      font-size: 16px;
     }
+    
+    .Blog-main .blogs .Blog-search .ipt-blg img {
+      position: absolute;
+      top: 20%;
+      right: 10px;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 23px;
+      pointer-events: none;
+      animation: rotateIcon 1.5s infinite linear;
+    }
+    
+    @keyframes rotateIcon {
+      from {
+            transform: rotateY(0deg);
+        }
+        to {
+            transform: rotateY(180deg);
+        }
+    }
+    
+
      
     .Blog-main .blogs     .blog-container{
           width: 95%;
@@ -203,7 +231,7 @@
     
 
     .Blog-main .blogs     .blog-container   .blog-content   .Blogs_img{
-          width: 30%;
+          width: 40%;
           display: flex;
           align-items: center;
           justify-content:center;
@@ -324,9 +352,11 @@
     
 }
 
-@media (min-width : 600px) and (max-width:1050px) {
- .Blog-main{
+
+@media (min-width : 600px)  and (max-width:1150px){
+      .Blog-main{
             width: 100%;
+            margin-top: 3vmax;
   }
   .Blog-main .blogs{
             width: 95%;
@@ -352,6 +382,7 @@
   .Blog-main .blogs .blog-top .blog-right img{
      width: 100%;
   }
+  
   .Blog-main .blogs .blog2{
             width: 100%;
   }
@@ -359,10 +390,11 @@
             width: 90%;
   }
   .Blog-main .blogs .blog2 .b-one h5{
-         font-size: 2vmax;
+         font-size: 2.5vmax;
   }
   .Blog-main .blogs .blog2 .b-one a{
         margin-bottom: 1vmax;
+        font-size: 2vmax;
      }
      .Blog-main .blogs .blog2 .b-two{
            width: 90%;
@@ -372,8 +404,11 @@
             width: 100%;
       }
       .Blog-main .blogs .blog2 .b-two .blog-box h6{
-           font-size: 2vmax;
+           font-size: 3vmax;
       }
+      .Blog-main .blogs .blog2 .b-two .blog-box p{
+            font-size: 1.8vmax;
+       }
   
       .Blog-main .blogs  .Blog-search{
             width: 100%;
@@ -381,7 +416,7 @@
       }
       .Blog-main .blogs  .Blog-search .ipt-blg{
             width: 90%;
-            padding: 1.4vmax 3vmax;
+            padding: 1.5vmax 3vmax;
       }
   
       .Blog-main .blogs     .blog-container{
@@ -399,31 +434,39 @@
       .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg{
             width: 100%;
             flex-direction: column;
-            height: 400px;
+            height: 700px;
       }
       .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg .bl-img{
             width: 100%;
-            height: 200px;
+            height: 250px;
       }
       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text{
             width: 100%;
-            height: 200px;
+            height: auto;
       }
       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text h5{
-           font-size: 1.5vmax;
+           font-size: 2vmax;
       }
       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num{
-           gap: 5vmax;
+           gap: 2vmax;
            width: 100%;
+           flex-direction: column;
        }
        .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num span{
-          padding: 1vmax 5vmax;
+          padding: 1vmax 1.5vmax;
           font-size: 2vmax;
+          width: 15%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
        .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num h1{
            font-size: 3vmax;
         }
    
+        .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text p{
+            font-size: 2vmax;
+       }
   
       .Blog-main .blogs     .blog-container   .blog-content   .Blogs_img{
             width: 100%;
