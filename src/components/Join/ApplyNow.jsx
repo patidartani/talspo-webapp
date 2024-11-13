@@ -64,7 +64,6 @@ const ApplyNow = () => {
                 </label>
               </div>
 
-              {/* Row 2: Getting Job (Checkbox for selection, show input fields if checked) */}
               <div className="e-ipt-checkbox full">
                 <label>
                   <input
@@ -179,12 +178,10 @@ const ApplyNow = () => {
                 </div>
               </div>
 
-              {/* Row 6: Location Information */}
               <div className="e-ipt full">
                 <input type="text" placeholder="Current Location" name="currentLocation" />
               </div>
 
-              {/* Row 7: Meeting Preference (Checkbox) */}
               <div className="e-ipt-checkbox full">
                 <h6>Are you comfortable using Zoom, G-meet, etc. for initial meetings if you are not able to visit our office?</h6>
                 <label>
@@ -207,7 +204,6 @@ const ApplyNow = () => {
                 </label>
               </div>
 
-              {/* Row 8: Consent */}
               <div className="e-ipt-checkbox full">
                 <h6>Consent <span style={{ color: 'red' }}>*</span>:</h6>
                 <label>
@@ -216,7 +212,6 @@ const ApplyNow = () => {
                 </label>
               </div>
 
-              {/* Row 9: Subscribe */}
               <div className="e-ipt-checkbox full">
                 <h6>Subscribe:</h6>
                 <label>

@@ -139,7 +139,7 @@ const Navbar = () => {
                   </div>
 
                   {isAboutDropdownOpen && (
-                    <div className='boox' style={{ marginTop: '0.3rem' }}>
+                    <div className='boox' style={{ marginTop: '0.3rem', marginLeft:"1.5vmax" }}>
                       <Link to="/about-us" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>About Us</Link>
                       <Link to="/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>FAQs</Link>
                       <Link to="/our-team" style={{ display: 'block', marginTop: '0.2rem' , fontSize:"1.9vmax" }}>Our Team</Link>
@@ -180,7 +180,7 @@ const Navbar = () => {
         </div>
 
         {isServicesDropdownOpen && (
-          <div className='' style={{ marginTop: '0.2rem' }}>
+          <div className='' style={{ marginTop: '0.2rem', marginLeft:"1.5vmax" }}>
             <Link to="" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Students/Learner Model Services</Link>
             <Link to="" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Professional + Trainers Model Services</Link>
             <Link to="" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Corporate + Organization Model Services</Link>
@@ -219,7 +219,7 @@ const Navbar = () => {
                   </div>
 
                   {isJoinDropdownOpen && (
-                    <div style={{ marginTop: '0.2rem' }}>
+                    <div style={{ marginTop: '0.2rem', marginLeft:"1.5vmax" }}>
                       <Link to="/join-us" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Join Us</Link>
                       <Link to="/opportunities" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Find Opportunities</Link>
                       <Link to="/partners" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Do Partnership</Link>
