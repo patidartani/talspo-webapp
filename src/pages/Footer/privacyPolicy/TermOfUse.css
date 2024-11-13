@@ -72,4 +72,16 @@
   .use_con a:hover {
     text-decoration: underline;
   }
-  
+  @media (max-width: 768px) {
+    .use_con {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  @media (max-width: 576px) {
+    .use_con {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+  }
