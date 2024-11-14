@@ -1,8 +1,8 @@
 import React from "react";
-import { Container} from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Navbar from "../../../pages/Navbar/Navbar";
 import Footer from "../../Footer/Footer";
-import "../privacyPolicy/TermOfUse.css"
+import "../privacyPolicy/TermOfUse.css";
 const TermOfUse = () => {
   return (
     <>
@@ -14,120 +14,155 @@ const TermOfUse = () => {
         {/* <h1>Privacy Policy</h1> */}
         <div className="use_con">
           <p>
-          The Talspo website located at https://www.talspo.com is a copyrighted work belonging to
-Talspo Private Limited. Certain features of the Site may be subject to additional guidelines,
-terms, or rules, which will be posted on the Site in connection with such features.
+            The Talspo website located at  <a
+                href="https://www.talspo.com"
+                rel="external nofollow noopener"
+                target="_blank"
+              >
+               https://www.talspo.com
+              </a> is a
+            copyrighted work belonging to Talspo Private Limited. Certain
+            features of the Site may be subject to additional guidelines, terms,
+            or rules, which will be posted on the Site in connection with such
+            features.
           </p>
           <p>
-          All such additional terms, guidelines, and rules are incorporated by reference into these
-Terms.
+            All such additional terms, guidelines, and rules are incorporated by
+            reference into these Terms.
           </p>
           <p>
-          These Terms of Use described the legally binding terms and conditions that oversee your
-use of the Site. BY LOGGING INTO THE SITE, YOU ARE BEING COMPLIANT THAT THESE
-TERMS and you represent that you have the authority and capacity to enter into these
-Terms. YOU SHOULD BE AT LEAST 13 YEARS OF AGE TO ACCESS THE SITE. IF YOU
-DISAGREE WITH ALL OF THE PROVISION OF THESE TERMS, DO NOT LOG INTO AND/OR
-USE THE SITE.
+            These Terms of Use described the legally binding terms and
+            conditions that oversee your use of the Site. BY LOGGING INTO THE
+            SITE, YOU ARE BEING COMPLIANT THAT THESE TERMS and you represent
+            that you have the authority and capacity to enter into these Terms.
+            YOU SHOULD BE AT LEAST 13 YEARS OF AGE TO ACCESS THE SITE. IF YOU
+            DISAGREE WITH ALL OF THE PROVISION OF THESE TERMS, DO NOT LOG INTO
+            AND/OR USE THE SITE.
           </p>
           <p>
-          These terms require the use of arbitration Section 10.2 on an individual basis to resolve
-disputes and also limit the remedies available to you in the event of a dispute.
+            These terms require the use of arbitration Section 10.2 on an
+            individual basis to resolve disputes and also limit the remedies
+            available to you in the event of a dispute.
+          </p>
+          <h4>Access to the Site</h4>
 
-          </p>
-          <p>Access to the Site</p>
-         
           <p>
             <strong>Subject to these Terms</strong>Company grants you a
             non-transferable, non-exclusive, revocable, limited license to
             access the Site solely for your own personal, noncommercial use.
           </p>
           <p>
-            <strong>Certain Restrictions. </strong> The rights approved to you in these Terms are subject to the
-following restrictions: (a) you shall not sell, rent, lease, transfer, assign, distribute, host, or
-otherwise commercially exploit the Site; (b) you shall not change, make derivative works of,
-disassemble, reverse compile or reverse engineer any part of the Site; (c) you shall not
-access the Site in order to build a similar or competitive website; and (d) except as expressly
-stated herein, no part of the Site may be copied, reproduced, distributed, republished,
-downloaded, displayed, posted or transmitted in any form or by any means unless otherwise
-indicated, any future release, update, or other addition to functionality of the Site shall be
-subject to these Terms. All copyright and other proprietary notices on the Site must be
-retained on all copies thereof.
+            <strong>Certain Restrictions. </strong> The rights approved to you
+            in these Terms are subject to the following restrictions: (a) you
+            shall not sell, rent, lease, transfer, assign, distribute, host, or
+            otherwise commercially exploit the Site; (b) you shall not change,
+            make derivative works of, disassemble, reverse compile or reverse
+            engineer any part of the Site; (c) you shall not access the Site in
+            order to build a similar or competitive website; and (d) except as
+            expressly stated herein, no part of the Site may be copied,
+            reproduced, distributed, republished, downloaded, displayed, posted
+            or transmitted in any form or by any means unless otherwise
+            indicated, any future release, update, or other addition to
+            functionality of the Site shall be subject to these Terms. All
+            copyright and other proprietary notices on the Site must be retained
+            on all copies thereof.
           </p>
           <p>
-          Company reserves the right to change, suspend, or cease the Site with or without notice to
-you. You approved that Company will not be held liable to you or any third-party for any
-change, interruption, or termination of the Site or any part.
+            Company reserves the right to change, suspend, or cease the Site
+            with or without notice to you. You approved that Company will not be
+            held liable to you or any third-party for any change, interruption,
+            or termination of the Site or any part.
           </p>
           <p>
-            <strong>No Support or Maintenance.</strong> You agree that Company will have no obligation to provide
-            you with any support in connection with the Site.
+            <strong>No Support or Maintenance.</strong> You agree that Company
+            will have no obligation to provide you with any support in
+            connection with the Site.
           </p>
           <p>
-          Excluding any User Content that you may provide, you are aware that all the intellectual
-property rights, including copyrights, patents, trademarks, and trade secrets, in the Site and
-its content are owned by Company or Company’s suppliers. Note that these Terms and
-access to the Site do not give you any rights, title or interest in or to any intellectual
-property rights, except for the limited access rights expressed in Section 2.1. Company and
-its suppliers reserve all rights not granted in these Terms.
+            Excluding any User Content that you may provide, you are aware that
+            all the intellectual property rights, including copyrights, patents,
+            trademarks, and trade secrets, in the Site and its content are owned
+            by Company or Company’s suppliers. Note that these Terms and access
+            to the Site do not give you any rights, title or interest in or to
+            any intellectual property rights, except for the limited access
+            rights expressed in Section 2.1. Company and its suppliers reserve
+            all rights not granted in these Terms.
           </p>
-          <p>Third-Party Links & Ads; Other Users</p>
-         
-          <p>
-            <strong>Third-Party Links & Ads.</strong>The Site may contain links to third-party websites and services,
-and/or display advertisements for third-parties. Such Third-Party Links & Ads are not under
-the control of Company, and Company is not responsible for any Third-Party Links & Ads.
-Company provides access to these Third-Party Links & Ads only as a convenience to you,
-and does not review, approve, monitor, endorse, warrant, or make any representations with
-respect to Third-Party Links & Ads. You use all Third-Party Links & Ads at your own risk, and
-should apply a suitable level of caution and discretion in doing so. When you click on any of
-the Third-Party Links & Ads, the applicable third party’s terms and policies apply, including
-the third party’s privacy and data gathering practices.
-          </p>
-          <p>
-            <strong>Other Users.</strong> Each Site user is solely responsible for any and all of its own User Content.
-Because we do not control User Content, you acknowledge and agree that we are not
-responsible for any User Content, whether provided by you or by others. You agree that
-Company will not be responsible for any loss or damage incurred as the result of any such
-interactions. If there is a dispute between you and any Site user, we are under no obligation
-to become involved.
-          </p>
-          <p>
-          You hereby release and forever discharge the Company and our officers, employees, agents,
-successors, and assigns from, and hereby waive and relinquish, each and every past, present
-and future dispute, claim, controversy, demand, right, obligation, liability, action and cause
-of action of every kind and nature, that has arisen or arises directly or indirectly out of, or
-that relates directly or indirectly to, the Site. If you are a California resident, you hereby
-waive California civil code section 1542 in connection with the foregoing, which states: "a
-general release does not extend to claims which the creditor does not know or suspect to
-exist in his or her favor at the time of executing the release, which if known by him or her
-must have materially affected his or her settlement with the debtor."
-          </p>
-          <p>
-            <strong>Cookies and Web Beacons</strong> Like any other website, Talspo uses ‘cookies’. These cookies are
-used to store information including visitors’ preferences, and the pages on the website that
-the visitor accessed or visited. The information is used to optimize the users’ experience by
-customizing our web page content based on visitors’ browser type and/or other
-information.
+          <h4>Third-Party Links & Ads; Other Users</h4>
 
+          <p>
+            <strong>Third-Party Links & Ads.</strong>The Site may contain links
+            to third-party websites and services, and/or display advertisements
+            for third-parties. Such Third-Party Links & Ads are not under the
+            control of Company, and Company is not responsible for any
+            Third-Party Links & Ads. Company provides access to these
+            Third-Party Links & Ads only as a convenience to you, and does not
+            review, approve, monitor, endorse, warrant, or make any
+            representations with respect to Third-Party Links & Ads. You use all
+            Third-Party Links & Ads at your own risk, and should apply a
+            suitable level of caution and discretion in doing so. When you click
+            on any of the Third-Party Links & Ads, the applicable third party’s
+            terms and policies apply, including the third party’s privacy and
+            data gathering practices.
           </p>
           <p>
-  <strong>Google DoubleClick DART Cookie</strong> e. Google is one of a third-party vendor on our site. It
-  also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their
-  visit to www.website.com and other sites on the internet. However, visitors may choose to
-  decline the use of DART cookies by visiting the Google ad and content network Privacy
-  Policy at the following URL – <a href="https://policies.google.com/technologies/ads" target="_blank">Google ad and content network Privacy Policy</a>
-</p>
+            <strong>Other Users.</strong> Each Site user is solely responsible
+            for any and all of its own User Content. Because we do not control
+            User Content, you acknowledge and agree that we are not responsible
+            for any User Content, whether provided by you or by others. You
+            agree that Company will not be responsible for any loss or damage
+            incurred as the result of any such interactions. If there is a
+            dispute between you and any Site user, we are under no obligation to
+            become involved.
+          </p>
+          <p>
+            You hereby release and forever discharge the Company and our
+            officers, employees, agents, successors, and assigns from, and
+            hereby waive and relinquish, each and every past, present and future
+            dispute, claim, controversy, demand, right, obligation, liability,
+            action and cause of action of every kind and nature, that has arisen
+            or arises directly or indirectly out of, or that relates directly or
+            indirectly to, the Site. If you are a California resident, you
+            hereby waive California civil code section 1542 in connection with
+            the foregoing, which states: "a general release does not extend to
+            claims which the creditor does not know or suspect to exist in his
+            or her favor at the time of executing the release, which if known by
+            him or her must have materially affected his or her settlement with
+            the debtor."
+          </p>
+          <p>
+            <strong>Cookies and Web Beacons</strong> Like any other website,
+            Talspo uses ‘cookies’. These cookies are used to store information
+            including visitors’ preferences, and the pages on the website that
+            the visitor accessed or visited. The information is used to optimize
+            the users’ experience by customizing our web page content based on
+            visitors’ browser type and/or other information.
+          </p>
+          <p>
+            <strong>Google DoubleClick DART Cookie</strong> e. Google is one of
+            a third-party vendor on our site. It also uses cookies, known as
+            DART cookies, to serve ads to our site visitors based upon their
+            visit to www.website.com and other sites on the internet. However,
+            visitors may choose to decline the use of DART cookies by visiting
+            the Google ad and content network Privacy Policy at the following
+            URL –
+            <a
+              href="https://policies.google.com/technologies/ads"
+              target="_blank"
+            >
+              Google ad and content network Privacy Policy
+            </a>
+          </p>
 
-        <p>
-        <strong>Our Advertising Partners</strong> Some of advertisers on our
-          site may use cookies and web beacons. Our advertising partners are
-          listed below. Each of our advertising partners has their own Privacy
-          Policy for their policies on user data. For easier access, we
-          hyperlinked to their Privacy Policies below.
-        </p>
-         
-          <h3>Disclaimers</h3>
+          <p>
+            <strong>Our Advertising Partners</strong> Some of advertisers on our
+            site may use cookies and web beacons. Our advertising partners are
+            listed below. Each of our advertising partners has their own Privacy
+            Policy for their policies on user data. For easier access, we
+            hyperlinked to their Privacy Policies below.
+          </p>
+
+          <h4>Disclaimers</h4>
           <p>
             The site is provided on an "as-is" and "as available" basis, and
             company and our suppliers expressly disclaim any and all warranties
@@ -155,7 +190,7 @@ information.
             not allow limitations on how long an implied warranty lasts, so the
             above limitation may not apply to you.
           </p>
-          <h3>Limitation on Liability</h3>
+          <h4>Limitation on Liability</h4>
           <p>
             To the maximum extent permitted by law, in no event shall company or
             our suppliers be liable to you or any third-party for any lost
@@ -198,7 +233,7 @@ information.
             Terms will remain in effect: Sections 2 through 2.5, Section 3 and
             Sections 4 through 10.
           </p>
-          <h3>Copyright Policy.</h3>
+          <h4>Copyright Policy.</h4>
           <p>
             Company respects the intellectual property of others and asks that
             users of our Site do the same. In connection with our Site, we have
@@ -245,7 +280,7 @@ information.
             damages, costs and attorney’s fees incurred by us in connection with
             the written notification and allegation of copyright infringement.
           </p>
-          <h3>General</h3>
+          <h4>General</h4>
           <p>
             These Terms are subject to occasional revision, and if we make any
             substantial changes, we may notify you by sending you an e-mail to
@@ -329,7 +364,7 @@ information.
           <p>
             <strong>
               Additional Rules for Non-Appearance Based Arbitration.
-            </strong>{" "}
+            </strong>
             If non-appearance based arbitration is elected, the arbitration
             shall be conducted by telephone, online and/or based solely on
             written submissions; the specific manner shall be chosen by the
@@ -502,12 +537,14 @@ information.
             You are not permitted to use these Marks without our prior written
             consent or the consent of such third party which may own the Marks.
           </p>
-          <h3>Contact Information</h3>
+          <h4>Contact Information</h4>
           <p>
             Address: Ocean Arcade, Ocean Park Township, Nipania, Indore, Madhya
             Pradesh, India
           </p>
-          <p>Email: info@talspo.com</p>
+          <p>
+            By email: <a href="info@talspo.com"> info@talspo.com</a>
+          </p>
         </div>
       </Container>
       <Footer />
