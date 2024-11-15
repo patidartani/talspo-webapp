@@ -40,14 +40,15 @@
     }
     
     @media (max-width: 600px) {
-        .loading img {
-            width: 100%;
+       
+        .loading .loading-logo img {
+            width: 50%;
         }
     }
     
     @media (min-width: 600px) and (max-width:1150px) {
-        .loading img {
-            width: 100%;
+        .loading .loading-logo img {
+            width: 70%;
         }
     }
     

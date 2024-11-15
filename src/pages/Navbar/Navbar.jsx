@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import "./Navbar.css"; // Ensure this path is correct
-import mainLogo from "../../assets/images/NewmainLogo.png"; 
+import mainLogo from "../../assets/images/NewmainLogo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import talspoIcon from "../../assets/images/talspoIcon.png"
 import { FaGlobe } from "react-icons/fa";
+
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { clearUser } from '../../redux-toolkit/slices/authSlice'; // Clear user action
@@ -14,6 +16,7 @@ const Navbar = () => {
   const [isNavActive, setIsNavActive] = useState(false);
   const [isAboutDropdownVisible, setIsAboutDropdownVisible] = useState(false);
   const [isJoinDropdownVisible, setIsJoinDropdownVisible] = useState(false);
+  const [isServicesDropdownVisible, setIsServicesDropdownVisible] = useState(false);
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // Access the authentication state from Redux
@@ -43,6 +46,9 @@ const Navbar = () => {
   const handleJoinMouseEnter = () => setIsJoinDropdownVisible(true);
   const handleJoinMouseLeave = () => setIsJoinDropdownVisible(false);
 
+  const handleServicesMouseEnter = () => setIsServicesDropdownVisible(true);
+  const handleServicesMouseLeave = () => setIsServicesDropdownVisible(false);
+
   const handleAuthButtonClick = () => {
     if (isAuthenticated) {
       dispatch(clearUser());
@@ -56,6 +62,23 @@ const Navbar = () => {
     }
   };
 
+  // -------------------------responsive code----------------------------------
+  const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+  const [isJoinDropdownOpen, setIsJoinDropdownOpen] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+
+  const toggleAboutDropdown = () => {
+    setIsAboutDropdownOpen(!isAboutDropdownOpen);
+  };
+
+  const toggleJoinDropdown = () => {
+    setIsJoinDropdownOpen(!isJoinDropdownOpen);
+  };
+
+  const toggleServicesDropdown = () => {
+    setIsServicesDropdownOpen(!isServicesDropdownOpen);
+  };
+  // -------------------------responsive code----------------------------------
 
   return (
     <div className="Navbar-main">
@@ -84,7 +107,7 @@ const Navbar = () => {
             </div>
 
             <div className="link-item">
-              <Link  style={{ color: "red" }} to="/talspo-here">Talspo Here</Link>
+              <Link style={{ color: "red" }} to="/talspo-here">Talspo Here</Link>
 
               {/* About Us Section */}
               <div
@@ -100,20 +123,76 @@ const Navbar = () => {
                     <Link to="/our-team">Our Team</Link>
                     <Link to="/achievements">Achievements</Link>
                     <Link to="/how-we-work">How We Work</Link>
+                    <Link to="/">Talspo Search AI</Link>
+                    <Link to="/">Talspo API</Link>
+
+
 
                   </div>
                 )}
-                <div className="about-dropdown-responsive">
-                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/faq">About Us</Link>
-                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/">FAQs</Link>
-                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/our-team">Our Team</Link>
-                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/achievements">Achievements</Link>
-                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/how-we-work">How We Work</Link>
 
+                {/* -------------------about responsive--------------------- */}
+                <div className="about-dropdown-responsive" style={{ fontSize: '2.5vmax', fontWeight: '500' }}>
+                  <div className='hed' onClick={toggleAboutDropdown} style={{ cursor: 'pointer'}}>
+                    <Link to="" style={{ marginRight: '0.5rem', textDecoration: 'none'}}>About</Link>
+                    {isAboutDropdownOpen ? <FaChevronUp style={{ fontSize: '1em' }} /> : <FaChevronDown style={{ fontSize: '1em' }} />}
+                  </div>
+
+                  {isAboutDropdownOpen && (
+                    <div className='boox' style={{ marginTop: '0.3rem', marginLeft:"1.5vmax" }}>
+                      <Link to="/about-us" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>About Us</Link>
+                      <Link to="/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>FAQs</Link>
+                      <Link to="/our-team" style={{ display: 'block', marginTop: '0.2rem' , fontSize:"1.9vmax" }}>Our Team</Link>
+                      <Link to="/achievements" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Achievements</Link>
+                      <Link to="/how-we-work" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>How We Work</Link>
+                      <Link to="/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talspo Search AI</Link>
+                      <Link to="/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talspo API</Link>
+                    </div>
+                  )}
                 </div>
+
+                {/* -------------------about responsive end--------------------- */}
+
+
               </div>
 
-              <Link to="/services">Services</Link>
+              <div
+                className="services"
+                onMouseEnter={handleServicesMouseEnter}
+                onMouseLeave={handleServicesMouseLeave}
+              >
+                <Link id='res-hide' to="/services">Services</Link>
+                {isServicesDropdownVisible && (
+                  <div className="services-dropdown">
+                    <Link to="">Students/Learner Model Services</Link>
+                    <Link to="">Professional + Trainers Model Services</Link>
+                    <Link to="">Corporate + Organization Model Services</Link>
+                    <Link to="">Co-Working Spaces + Co-works & Co-live & Events Model Services</Link>
+                  </div>
+                )}
+
+                 {/* -----------------------service--responsive--------------- */}
+                    
+                 <div className="service-dropdown-responsive" style={{ fontSize: '2.5vmax', fontWeight: '500' }}>
+        <div onClick={toggleServicesDropdown} style={{ cursor: 'pointer' }}>
+          <Link to="" style={{ marginRight: '0.5rem', textDecoration: 'none' }}>Services</Link>
+          {isServicesDropdownOpen ? <FaChevronUp style={{ fontSize: '1em' }} /> : <FaChevronDown style={{ fontSize: '1em' }} />}
+        </div>
+
+        {isServicesDropdownOpen && (
+          <div className='' style={{ marginTop: '0.2rem', marginLeft:"1.5vmax" }}>
+            <Link to="" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Students/Learner Model Services</Link>
+            <Link to="" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Professional + Trainers Model Services</Link>
+            <Link to="" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Corporate + Organization Model Services</Link>
+            <Link to="" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Co-Working Spaces + Co-works & Co-live & Events Model Services</Link>
+          </div>
+        )}
+      </div>
+
+                 {/* -----------------------service--responsive--------------- */}
+             
+
+              </div>
 
               {/* Join Us Section */}
               <div
@@ -124,20 +203,32 @@ const Navbar = () => {
                 <Link id='res-hide' to="">Join</Link>
                 {isJoinDropdownVisible && (
                   <div className="join-dropdown">
-                    <Link  to="/join">Join Us</Link>
+                    <Link to="/join">Join Us</Link>
                     <Link to="/opportunities">Find Opportunities</Link>
                     <Link to="/partners">Do Partnership</Link>
-                    <Link to="/tca"> Campus Ambassador</Link>
+                    <Link to="/tca">
+                      TCA</Link>
 
                   </div>
                 )}
-                <div className="join-dropdown-responsive">
-                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/join-us">Join Us</Link>
-                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/opportunities">Find Opportunities</Link>
-                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/partners">Do Partnership</Link>
-                  <Link style={{fontSize:"2.5vmax",  fontWeight:"500"}} to="/tca">Campus Ambassador</Link>
+                {/* -----------------------joinn responsive------------- */}
+                <div className="join-dropdown-responsive" style={{ fontSize: '2.5vmax', fontWeight: '500' }}>
+                  <div onClick={toggleJoinDropdown} style={{ cursor: 'pointer' }}>
+                    <Link to="" style={{ marginRight: '0.5rem', textDecoration: 'none' }}>Join</Link>
+                    {isJoinDropdownOpen ? <FaChevronUp style={{ fontSize: '1em' }} /> : <FaChevronDown style={{ fontSize: '1em' }} />}
+                  </div>
 
+                  {isJoinDropdownOpen && (
+                    <div style={{ marginTop: '0.2rem', marginLeft:"1.5vmax" }}>
+                      <Link to="/join-us" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Join Us</Link>
+                      <Link to="/opportunities" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Find Opportunities</Link>
+                      <Link to="/partners" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Do Partnership</Link>
+                      <Link to="/tca" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>TCA</Link>
+                    </div>
+                  )}
                 </div>
+                {/* -----------------------joinn responsive------------- */}
+
               </div>
 
               <Link to="/blog">Blog</Link>

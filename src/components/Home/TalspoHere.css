@@ -50,7 +50,6 @@
     width: 100%;
     border-radius: 50px;
     margin-top: 2vmax;
-
 }
 
 .TalspoHere-main .Talspo-page .talspo-text .talspo-search .search-input {
@@ -146,7 +145,7 @@
 @media (min-width:600px) and (max-width:1050px){
     .TalspoHere-main {
         width: 100%;
-        height: 300px;
+        height: 1000px;
     }
     .TalspoHere-main .Talspo-page {
         width: 100%;

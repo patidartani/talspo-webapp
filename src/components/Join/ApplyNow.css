@@ -1,21 +1,126 @@
-.ApplyNow{
+.ApplyNow {
           width: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
-}
-.ApplyNow .Apply_page{
+          background-color: #f9f9f9; /* Light background for contrast */
+          padding: 3vmax 0;
+        }
+        
+        .ApplyNow .Apply_page {
           width: 80%;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
+          margin-top: 10vmax;
+        }
+        
+        .ApplyNow .Apply_page .form_content {
+          width: 60%;
+          display: flex;
           flex-direction: column;
-          margin-top: 10vmax
-}
-.ApplyNow .Apply_page .form_content{
-          width: 70%;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+          background-color: white;
+          padding: 1vmax;
+          border-radius: 12px;
+          margin-bottom: 5vmax;
+        }
+        
+        .ApplyNow .Apply_page .form_content h5 {
+          color: #003266;
+          font-weight: 700;
+          margin-bottom: 2vmax;
+          font-size: 2vmax;
+        }
+        
+        .ApplyNow .Apply_page .form_content form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .ApplyNow .Apply_page .form_content .e-ipt {
+          width: 100%;
+          margin-bottom: 0.5vmax;
+        }
+        
+        .ApplyNow .Apply_page .form_content .e-ipt input {
+          width: 100%;
+          padding: 0.4vmax 1.2vmax;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          outline: none;
+          font-size: 1.1vmax;
+          transition: border-color 0.3s ease;
+        }
+        
+        .ApplyNow .Apply_page .form_content .e-ipt input:focus {
+          border-color: #003266;
+        }
+        
+        .ApplyNow .Apply_page .form_content .e-ipt-checkbox {
+          margin-bottom: 2vmax;
+        }
+        
+        .ApplyNow .Apply_page .form_content .e-ipt-checkbox label {
+          font-size: 1.1vmax;
+          margin-right: 1vmax;
+        }
+        
+        .ApplyNow .Apply_page .form_content select,
+        .ApplyNow .Apply_page .form_content .country-code-wrapper input {
+          width: calc(100% - 4vmax);
+          padding: 0.8vmax 1.2vmax;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          font-size: 1.1vmax;
+          margin-bottom: 0vmax;
+        }
+        
+        .ApplyNow .Apply_page .form_content select:focus,
+        .ApplyNow .Apply_page .form_content .country-code-wrapper input:focus {
+          border-color: #003266;
+        }
+        
+        .ApplyNow .Apply_page .form_content button {
+          padding: 0.6vmax 2vmax;
+          background-color: #003266;
+          color: white;
+          border: none;
+          border-radius: 8px;
+          font-size: 1.2vmax;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+        
+        .ApplyNow .Apply_page .form_content button:hover {
+          background-color: #001a28;
+        }
+        
+        .ApplyNow .Apply_page .form_content .e-ipt-checkbox h6 {
+          font-size: 1.2vmax;
+          font-weight: 600;
+          margin-bottom: 0.5vmax;
+        }
+        
+        .ApplyNow .Apply_page .form_content .e-ipt-checkbox input {
+          margin-right: 0.5vmax;
+        }
+        
+        .country-code-wrapper {
           display: flex;
           align-items: center;
-          justify-content: center;
-          flex-direction: column;
-}
+        }
+        
+        .country-code-wrapper select {
+          margin-right: 1vmax;
+        }
+        
+        .ApplyNow .Apply_page .form_content .e-ipt-checkbox label {
+          display: block;
+          margin-bottom: 0.5vmax;
+        }
+        
