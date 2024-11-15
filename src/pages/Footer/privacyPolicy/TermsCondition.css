@@ -28,6 +28,7 @@
     padding: 20px;
     margin-left: 15rem;
     margin-right: 15rem;
+    color: #444;
   }
   
   .terms-container h2 {
@@ -39,12 +40,12 @@
   .terms-container h3 {
     margin-top: 15px;
     font-size: 1.25rem;
-    color: #555;
+    color: #222;
   }
   
   .terms-container p {
     font-size: 1rem;
-    color: #666;
+    /* color: #666; */
     line-height: 1.6;
   }
   

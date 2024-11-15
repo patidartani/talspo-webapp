@@ -29,6 +29,7 @@ import Disclaimer from "./pages/Footer/privacyPolicy/Disclaimer"
 import DmcaPolicy from "./pages/Footer/privacyPolicy/DMCA"
 import GdbrPolicy from "./pages/Footer/privacyPolicy/GdbrPolicy"
 import AntiSpamPolicy from "./pages/Footer/privacyPolicy/AntiSpamPolicy"
+import AcceptableUse from "./pages/Footer/privacyPolicy/AcceptableUse"
 const App = () => {
   return (
     <div>
@@ -62,6 +63,7 @@ const App = () => {
         <Route path="/dmca-policy" element={<DmcaPolicy/>}/>
         <Route path="/gdba-policy" element={<GdbrPolicy/>}/>
         <Route path="/anti-spam-policy" element={<AntiSpamPolicy/>}/>
+        <Route path="/acceptable-policy" element={<AcceptableUse/>}/>
       </Routes>
     </div>
   )

@@ -1,4 +1,6 @@
-
+.list_policy li{
+  list-style: none;
+}
 .anti-spam-policy{
     margin-top: 100px;
     width: 100%;
