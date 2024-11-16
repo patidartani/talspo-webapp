@@ -85,6 +85,18 @@
         font-weight: 600;
         font-size: 1.7vmax;
 }
+
+.footer3 h5 a img {
+       /* width: 30px;  */
+       height: 40px; 
+       margin: 0 8px;
+       transition: transform 0.3s ease; 
+     }
+     
+     .footer3 h5 a img:hover {
+       transform: scale(1.1); 
+     }
+     
 @media (max-width:600px) {
           .FooterTop-main{
                     width: 100%;

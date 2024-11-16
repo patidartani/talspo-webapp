@@ -177,7 +177,7 @@ const Opportunity = () => {
                         <h3>Flexible Work Hours</h3>
                       </div>
                       <div className="i-right">
-                        <button onClick={applyHandler}>Apply Now</button>
+                        <button onClick={applyHandler}> View Details</button>
                       </div>
                     </div>
                   </div>

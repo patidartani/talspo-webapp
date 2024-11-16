@@ -24,6 +24,34 @@ const TermsCondition = () => {
             Please read these terms and conditions carefully before using Our
             Service.
           </p>
+          <h4>Introduction</h4>
+          <p>These Website Standard Terms and Conditions written on this webpage shall
+manage your use of this website. These Terms will be applied fully and affect to your
+use of this Website. By using this Website, you agreed to accept all terms and
+conditions written in here. You must not use this Website if you disagree with any of
+these Website Standard Terms and Conditions. People below 13 years old are not
+allowed to use this Website</p>
+    <h4>Intellectual Property Rights
+    </h4>
+    <p>Other than the content you own, under these Terms, Talspo Private Limited and/or
+its licensors own all the intellectual property rights and materials contained in this
+Website. You are granted limited license only for purposes of viewing the material
+contained on this Website.</p>
+<h4>Restrictions
+</h4>
+<p>You are specifically restricted from all of the following</p>
+<p>Certain areas of this Website are restricted from being access by you and Talspo
+Private Limited may further restrict access by you to any areas of this Website, at any time, in absolute discretion. Any user ID and password you may have for this Website
+are confidential and you must maintain confidentiality as well.</p>
+<h4>Your Content</h4>
+<p>In these Website Standard Terms and Conditions, “Your Content” shall mean any
+audio, video text, images or other material you choose to display on this Website. By
+displaying Your Content, you grant Talspo Private Limited a non-exclusive, worldwide
+irrevocable, sub licensable license to use, reproduce, adapt, publish, translate and
+distribute it in any and all media. Your Content must be your own and must not be
+invading any third-party’s rights. Talspo Private Limited reserves the right to remove
+any of Your Content from this Website at any time without notice.
+</p>
           <h2>Interpretation and Definitions</h2>
           <h4>Interpretation</h4>
           <p>
