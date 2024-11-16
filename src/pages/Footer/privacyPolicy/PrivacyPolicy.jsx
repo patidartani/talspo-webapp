@@ -54,12 +54,12 @@ const PrivacyPolicy = () => {
             provide us with feedback on our products or services
           </p>
           <h4>How do we use your information?</h4>
-          <p>
+          {/* <p>
             We may use the information we collect from you when you register,
             make a purchase, sign up for our newsletter, respond to a survey or
             marketing communication, surf the website, or use certain other site
             features in the following ways:
-          </p>
+          </p> */}
           <p>
             We use Your Personal data to provide and improve the Service. By
             using the Service, You agree to the collection and use of
@@ -72,6 +72,148 @@ const PrivacyPolicy = () => {
               Privacy Policy Generator
             </a>
             .
+          </p>
+          <ul>
+            <li>
+              To personalize your experience and to allow us to deliver the type
+              of content and product offerings in which you are most interested
+            </li>
+            <li>To improve our website in order to better serve you.</li>
+            <li>
+              To allow us to better service you in responding to your customer
+              service requests.
+            </li>
+            <li>
+              To administer a contest, promotion, survey or other site feature.
+            </li>
+            <li>To quickly process your transactions</li>
+            <li>To ask for ratings and reviews of services or products</li>
+            <li>
+              To follow up with them after correspondence (live chat, email or
+              phone inquiries)
+            </li>
+          </ul>
+          <h3>How do we protect your information?</h3>
+          <p>
+            Our website is scanned on a regular basis for security holes and
+            known vulnerabilities in order to make your visit to our site as
+            safe as possible.
+          </p>
+          <h4>We use regular Malware Scanning.</h4>
+          <p>
+            Your personal information is contained behind secured networks and
+            is only accessible by a limited number of persons who have special
+            access rights to such systems, and are required to keep the
+            information confidential. In addition, all sensitive/credit
+            information you supply is encrypted via Secure Socket Layer (SSL)
+            technology.
+          </p>
+          <p>
+            We implement a variety of security measures when a user places an
+            order enters, submits, or accesses their information to maintain the
+            safety of your personal information.
+          </p>
+          <p>
+            For your convenience we may store your credit card information
+            longer than 30 days in order to expedite future orders, and to
+            automate the billing process.
+          </p>
+          <h4>Third Party Cookies</h4>
+          <p>
+            In some special cases we also use cookies provided by trusted third
+            parties. The following section details which third party cookies you
+            might encounter through this site.
+          </p>
+          <p>
+            This site uses Google Analytics which is one of the most widespread
+            and trusted analytics solution on the web for helping us to
+            understand how you use the site and ways that we can improve your
+            experience. These cookies may track things such as how long you
+            spend on the site and the pages that you visit so we can continue to
+            produce engaging content.
+          </p>
+          <p>
+            For more information on Google Analytics cookies, see the official
+            Google Analytics page.
+          </p>
+          <p>
+            Third party analytics are used to track and measure usage of this
+            site so that we can continue to produce engaging content. These
+            cookies may track things such as how long you spend on the site or
+            pages you visit which helps us to understand how we can improve the
+            site for you.
+          </p>
+          <p>
+            From time to time we test new features and make subtle changes to
+            the way that the site is delivered. When we are still testing new
+            features these cookies may be used to ensure that you receive a
+            consistent experience whilst on the site whilst ensuring we
+            understand which optimisations our users appreciate the most.
+          </p>
+          <p>
+            As we sell products it's important for us to understand statistics
+            about how many of the visitors to our site actually make a purchase
+            and as such this is the kind of data that these cookies will track.
+            This is important to you as it means that we can accurately make
+            business predictions that allow us to monitor our advertising and
+            product costs to ensure the best possible price.
+          </p>
+          <p>
+            The Google AdSense service we use to serve advertising uses a
+            DoubleClick cookie to serve more relevant ads across the web and
+            limit the number of times that a given ad is shown to you.
+          </p>
+          <h4>
+            For more information on Google AdSense see the official Google
+            AdSense privacy FAQ.
+          </h4>
+          <p>
+            We use adverts to offset the costs of running this site and provide
+            funding for further development. The behavioural advertising cookies
+            used by this site are designed to ensure that we provide you with
+            the most relevant adverts where possible by anonymously tracking
+            your interests and presenting similar things that may be of
+            interest.
+          </p>
+          <p>
+            In some cases we may provide you with custom content based on what
+            you tell us about yourself either directly or indirectly by linking
+            a social media account. These types of cookies simply allow us to
+            provide you with content that we feel may be of interest to you
+          </p>
+          <p>
+            Several partners advertise on our behalf and affiliate tracking
+            cookies simply allow us to see if our customers have come to the
+            site through one of our partner sites so that we can credit them
+            appropriately and where applicable allow our affiliate partners to
+            provide any bonus that they may provide you for making a purchase.
+          </p>
+          <p>
+            We also use social media buttons and/or plugins on this site that
+            allow you to connect with your social network in various ways. For
+            these to work the following social media sites including; facebook,
+            linkedin, will set cookies through our site which may be used to
+            enhance your profile on their site or contribute to the data they
+            hold for various purposes outlined in their respective privacy
+            policies
+          </p>
+          <h4>More information</h4>
+          <p>
+            Hopefully that has clarified things for you and as was previously
+            mentioned if there is something that you aren't sure whether you
+            need or not it's usually safer to leave cookies enabled in case it
+            does interact with one of the features you use on our site.
+          </p>
+          <p>
+            However if you are still looking for more information then you can
+            contact us through one of our preferred contact methods
+          </p>
+          <p>
+            We use Your Personal data to provide and improve the Service. By
+            using the Service, You agree to the collection and use of
+            information in accordance with this Privacy Policy. This Privacy
+            Policy has been created with the help of the Privacy Policy
+            Generator.
           </p>
           <h3>Interpretation and Definitions</h3>
           <h4>Interpretation</h4>
