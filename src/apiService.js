@@ -58,7 +58,7 @@ export const fetchTalspoSkilledView = async () => {
 export const recentBlogPosts = async () => {
   try {
     const response = await axios.get(BLOG_POSTS_URL);
-    // console.log(" Recent Blogs:", response.data);
+    console.log(" Recent Blogs:", response.data);
     return response.data.records || [];
   } catch (error) {
     console.error('Error fetching recent blog posts:', error);
