@@ -30,6 +30,7 @@ import DmcaPolicy from "./pages/Footer/privacyPolicy/DMCA"
 import GdbrPolicy from "./pages/Footer/privacyPolicy/GdbrPolicy"
 import AntiSpamPolicy from "./pages/Footer/privacyPolicy/AntiSpamPolicy"
 import AcceptableUse from "./pages/Footer/privacyPolicy/AcceptableUse"
+import Test from "./components/Test"
 const App = () => {
   return (
     <div>
@@ -63,7 +64,8 @@ const App = () => {
         <Route path="/dmca-policy" element={<DmcaPolicy/>}/>
         <Route path="/gdba-policy" element={<GdbrPolicy/>}/>
         <Route path="/anti-spam-policy" element={<AntiSpamPolicy/>}/>
-        <Route path="/acceptable-policy" element={<AcceptableUse/>}/>
+        <Route path="/test" element={<Test/>}/>
+
       </Routes>
     </div>
   )
