@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import "./AboutUs.css";
 import Navbar from "../../pages/Navbar/Navbar";
 import AboutTopImg from "../../assets/images/aboutusTop.webp";
 import Footer from "../../pages/Footer/Footer";
 import { fetchAboutUs } from "../../apiService";
-import Loading from '../../pages/loading/Loading'; 
-
+import Loading from "../../pages/loading/Loading";
+import { Container, Row, Col } from "react-bootstrap";
 const AboutUs = () => {
   const [aboutData, setAboutData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -20,7 +20,7 @@ const AboutUs = () => {
         console.error("Error fetching About Us data:", error);
         setAboutData({ error: true, records: [] });
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
@@ -28,7 +28,7 @@ const AboutUs = () => {
   }, []);
 
   if (loading) {
-    return <Loading />; 
+    return <Loading />;
   }
 
   return (
@@ -69,6 +69,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
+     
       <Footer />
     </>
   );

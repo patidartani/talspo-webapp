@@ -56,5 +56,7 @@
       margin-left: 0;
       margin-right: 0;
     }
-
+    .eula_heading h1{
+      font-size: 1.5rem;
+    }
   }

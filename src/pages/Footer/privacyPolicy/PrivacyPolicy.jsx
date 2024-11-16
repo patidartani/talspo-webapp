@@ -26,6 +26,41 @@ const PrivacyPolicy = () => {
             protects You.
           </p>
           <p>
+            This privacy policy has been compiled to better serve those who are
+            concerned with how their 'Personally Identifiable Information' (PII)
+            is being used online. PII, as described in US privacy law and
+            information security, is information that can be used on its own or
+            with other information to identify, contact, or locate a single
+            person, or to identify an individual in context. Please read our
+            privacy policy carefully to get a clear understanding of how we
+            collect, use, protect or otherwise handle your Personally
+            Identifiable Information in accordance with our website
+          </p>
+          <h4>
+            What personal information do we collect from the people that visit
+            our blog, website or app?
+          </h4>
+          <p>
+            When ordering or registering on our site, as appropriate, you may be
+            asked to enter your name, email address, mailing address, phone
+            number, credit card information, social security number or other
+            details to help you with your experience
+          </p>
+          <h4>When do we collect information?</h4>
+          <p>
+            We collect information from you when you register on our site,
+            subscribe to a newsletter, respond to a survey, fill out a form, Use
+            Live Chat, Open a Support Ticket or enter information on our site,
+            provide us with feedback on our products or services
+          </p>
+          <h4>How do we use your information?</h4>
+          <p>
+            We may use the information we collect from you when you register,
+            make a purchase, sign up for our newsletter, respond to a survey or
+            marketing communication, surf the website, or use certain other site
+            features in the following ways:
+          </p>
+          <p>
             We use Your Personal data to provide and improve the Service. By
             using the Service, You agree to the collection and use of
             information in accordance with this Privacy Policy. This Privacy
@@ -499,9 +534,9 @@ const PrivacyPolicy = () => {
           </p>
           <ul>
             <li>
-            <p>
-            By email: <a href="info@talspo.com"> info@talspo.com</a>
-          </p>
+              <p>
+                By email: <a href="info@talspo.com"> info@talspo.com</a>
+              </p>
             </li>
             <li>
               <p>

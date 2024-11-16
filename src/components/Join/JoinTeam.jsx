@@ -3,7 +3,7 @@ import "./JoinTeam.css"
 import Navbar from "../../pages/Navbar/Navbar"
 import Footer from "../../pages/Footer/Footer"
 import arojoin3 from "../../assets/images/aronew.png"
-import linkedin from "../../assets/images/download.png"
+// import linkedin from "../../assets/images/download.png"
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
