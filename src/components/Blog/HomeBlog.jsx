@@ -10,6 +10,7 @@ const HomeBlog = () => {
    useEffect(() => {
       const fetchBlogs = async () => {
          const posts = await featuredBlogPosts(); // Fetch the blog posts
+         console.log("Fetched blog posts:", posts);
          setBlogs(posts); // Store the posts in state
       };
 
@@ -33,7 +34,7 @@ const HomeBlog = () => {
                      <div className="h-blg-right" key={index}>
                         <img src={blog.image || 'default-image-url.jpg'} alt={blog.title} />
                         <h5>{blog.title}</h5>
-                        <h6>{new Date(blog.created_at).getFullYear()}</h6>
+                        <h6>{blog.year}</h6>
                         <span>{blog.description.length > 100 ? `${blog.description.slice(0, 100)}...` : blog.description}</span> {/* Truncate description */}
                         <div className="view-blog-btn">
                            <button onClick={() => handleReadMore(blog.id)}>Read More</button> {/* Navigate on button click */}
