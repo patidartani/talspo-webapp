@@ -19,101 +19,159 @@
     justify-content: center;
     z-index: 1000;
   }
-  
+
   .Whowe-main .modal-overlay-slide .modal-content {
     background: white;
     box-shadow: 0px 1px 2px 1px #001a285c;
     border-radius: 8px;
     width: 45%;
-    padding: 1vmax;
+    padding: 2vmax;
     margin-top: 6.5vmax;
-  }
-  
+    overflow-y: auto;
+    max-height: 80vh; 
+        scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.Whowe-main .modal-overlay-slide .modal-content::-webkit-scrollbar {
+    display: none;
+}
   .Whowe-main .modal-overlay-slide .modal-content .modal-close {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 1.2vmax;
+    font-size: 2vmax;
     flex-direction: row;
   }
-  
   .Whowe-main .modal-overlay-slide .modal-content h5 {
-    font-size: 1.2vmax;
+    font-size: 1.5vmax;
     font-weight: 700;
     color: #003266;
   }
-  
+  .Whowe-main .modal-overlay-slide .modal-content i {
+    margin-bottom: 1vmax;
+  }
   .Whowe-main .modal-overlay-slide .modal-content form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.3vmax;
-  }
-  
-  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt {
     width: 100%;
-  }
-  
-  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt.full {
-    grid-column: span 2;
-  }
-  
-  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt input,
-  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt textarea,
-  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt button {
-    width: 100%;
-    padding: 0.3vmax 1vmax;
-    border-radius: 5px;
-    border: 1px solid #bdbdbd;
-    outline: none;
-  }
-  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt-select.full {
-    grid-column: span 2;
-  }
-
-  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt-checkbox {
-    grid-column: span 2; /* Makes it full width */
     display: flex;
     flex-direction: column;
-    margin-top: 0.2vmax;
+    margin-top: 1vmax;
   }
   
-  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt-checkbox h6 {
-    font-size: 1vmax;
-    color: #003266;
+  .Whowe-main .modal-overlay-slide .modal-content .e-ipt {
+    width: 100%;
+    margin-bottom: 0.5vmax;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content .e-ipt input {
+    width: 100%;
+    padding: 0.5vmax 1.2vmax;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1.1vmax;
+    transition: border-color 0.3s ease;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content .e-ipt input:focus {
+    border-color: #003266;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content .e-ipt-checkbox {
+    margin-bottom: 0.5vmax;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content .e-ipt-checkbox label {
+    font-size: 1.1vmax;
+    margin-right: 1vmax;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content select,
+  .Whowe-main .modal-overlay-slide .modal-content .country-code-wrapper input {
+    width: calc(100% - 4vmax);
+    padding: 0.7vmax 1.2vmax;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1vmax;
+    margin-bottom: 0vmax;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content select:focus,
+  .Whowe-main .modal-overlay-slide .modal-content .country-code-wrapper input:focus {
+    border-color: #003266;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content button {
+    padding: 0.6vmax 2vmax;
+    background-color: #003266;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2vmax;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content button:hover {
+    background-color: #001a28;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content .e-ipt-checkbox h6 {
+    font-size: 1.1vmax;
     font-weight: 600;
-    margin-bottom: 0.4vmax;
+    margin-bottom: 0.5vmax;
   }
   
-  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt-checkbox label {
+  .Whowe-main .modal-overlay-slide .modal-content .e-ipt-checkbox input {
+    margin-right: 0.5vmax;
+  }
+  
+  .country-code-wrapper {
     display: flex;
     align-items: center;
-    font-size: 0.9vmax;
-    color: #333;
   }
   
-  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt-checkbox input[type="checkbox"] {
-    margin-right: 0.5vmax;
-    transform: scale(1.2); /* Increase checkbox size for better visibility */
+  .country-code-wrapper select {
+    margin-right: 1vmax;
   }
   
-  
-  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt-select select {
-    width: 100% !important;
-    padding: 0.4vmax 1vmax;
-    border-radius: 5px;
-    border: 1px solid #bdbdbd;
-    outline: none;
+  .Whowe-main .modal-overlay-slide .modal-content .e-ipt-checkbox label {
+    display: block;
+    margin-bottom: 0.5vmax;
   }
-  
-  
-  .Whowe-main .modal-overlay-slide .modal-content form .e-ipt button {
-    background: #003266;
-    color: #fff;
-    border: none;
+  .Whowe-main .modal-overlay-slide .modal-content .upload-resume {
+    position: relative;
+    width: 25%;
+    margin-bottom: 1vmax;
     cursor: pointer;
   }
   
+  .Whowe-main .modal-overlay-slide .modal-content .upload-resume input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content .upload-resume label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7vmax 0.5vmax;
+    background-color: #003266;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1.1vmax;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .Whowe-main .modal-overlay-slide .modal-content .upload-resume label:hover {
+    background-color: #001a28;
+  }
+  
+ 
          
 /* --------------------------------------------------------------------- */
 .who-page {
