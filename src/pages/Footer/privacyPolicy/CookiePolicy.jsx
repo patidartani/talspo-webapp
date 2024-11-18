@@ -3,14 +3,31 @@ import Navbar from "../../../pages/Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import { Container } from "react-bootstrap";
 import "../privacyPolicy/CookiePolicy.css";
+import {fetchCookiePolicy} from "../../../apiService"
+import  { useEffect, useState } from "react";
+
 const CookiePolicy = () => {
   const currentDate = new Date();
   const options = { year: "numeric", month: "long", day: "2-digit" };
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
+
+  const [cookiepolicy, setCookiePolicy] = useState(null);
+
+  useEffect(() => {
+    const fetchCookie = async () => {
+      const data = await fetchCookiePolicy();
+      if (data) {
+        setCookiePolicy(data);
+      }
+    };
+
+    fetchCookie();
+  }, []);
+
   return (
     <>
       <Navbar />
-      <div className="cookie_heading">
+      {/* <div className="cookie_heading">
         <h1>Cookie Policy</h1>
       </div>
       <Container>
@@ -392,7 +409,32 @@ const CookiePolicy = () => {
             src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
           ></script>
         </div>
-      </Container>
+      </Container> */}
+
+{cookiepolicy ? (
+  <div>
+    <div className="policy_heading">
+      <h2>{cookiepolicy.title}</h2>
+    </div>
+    <Container>
+      <div  className="policy_con">
+   
+          <p>Last updated: {formattedDate}</p>
+    
+      <div
+                dangerouslySetInnerHTML={{
+                  __html: cookiepolicy.cookiespolicy,
+                }}
+              ></div>
+      </div>
+    
+    </Container>
+  </div>
+) : (
+  <p>Loading...</p>
+)}
+
+
       {/* <Container>
        
         <div className="cookie_con">

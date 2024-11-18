@@ -3,21 +3,35 @@ import "../privacyPolicy/PrivacyPolicy.css";
 import { Container } from "react-bootstrap";
 import Navbar from "../../../pages/Navbar/Navbar";
 import Footer from "../../Footer/Footer";
+import {fetchPrivacyPolicy} from "../../../apiService";
+import  { useEffect, useState } from "react";
 
 const PrivacyPolicy = () => {
   const currentDate = new Date();
   const options = { year: "numeric", month: "long", day: "2-digit" };
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
+  const [policy, setPolicy] = useState(null);
+
+  useEffect(() => {
+    const fetchPolicy = async () => {
+      const data = await fetchPrivacyPolicy();
+      if (data) {
+        setPolicy(data);
+      }
+    };
+
+    fetchPolicy();
+  }, []);
+
+
   return (
     <>
       <Navbar />
-      <div className="policy_heading">
+     {/* <div className="policy_heading">
         <h1>Privacy Policy</h1>
-      </div>
-      <Container>
-        {/* <h1>Privacy Policy</h1> */}
+      </div> */}
+      {/*  <Container>
         <div className="policy_con">
-          {/* <p>Last updated: November 09, 2024</p> */}
           <p>Last updated: {formattedDate}</p>
           <p>
             This Privacy Policy describes Our policies and procedures on the
@@ -54,12 +68,7 @@ const PrivacyPolicy = () => {
             provide us with feedback on our products or services
           </p>
           <h4>How do we use your information?</h4>
-          {/* <p>
-            We may use the information we collect from you when you register,
-            make a purchase, sign up for our newsletter, respond to a survey or
-            marketing communication, surf the website, or use certain other site
-            features in the following ways:
-          </p> */}
+          
           <p>
             We use Your Personal data to provide and improve the Service. By
             using the Service, You agree to the collection and use of
@@ -707,7 +716,31 @@ const PrivacyPolicy = () => {
             src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
           ></script>
         </div>
-      </Container>
+      </Container> */}
+      
+      {policy ? (
+  <div>
+    <div className="policy_heading">
+      <h2>{policy.title}</h2>
+    </div>
+    <Container>
+      <div  className="policy_con">
+   
+          <p>Last updated: {formattedDate}</p>
+      {/* Safely render HTML content */}
+      <div
+       
+        dangerouslySetInnerHTML={{ __html: policy.description }}
+      ></div>
+      </div>
+    
+    </Container>
+  </div>
+) : (
+  <p>Loading...</p>
+)}
+
+
       <Footer />
     </>
   );

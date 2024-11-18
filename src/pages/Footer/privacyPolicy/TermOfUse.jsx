@@ -3,15 +3,35 @@ import { Container } from "react-bootstrap";
 import Navbar from "../../../pages/Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import "../privacyPolicy/TermOfUse.css";
+import {fetchTermOfUse} from "../../../apiService"
+import  { useEffect, useState } from "react";
+
 const TermOfUse = () => {
+
+  const [termOfUse, setTermOfUse] = useState(null);
+  const currentDate = new Date();
+  const options = { year: "numeric", month: "long", day: "2-digit" };
+  const formattedDate = currentDate.toLocaleDateString("en-US", options);
+  useEffect(() => {
+    const fetchTerms = async () => {
+      const data = await fetchTermOfUse();
+      if (data) {
+        setTermOfUse(data);
+      }
+    };
+
+    fetchTerms();
+  }, []);
+
+
   return (
     <>
       <Navbar />
-      <div className="use_heading">
+      {/* <div className="use_heading">
         <h1>Terms of use</h1>
       </div>
       <Container>
-        {/* <h1>Privacy Policy</h1> */}
+      
         <div className="use_con">
           <p>
             The Talspo website located at  <a
@@ -546,7 +566,30 @@ const TermOfUse = () => {
             By email: <a href="info@talspo.com"> info@talspo.com</a>
           </p>
         </div>
-      </Container>
+      </Container> */}
+
+  {termOfUse ? (
+  <div>
+    <div className="policy_heading">
+      <h2>{termOfUse.title}</h2>
+    </div>
+    <Container>
+      <div  className="policy_con">
+   
+          <p>Last updated: {formattedDate}</p>
+      {/* Safely render HTML content */}
+      <div
+       
+        dangerouslySetInnerHTML={{ __html:termOfUse.terms }}
+      ></div>
+      </div>
+    
+    </Container>
+  </div>
+) : (
+  <p>Loading...</p>
+)}
+
       <Footer />
     </>
   );
