@@ -31,6 +31,7 @@ import GdbrPolicy from "./pages/Footer/privacyPolicy/GdbrPolicy"
 import AntiSpamPolicy from "./pages/Footer/privacyPolicy/AntiSpamPolicy"
 import AcceptableUse from "./pages/Footer/privacyPolicy/AcceptableUse"
 import Test from "./components/Test"
+import ViewDetail from "./components/Join/ViewDetail"
 const App = () => {
   return (
     <div>
@@ -65,6 +66,8 @@ const App = () => {
         <Route path="/gdba-policy" element={<GdbrPolicy/>}/>
         <Route path="/anti-spam-policy" element={<AntiSpamPolicy/>}/>
         <Route path="/test" element={<Test/>}/>
+        <Route path="/view-detail" element={<ViewDetail/>}/>
+
 
       </Routes>
     </div>

@@ -28,8 +28,9 @@ const Opportunity = () => {
     loadJobs();
   }, []);
 
-  const applyHandler = () => {
-    navigate('/apply')
+
+  const viewDetailHandler = () => {
+    navigate('/view-detail')
   }
 
   const toggleWorkFromHome = () => setIsWorkFromHome(!isWorkFromHome);
@@ -177,7 +178,7 @@ const Opportunity = () => {
                         <h3>Flexible Work Hours</h3>
                       </div>
                       <div className="i-right">
-                        <button onClick={applyHandler}> View Details</button>
+                        <button onClick={viewDetailHandler}> View Details</button>
                       </div>
                     </div>
                   </div>
