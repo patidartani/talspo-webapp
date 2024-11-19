@@ -6,12 +6,12 @@ const Footer = () => {
     <div className="Footer-main">
       <div className="top_add">
         <h6>
-          <a href="/disclaimer">Disclaimer</a> |
-          <a href="/anti-spam-policy">Anti Spam Policy</a> |
-          <a href="/">Legal Certification</a> |
-          <a href="/dmca-policy">IPR Compilance & Other Compilance</a> |
-          <a href="/acceptable-policy">GPR Compilance</a> |
-          <a href="/eula-policy">EULA</a>
+          <a href="/disclaimer"> Disclaimer</a> |
+          <a href="/anti-spam-policy"> Anti Spam Policy</a> |
+          <a href="/"> Legal Certification</a> |
+          <a href="/dmca-policy"> IPR Compilance & Other Compilance</a> |
+          <a href="/gdbr-policy"> GPR Compilance</a> |
+          <a href="/eula-policy"> EULA</a>
         </h6>
       </div>
       <div className="footer-page">
@@ -21,7 +21,7 @@ const Footer = () => {
             <img src="https://talspo.com/img/logo-icon.png" alt="" />
           </div>
           <h6>
-            {" "}
+          
             TALSPO <br />
             EXPLORE.SPOT.CONNECT
           </h6>

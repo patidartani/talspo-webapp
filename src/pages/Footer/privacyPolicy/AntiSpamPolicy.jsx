@@ -3,15 +3,54 @@ import { Container } from "react-bootstrap";
 import Navbar from "../../../pages/Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import "../privacyPolicy/AntiSpamPolicy.css";
+import {fetchAntySpamPolicy} from "../../../apiService"
+import  { useEffect, useState } from "react";
 
 const AntiSpamPolicy = () => {
+  const [antiSpamPolicy, setAntiSpamPolicy] = useState(null);
+
+  useEffect(() => {
+    const fetchAntiSpam = async () => {
+      const data = await fetchAntySpamPolicy();
+      if (data) {
+        setAntiSpamPolicy(data);
+      }
+    };
+
+    fetchAntiSpam();
+  }, []);
   return (
     <>
       <Navbar />
-      <div className="anti-spam-policy">
-        <h1>Anti-Spam Policy for Talspo Private Limited</h1>
+      
+      {
+      antiSpamPolicy ? (
+  <div>
+    <div className="policy_heading">
+      <h2>{antiSpamPolicy.title}</h2>
+    </div>
+    <Container>
+      <div  className="policy_con">
+   
+          {/* <p>Last updated: {formattedDate}</p> */}
+    
+      <div
+                dangerouslySetInnerHTML={{
+                  __html:antiSpamPolicy.description,
+                }}
+              ></div>
       </div>
-      <Container>
+    
+    </Container>
+  </div>
+) : (
+  <p>Loading...</p>
+)}
+
+      {/* <div className="anti-spam-policy">
+        <h1>Anti-Spam Policy for Talspo Private Limited</h1>
+      </div> */}
+      {/* <Container>
         <div className="anti-spam-con">
           <section>
             <p>
@@ -197,12 +236,12 @@ const AntiSpamPolicy = () => {
               such loss result from noncompliance with this AntiSpam Policy.
             </p>
             <p>
-              If you believe you have received spam, please contact us at{" "}
+              If you believe you have received spam, please contact us at
               <a href="mailto:legal@talspo.com">legal@talspo.com</a>.
             </p>
           </section>
         </div>
-      </Container>
+      </Container> */}
       <Footer />
     </>
   );

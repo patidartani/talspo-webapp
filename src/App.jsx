@@ -63,7 +63,7 @@ const App = () => {
         <Route path="/eula-policy" element={<EULA/>}/>
         <Route path="/disclaimer" element={<Disclaimer/>}/>
         <Route path="/dmca-policy" element={<DmcaPolicy/>}/>
-        <Route path="/gdba-policy" element={<GdbrPolicy/>}/>
+        <Route path="/gdbr-policy" element={<GdbrPolicy/>}/>
         <Route path="/anti-spam-policy" element={<AntiSpamPolicy/>}/>
         <Route path="/test" element={<Test/>}/>
         <Route path="/view-detail" element={<ViewDetail/>}/>

@@ -18,7 +18,62 @@ export const PRIVACY_POLICY_URL = `${BASE_URL}/get-privacypolicy`;
 export const COOKIE_POLICY_URL = `${BASE_URL}/get-cookiespolicy`;
 export const TERM_OF_USE_URL = `${BASE_URL}/get-termsofuse`;
 export const TERMS_CONDITIONS_URL = `${BASE_URL}/get-termscondition`;
-// ---------------------job opportunities-----------------------------
+
+export const DISCLAIMER_URL = `${BASE_URL}/get-desclaimer`;
+export const ANTY_SPAM_POLICY_URL =`${BASE_URL}/get-antispam_policy`;
+export const DIGITAL_MILLENNIUMll_COPYRIGHT_ACT_URL = `${BASE_URL}/get-legalcertification`;
+export const GDPR_PRIVACY_POLICY_URL = `${BASE_URL}/get-gprcompilance`;
+
+// --------------------- Anty Spam Policy ----------------------
+export const fetchGDPRPolicy = async () => {
+  try {
+    const response = await axios.get(GDPR_PRIVACY_POLICY_URL);
+    console.log("GDPR Privacy Policy Response:", response.data);
+    return response.data; // Ensure data is returned
+  } catch (error) {
+    console.error("Error fetching GDPR Privacy Policy:", error);
+    return null; // Return null in case of an error
+  }
+};
+
+
+// --------------------- Anty Spam Policy ----------------------
+export const fetchDMCAPolicy = async () => {
+  try {
+    const response = await axios.get(DIGITAL_MILLENNIUMll_COPYRIGHT_ACT_URL);
+    console.log("Digital Millennium Copyright Act policy Response:", response.data);
+    return response.data; // Ensure data is returned
+  } catch (error) {
+    console.error("Error fetching Digital Millennium Copyright Act policy:", error);
+    return null; // Return null in case of an error
+  }
+};
+
+// --------------------- Anty Spam Policy ----------------------
+export const fetchAntySpamPolicy = async () => {
+  try {
+    const response = await axios.get(ANTY_SPAM_POLICY_URL);
+    console.log("Anty Spam Policy Response:", response.data);
+    return response.data; // Ensure data is returned
+  } catch (error) {
+    console.error("Error fetching Anty Spam Policy:", error);
+    return null; // Return null in case of an error
+  }
+};
+
+// --------------------- Disclaimer ----------------------
+export const fetchDisclaimerPolicy = async () => {
+  try {
+    const response = await axios.get(DISCLAIMER_URL);
+    console.log("Disclaimer Response:", response.data);
+    return response.data; // Ensure data is returned
+  } catch (error) {
+    console.error("Error fetching Disclaimer:", error);
+    return null; // Return null in case of an error
+  }
+};
+
+// --------------------- Term and Condition ----------------------
 export const fetchTermsCondition = async () => {
   try {
     const response = await axios.get(TERMS_CONDITIONS_URL);
@@ -30,6 +85,7 @@ export const fetchTermsCondition = async () => {
   }
 };
 
+// ----------------------Term Of Policy --------------------------
 export const fetchTermOfUse = async () => {
   try {
     const response = await axios.get(TERM_OF_USE_URL);
@@ -41,6 +97,7 @@ export const fetchTermOfUse = async () => {
   }
 };
 
+// -------------------- Privacy Policy -------------------------
 export const fetchPrivacyPolicy = async () => {
   try {
     const response = await axios.get(PRIVACY_POLICY_URL);
@@ -51,6 +108,8 @@ export const fetchPrivacyPolicy = async () => {
     return null; // Return null in case of an error
   }
 };
+
+// -----------------------Cookie Policy -----------------------------
 
 export const fetchCookiePolicy = async () => {
   try {
@@ -63,6 +122,7 @@ export const fetchCookiePolicy = async () => {
   }
 };
 
+// ---------------------job opportunities-----------------------------
 export const fetchJobPosts = async () => {
   try {
     const response = await axios.get(JOB_POST_URL);
