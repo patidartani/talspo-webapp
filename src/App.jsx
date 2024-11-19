@@ -32,6 +32,7 @@ import AntiSpamPolicy from "./pages/Footer/privacyPolicy/AntiSpamPolicy"
 import AcceptableUse from "./pages/Footer/privacyPolicy/AcceptableUse"
 import Test from "./components/Test"
 import ViewDetail from "./components/Join/ViewDetail"
+import Form from "./components/Join/Form"
 const App = () => {
   return (
     <div>
@@ -67,6 +68,8 @@ const App = () => {
         <Route path="/anti-spam-policy" element={<AntiSpamPolicy/>}/>
         <Route path="/test" element={<Test/>}/>
         <Route path="/view-detail" element={<ViewDetail/>}/>
+        <Route path="/form" element={<Form/>}/>
+
 
 
       </Routes>

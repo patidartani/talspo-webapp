@@ -1,0 +1,312 @@
+.Form_details{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+}
+.Form_details .form-content{
+          width: 100%;
+          display: flex;
+          height: 700px;
+          align-items: center;
+          justify-content: center;
+          flex-direction: row;
+          background-color: blue;
+          /* padding-top: 8vmax; */
+          color: #fff;
+          gap: 3vmax;
+}
+.Form_details .form-content .content-left{
+          width: 25%;
+          display: flex;
+          height: 700px;
+
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          background-color: blue;
+          padding-left: 2vmax;
+}
+.Form_details .form-content .content-left h5{
+        font-size: 1.4vmax;
+        font-weight: 600;
+}
+.Form_details .form-content .content-left p{
+          font-size: 1.1vmax;
+          text-align: center;
+          margin-top: 1vmax;
+       color: #cfcfcf;
+
+  }
+  .Form_details .form-content .content-left p span{
+       font-weight: 600;
+       color: #fff;
+  }
+  .Form_details .form-content .content-right {
+          width: 75%;
+          height: 700px;
+          display: flex;
+          align-items: center;
+          justify-content: center;  
+          color: #000;  
+          padding-top: 10vmax;    
+  }
+.Form_details .form-content  .content-right .container_data{
+            width: 100%;
+          height: 550px;
+          background-color: #fff;
+          border-top-left-radius: 100px;
+          border-bottom-left-radius: 100px;
+          padding: 2vmax;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          flex-direction: column;
+          overflow: hidden;
+}
+.Form_details .form-content  .content-right .container_data h5{
+         font-weight: 600;
+         color: #003f80;
+}
+.Form_details .form-content  .content-right .container_data h6{
+          font-weight: 600;
+          margin-top: 2vmax;
+          color: rgb(62, 62, 62);
+          width: 100%;
+          text-align: center;
+ }
+ .Form_details .form-content  .content-right .container_data .data_form{
+          width: 90%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          flex-direction: column;
+          overflow-y: auto;
+          scrollbar-width: none;
+ }
+ .Form_details .form-content .content-right .container_data .data_form::-webkit-scrollbar {
+          display: none;
+      }
+.Form_details .form-content  .content-right .container_data form{
+          width: 100%;
+          gap: 1vmax;
+           display: flex;
+           align-items: flex-start;
+           justify-content: flex-start;
+           flex-direction: column;
+           margin-top: 1.5vmax;
+}
+.Form_details .form-content  .content-right .container_data form .form-ipt{
+          width: 100%;
+           display: flex;
+           align-items: flex-start;
+           justify-content: flex-start;
+           flex-direction: row;
+           gap: 1vmax;
+}
+.Form_details .form-content  .content-right .container_data form .form-ipt input{
+            width: 100%;
+            padding: 0.5vmax 1vmax;
+            border-radius: 5px;
+            outline: none;
+            border: 1px solid #c3c3c3;
+}
+.gender-selection {
+          display: flex;
+          align-items: center;
+          gap: 1vmax;
+      }
+         .gender-options {
+          display: flex;
+          gap: 1vmax;
+      }    
+      .gender-options label {
+          display: flex;
+          align-items: center;
+          gap: 0.5vmax;
+          font-size: 1rem;
+          color: #000;
+      }
+          .gender-options input[type="radio"] {
+          transform: scale(1.2); 
+          cursor: pointer;
+      }
+      .Form_details .form-content  .content-right .container_data form .section-b{
+          width: 100%; 
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 2vmax;
+          margin-bottom: 2vmax;
+}    
+.Form_details .form-content  .content-right .container_data form .section-b h4{
+         font-size: 1.2vmax;
+         color: #003f80;
+         font-weight: 600;
+}    
+
+.Form_details .form-content  .content-right .container_data form .section-b .text-ipt{
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          flex-direction: column;
+ } 
+ .Form_details .form-content  .content-right .container_data form .section-b .text-ipt textarea{
+          width: 100%; 
+         outline: none;
+         border: 1px solid #757575;
+         border-radius: 5px;
+ } 
+ .Form_details .form-content .content-right .submit-btn button{
+         border: none;
+         padding: 0.7vmax 1vmax;
+         border-radius: 10px;
+         background-color: #003f80;
+         color: #fff;
+ }
+ .Form_details .form-content .content-right form .sectionA1{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+       margin-top: 4vmax;
+       margin-bottom: 3vmax;
+ }
+ .Form_details .form-content .content-right form .sectionA1 p{
+       text-align: center;
+       letter-spacing: 1px;
+ }
+ .Form_details .form-content .content-right form .sectionA1 span{
+       color: #282828;   
+  }
+  .Form_details .form-content .content-right form  .sectionA1 select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+        margin-top: 10px;
+      }
+      
+
+ @media (max-width:600px) {
+          .Form_details{
+                    width: 100%;
+          }
+          .Form_details .form-content{
+                    width: 100%;
+                    height: auto;
+                    flex-direction: column;
+          }
+          .Form_details .form-content .content-left{
+                    width: 100%;
+                    height: 300px;
+                  padding-top: 4vmax;
+          padding-left: 0vmax;
+          }
+          .Form_details .form-content .content-left h5{
+                  font-size: 4vmax;
+                  margin-top: 10vmax;
+          }
+          .Form_details .form-content .content-left p{
+                    font-size: 2vmax;
+            }
+            .Form_details .form-content .content-right {
+                    width: 100%;
+                    height: auto;
+                    padding-top: 0vmax;    
+            }
+          .Form_details .form-content  .content-right .container_data{
+                    height: auto;
+                    border-top-left-radius: 0px;
+                    border-bottom-left-radius: 0px;
+                    padding: 2vmax;
+          }
+          .Form_details .form-content  .content-right .container_data h5{
+                  text-align: center;
+          }
+           .Form_details .form-content  .content-right .container_data .data_form{
+                    width: 100%;
+           }
+          .Form_details .form-content  .content-right .container_data form .form-ipt{
+                     flex-direction: column;
+                     gap: 2vmax;
+          }
+          .Form_details .form-content  .content-right .container_data form .form-ipt input{
+                      padding: 1.5vmax 1vmax;
+          }
+          .Form_details .form-content  .content-right .container_data form .section-b h4{
+                   font-size:3vmax;
+          } 
+          .Form_details .form-content .content-right .submit-btn {
+               width: 100%;
+        }  
+          .Form_details .form-content .content-right .submit-btn button{
+               width: 100%;
+                padding: 1.7vmax 1vmax;
+        }              
+ }
+
+ @media (min-width:600px) and (max-width:1150px) {
+          .Form_details{
+                    width: 100%;
+          }
+          .Form_details .form-content{
+                    width: 100%;
+                    height: auto;
+                    flex-direction: column;
+          }
+          .Form_details .form-content .content-left{
+                    width: 100%;
+                    height: 500px;
+                  padding-top: 1vmax;
+          padding-left: 0vmax;
+          }
+          .Form_details .form-content .content-left h5{
+                  font-size: 4vmax;
+                  margin-top: 10vmax;
+          }
+          .Form_details .form-content .content-left p{
+                    font-size: 3.5vmax;
+            }
+            .Form_details .form-content .content-right {
+                    width: 100%;
+                    height: auto;
+                    padding-top: 0vmax;    
+            }
+          .Form_details .form-content  .content-right .container_data{
+                    height: auto;
+                    border-top-left-radius: 0px;
+                    border-bottom-left-radius: 0px;
+                    padding: 2vmax;
+          }
+          .Form_details .form-content  .content-right .container_data h5{
+                  text-align: center;
+          }
+           .Form_details .form-content  .content-right .container_data .data_form{
+                    width: 100%;
+           }
+          .Form_details .form-content  .content-right .container_data form .form-ipt{
+                     flex-direction: column;
+                     gap: 2vmax;
+          }
+          .Form_details .form-content  .content-right .container_data form .form-ipt input{
+                      padding: 2vmax 1vmax;
+                      font-size: 1.2vmax; 
+          }
+          .Form_details .form-content .content-right .container_data form .form-ipt input::placeholder {
+                    font-size: 2vmax; 
+                    color: #c3c3c3; 
+                }
+          .Form_details .form-content  .content-right .container_data form .section-b h4{
+                   font-size:3vmax;
+          } 
+          .Form_details .form-content  .content-right .container_data form .section-b .text-ipt span{
+                    font-size:2vmax;
+                   
+           }               
+ }
