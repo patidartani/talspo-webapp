@@ -124,10 +124,11 @@
         @media (max-width:600px) {
           .Faq-main {
             width: 100%;
+            padding-top: 10vmax;
           }
           .faq-top {
             width: 90%;
-            height: 450px;
+            height: auto;
             flex-direction: column;
           }
           .faq-top .fq-left {
@@ -162,18 +163,22 @@
           }
           .faq-top {
             width: 90%;
-            height: 450px;
+            height: auto;
             flex-direction: column;
           }
           .faq-top .fq-left {
             width: 100%;
           }
           .faq-top .fq-left h4 {
-            font-size: 4vmax;
+            font-size: 4.5vmax;
+          }
+          .faq-top .fq-left p {
+            font-size: 3vmax;
           }
           .faq-top .fq-left .fq-btn button {
             padding: 1.4vmax 6vmax;
             margin-bottom: 2vmax;
+            font-size: 2vmax;
           }
           .faq-top .fq-right {
             width: 100%;

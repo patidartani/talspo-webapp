@@ -82,6 +82,7 @@
 @media (max-width:600px) {
           .HowWeWork-main{
                     width: 100%;
+                    padding-top: 10vmax;
           }
           .HowWeWork-main .how-tp{
                     width: 95%;
@@ -101,5 +102,64 @@
           }
           .HowWeWork-main .how-tp .how-right img{
                     width: 100%;
-          }               
+          } 
+          .HowWeWork-main .how-btm{
+            width: 95%;
+  }
+  .HowWeWork-main .how-btm .work-box h6{
+           font-size: 3vmax;
+  }
+  .HowWeWork-main .how-btm .work-box p{
+       font-size: 1.8vmax;
+   }
+   .HowWeWork-main .how-btm .work-box .last-flex .span-flex{
+            padding-left: 3vmax;
+        }
+  .HowWeWork-main .how-btm .work-box a{
+         text-decoration: none;
+   }
+                
+}
+
+@media (min-width:600px) and (max-width:1150px) {
+    .HowWeWork-main{
+              width: 100%;
+              padding-top: 10vmax;
+    }
+    .HowWeWork-main .how-tp{
+              width: 95%;
+              flex-direction: column;
+    }
+    .HowWeWork-main .how-tp .how-left{
+              width: 100%;
+    }
+    .HowWeWork-main .how-tp .how-left h6{
+             font-size: 4vmax;
+    }
+    .HowWeWork-main .how-tp .how-left p{
+              font-size: 2vmax;
+     }
+     .HowWeWork-main .how-tp .how-right{
+              width: 100%;
+    }
+    .HowWeWork-main .how-tp .how-right img{
+              width: 100%;
+    } 
+    .HowWeWork-main .how-btm{
+      width: 95%;
+}
+.HowWeWork-main .how-btm .work-box h6{
+     font-size: 3vmax;
+}
+.HowWeWork-main .how-btm .work-box p{
+ font-size: 2vmax;
+}
+.HowWeWork-main .how-btm .work-box .last-flex .span-flex{
+      padding-left: 3vmax;
+  }
+.HowWeWork-main .how-btm .work-box a{
+   text-decoration: none;
+}
+
+          
 }
