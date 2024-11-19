@@ -3,14 +3,55 @@ import { Container } from "react-bootstrap";
 import Navbar from "../../../pages/Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import "../privacyPolicy/GdbrPolicy.css";
+import {fetchGDPRPolicy} from "../../../apiService"
+import  { useEffect, useState } from "react";
+
 const GdbrPolicy = () => {
+
+  const [gdbrPolicy, setGdbrPolicy] = useState(null);
+
+  useEffect(() => {
+    const fetchGdbr = async () => {
+      const data = await fetchGDPRPolicy();
+      if (data) {
+        setGdbrPolicy(data);
+      }
+    };
+
+    fetchGdbr();
+  }, []);
+
   return (
     <>
       <Navbar />
-      <div className="gdbr-policy">
-        <h1>GDPR Privacy Policy for Talspo Private Limited</h1>
+      
+      {
+      gdbrPolicy ? (
+  <div>
+    <div className="policy_heading">
+      <h2>{gdbrPolicy.title}</h2>
+    </div>
+    <Container>
+      <div  className="policy_con">
+   
+          {/* <p>Last updated: {formattedDate}</p> */}
+    
+      <div
+                dangerouslySetInnerHTML={{
+                  __html:gdbrPolicy.description,
+                }}
+              ></div>
       </div>
-      <Container>
+    
+    </Container>
+  </div>
+) : (
+  <p>Loading...</p>
+)}
+      {/* <div className="gdbr-policy">
+        <h1>GDPR Privacy Policy for Talspo Private Limited</h1>
+      </div> */}
+      {/* <Container>
         <div className="gdbr_con">
           <section>
             <h2>Introduction</h2>
@@ -131,7 +172,7 @@ const GdbrPolicy = () => {
             our services constitutes acceptance of these terms.
           </p>
         </div>
-      </Container>
+      </Container> */}
       <Footer />
     </>
   );

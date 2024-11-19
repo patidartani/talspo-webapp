@@ -2,20 +2,57 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import Navbar from "../../../pages/Navbar/Navbar";
 import Footer from "../../Footer/Footer";
+import {fetchDisclaimerPolicy} from "../../../apiService"
+import  { useEffect, useState } from "react";
 
 const Disclaimer = () => {
   const currentDate = new Date();
   const options = { year: "numeric", month: "long", day: "2-digit" };
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
+
+  const [disclaimerPolicy, setDisclaimerPolicy] = useState(null);
+
+  useEffect(() => {
+    const fetchDisclaimer = async () => {
+      const data = await fetchDisclaimerPolicy();
+      if (data) {
+        setDisclaimerPolicy(data);
+      }
+    };
+
+    fetchDisclaimer();
+  }, []);
+
   return (
     <>
       <Navbar />
-      <div className="use_heading">
-        <h1>Disclaimer</h1>
+
+      {disclaimerPolicy ? (
+  <div>
+    <div className="policy_heading">
+      <h2>{disclaimerPolicy.title}</h2>
+    </div>
+    <Container>
+      <div  className="policy_con">
+          <p>Last updated: {formattedDate}</p>
+      <div
+                dangerouslySetInnerHTML={{
+                  __html: disclaimerPolicy.desclaimer,
+                }}
+              ></div>
       </div>
-      <Container>
+    </Container>
+  </div>
+) : (
+  <p>Loading...</p>
+)}
+
+
+      {/* <div className="use_heading">
+        <h1>Disclaimer</h1>
+      </div> */}
+      {/* <Container>
         <div className="use_con">
-          {/* <p>Last updated: November 09, 2024</p> */}
           <p>Last updated: {formattedDate}</p>
           <h3>Interpretation and Definitions</h3>
           <h4>Interpretation</h4>
@@ -208,7 +245,7 @@ const Disclaimer = () => {
             src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
           ></script>
         </div>
-      </Container>
+      </Container> */}
       <Footer />
     </>
   );
