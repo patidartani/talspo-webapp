@@ -119,7 +119,7 @@ const Navbar = () => {
                 {isAboutDropdownVisible && (
                   <div className="about-dropdown">
                     <Link to="/about-us">About Us</Link>
-                    <Link to="/">FAQs</Link>
+                    <Link to="/faq">FAQs</Link>
                     <Link to="/our-team">Our Team</Link>
                     <Link to="/achievements">Achievements</Link>
                     <Link to="/how-we-work">How We Work</Link>
@@ -141,7 +141,7 @@ const Navbar = () => {
                   {isAboutDropdownOpen && (
                     <div className='boox' style={{ marginTop: '0.3rem', marginLeft:"1.5vmax" }}>
                       <Link to="/about-us" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>About Us</Link>
-                      <Link to="/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>FAQs</Link>
+                      <Link to="/faq" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>FAQs</Link>
                       <Link to="/our-team" style={{ display: 'block', marginTop: '0.2rem' , fontSize:"1.9vmax" }}>Our Team</Link>
                       <Link to="/achievements" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Achievements</Link>
                       <Link to="/how-we-work" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>How We Work</Link>
@@ -164,10 +164,10 @@ const Navbar = () => {
                 <Link id='res-hide' to="/services">Services</Link>
                 {isServicesDropdownVisible && (
                   <div className="services-dropdown">
-                    <Link to="">Students/Learner Model Services</Link>
-                    <Link to="">Professional + Trainers Model Services</Link>
-                    <Link to="">Corporate + Organization Model Services</Link>
-                    <Link to="">Co-Working Spaces + Co-works & Co-live & Events Model Services</Link>
+                    <Link to="/student-service">Students/Learner Model Services</Link>
+                    <Link to="/professional-service">Professional + Trainers Model Services</Link>
+                    <Link to="/corporate-service">Corporate + Organization Model Services</Link>
+                    <Link to="/co-working">Co-Working Spaces + Co-works & Co-live & Events Model Services</Link>
                   </div>
                 )}
 
