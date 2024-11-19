@@ -292,6 +292,7 @@
  @media (max-width:600px) {
        .DoPatnership-main {
               width: 100%;
+              padding-top: 15vmax;
     }
     .DoPatnership-main .partner-one {
               width: 95%;
@@ -430,9 +431,9 @@
  }
 
  @media (min-width:600px) and (max-width:1050px) {
-       @media (max-width:600px) {
               .DoPatnership-main {
                      width: 100%;
+                     padding-top: 10vmax;
            }
            .DoPatnership-main .partner-one {
                      width: 95%;
@@ -568,5 +569,4 @@
                      padding: 10px 40px;
             }
             
-        }
  }

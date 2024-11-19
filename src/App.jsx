@@ -32,10 +32,15 @@ import AntiSpamPolicy from "./pages/Footer/privacyPolicy/AntiSpamPolicy"
 import AcceptableUse from "./pages/Footer/privacyPolicy/AcceptableUse"
 import Test from "./components/Test"
 import ViewDetail from "./components/Join/ViewDetail"
+
 import StudentServiceModel from "./components/Services/StudentServiceModel"
 import ProfessionalTrainer from "./components/Services/ProfessionalTrainer"
 import CorporateService from "./components/Services/CorporateService"
 import CoWorking from "./components/Services/CoWorking"
+
+import Form from "./components/Join/Form"
+import SiteMap from "./components/Home/SiteMap"
+
 const App = () => {
   return (
     <div>
@@ -71,6 +76,10 @@ const App = () => {
         <Route path="/gdbr-policy" element={<GdbrPolicy/>}/>
         <Route path="/anti-spam-policy" element={<AntiSpamPolicy/>}/>
         <Route path="/view-detail" element={<ViewDetail/>}/>
+        <Route path="/form" element={<Form/>}/>
+        <Route path="/links" element={<SiteMap/>}/>
+
+
 
         <Route path="/student-service" element={<StudentServiceModel/>}/>
         <Route path="/professional-service" element={<ProfessionalTrainer/>}/>

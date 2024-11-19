@@ -1,0 +1,88 @@
+.SiteMap-main{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-top:5vmax;
+          flex-direction: column;
+}
+.site_top{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          background: #003266;
+          color:#fff;
+          padding-top: 2vmax;
+}
+.site_top h5{
+        width: 85%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color:#fff;
+          margin-top: 2vmax;
+          font-size: 2.3vmax;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+}
+.site_top p{
+        width: 85%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color:#fff;
+        font-size: 1.2vmax;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: lighter;
+}
+.SiteMap-main .site-map{
+          width: 90%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          flex-direction: row;
+          gap: 1vmax;
+}
+.SiteMap-main .site-map .site-box{
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          flex-direction: column;
+          border-radius: 10px;
+          padding: 0.5vmax;
+          gap: 0.7vmax;
+          margin-top: 2vmax;
+}
+.SiteMap-main .site-map .site-box a{
+        text-decoration: none;
+}
+.SiteMap-main .site-map .site-box h5{
+       font-weight: 600;
+  }
+
+  @media (max-width:600px) {
+        .SiteMap-main{
+                width: 100%;
+                padding-top:15vmax;
+      }
+      .site_top{
+                padding-top: 2vmax;
+                width: 100%;
+      }
+      .site_top h5{
+                font-size:4vmax;
+                width: 95%;
+      }
+      .site_top p{
+              font-size: 1.5vmax;
+              width: 95%;
+      }
+      .SiteMap-main .site-map{
+                width: 95%;
+                flex-direction: column;
+      }
+  }

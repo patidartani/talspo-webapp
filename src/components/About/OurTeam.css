@@ -163,15 +163,17 @@
 @media (max-width:600px) {
           .OurTeam-main {
                     width: 100%;
+                    padding-top: 10vmax;
+
                   }
                   .OurTeam-main .ourteam .team-top {
                     width: 100%;
-                    height: 150px;
+                    height: auto;
                   }
                   
                   .OurTeam-main .ourteam .team-top img {
                     width: 100%;
-                    height: 150px;
+                    height: auto;
 
                   }
                   
