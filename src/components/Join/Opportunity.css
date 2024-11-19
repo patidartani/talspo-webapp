@@ -390,6 +390,7 @@
 @media (max-width:600px) {
      .Opportunity-main{
           width: 100%;
+          padding-top: 5vmax;
 }
 .Opportunity-main .opportunity-page{
           width: 95%;
@@ -420,6 +421,16 @@
           width: 100%;
           margin-top: 2vmax;
  }
+ 
+ .Opportunity-main .opportunity-page .opportunity2 .job-search {
+     width: 95%;
+   }
+   
+   .Opportunity-main .opportunity-page .opportunity2 .job-search .ipt-job {
+     width: 100%;
+     padding: 1vmax 1vmax;
+   }
+   
  .Opportunity-main .opportunity-page .opportunity2 h5{
          font-size: 3vmax;
  }
@@ -456,21 +467,25 @@ padding: 1vmax 0.5vmax;
 font-size: 2vmax;
 }
 
-.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .duration{
- margin-top: 3vmax;
 
-}
-.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .duration h4{
- font-size: 2vmax;
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .duration h4,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .job-type h4,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .experience h4,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .location h4,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .work-from-home h4{
+     font-size: 2vmax;
 }
 
-.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .duration .duration-search select{
- padding: 1vmax 0.5vmax;
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .duration .duration-search select,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .work-from-home .work-search select,
+    .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .location .location-search select,
+         .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .experience .experience-search select,
+              .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .job-type .job-type-search select{
+     padding: 1.4vmax 0.5vmax;
 }
 .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .clear-all{
 margin-top: 2vmax;
 }
-
  /* --------------------------------------offer job css----------------------------- */
  .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page{
      width: 95%;
@@ -577,16 +592,21 @@ padding: 1vmax 0.5vmax;
 font-size: 2vmax;
 }
 
-.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .duration{
- margin-top: 3vmax;
 
-}
-.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .duration h4{
- font-size: 2vmax;
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .duration h4,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .job-type h4,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .experience h4,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .location h4,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .work-from-home h4{
+     font-size: 2vmax;
 }
 
-.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .duration .duration-search select{
- padding: 1vmax 0.5vmax;
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .duration .duration-search select,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .work-from-home .work-search select,
+    .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .location .location-search select,
+         .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .experience .experience-search select,
+              .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .job-type .job-type-search select{
+     padding: 1.9vmax 0.5vmax;
 }
 .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .clear-all{
 margin-top: 2vmax;

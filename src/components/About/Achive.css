@@ -135,6 +135,7 @@ overflow: hidden;
 @media (max-width:600px) {
           .Achive-main{
                     width: 100%;
+                    padding-top: 8vmax;
           }
           .Achive-main .Achive-page .achive-top h5{
                     font-size: 3vmax;
@@ -144,7 +145,7 @@ overflow: hidden;
           }
           .Achive-main .Achive-page .achive-btm{
                     width: 95%;
-          height: 500px;
+          height: auto;
                  
                     flex-direction: column-reverse;
           }
@@ -173,25 +174,26 @@ overflow: hidden;
                     width: 90%;
           }
           .Achive-main .Achive-page .achive-btm .a-right img{
-                    width: 90%;
+                    width: 100%;
                
           }       
 }
 
 
-@media (min-width:600px) and (max-width:1050px) {
+@media (min-width:600px) and (max-width:1150px) {
           .Achive-main{
                     width: 100%;
           }
           .Achive-main .Achive-page .achive-top h5{
-                    font-size: 3vmax;
+                    font-size: 4vmax;
           }
           .Achive-main .Achive-page .achive-top p{
                     font-size: 2vmax;
           }
           .Achive-main .Achive-page .achive-btm{
                     width: 95%;
-          height: 500px;
+          height: auto;
+          margin-top: 15vmax;
                  
                     flex-direction: column-reverse;
           }
