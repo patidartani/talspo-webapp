@@ -5,9 +5,22 @@
     justify-content: center;
     flex-direction: column;
     margin-bottom: 2vmax;
-    padding-top: 9vmax; 
+   
   }
   
+.faq-head{
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    text-align: left;
+    flex-direction: column;
+    background: #003266;
+    color:#fff;
+    padding: 50px;
+    
+}
   .faq-box {
     width: 80%;
     height: 300px;
@@ -35,7 +48,8 @@
     font-weight: 700;
     font-size: 2vmax;
     margin-top: 2vmax;
-    color: #003266;
+    /* color: #003266; */
+    color: #fff;
     
   }
   
