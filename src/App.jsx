@@ -32,8 +32,15 @@ import AntiSpamPolicy from "./pages/Footer/privacyPolicy/AntiSpamPolicy"
 import AcceptableUse from "./pages/Footer/privacyPolicy/AcceptableUse"
 import Test from "./components/Test"
 import ViewDetail from "./components/Join/ViewDetail"
+
+import StudentServiceModel from "./components/Services/StudentServiceModel"
+import ProfessionalTrainer from "./components/Services/ProfessionalTrainer"
+import CorporateService from "./components/Services/CorporateService"
+import CoWorking from "./components/Services/CoWorking"
+
 import Form from "./components/Join/Form"
 import SiteMap from "./components/Home/SiteMap"
+
 const App = () => {
   return (
     <div>
@@ -41,7 +48,7 @@ const App = () => {
         <Route  path='/' element={<Home />}/>
         <Route  path='/contact-us' element={<Contact />}/>
         <Route  path='/our-team' element={<OurTeam />}/>
-        <Route  path='/' element={<Faq />}/>
+        <Route  path='/faq' element={<Faq />}/>
         <Route  path='/signup' element={<Signup />}/>
         <Route  path='/signin' element={<Signin />}/>
         <Route  path='/achievements' element={<Achive />}/>
@@ -58,6 +65,7 @@ const App = () => {
         <Route  path='/language' element={<LanguageTranslate />}/>
         <Route  path='/apply' element={<ApplyNow />}/>
         <Route  path='/loading' element={<Loading />}/>
+
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         <Route path="/term-condition" element={<TermsCondition/>}/>
         <Route path="/term-of-use" element={<TermOfUse/>}/>
@@ -67,14 +75,17 @@ const App = () => {
         <Route path="/dmca-policy" element={<DmcaPolicy/>}/>
         <Route path="/gdbr-policy" element={<GdbrPolicy/>}/>
         <Route path="/anti-spam-policy" element={<AntiSpamPolicy/>}/>
-        <Route path="/test" element={<Test/>}/>
         <Route path="/view-detail" element={<ViewDetail/>}/>
         <Route path="/form" element={<Form/>}/>
         <Route path="/links" element={<SiteMap/>}/>
 
 
 
-
+        <Route path="/student-service" element={<StudentServiceModel/>}/>
+        <Route path="/professional-service" element={<ProfessionalTrainer/>}/>
+        <Route path="/corporate-service" element={<CorporateService/>}/>
+        <Route path="/co-working" element={<CoWorking/>}/>
+        <Route path="/test" element={<Test/>}/>
       </Routes>
     </div>
   )
