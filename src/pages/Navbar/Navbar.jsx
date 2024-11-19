@@ -203,11 +203,11 @@ const Navbar = () => {
                 <Link id='res-hide' to="">Join</Link>
                 {isJoinDropdownVisible && (
                   <div className="join-dropdown">
-                    <Link to="/join">Join Us</Link>
+                    {/* <Link to="/join">Join Us</Link> */}
                     <Link to="/opportunities">Find Opportunities</Link>
                     <Link to="/partners">Do Partnership</Link>
                     <Link to="/tca">
-                      TCA</Link>
+                      Talspo Campus Ambassador</Link>
 
                   </div>
                 )}
@@ -220,7 +220,7 @@ const Navbar = () => {
 
                   {isJoinDropdownOpen && (
                     <div style={{ marginTop: '0.2rem', marginLeft:"1.5vmax" }}>
-                      <Link to="/join-us" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Join Us</Link>
+                      {/* <Link to="/join-us" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Join Us</Link> */}
                       <Link to="/opportunities" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Find Opportunities</Link>
                       <Link to="/partners" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Do Partnership</Link>
                       <Link to="/tca" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>TCA</Link>

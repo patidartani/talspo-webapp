@@ -1,8 +1,16 @@
 import React from 'react'
 import "./ViewDetail.css"
 import Navbar from "../../pages/Navbar/Navbar"
+import Footer from "../../pages/Footer/Footer"
+import { useNavigate } from 'react-router-dom'
 
 const ViewDetail = () => {
+         const navigate = useNavigate();
+
+         const FormHandler = () => {
+                navigate('/form')
+         }
+
   return (
    <>
    <Navbar />
@@ -91,12 +99,13 @@ const ViewDetail = () => {
                               </div>
                               
                               <div className="apply-btn">
-                                        <button>Apply Now</button>
+                                        <button onClick={FormHandler}>Apply Now</button>
                               </div>
                            </div>
                 </div> 
            </div>
     </div>
+    <Footer />
    </>
   )
 }
