@@ -97,12 +97,7 @@ const Opportunity = () => {
             <h5>Apply Now!</h5>
 
             
-          <div className="job-search">
-  <div className="ipt-job">
-    <input type="text" placeholder="Search Jobs.." />
-    <img src={iconSearch} alt="Search Icon" />
-  </div>
-</div>
+         
 
 
             <div className="opt2-btm">
@@ -203,6 +198,12 @@ const Opportunity = () => {
 
               {/* Job Listings */}
               <div className="jobs-page">
+              <div className="job-search">
+  <div className="ipt-job">
+    <input type="text" placeholder="Search Jobs.." />
+    <img src={iconSearch} alt="Search Icon" />
+  </div>
+</div>
                 {currentJobs.map((job, index) => (
                   <div className="job-box" key={index}>
                     <h5>{job.title}</h5>
