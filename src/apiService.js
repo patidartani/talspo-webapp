@@ -14,7 +14,54 @@ export const JOB_POST_URL = `${BASE_URL}/job-post-view`;
 export const ABOUT_US_URL = `${BASE_URL}/about-us-view`;
 export const TAL_SPO_SKILLED_VIEW_URL = `${BASE_URL}/talspo-skilled-view`;
 
+export const PRIVACY_POLICY_URL = `${BASE_URL}/get-privacypolicy`;
+export const COOKIE_POLICY_URL = `${BASE_URL}/get-cookiespolicy`;
+export const TERM_OF_USE_URL = `${BASE_URL}/get-termsofuse`;
+export const TERMS_CONDITIONS_URL = `${BASE_URL}/get-termscondition`;
 // ---------------------job opportunities-----------------------------
+export const fetchTermsCondition = async () => {
+  try {
+    const response = await axios.get(TERMS_CONDITIONS_URL);
+    console.log("Terms and Condition Response:", response.data);
+    return response.data; // Ensure data is returned
+  } catch (error) {
+    console.error("Error fetching Terms and Condition:", error);
+    return null; // Return null in case of an error
+  }
+};
+
+export const fetchTermOfUse = async () => {
+  try {
+    const response = await axios.get(TERM_OF_USE_URL);
+    console.log("Terms of use Response:", response.data);
+    return response.data; // Ensure data is returned
+  } catch (error) {
+    console.error("Error fetching Terms of use:", error);
+    return null; // Return null in case of an error
+  }
+};
+
+export const fetchPrivacyPolicy = async () => {
+  try {
+    const response = await axios.get(PRIVACY_POLICY_URL);
+    console.log("Privacy Policy Response:", response.data);
+    return response.data; // Ensure data is returned
+  } catch (error) {
+    console.error("Error fetching privacy policy:", error);
+    return null; // Return null in case of an error
+  }
+};
+
+export const fetchCookiePolicy = async () => {
+  try {
+    const response = await axios.get(COOKIE_POLICY_URL);
+    console.log("Cookie Policy Response:", response.data);
+    return response.data; // Ensure data is returned
+  } catch (error) {
+    console.error("Error fetching Cookie policy:", error);
+    return null; // Return null in case of an error
+  }
+};
 
 export const fetchJobPosts = async () => {
   try {

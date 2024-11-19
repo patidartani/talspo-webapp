@@ -3,11 +3,14 @@
     margin-top: 100px;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
+    text-align: left;
     flex-direction: column;
     background: #003266;
     color:#fff;
+    padding: 50px;
+    
 }
 
 .policy_heading h1{
@@ -21,6 +24,7 @@
     font-size: 36px;
     text-transform: uppercase;
     letter-spacing: 1px;
+   
 }
 
   .policy_con {
@@ -32,6 +36,7 @@
     margin-right: 15rem;
   }
   
+ 
   .policy_con h2 {
     font-size: 1.8rem;
     color: #222;
@@ -46,7 +51,7 @@
   
   .policy_con h4 {
     font-size: 1.2rem;
-    color: #222;
+    color: #003f80; 
     margin-top: 1rem;
   }
   
@@ -60,7 +65,7 @@
   
   .policy_con li {
     margin-bottom: 0.5rem;
-  }
+  } 
   
   /* Link styling */
   .policy_con a {
@@ -70,10 +75,10 @@
   
   .policy_con a:hover {
     text-decoration: underline;
-  }
+  } 
   
   /* Responsive adjustments */
-  @media (max-width: 768px) {
+   @media (max-width: 768px) {
     .policy_heading {
       padding: 1.5rem;
     }
@@ -97,4 +102,7 @@
       margin-right: 0;
     }
 
-  }
+  } 
+
+
+  
