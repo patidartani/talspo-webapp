@@ -19,8 +19,6 @@ const TalspoHere = () => {
     <input type="text" placeholder="Search for Designers, Developers..." className="search-input" />
     <img src={LogoImg} alt="search" className="search" />
 </div>
-
-
               <p>or choose one below</p>
               <div className="map4">
                 <button><a href="">GRAPHICS<br />DESIGNER</a></button>

@@ -8,25 +8,32 @@ import { fetchTalspoSkilledView } from '../../apiService';
 import talspoIcon from "../../assets/images/talspoIcon.png"
 
 const Whowe = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false); 
-  const [skills, setSkills] = useState([]); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [skills, setSkills] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [location, setLocation] = useState(""); 
-  const [filteredSkills, setFilteredSkills] = useState([]); 
-  const [sortOption, setSortOption] = useState(""); 
+  const [location, setLocation] = useState("");
+  const [filteredSkills, setFilteredSkills] = useState([]);
+  const [sortOption, setSortOption] = useState("");
 
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 3, // Default number of slides
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
     autoplaySpeed: 2000,
     responsive: [
       {
-        breakpoint: 600,
+        breakpoint: 1150, // Add breakpoint for 1150px
+        settings: {
+          slidesToShow: 1, // Show 1 slide
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 600, // Keep existing 600px breakpoint
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -34,16 +41,17 @@ const Whowe = () => {
       },
     ],
   };
+  
 
   useEffect(() => {
     const fetchSkills = async () => {
-       const skillsData = await fetchTalspoSkilledView(); 
-       setSkills(skillsData);
-       setFilteredSkills(skillsData); 
+      const skillsData = await fetchTalspoSkilledView();
+      setSkills(skillsData);
+      setFilteredSkills(skillsData);
     };
 
     fetchSkills();
- }, []);
+  }, []);
 
   const [showFullMap, setShowFullMap] = useState(false);
 
@@ -134,15 +142,15 @@ const Whowe = () => {
 
   return (
     <div className="Whowe-main">
-    {isModalOpen && (
-      <div className="modal-overlay-slide">
-      <div className="modal-content">
+      {isModalOpen && (
+        <div className="modal-overlay-slide">
+          <div className="modal-content">
 
-<span className="modal-close" >
-<h5>Direct Connect Human Resources Executive</h5>
-  <i onClick={closeModal} style={{ cursor: "pointer" }} className="ri-close-line"></i>
-</span>
-<form>
+            <span className="modal-close" >
+              <h5>Direct Connect Human Resources Executive</h5>
+              <i onClick={closeModal} style={{ cursor: "pointer" }} className="ri-close-line"></i>
+            </span>
+            <form>
               {/* Row 1: Recruitment Purpose (Checkbox) */}
               <div className="e-ipt-checkbox full">
                 <h6>Recruitment Purpose:</h6>
@@ -163,7 +171,7 @@ const Whowe = () => {
                     name="getJob"
                     onChange={handleJobOptionCheckboxChange}
                   />
-                For Getting Job 
+                  For Getting Job
                 </label>
               </div>
 
@@ -207,16 +215,16 @@ const Whowe = () => {
                     />
                   </div>
                   <div className="e-ipt full upload-resume">
-  <input
-    type="file"
-    id="resume"
-    name="resume"
-    onChange={handleJobInputChange}
-  />
-  <label htmlFor="resume">
-    Upload Resume
-  </label>
-</div>
+                    <input
+                      type="file"
+                      id="resume"
+                      name="resume"
+                      onChange={handleJobInputChange}
+                    />
+                    <label htmlFor="resume">
+                      Upload Resume
+                    </label>
+                  </div>
 
                   <div className="e-ipt full">
                     <input
@@ -282,7 +290,7 @@ const Whowe = () => {
                 <h6 className="mt-2">Are you comfortable using Zoom, G-meet, etc. for initial meetings if you are not able to visit our office?</h6>
                 <label>
                   <input
-                  className="mt-2" 
+                    className="mt-2"
                     type="checkbox"
                     name="yes"
                     checked={meetingComfort.yes}
@@ -292,7 +300,7 @@ const Whowe = () => {
                 </label>
                 <label>
                   <input
-                  className="mt-2" 
+                    className="mt-2"
                     type="checkbox"
                     name="no"
                     checked={meetingComfort.no}
@@ -305,7 +313,7 @@ const Whowe = () => {
               <div className="e-ipt-checkbox full">
                 <h6>Consent <span style={{ color: 'red' }}>*</span>:</h6>
                 <label>
-                  <input className="mt-2"  type="checkbox" name="consent" required />
+                  <input className="mt-2" type="checkbox" name="consent" required />
                   Agree to be contacted by Talspo via WhatsApp, SMS, Phone, Email, etc.
                 </label>
               </div>
@@ -322,161 +330,159 @@ const Whowe = () => {
               <div className="e-ipt full">
                 <button type="submit">Submit</button>
               </div>
-            </form>   
+            </form>
 
-      </div>
-    </div>
-)}
-
-
+          </div>
+        </div>
+      )}
 
       <div className="who-page">
         <div className="who-btm">
           <h6>On Demand Skilled Candidates Nearby You</h6>
-          <span style={{marginLeft:"1vmax"}}>Find skilled candidates based on your requirements in real-time using geo-location enabled search for quick recruitment and talent acquisition.</span>
+          <span style={{ marginLeft: "1vmax" }}>Find skilled candidates based on your requirements in real-time using geo-location enabled search for quick recruitment and talent acquisition.</span>
 
-<div className="search-bar-skill"> 
-  <div className="skill-ipt">
-    <input
-      type="text"
-      placeholder="Search for Developers, Designers..."
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-    />
-    <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
-  </div>
-  <div className="skill-ipt">
-    <input
-      type="text"
-      placeholder="Search by Location (Pin Code, Area, City, etc.)"
-      value={location}
-      onChange={(e) => setLocation(e.target.value)}
-    />
-    <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
-  </div>
-  <div className="sort-dropdown">
-    <select onChange={(e) => handleSort(e)} value={sortOption}>
-      <option value="" disabled>Sort by</option>
-      <option value="jobType"> Experience</option>
-      <option value="salary">Trusted/Verified Candidates</option>
-      <option value="active">Actively Looking</option>
-    </select>
-  </div>
-  <div className="skill-btn">
-    <button onClick={handleSearch}>Search</button>
-  </div>
+          <div className="search-bar-skill">
+            <div className="skill-ipt">
+              <input
+                type="text"
+                placeholder="Search for Developers, Designers..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+            </div>
+            <div className="skill-ipt">
+              <input
+                type="text"
+                placeholder="Search by Location (Pin Code, Area, City, etc.)"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+              />
+              <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+            </div>
+            <div className="sort-dropdown">
+              <select onChange={(e) => handleSort(e)} value={sortOption}>
+                <option value="" disabled>Sort by</option>
+                <option value="jobType"> Experience</option>
+                <option value="salary">Trusted/Verified Candidates</option>
+                <option value="active">Actively Looking</option>
+              </select>
+            </div>
+            <div className="skill-btn">
+              <button onClick={handleSearch}>Search</button>
+            </div>
 
-</div>
+          </div>
 
           {/* -------------responsive-skill--------- */}
           <div className="search-bar-skill-responsive">
-          <div className="skill-ipt">
-    <input
-      type="text"
-      placeholder="Search for Developers,Designers..."
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-    />
-    <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
-  </div>
-  <div className="skill-ipt">
-    <input
-      type="text"
-      placeholder="Search by Location (Pin Code, Area, City, etc.)"
-      value={location}
-      onChange={(e) => setLocation(e.target.value)}
-    />
-    <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
-  </div>
-  <div className="sort-dropdown">
-    <select onChange={(e) => handleSort(e)} value={sortOption}>
-      <option value="">Sort by</option>
-      <option value="jobType"> Experience</option>
-      <option value="salary">Trusted/Verified Candidates</option>
-    </select>
-  </div>
-  <div className="skill-btn">
-    <button onClick={handleSearch}>Search</button>
-  </div>
+            <div className="skill-ipt">
+              <input
+                type="text"
+                placeholder="Search for Developers,Designers..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+            </div>
+            <div className="skill-ipt">
+              <input
+                type="text"
+                placeholder="Search by Location (Pin Code, Area, City, etc.)"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+              />
+              <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+            </div>
+            <div className="sort-dropdown">
+              <select onChange={(e) => handleSort(e)} value={sortOption}>
+                <option value="">Sort by</option>
+                <option value="jobType"> Experience</option>
+                <option value="salary">Trusted/Verified Candidates</option>
+              </select>
+            </div>
+            <div className="skill-btn">
+              <button onClick={handleSearch}>Search</button>
+            </div>
 
-            
+
           </div>
 
 
           {/* -------------------------------------------- */}
 
           <div className="who-slide">
-          <div className="slider-container">
-         <Slider {...settings}>
-            {filteredSkills.map((skill, index) => (
-               <div key={index}>
-                  <div className="w-box">
-                     <img src={skill.image} alt={skill.name} />
-                     <div className="text-panel">
+            <div className="slider-container">
+              <Slider {...settings}>
+                {filteredSkills.map((skill, index) => (
+                  <div key={index}>
+                    <div className="w-box">
+                      <img src={skill.image} alt={skill.name} />
+                      <div className="text-panel">
                         <h5>{skill.title}</h5>
                         <p>{skill.description}</p>
                         <div className="ss">
-                           <small>Salary: {skill.salary}</small>
-                        <small>Status: {skill.status}</small>
+                          <small>Salary: {skill.salary}</small>
+                          <small>Status: {skill.status}</small>
 
                         </div>
-                        
+
                         <div className="hh">
-                        <span>Location: {skill.location}</span>
-                        <span>Job Type : {skill.jobtype}</span>
+                          <span>Location: {skill.location}</span>
+                          <span>Job Type : {skill.jobtype}</span>
                         </div>
 
                         <button className="get" onClick={openModal}>Connect</button>
-                     </div>
+                      </div>
+                    </div>
                   </div>
-               </div>
-            ))}
-         </Slider>
-      </div>
+                ))}
+              </Slider>
+            </div>
 
             <div className="home-map">
-      {!showFullMap && (
-        <div className="map-arrow-icon">
-        <h6  onClick={toggleMapView}>
-         Show Full Map</h6>
-        </div>
-      
-        
-      )}
+              {!showFullMap && (
+                <div className="map-arrow-icon">
+                  <h6 onClick={toggleMapView}>
+                    Show Full Map</h6>
+                </div>
 
-      <iframe
-        title="Google Map"
-        src="https://www.google.com/maps/embed?..."
-        width="100%"
-        height="300"
-        style={{ border: 0 }}
-        allowFullScreen=""
-        loading="lazy"
-      />
 
-      {/* Overlay Full Map View */}
-      {showFullMap && (
-        <div className="map-overlay">
-          <div className="map-overlay-content">
-            <span className="map-overlay-close" onClick={toggleMapView}>
-              <i className="ri-close-line"></i> {/* Close icon */}
-            </span>
-            <iframe
-              title="Google Map"
-              src="https://www.google.com/maps/embed?..."
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-            ></iframe>
+              )}
+
+              <iframe
+                title="Google Map"
+                src="https://www.google.com/maps/embed?..."
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+              />
+
+              {/* Overlay Full Map View */}
+              {showFullMap && (
+                <div className="map-overlay">
+                  <div className="map-overlay-content">
+                    <span className="map-overlay-close" onClick={toggleMapView}>
+                      <i className="ri-close-line"></i> {/* Close icon */}
+                    </span>
+                    <iframe
+                      title="Google Map"
+                      src="https://www.google.com/maps/embed?..."
+                      width="100%"
+                      height="400"
+                      style={{ border: 0 }}
+                      allowFullScreen=""
+                      loading="lazy"
+                    ></iframe>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      )}
-    </div>
-          </div>
 
-          
+
         </div>
       </div>
     </div>

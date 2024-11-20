@@ -641,6 +641,9 @@
   .who-btm h6 {
       font-size: 3vmax;
   } 
+  .who-btm span {
+    font-size: 2vmax;
+} 
 .Whowe-main .modal-overlay-slide    .modal-content {
   width: 90%;
 }
@@ -650,38 +653,32 @@ font-size: 3vmax;
 .Whowe-main .modal-overlay-slide    .modal-content  h5{
  font-size: 2vmax;
    }
-  .Whowe-main .modal-overlay-slide    .modal-content  form .e-ipt button {
-      padding: 1.5vmax 1vmax;
-      }            
- 
-
+.Whowe-main .modal-overlay-slide    .modal-content  form .e-ipt button {
+ padding: 1.5vmax 1vmax;
+ }            
 .who-btm .search-bar-skill{
 display: none;
 }
-
 .who-btm .search-bar-skill-responsive{
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1vmax;
 margin-top: 1vmax;
-
 }
-
 .who-btm .search-bar-skill-responsive .skill-ipt {
 width: 100%;
 position: relative;
 }
-
 .who-btm .search-bar-skill-responsive .skill-ipt input {
 width: 100%;
 padding: 1.3vmax 1vmax;
 padding-right: 2.5vmax;
 outline: none;
 border: 1px solid #848484;
+font-size: 2.5vmax;
 border-radius: 5px;
 }
-
 .who-btm .search-bar-skill-responsive .skill-ipt .input-icon {
 position: absolute;
 right: 10px;
@@ -717,10 +714,11 @@ color: #fff;
 border: none;
 border-radius: 5px;
 padding: 1.4vmax 1vmax;
+font-size: 2.4vmax;
 }
 
 .who-btm .search-bar-skill-responsive .sort-dropdown select {
-font-size: 2vmax;
+font-size: 2.5vmax;
 padding: 1.5vmax 1vmax;
 width: 100%;
 border-radius: 5px;
@@ -738,31 +736,29 @@ width: 100%;
 }
 
 .slick-slide .w-box {
- 
-  height: 800px;
-
+  height: auto;
 }
 
 .slick-slide .w-box img {
   width: 100%;
-  height: 200px;
+  height: 550px;
  
 }
 
 .slick-slide .w-box .text-panel{
   width: 95%;
-  height: 600px;
+  height: auto;
  justify-content: space-between;
 }
 
 .slick-slide .w-box .text-panel h5 {
-  font-size: 2.3vmax;
+  font-size: 3.5vmax;
   width: 100%;
   text-align: start;
 }
 
 .slick-slide .w-box .text-panel p {
-  font-size: 2vmax;
+  font-size: 2.2vmax;
 }
 
 .slick-slide .w-box .text-panel .ss{
@@ -773,10 +769,10 @@ width: 100%;
 }
 .slick-slide .w-box .text-panel .ss small{
  letter-spacing: 1px;
- font-size: 2vmax;
+ font-size: 2.2vmax;
 }
 .slick-slide .w-box span{
-  font-size: 2vmax;
+  font-size: 2.8vmax;
   margin-top: 0.5vmax;
 }
 
@@ -787,13 +783,14 @@ flex-direction: column;
 }
 
 .slick-slide .w-box span{
-  font-size: 2vmax;
+  font-size: 2.3vmax;
 }
 .slick-slide .w-box .text-panel  .get {
 width: 100%;
 margin-top: 2vmax;
 background-color: #003f80; 
 padding: 1.6vmax 1vmax;
+font-size: 2vmax;
 }
 
 }
