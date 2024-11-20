@@ -133,45 +133,201 @@
 //   setSkills(initialSkills);
 //   setFilteredSkills(initialSkills); // Initially set to all skills
 // }, []);
-import React,{useEffect} from 'react'
-import axios from 'axios';
+
+import React, { useState } from "react";
+import Slider from "react-slick";
+import talspoIcon from "../assets/images/talspoIcon.png"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import './Test.css'
 
 const Test = () => {
-  const API_URL = "https://api-ds.markaazdata.com"; 
-const API_KEY = "7ewZZL2Lg28cONdzCJmax26f0aBjhoReBBcV5Yig";
+  const [searchTerm, setSearchTerm] = useState("");
+  const [location, setLocation] = useState("");
+  const [sortOption, setSortOption] = useState("");
+  const [showFullMap, setShowFullMap] = useState(false);
+  const [selectedSkill, setSelectedSkill] = useState(null);
 
+  const filteredSkills = [
+    {
+      image: "path/to/image1.jpg",
+      title: "Frontend Developer",
+      description: "Expert in React.js, CSS, and HTML.",
+      salary: "50,000 - 70,000",
+      status: "Active",
+      location: "New York",
+      jobtype: "Full-Time",
+    },
+    {
+      image: "path/to/image2.jpg",
+      title: "Backend Developer",
+      description: "Experienced in Node.js and Databases.",
+      salary: "60,000 - 80,000",
+      status: "Verified",
+      location: "California",
+      jobtype: "Part-Time",
+    },
+    // Add more skill objects here
+  ];
 
-
-useEffect(() => {
-  const fetchWorldSubRegions = async () => {
-    // if (!selectedWorldRegion) return; 
-    
-    // setLoadingSubRegions(true);
-    try {
-      const response = await axios.get(`${API_URL}/distinctWorldSubRegions`, {
-        headers: { "x-api-key": API_KEY },
-        params: { region_selected: "GB" },
-      });
-
-      console.log("Sub regions Response:", response.data);
-
-      // setSubRegions(response.data.distinct_world_subregions || []); // Default to empty array if data is missing
-    } catch (error) {
-      console.error("Error fetching world subregions:", error);
-    } finally {
-      // setLoadingSubRegions(false);
-    }
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
   };
 
-  fetchWorldSubRegions();
-}, []);
+  const handleSort = (e) => {
+    setSortOption(e.target.value);
+  };
+
+  const handleSearch = () => {
+    // Search functionality here
+    console.log("Searching for:", searchTerm, location, sortOption);
+  };
+
+  const toggleMapView = () => {
+    setShowFullMap(!showFullMap);
+  };
+
+  const handleSalaryClick = (skill) => {
+    setSelectedSkill(skill);
+  };
 
   return (
-    <>
-      
+    <div className="who-page">
+      <div className="who-btm">
+        <h6>On Demand Skilled Candidates Nearby You</h6>
+        <span style={{ marginLeft: "1vmax" }}>
+          Find skilled candidates based on your requirements in real-time using geo-location enabled search for quick recruitment and talent acquisition.
+        </span>
 
-    </>
-  )
-}
+        <div className="search-bar-skill">
+          <div className="skill-ipt">
+            <input
+              type="text"
+              placeholder="Search for Developers, Designers..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+          </div>
+          <div className="skill-ipt">
+            <input
+              type="text"
+              placeholder="Search by Location (Pin Code, Area, City, etc.)"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            />
+            <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+          </div>
+          <div className="sort-dropdown">
+            <select onChange={handleSort} value={sortOption}>
+              <option value="" disabled>
+                Sort by
+              </option>
+              <option value="jobType">Experience</option>
+              <option value="salary">Trusted/Verified Candidates</option>
+              <option value="active">Actively Looking</option>
+            </select>
+          </div>
+          <div className="skill-btn">
+            <button onClick={handleSearch}>Search</button>
+          </div>
+        </div>
 
-export default Test
+        <div className="who-slide">
+          <div className="slider-container">
+            <Slider {...settings}>
+              {filteredSkills.map((skill, index) => (
+                <div key={index}>
+                  <div className="w-box">
+                    <img src={skill.image} alt={skill.name} />
+                    <div className="text-panel">
+                      <h5>{skill.title}</h5>
+                      <p>{skill.description}</p>
+                      <div className="ss">
+                        <small
+                          style={{ cursor: "pointer", color: "blue" }}
+                          onClick={() => handleSalaryClick(skill)}
+                        >
+                          Salary: {skill.salary}
+                        </small>
+                        <small>Status: {skill.status}</small>
+                      </div>
+                      <div className="hh">
+                        <span>Location: {skill.location}</span>
+                        <span>Job Type: {skill.jobtype}</span>
+                      </div>
+                      <button className="get">Connect</button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+
+          <div className="home-map">
+            {!showFullMap && (
+              <div className="map-arrow-icon">
+                <h6 onClick={toggleMapView}>Show Full Map</h6>
+              </div>
+            )}
+
+            <iframe
+              title="Google Map"
+              src="https://www.google.com/maps/embed?..."
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+            />
+
+            {selectedSkill && (
+              <div className="selected-skill-details">
+                <div className="w-box">
+                  <img src={selectedSkill.image} alt={selectedSkill.name} />
+                  <div className="text-panel">
+                    <h5>{selectedSkill.title}</h5>
+                    <p>{selectedSkill.description}</p>
+                    <div className="ss">
+                      <small>Salary: {selectedSkill.salary}</small>
+                      <small>Status: {selectedSkill.status}</small>
+                    </div>
+                    <div className="hh">
+                      <span>Location: {selectedSkill.location}</span>
+                      <span>Job Type: {selectedSkill.jobtype}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {showFullMap && (
+              <div className="map-overlay">
+                <div className="map-overlay-content">
+                  <span className="map-overlay-close" onClick={toggleMapView}>
+                    <i className="ri-close-line"></i>
+                  </span>
+                  <iframe
+                    title="Google Map"
+                    src="https://www.google.com/maps/embed?..."
+                    width="100%"
+                    height="400"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                  ></iframe>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Test;
