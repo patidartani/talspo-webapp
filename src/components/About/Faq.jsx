@@ -38,8 +38,11 @@ const Faq = () => {
       <Navbar />
       <div className="faq-con">
 
-        <h5 className="faq-head">Frequently Asked Questions</h5> 
-        <h1 className="faq-head">Frequently Asked Questions</h1>
+      <div className="faq_top">
+          <h5>Frequently Asked Questions</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, illo!</p>
+          </div>
+
         <div className="faq-box">
           <div className="faq-ques">
             {faqs.map((faq, index) => (
