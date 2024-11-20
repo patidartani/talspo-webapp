@@ -57,7 +57,7 @@ const SiteMap = () => {
 
                    <a href="/disclaimer"><span>Disclaimer</span></a>  
                    <a href="/anti-spam-policy"><span>Anti Spam Policy</span></a>
-                   <a href="/"><span>Legal Certification</span></a>
+                   <a href="/legal-certificate"><span>Legal Certification</span></a>
                    <a href="/dmca-policy"><span> IPR Compilance & Other Compilance</span></a>
                    <a href="/gdbr-policy"><span> GPR Compilance</span></a>
                    <a href="/eula-policy"><span>EULA</span></a>
