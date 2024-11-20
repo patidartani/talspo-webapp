@@ -46,11 +46,11 @@ const BlogDetail = () => {
         <div className="blog-detail">
           <div className="details">
             <h5>{blogDetail?.title}</h5>
+            <img className="img-d" src={blogDetail?.image} alt={blogDetail?.title} />
             <div className="year-d">
               <small>{blogDetail?.year}</small> <span>Designing, Coding, Learning</span>
             </div>
             <p>{blogDetail?.description}</p>
-            <img className="img-d" src={blogDetail?.image} alt={blogDetail?.title} />
             <p>{blogDetail?.contant}</p>
           </div>
         </div>

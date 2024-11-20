@@ -10,10 +10,12 @@
           align-items: center;
           justify-content: center;
           flex-direction: column;
-          margin-top: 10vmax;
+          margin-top: 8vmax;
+          margin-bottom: 3vmax;
 }
 .BlogDetail-main .blog-detail h5{
      font-weight: 600;
+     font-size: 2vmax;
 }
 .BlogDetail-main .blog-detail .year-d{
           width: 100%;
@@ -31,7 +33,10 @@
       padding: 0.4vmax 1.5vmax;
      }
      .BlogDetail-main .blog-detail .year-d span{
-       font-weight: 500;
+       font-weight: 600;
+       margin-top: 0.3vmax;
+       color: rgb(60, 116, 118);
+       letter-spacing: 0.2px;
   }
   .BlogDetail-main .blog-detail .img-d{
          width: 60%;

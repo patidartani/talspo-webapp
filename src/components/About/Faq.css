@@ -15,7 +15,8 @@
     flex-direction: column;
     background: #003266;
     color:#fff;
-    padding-top: 7vmax;
+    padding-top: 8vmax;
+    padding-bottom: 2vmax;
 }
 .faq_top h5{
   width: 85%;
