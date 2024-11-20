@@ -55,7 +55,7 @@ const SiteMap = () => {
                    <a href="/term-of-use"><span>Terms Of Use</span></a>
                    <a href="/cookie-policy"><span>Cookie Policy</span></a>
 
-                   <a href="/disclaimer"><span>Disclaimer</span></a>
+                   <a href="/disclaimer"><span>Disclaimer</span></a>  
                    <a href="/anti-spam-policy"><span>Anti Spam Policy</span></a>
                    <a href="/"><span>Legal Certification</span></a>
                    <a href="/dmca-policy"><span> IPR Compilance & Other Compilance</span></a>
