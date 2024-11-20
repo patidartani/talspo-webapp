@@ -10,21 +10,22 @@ const LegalCertificate = () => {
           <Navbar />
           <div className="legal_heading">
         <h1>Legal Certification</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, dolorem?</p>
       </div>
           <Container>
           
       <div className='legal_con'>
         <div className="legal_box">
         <h3>Certificate of Incorporation (COI) Certification</h3>
-        <button>View Certificate</button>
+        <button className='legal_btn'>View Certificate</button>
         </div>
        <div className="legal_certificate">
        <h3>Trandmark Certification</h3>
-       <button>View Certificate</button>
+       <button className='legal_btn'>View Certificate</button>
        </div>
        <div className='patent_cert'>
        <h3>Patent Certification</h3>
-       <button>View Certificate</button>
+       <button className='legal_btn'>View Certificate</button>
        </div>
        <div className="other_cert">
        <h3>Other Legal Certification</h3>

@@ -7,8 +7,10 @@
     background: #003266;
     color:#fff;
     padding: 3vmax;
-    margin-top: 110px;
+    margin-top: 108px;
+    /* margin-bottom: 10px; */
 }
+
 .legal_heading h1{
     width: 85%;
     display: flex;
@@ -19,6 +21,18 @@
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
+.legal_heading p{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:#fff;
+  
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .legal_con {
     display: flex;
     flex-direction: column;

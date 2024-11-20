@@ -1,0 +1,32 @@
+.selected-skill-details {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(100% - 40px);
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  .selected-skill-details .w-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .who-page {
+    padding: 20px;
+  }
+  
+  .who-btm h6 {
+    font-size: 1.2rem;
+  }
+  
+  .text-panel {
+    margin-top: 10px;
+  }
+  
