@@ -16,19 +16,19 @@ const SiteMap = () => {
              <div className="site-box">
                     <h5>About</h5>
                    <a href="/about-us"><span>About Us </span></a>
-                   <a href="/"><span>Faq</span></a>
+                   <a href="/faq"><span>Faq</span></a>
                    <a href="/our-team"><span>Our Team</span></a>
                    <a href="/achievements"><span>Achievements</span></a>
                    <a href="/how-we-work"><span>How We Work</span></a>
-                   <a href="/"><span>Talspo Search AI</span></a>
-                   <a href="/"><span>Talspo API</span></a>
+                   <a href="/talspo-search"><span>Talspo Search AI</span></a>
+                   <a href="/talspo-api"><span>Talspo API</span></a>
            </div>
            <div className="site-box">
            <h5>Services</h5> 
-           <a href=""><span>Students/Learner Model Services</span></a>
-                   <a href=""><span>Professional + Trainers Model Services</span></a>
-                   <a href=""><span>Corporate + Organization Model Services</span></a>
-                   <a href=""><span>Co-Working Spaces + Co-works & Co-live & Events Model Services</span></a>              
+           <a href="/student-service"><span>Students/Learner Model Services</span></a>
+                   <a href="/professional-service"><span>Professional + Trainers Model Services</span></a>
+                   <a href="/corporate-service"><span>Corporate + Organization Model Services</span></a>
+                   <a href="/co-working"><span>Co-Working Spaces + Co-works & Co-live & Events Model Services</span></a>              
            </div>
            <div className="site-box">
            <h5>Join</h5> 
