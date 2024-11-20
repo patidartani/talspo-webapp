@@ -26,11 +26,14 @@ export const GDPR_PRIVACY_POLICY_URL = `${BASE_URL}/get-gprcompilance`;
 export const End_User_License_Agreement_URL = `${BASE_URL}/get-eula`;
 
 
+export const CREATE_DIRECT_CONNECT_HR_URL = `${BASE_URL}/create-darect-canect-hr-executive`;
+
+
 // --------------------- GDPR Policy ----------------------
 export const fetchEULAPolicy = async () => {
   try {
     const response = await axios.get(End_User_License_Agreement_URL);
-    console.log("EULA Policy Response:", response.data);
+    // console.log("EULA Policy Response:", response.data);
     return response.data; // Ensure data is returned
   } catch (error) {
     console.error("Error fetching EULA Policy:", error);
@@ -42,7 +45,7 @@ export const fetchEULAPolicy = async () => {
 export const fetchGDPRPolicy = async () => {
   try {
     const response = await axios.get(GDPR_PRIVACY_POLICY_URL);
-    console.log("GDPR Privacy Policy Response:", response.data);
+    // console.log("GDPR Privacy Policy Response:", response.data);
     return response.data; // Ensure data is returned
   } catch (error) {
     console.error("Error fetching GDPR Privacy Policy:", error);
@@ -55,7 +58,7 @@ export const fetchGDPRPolicy = async () => {
 export const fetchDMCAPolicy = async () => {
   try {
     const response = await axios.get(DIGITAL_MILLENNIUMll_COPYRIGHT_ACT_URL);
-    console.log("Digital Millennium Copyright Act policy Response:", response.data);
+    // console.log("Digital Millennium Copyright Act policy Response:", response.data);
     return response.data; // Ensure data is returned
   } catch (error) {
     console.error("Error fetching Digital Millennium Copyright Act policy:", error);
@@ -67,7 +70,7 @@ export const fetchDMCAPolicy = async () => {
 export const fetchAntySpamPolicy = async () => {
   try {
     const response = await axios.get(ANTY_SPAM_POLICY_URL);
-    console.log("Anty Spam Policy Response:", response.data);
+    // console.log("Anty Spam Policy Response:", response.data);
     return response.data; // Ensure data is returned
   } catch (error) {
     console.error("Error fetching Anty Spam Policy:", error);
@@ -79,7 +82,7 @@ export const fetchAntySpamPolicy = async () => {
 export const fetchDisclaimerPolicy = async () => {
   try {
     const response = await axios.get(DISCLAIMER_URL);
-    console.log("Disclaimer Response:", response.data);
+    // console.log("Disclaimer Response:", response.data);
     return response.data; // Ensure data is returned
   } catch (error) {
     console.error("Error fetching Disclaimer:", error);
@@ -91,7 +94,7 @@ export const fetchDisclaimerPolicy = async () => {
 export const fetchTermsCondition = async () => {
   try {
     const response = await axios.get(TERMS_CONDITIONS_URL);
-    console.log("Terms and Condition Response:", response.data);
+    // console.log("Terms and Condition Response:", response.data);
     return response.data; // Ensure data is returned
   } catch (error) {
     console.error("Error fetching Terms and Condition:", error);
@@ -103,7 +106,7 @@ export const fetchTermsCondition = async () => {
 export const fetchTermOfUse = async () => {
   try {
     const response = await axios.get(TERM_OF_USE_URL);
-    console.log("Terms of use Response:", response.data);
+    // console.log("Terms of use Response:", response.data);
     return response.data; // Ensure data is returned
   } catch (error) {
     console.error("Error fetching Terms of use:", error);
@@ -115,7 +118,7 @@ export const fetchTermOfUse = async () => {
 export const fetchPrivacyPolicy = async () => {
   try {
     const response = await axios.get(PRIVACY_POLICY_URL);
-    console.log("Privacy Policy Response:", response.data);
+    // console.log("Privacy Policy Response:", response.data);
     return response.data; // Ensure data is returned
   } catch (error) {
     console.error("Error fetching privacy policy:", error);
@@ -128,7 +131,7 @@ export const fetchPrivacyPolicy = async () => {
 export const fetchCookiePolicy = async () => {
   try {
     const response = await axios.get(COOKIE_POLICY_URL);
-    console.log("Cookie Policy Response:", response.data);
+    // console.log("Cookie Policy Response:", response.data);
     return response.data; // Ensure data is returned
   } catch (error) {
     console.error("Error fetching Cookie policy:", error);
@@ -140,7 +143,7 @@ export const fetchCookiePolicy = async () => {
 export const fetchJobPosts = async () => {
   try {
     const response = await axios.get(JOB_POST_URL);
-    console.log(" Job Posts Response :", response.data);
+    // console.log(" Job Posts Response :", response.data);
     return response.data.records || [];
   } catch (error) {
     console.error('Error fetching job posts:', error);
@@ -166,7 +169,7 @@ export const fetchAboutUs = async () => {
 export const fetchTalspoSkilledView = async () => {
   try {
     const response = await axios.get(TAL_SPO_SKILLED_VIEW_URL);
-    console.log("Skilled Candidates Response:", response.data);
+    // console.log("Skilled Candidates Response:", response.data);
     return response.data.records || [];
   } catch (error) {
     console.error('Error fetching Talspo Skilled data:', error);
@@ -179,7 +182,7 @@ export const fetchTalspoSkilledView = async () => {
 export const recentBlogPosts = async () => {
   try {
     const response = await axios.get(BLOG_POSTS_URL);
-    console.log(" Recent Blogs:", response.data);
+    // console.log(" Recent Blogs:", response.data);
     return response.data.records || [];
   } catch (error) {
     console.error('Error fetching recent blog posts:', error);
@@ -201,7 +204,7 @@ export const featuredBlogPosts = async () => {
 export const fetchBlogDetail = async (id) => {
   try {
     const response = await axios.get(`${BASE_URL}/featured-blog-single-record/${id}`);
-    console.log("Blog detail view:", response.data);
+    // console.log("Blog detail view:", response.data);
     return response.data.records || null; 
   } catch (error) {
     console.error("Error fetching blog detail:", error);
@@ -209,8 +212,21 @@ export const fetchBlogDetail = async (id) => {
   }
 };
 
-// ---------------------------------------------------------------------------------
+// -------------------------who we form api--------------------------------------------------------
 
-
+export const createDirectConnectHR = async (formData) => {
+  try {
+    const response = await axios.post(CREATE_DIRECT_CONNECT_HR_URL, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data", 
+      },
+    });
+    console.log("Connect Hr Form Response:", response.data);
+    return response.data; 
+  } catch (error) {
+    console.error("API Error:", error.response?.data || error.message);
+    throw error.response?.data || { message: "Something went wrong" };
+  }
+};
 
 
