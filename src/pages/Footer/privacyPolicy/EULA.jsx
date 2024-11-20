@@ -3,21 +3,62 @@ import { Container } from 'react-bootstrap'
 import Navbar from "../../../pages/Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import "../privacyPolicy/EULA.css"
+import {fetchEULAPolicy} from "../../../apiService"
+import  { useEffect, useState } from "react";
+
 const EULA = () => {
   const currentDate = new Date();
   const options = { year: 'numeric', month: 'long', day: '2-digit' };
   const formattedDate = currentDate.toLocaleDateString('en-US', options);
+
+  const [eulaPolicy, setEulaPolicy] = useState(null);
+
+  useEffect(() => {
+    const fetchEULA = async () => {
+      const data = await fetchEULAPolicy();
+      if (data) {
+        setEulaPolicy(data);
+      }
+    };
+
+    fetchEULA();
+  }, []);
+
   return (
     <>
       <Navbar />
-      <div className="eula_heading">
-        <h1>End-User License Agreement</h1>
+
+      {eulaPolicy ? (
+  <div>
+    <div className="policy_heading">
+      <h2>{eulaPolicy.title}</h2>
+    </div>
+    <Container>
+      <div  className="policy_con">
+   
+          <p>Last updated: {formattedDate}</p>
+    
+      <div
+                dangerouslySetInnerHTML={{
+                  __html: eulaPolicy.description,
+                }}
+              ></div>
       </div>
-      <Container>
-      <div className="eula_con">
+    
+    </Container>
+  </div>
+) : (
+  <p>Loading...</p>
+)}
+
+      {/* <div className="eula_heading">
+        <h1>End-User License Agreement</h1>
+      </div> */}
+      {/* <Container>
+      <div className="eula_con"> */}
       {/* <h1>End-User License Agreement (&quot;Agreement&quot;)</h1> */}
 {/* <p>Last updated: November 09, 2024</p> */}
-<p>Last updated: {formattedDate}</p>
+{/* <p>Last updated: {formattedDate}</p>
 <p>Please read this End-User License Agreement carefully before clicking the &quot;I Agree&quot; button, downloading or using Talspo.</p>
 <h3>Interpretation and Definitions</h3>
 <h4>Interpretation</h4>
@@ -115,7 +156,7 @@ The Company may, in its sole discretion, at any time and for any or no reason, s
 </ul><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     
     </div> 
-     </Container>
+     </Container> */}
      <Footer />
     </>
   )

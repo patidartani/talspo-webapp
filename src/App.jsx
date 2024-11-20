@@ -42,6 +42,7 @@ import Form from "./components/Join/Form"
 import SiteMap from "./components/Home/SiteMap"
 import TalspoAPI from "./components/About/TalspoAPI"
 import TalspoSearchAI from "./components/About/TalspoSearchAI"
+import LegalCertificate from "./pages/Footer/privacyPolicy/LegalCertificate"
 
 const App = () => {
   return (
@@ -67,6 +68,9 @@ const App = () => {
         <Route  path='/language' element={<LanguageTranslate />}/>
         <Route  path='/apply' element={<ApplyNow />}/>
         <Route  path='/loading' element={<Loading />}/>
+        <Route path="/view-detail" element={<ViewDetail/>}/>
+        <Route path="/form" element={<Form/>}/>
+        <Route path="/links" element={<SiteMap/>}/>
 
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         <Route path="/term-condition" element={<TermsCondition/>}/>
@@ -77,9 +81,8 @@ const App = () => {
         <Route path="/dmca-policy" element={<DmcaPolicy/>}/>
         <Route path="/gdbr-policy" element={<GdbrPolicy/>}/>
         <Route path="/anti-spam-policy" element={<AntiSpamPolicy/>}/>
-        <Route path="/view-detail" element={<ViewDetail/>}/>
-        <Route path="/form" element={<Form/>}/>
-        <Route path="/links" element={<SiteMap/>}/>
+        <Route path="/legal-certificate" element={<LegalCertificate/>}/>
+       
 
         <Route path="/student-service" element={<StudentServiceModel/>}/>
         <Route path="/professional-service" element={<ProfessionalTrainer/>}/>
@@ -88,6 +91,7 @@ const App = () => {
 
         <Route path="/talspo-search" element={<TalspoSearchAI/>}/>
         <Route path="/talspo-api" element={<TalspoAPI/>}/>
+
         <Route path="/test" element={<Test/>}/>
       </Routes>
     </div>

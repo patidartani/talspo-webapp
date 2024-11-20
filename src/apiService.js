@@ -23,8 +23,22 @@ export const DISCLAIMER_URL = `${BASE_URL}/get-desclaimer`;
 export const ANTY_SPAM_POLICY_URL =`${BASE_URL}/get-antispam_policy`;
 export const DIGITAL_MILLENNIUMll_COPYRIGHT_ACT_URL = `${BASE_URL}/get-legalcertification`;
 export const GDPR_PRIVACY_POLICY_URL = `${BASE_URL}/get-gprcompilance`;
+export const End_User_License_Agreement_URL = `${BASE_URL}/get-eula`;
 
-// --------------------- Anty Spam Policy ----------------------
+
+// --------------------- GDPR Policy ----------------------
+export const fetchEULAPolicy = async () => {
+  try {
+    const response = await axios.get(End_User_License_Agreement_URL);
+    console.log("EULA Policy Response:", response.data);
+    return response.data; // Ensure data is returned
+  } catch (error) {
+    console.error("Error fetching EULA Policy:", error);
+    return null; // Return null in case of an error
+  }
+};
+
+// --------------------- GDPR Policy ----------------------
 export const fetchGDPRPolicy = async () => {
   try {
     const response = await axios.get(GDPR_PRIVACY_POLICY_URL);
