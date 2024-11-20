@@ -25,9 +25,7 @@ export const DIGITAL_MILLENNIUMll_COPYRIGHT_ACT_URL = `${BASE_URL}/get-legalcert
 export const GDPR_PRIVACY_POLICY_URL = `${BASE_URL}/get-gprcompilance`;
 export const End_User_License_Agreement_URL = `${BASE_URL}/get-eula`;
 
-
 export const CREATE_DIRECT_CONNECT_HR_URL = `${BASE_URL}/create-darect-canect-hr-executive`;
-
 
 // --------------------- GDPR Policy ----------------------
 export const fetchEULAPolicy = async () => {
