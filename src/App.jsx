@@ -40,6 +40,8 @@ import CoWorking from "./components/Services/CoWorking"
 
 import Form from "./components/Join/Form"
 import SiteMap from "./components/Home/SiteMap"
+import TalspoAPI from "./components/About/TalspoAPI"
+import TalspoSearchAI from "./components/About/TalspoSearchAI"
 
 const App = () => {
   return (
@@ -79,12 +81,13 @@ const App = () => {
         <Route path="/form" element={<Form/>}/>
         <Route path="/links" element={<SiteMap/>}/>
 
-
-
         <Route path="/student-service" element={<StudentServiceModel/>}/>
         <Route path="/professional-service" element={<ProfessionalTrainer/>}/>
         <Route path="/corporate-service" element={<CorporateService/>}/>
         <Route path="/co-working" element={<CoWorking/>}/>
+
+        <Route path="/talspo-search" element={<TalspoSearchAI/>}/>
+        <Route path="/talspo-api" element={<TalspoAPI/>}/>
         <Route path="/test" element={<Test/>}/>
       </Routes>
     </div>

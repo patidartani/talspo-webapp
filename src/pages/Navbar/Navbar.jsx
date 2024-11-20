@@ -123,11 +123,8 @@ const Navbar = () => {
                     <Link to="/our-team">Our Team</Link>
                     <Link to="/achievements">Achievements</Link>
                     <Link to="/how-we-work">How We Work</Link>
-                    <Link to="/">Talspo Search AI</Link>
-                    <Link to="/">Talspo API</Link>
-
-
-
+                    <Link to="/talspo-search">Talspo Search AI</Link>
+                    <Link to="/talspo-api">Talspo API</Link>
                   </div>
                 )}
 
