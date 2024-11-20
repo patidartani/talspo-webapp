@@ -120,8 +120,8 @@ const Blog = () => {
             <span>{blog.year}</span>
             <h1>{blog.subtitle}</h1>
           </div>
-          <p>{blog.description}</p>
-        </div>
+          <div dangerouslySetInnerHTML={{ __html: blog.description }}></div>
+          </div>
       </Link>
     ))
   ) : (

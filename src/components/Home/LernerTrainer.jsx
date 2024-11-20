@@ -26,7 +26,7 @@ const LernerTrainer = () => {
                                <div className="know-p">
                                <button>KNOW MORE</button>
                                </div>
-                          </div>
+                          </div> 
                     </div> 
                     <div className="part-right">
                     <video src={LearnerImg} autoPlay loop muted></video>
