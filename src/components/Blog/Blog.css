@@ -142,7 +142,7 @@
 
      
     .Blog-main .blogs     .blog-container{
-          width: 95%;
+          width: 100%;
           display: flex;
           align-items: flex-start;
           justify-content: space-between;
@@ -158,6 +158,10 @@
           gap: 2vmax;
           margin-top: 2vmax;
     }
+    .Blog-main .blogs .blog-container .blog-content .blog_list  {
+      width: 80%;
+        }
+    
   /* Blog List Link */
 .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg {
       border-bottom: 1px solid #b7b7b7;
@@ -230,13 +234,13 @@
     }
     
 
-    .Blog-main .blogs     .blog-container   .blog-content   .Blogs_img{
-          width: 40%;
+    .Blog-main .blogs     .blog-container     .Blogs_img{
+          width: 20%;
           display: flex;
           align-items: center;
           justify-content:center;
     }
-    .Blog-main .blogs     .blog-container   .blog-content   .Blogs_img img{
+    .Blog-main .blogs     .blog-container     .Blogs_img img{
           width: 100%;
           margin-top: 10vmax;
     }
