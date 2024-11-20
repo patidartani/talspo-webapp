@@ -1,6 +1,8 @@
 import React from 'react'
 import "./SiteMap.css"
 import Navbar from "../../pages/Navbar/Navbar"
+import Footer from "../../pages/Footer/Footer"
+
 
 const SiteMap = () => {
   return (
@@ -9,7 +11,7 @@ const SiteMap = () => {
     <div className='SiteMap-main'>
           <div className="site_top">
           <h5>SiteMap</h5>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates excepturi soluta necessitatibus labore officia! Fugiat porro dolorum non nihil quis.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, ducimus?</p>
           </div>
           <div className="site-map">
   {/* --------------------------------------------------*/}
@@ -49,7 +51,7 @@ const SiteMap = () => {
              </div>
  
              <div className="site-box">
-                    <h5>Footer</h5>
+                    <h5>Legal Pages</h5>
                    <a href="/privacy-policy"><span>Privacy Policy</span></a>
                    <a href="/term-condition"><span>Terms & Conditions</span></a>
                    <a href="/term-of-use"><span>Terms Of Use</span></a>
@@ -67,6 +69,7 @@ const SiteMap = () => {
  
 </div>
 </div>
+<Footer />
    </>
   )
 }
