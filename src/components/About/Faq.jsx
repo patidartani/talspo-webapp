@@ -37,7 +37,7 @@ const Faq = () => {
     <>
       <Navbar />
       <div className="faq-con">
-        <h5 className="faq-head">Frequently Asked Questions</h5>
+        <h5 className="faq-head">Frequently Asked Questions</h5> 
         <div className="faq-box">
           <div className="faq-ques">
             {faqs.map((faq, index) => (
