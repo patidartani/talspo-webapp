@@ -136,10 +136,10 @@
 
 import React, { useState } from "react";
 import Slider from "react-slick";
-import talspoIcon from "../assets/images/talspoIcon.png"
+import talspoIcon from "../assets/images/talspoIcon.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './Test.css'
+import "./Test.css";
 
 const Test = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -150,6 +150,7 @@ const Test = () => {
 
   const filteredSkills = [
     {
+      id: 1,
       image: "path/to/image1.jpg",
       title: "Frontend Developer",
       description: "Expert in React.js, CSS, and HTML.",
@@ -157,8 +158,10 @@ const Test = () => {
       status: "Active",
       location: "New York",
       jobtype: "Full-Time",
+      coordinates: { top: "30%", left: "40%" }, // Position on map
     },
     {
+      id: 2,
       image: "path/to/image2.jpg",
       title: "Backend Developer",
       description: "Experienced in Node.js and Databases.",
@@ -166,6 +169,7 @@ const Test = () => {
       status: "Verified",
       location: "California",
       jobtype: "Part-Time",
+      coordinates: { top: "50%", left: "60%" },
     },
     // Add more skill objects here
   ];
@@ -176,15 +180,6 @@ const Test = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-  };
-
-  const handleSort = (e) => {
-    setSortOption(e.target.value);
-  };
-
-  const handleSearch = () => {
-    // Search functionality here
-    console.log("Searching for:", searchTerm, location, sortOption);
   };
 
   const toggleMapView = () => {
@@ -200,7 +195,7 @@ const Test = () => {
       <div className="who-btm">
         <h6>On Demand Skilled Candidates Nearby You</h6>
         <span style={{ marginLeft: "1vmax" }}>
-          Find skilled candidates based on your requirements in real-time using geo-location enabled search for quick recruitment and talent acquisition.
+          Find skilled candidates based on your requirements in real-time using geo-location-enabled search for quick recruitment and talent acquisition.
         </span>
 
         <div className="search-bar-skill">
@@ -223,7 +218,7 @@ const Test = () => {
             <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
           </div>
           <div className="sort-dropdown">
-            <select onChange={handleSort} value={sortOption}>
+            <select onChange={(e) => setSortOption(e.target.value)} value={sortOption}>
               <option value="" disabled>
                 Sort by
               </option>
@@ -233,15 +228,15 @@ const Test = () => {
             </select>
           </div>
           <div className="skill-btn">
-            <button onClick={handleSearch}>Search</button>
+            <button>Search</button>
           </div>
         </div>
 
         <div className="who-slide">
           <div className="slider-container">
             <Slider {...settings}>
-              {filteredSkills.map((skill, index) => (
-                <div key={index}>
+              {filteredSkills.map((skill) => (
+                <div key={skill.id}>
                   <div className="w-box">
                     <img src={skill.image} alt={skill.name} />
                     <div className="text-panel">
@@ -275,54 +270,55 @@ const Test = () => {
               </div>
             )}
 
-            <iframe
-              title="Google Map"
-              src="https://www.google.com/maps/embed?..."
-              width="100%"
-              height="300"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-            />
+            <div className="map-container" style={{ position: "relative" }}>
+              <iframe
+                title="Google Map"
+                src="https://www.google.com/maps/embed?pb=..."
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+              />
+
+              {filteredSkills.map((skill) => (
+                <div
+                  key={skill.id}
+                  className="map-marker"
+                  style={{
+                    position: "absolute",
+                    top: skill.coordinates.top,
+                    left: skill.coordinates.left,
+                    cursor: "pointer",
+                  }}
+                  onClick={() => handleSalaryClick(skill)}
+                >
+                  💰
+                </div>
+              ))}
+            </div>
 
             {selectedSkill && (
-              <div className="selected-skill-details">
-                <div className="w-box">
-                  <img src={selectedSkill.image} alt={selectedSkill.name} />
-                  <div className="text-panel">
-                    <h5>{selectedSkill.title}</h5>
-                    <p>{selectedSkill.description}</p>
-                    <div className="ss">
-                      <small>Salary: {selectedSkill.salary}</small>
-                      <small>Status: {selectedSkill.status}</small>
-                    </div>
-                    <div className="hh">
-                      <span>Location: {selectedSkill.location}</span>
-                      <span>Job Type: {selectedSkill.jobtype}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
+  <div className="selected-skill-details">
+    <span
+      className="close-icon"
+      onClick={() => setSelectedSkill(null)}
+    >
+      ×
+    </span>
+    <h5>{selectedSkill.title}</h5>
+    <p>{selectedSkill.description}</p>
+    <div className="ss">
+      <small>Salary: {selectedSkill.salary}</small>
+      <small>Status: {selectedSkill.status}</small>
+    </div>
+    <div className="hh">
+      <span>Location: {selectedSkill.location}</span>
+      <span>Job Type: {selectedSkill.jobtype}</span>
+    </div>
+  </div>
+)}
 
-            {showFullMap && (
-              <div className="map-overlay">
-                <div className="map-overlay-content">
-                  <span className="map-overlay-close" onClick={toggleMapView}>
-                    <i className="ri-close-line"></i>
-                  </span>
-                  <iframe
-                    title="Google Map"
-                    src="https://www.google.com/maps/embed?..."
-                    width="100%"
-                    height="400"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                  ></iframe>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>
@@ -331,3 +327,4 @@ const Test = () => {
 };
 
 export default Test;
+

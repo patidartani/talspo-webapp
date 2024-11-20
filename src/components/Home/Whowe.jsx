@@ -4,17 +4,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { fetchTalspoSkilledView } from '../../apiService';
-
-import { createDirectConnectHR } from "../../apiService"; 
-
 import talspoIcon from "../../assets/images/talspoIcon.png"
+import { createDirectConnectHR } from "../../apiService"; 
 
 const Whowe = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [skills, setSkills] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
-  
   const [filteredSkills, setFilteredSkills] = useState([]);
   const [sortOption, setSortOption] = useState("");
 
@@ -45,7 +42,6 @@ const Whowe = () => {
     ],
   };
   
-
   useEffect(() => {
     const fetchSkills = async () => {
       const skillsData = await fetchTalspoSkilledView();
@@ -72,7 +68,6 @@ const Whowe = () => {
         skill.state.toLowerCase().includes(location.toLowerCase()) ||
         skill.country.toLowerCase().includes(location.toLowerCase()))
     );
-
     setFilteredSkills(results);
   };
 
@@ -102,7 +97,6 @@ const Whowe = () => {
     setFilteredSkills(sortedSkills);
   };
 
-
   // ----------------------------form-------------------------------------------
 
   const [countryCode, setCountryCode] = useState("+91"); // Default to India, change as needed
@@ -112,12 +106,15 @@ const Whowe = () => {
   });
   const [isJobOptionChecked, setIsJobOptionChecked] = useState(false); // State to track checkbox status
   const [jobDetails, setJobDetails] = useState({
-    positionTitle: "",
+    job_position_title: "",
     jobType: "",
     location: "",
     skillsExperience: "",
     resume: "",
-    linkedinProfile: "",
+    linkdin_profile: "",
+    phone_number: "",
+    date_of_birth: "",
+    email: "",
   });
 
   const handleCountryCodeChange = (e) => {
@@ -144,8 +141,39 @@ const Whowe = () => {
     }));
   };
 
-  // ------------------------------------------------------------------------------------------------------------
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
+    // Create FormData object for the form
+    const formData = new FormData();
+    formData.append("first_name", jobDetails.first_name);
+    formData.append("middle_name", jobDetails.middle_name);
+    formData.append("last_name", jobDetails.last_name);
+    formData.append("date_of_birth", jobDetails.date_of_birth);
+    formData.append("email", jobDetails.email);
+    formData.append("whatsapp", jobDetails.phone_number);
+    formData.append("location", jobDetails.location );
+    formData.append("job_position_title", jobDetails.job_position_title);
+    formData.append("jobType", jobDetails.jobType);
+    formData.append("preferred_job_location", jobDetails.preferred_job_location);
+    formData.append("your_skiles_experiance", jobDetails.your_skiles_experiance);
+    formData.append("resume", jobDetails.resume);
+    formData.append("linkdin_profile", jobDetails.linkdin_profile);
+    formData.append("phone_number", jobDetails.phone_number);
+
+    try {
+      const response = await createDirectConnectHR(formData);
+      console.log("api response",response )
+      if (response) {
+        alert("Form submitted successfully!");
+        closeModal(); // Close modal after successful submission
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
+
+  // ------------------------------------------------------------------------------------------------------------
   return (
     <div className="Whowe-main">
       {isModalOpen && (
@@ -187,9 +215,9 @@ const Whowe = () => {
                   <div className="e-ipt full">
                     <input
                       type="text"
-                      name="positionTitle"
+                      name="job_position_title"
                       placeholder="Job Position Title"
-                      value={jobDetails.positionTitle}
+                      value={jobDetails.job_position_title}
                       onChange={handleJobInputChange}
                     />
                   </div>
@@ -235,9 +263,9 @@ const Whowe = () => {
                   <div className="e-ipt full">
                     <input
                       type="text"
-                      name="linkedinProfile"
+                      name="linkdin_profile"
                       placeholder="Insert LinkedIn Profile Link"
-                      value={jobDetails.linkedinProfile}
+                      value={jobDetails.linkdin_profile}
                       onChange={handleJobInputChange}
                     />
                   </div>
@@ -255,12 +283,24 @@ const Whowe = () => {
                 <input type="text" placeholder="Last Name" name="lastName" />
               </div>
               <div className="e-ipt half">
-                <input type="date" placeholder="Date of Birth" name="dob" />
+              <input
+  type="date"
+  name="date_of_birth"
+  placeholder="Date of Birth"
+  value={jobDetails.date_of_birth}
+  onChange={handleJobInputChange}
+/>
               </div>
 
               {/* Row 4: Contact Information */}
               <div className="e-ipt full">
-                <input type="email" placeholder="Email Id" name="email" />
+              <input
+  type="email"
+  name="email"
+  placeholder="Email Id"
+  value={jobDetails.email}
+  onChange={handleJobInputChange}
+/>
               </div>
 
               {/* Row 5: WhatsApp Contact Number with Country Code */}
@@ -280,11 +320,12 @@ const Whowe = () => {
                     {/* Add other country codes as needed */}
                   </select>
                   <input
-                    type="tel"
-                    placeholder="WhatsApp Contact Number"
-                    name="whatsapp"
-                    className="whatsapp-input"
-                  />
+  type="tel"
+  name="phone_number"
+  placeholder="WhatsApp Contact Number"
+  value={jobDetails.phone_number}
+  onChange={handleJobInputChange}
+/>
                 </div>
               </div>
 
@@ -334,7 +375,7 @@ const Whowe = () => {
 
               {/* Submit Button */}
               <div className="e-ipt full">
-                <button type="submit">Submit</button>
+                <button type="submit" onClick={ handleSubmit }>Submit</button>
               </div>
             </form>
 
@@ -411,12 +452,9 @@ const Whowe = () => {
               <button onClick={handleSearch}>Search</button>
             </div>
 
-
           </div>
 
-
           {/* -------------------------------------------- */}
-
           <div className="who-slide">
             <div className="slider-container">
               <Slider {...settings}>
@@ -430,7 +468,6 @@ const Whowe = () => {
                         <div className="ss">
                           <small>Salary: {skill.salary}</small>
                           <small>Status: {skill.status}</small>
-
                         </div>
 
                         <div className="hh">
@@ -452,8 +489,6 @@ const Whowe = () => {
                   <h6 onClick={toggleMapView}>
                     Show Full Map</h6>
                 </div>
-
-
               )}
 
               <iframe
@@ -487,7 +522,6 @@ const Whowe = () => {
               )}
             </div>
           </div>
-
 
         </div>
       </div>
