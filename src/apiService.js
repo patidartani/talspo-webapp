@@ -4,7 +4,7 @@ export const BASE_URL = 'https://dev.talspo.com/admin/api';
 
 export const SIGNUP_URL = `${BASE_URL}/register`;
 export const LOGIN_URL = `${BASE_URL}/login-view`;
-export const MESSAGE_URL = `${BASE_URL}/massage-create`;
+// export const MESSAGE_URL = `${BASE_URL}/massage-create`;
 
 export const BLOG_POSTS_URL = `${BASE_URL}/recent-post-view`;
 export const FEATURED_BLOG_URL = `${BASE_URL}/featured-blogs-view`;

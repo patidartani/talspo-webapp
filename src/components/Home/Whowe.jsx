@@ -50,7 +50,7 @@ const Whowe = () => {
     };
 
     fetchSkills();
-  }, []);
+  }, []); 
 
   const [showFullMap, setShowFullMap] = useState(false);
 
