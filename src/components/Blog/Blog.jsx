@@ -49,7 +49,7 @@ const Blog = () => {
   };
 
   if (loading) {
-    return <Loading />; 
+    return <Loading />;
   }
 
   return (
@@ -61,7 +61,7 @@ const Blog = () => {
           <div className="blog-top">
             <div className="blog-left">
               <h5>Talspo Blog</h5>
-              <h5>Section <i style={{color:"#ccc"}} className="ri-book-3-fill"></i></h5>
+              <h5>Section <i style={{ color: "#ccc" }} className="ri-book-3-fill"></i></h5>
               <p>Get a coffee and start <br /> reading!</p>
             </div>
             <div className="blog-right">
@@ -91,43 +91,38 @@ const Blog = () => {
               )}
             </div>
           </div>
-
-
           <div className="Blog-search">
-  <div className="ipt-blg">
-    <input type="text" placeholder="Search Blogs.." />
-    <img src={IconBlog} alt="Search Icon" />
-  </div>
-</div>
-
-
-
+            <div className="ipt-blg">
+              <input type="text" placeholder="Search Blogs.." />
+              <img src={IconBlog} alt="Search Icon" />
+            </div>
+          </div>
 
           {/* ----------------- Featured Posts Section ----------------- */}
           <div className="blog-container">
             <h6>Featured Blogs</h6>
             <div className="blog-content">
-            <div className="blog_list">
-  {Array.isArray(featuredBlogs) && featuredBlogs.length > 0 ? (
-    featuredBlogs.map((blog, index) => (
-      <Link to={`/blog-detail/${blog.id}`} key={index} className="list-blg">
-        <div className="bl-img">
-          <img src={blog.image} alt={blog.title} />
-        </div>
-        <div className="bl-text">
-          <h5>{blog.title}</h5>
-          <div className="num">
-            <span>{blog.year}</span>
-            <h1>{blog.subtitle}</h1>
-          </div>
-          <div dangerouslySetInnerHTML={{ __html: blog.description }}></div>
-          </div>
-      </Link>
-    ))
-  ) : (
-    <p>No featured blog posts available</p>
-  )}
-               </div>
+              <div className="blog_list">
+                {Array.isArray(featuredBlogs) && featuredBlogs.length > 0 ? (
+                  featuredBlogs.map((blog, index) => (
+                    <Link to={`/blog-detail/${blog.id}`} key={index} className="list-blg">
+                      <div className="bl-img">
+                        <img src={blog.image} alt={blog.title} />
+                      </div>
+                      <div className="bl-text">
+                        <h5>{blog.title}</h5>
+                        <div className="num">
+                          <span>{blog.category}</span>
+                          <h1>{blog.subtitle}</h1>
+                        </div>
+                        <div dangerouslySetInnerHTML={{ __html: blog.description }}></div>
+                      </div>
+                    </Link>
+                  ))
+                ) : (
+                  <p>No featured blog posts available</p>
+                )}
+              </div>
 
               <div className="Blogs_img">
                 <img src={BlogMan} alt="BlogMan" />
