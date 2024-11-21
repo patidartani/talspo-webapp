@@ -24,12 +24,14 @@ const FormHr = ({ closeModal }) => {
     email: "",
     phone_number: "",
     job_position_title: "",
-    jobType: "",
-    location: "",
-    skillsExperience: "",
-    resume: "",
+    jobtype: "",
+    your_skiles_experiance: "",
+    image: "",
     linkdin_profile: "",
+    preferred_job_location: "",
+    location: "",
   });
+  
 
   // ------------------ Handlers ---------------------
   
@@ -54,67 +56,64 @@ const FormHr = ({ closeModal }) => {
     }));
   };
 
+  console.log("dob error in console ",fieldErrors.error?.email);
+
   const handleSubmit = async (e) => {
-          e.preventDefault();
-          
-          setLoading(true); // Set loading to true when submitting
-        
-          const formData = new FormData();
-          Object.keys(jobDetails).forEach((key) => {
-            formData.append(key, jobDetails[key]);
-          });
-        
-          try {
-            const response = await createDirectConnectHR(formData);
-        
-            if (response.result) {
-              Swal.fire({
-                title: "Success!",
-                text: "Form submitted successfully!",
-                icon: "success",
-                confirmButtonText: "OK",
-              });
-              
-              // Clear form fields after successful submission
-              setJobDetails({
-                first_name: "",
-                middle_name: "",
-                last_name: "",
-                date_of_birth: "",
-                email: "",
-                phone_number: "",
-                job_position_title: "",
-                jobType: "",
-                location: "",
-                skillsExperience: "",
-                resume: "",
-                linkdin_profile: "",
-              });
-              setIsJobOptionChecked(false);
-              closeModal();
-            } else {
-              if (response.error) {
-                setFieldErrors(response.error); // Storing the specific error messages
-              }
-              Swal.fire({
-                title: "Error!",
-                text: response.message || "All fields are required.",
-                icon: "error",
-                confirmButtonText: "OK",
-              });
-            }
-          } catch (error) {
-            console.error("Error submitting form:", error);
-            Swal.fire({
-              title: "Error!",
-              text: "An unexpected error occurred. Please try again.",
-              icon: "error",
-              confirmButtonText: "OK",
-            });
-          } finally {
-            setLoading(false); 
-          }
-        };
+    e.preventDefault();
+  
+    setLoading(true); // Set loading to true when submitting
+  
+    const formData = new FormData();
+    Object.keys(jobDetails).forEach((key) => {
+      formData.append(key, jobDetails[key]);
+    });
+  
+    try {
+      const response = await createDirectConnectHR(formData);
+  
+      console.log("API Response:", response);  // Log the full API response
+  
+      // Check if the response indicates success
+      if (response.error === false) {
+        Swal.fire({
+          title: "Success!",
+          text: response.message || "Form submitted successfully!", // Use the success message from the API
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+  
+        setJobDetails({
+          first_name: "",
+          middle_name: "",
+          last_name: "",
+          date_of_birth: "",
+          email: "",
+          phone_number: "",
+          job_position_title: "",
+          jobtype: "",
+          location: "",
+          your_skiles_experiance: "",
+          image: "",
+          linkdin_profile: "",
+          preferred_job_location: "",
+        });
+        setIsJobOptionChecked(false);
+        closeModal();
+      } else {
+        console.log("Error response: ", response.message || "Something went wrong");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setFieldErrors(error);
+      console.log("Field error:", fieldErrors);
+      console.log("Error message:", error.message);
+      console.log("DOB error:", error.error?.date_of_birth);
+    } finally {
+      setLoading(false); 
+    }
+  };
+  
+  
         
   // ------------------ JSX ---------------------
   return (
@@ -164,51 +163,51 @@ const FormHr = ({ closeModal }) => {
                 value={jobDetails.job_position_title}
                 onChange={handleJobInputChange}
               />
-              {fieldErrors.job_position_title && (
-                <span className="error-text">{fieldErrors.job_position_title[0]}</span>
+              {fieldErrors.error?.job_position_title && (
+                <span className="error-text">{fieldErrors.error?.job_position_title[0]}</span>
               )}
             </div>
             <div className="e-ipt full">
               <input
                 type="text"
-                name="jobType"
+                name="jobtype"
                 placeholder="Job Type"
-                value={jobDetails.jobType}
+                value={jobDetails.jobtype}
                 onChange={handleJobInputChange}
               />
-              {fieldErrors.jobType && (
-                <span className="error-text">{fieldErrors.jobType[0]}</span>
+              {fieldErrors.error?.jobtype && (
+                <span className="error-text">{fieldErrors.error?.jobtype[0]}</span>
               )}
             </div>
             <div className="e-ipt full">
               <input
                 type="text"
-                name="location"
-                placeholder="Preferred Job Location"
-                value={jobDetails.location}
+                name="preferred_job_location"
+                placeholder="Preferred Job preferred_job_location"
+                value={jobDetails.preferred_job_location}
                 onChange={handleJobInputChange}
               />
-              {fieldErrors.location && (
-                <span className="error-text">{fieldErrors.location[0]}</span>
+              {fieldErrors.error?.preferred_job_location && (
+                <span className="error-text">{fieldErrors.error?.preferred_job_location[0]}</span>
               )}
             </div>
             <div className="e-ipt full">
               <input
                 type="text"
-                name="skillsExperience"
+                name="your_skiles_experiance"
                 placeholder="Your Skills & Experience"
-                value={jobDetails.skillsExperience}
+                value={jobDetails.your_skiles_experiance}
                 onChange={handleJobInputChange}
               />
-              {fieldErrors.skillsExperience && (
-                <span className="error-text">{fieldErrors.skillsExperience[0]}</span>
+              {fieldErrors.error?.your_skiles_experiance && (
+                <span className="error-text">{fieldErrors.error?.your_skiles_experiance[0]}</span>
               )}
             </div>
             <div className="e-ipt full upload-resume">
               <input
                 type="file"
                 id="resume"
-                name="resume"
+                name="image"
                 onChange={handleJobInputChange}
               />
               <label htmlFor="resume">Upload Resume</label>
@@ -221,8 +220,8 @@ const FormHr = ({ closeModal }) => {
                 value={jobDetails.linkdin_profile}
                 onChange={handleJobInputChange}
               />
-              {fieldErrors.linkdin_profile && (
-                <span className="error-text">{fieldErrors.linkdin_profile[0]}</span>
+              {fieldErrors.error?.linkdin_profile && (
+                <span className="error-text">{fieldErrors.error?.linkdin_profile[0]}</span>
               )}
             </div>
           </>
@@ -237,8 +236,8 @@ const FormHr = ({ closeModal }) => {
             value={jobDetails.first_name}
             onChange={handleJobInputChange}
           />
-          {fieldErrors.first_name && (
-  <span className="error-text">{fieldErrors.first_name[0]}</span>
+          {fieldErrors.error?.first_name && (
+  <span className="error-text">{fieldErrors.error?.first_name[0]}</span>
 )}
         </div>
         <div className="e-ipt half">
@@ -258,8 +257,8 @@ const FormHr = ({ closeModal }) => {
             value={jobDetails.last_name}
             onChange={handleJobInputChange}
           />
-          {fieldErrors.last_name && (
-            <span className="error-text">{fieldErrors.last_name[0]}</span>
+          {fieldErrors.error?.last_name && (
+            <span className="error-text">{fieldErrors.error?.last_name[0]}</span>
           )}
         </div>
         <div className="e-ipt half">
@@ -269,8 +268,8 @@ const FormHr = ({ closeModal }) => {
             value={jobDetails.date_of_birth}
             onChange={handleJobInputChange}
           />
-         {fieldErrors.date_of_birth && (
-    <span className="error-text">{fieldErrors.date_of_birth[0]}</span>
+         {fieldErrors.error?.date_of_birth && (
+    <span className="error-text">{fieldErrors.error?.date_of_birth[0]}</span>
   )}
         </div>
 
@@ -283,8 +282,8 @@ const FormHr = ({ closeModal }) => {
             value={jobDetails.email}
             onChange={handleJobInputChange}
           />
-          {fieldErrors.email && (
-            <span className="error-text">{fieldErrors.email[0]}</span>
+          {fieldErrors.error?.email && (
+            <span className="error-text">{fieldErrors.error?.email[0]}</span>
           )}
         </div>
         <div className="e-ipt full">
@@ -313,6 +312,19 @@ const FormHr = ({ closeModal }) => {
           )}
           </div>
         </div>
+
+        <div className="e-ipt full">
+  <input
+    type="text"
+    name="location"
+    placeholder="Current Location"
+    value={jobDetails.location}
+    onChange={handleJobInputChange}
+  />
+  {fieldErrors.error?.location && (
+    <span className="error-text">{fieldErrors.error?.location[0]}</span>
+  )}
+</div>
 
         {/* Meeting Comfort */}
         <div className="e-ipt-checkbox full">
