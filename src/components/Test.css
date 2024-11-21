@@ -41,6 +41,7 @@
     cursor: pointer;
     color: red;
   }
+  
   .map-marker {
     background-color: yellow;
     border-radius: 50%;

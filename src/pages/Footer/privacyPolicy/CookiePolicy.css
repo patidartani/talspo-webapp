@@ -1,69 +1,74 @@
 /* CSS to wrap long URLs */
 .cookie_con a {
-  word-break: break-all; /* Forces a line break at any point within the URL */
-  overflow-wrap: anywhere; /* Allows breaking of the URL across multiple lines */
+  word-break: break-all;
+  /* Forces a line break at any point within the URL */
+  overflow-wrap: anywhere;
+  /* Allows breaking of the URL across multiple lines */
 }
 
 
-.cookie_heading{
-    margin-top: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: #003266;
-    color:#fff;
+.cookie_heading {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #003266;
+  color: #fff;
 }
 
-.cookie_heading h1{
-    width: 85%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color:#fff;
-    margin-top: 2vmax;
-    margin-bottom: 2vmax;
-    font-size: 36px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.cookie_heading h1 {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  margin-top: 2vmax;
+  margin-bottom: 2vmax;
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
+
+.cookie_con {
+  margin: 2rem 0;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+.cookie_con p {
+  margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cookie_heading {
+    padding: 1.5rem;
+  }
+
+  .cookie_heading h1 {
+    font-size: 2rem;
+  }
 
   .cookie_con {
-    margin: 2rem 0;
-    color: #444;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-left: 15rem;
-    margin-right: 15rem;
+    margin-left: 0;
+    margin-right: 0;
   }
-  
-  .cookie_con p {
-    margin-bottom: 1rem;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .cookie_heading {
-      padding: 1.5rem;
-    }
-  
-    .cookie_heading h1 {
-      font-size: 2rem;
-    }
-    .cookie_con {
-      margin-left: 0;
-      margin-right: 0;
-    }
-    
-  }
-  @media (max-width: 576px) {
-    .cookie_con {
-      margin-left: 0;
-     margin-right: 0;
-    }
-    .cookie_heading h1{ 
-      font-size: 1.5rem;
-    }
 
+}
+
+@media (max-width: 576px) {
+  .cookie_con {
+    margin-left: 0;
+    margin-right: 0;
   }
+
+  .cookie_heading h1 {
+    font-size: 1.5rem;
+  }
+
+}

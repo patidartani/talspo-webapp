@@ -3,8 +3,8 @@ import Navbar from "../../../pages/Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import { Container } from "react-bootstrap";
 import "../privacyPolicy/CookiePolicy.css";
-import {fetchCookiePolicy} from "../../../apiService"
-import  { useEffect, useState } from "react";
+import { fetchCookiePolicy } from "../../../apiService";
+import { useEffect, useState } from "react";
 
 const CookiePolicy = () => {
   const currentDate = new Date();
@@ -411,29 +411,26 @@ const CookiePolicy = () => {
         </div>
       </Container> */}
 
-{cookiepolicy ? (
-  <div>
-    <div className="policy_heading">
-      <h2>{cookiepolicy.title}</h2>
-    </div>
-    <Container>
-      <div  className="policy_con">
-   
-          <p>Last updated: {formattedDate}</p>
-    
-      <div
+      {cookiepolicy ? (
+        <div>
+          <div className="policy_heading">
+            <h2>{cookiepolicy.title}</h2>
+          </div>
+          <Container>
+            <div className="policy_con">
+              <p>Last updated: {formattedDate}</p>
+
+              <div
                 dangerouslySetInnerHTML={{
                   __html: cookiepolicy.cookiespolicy,
                 }}
               ></div>
-      </div>
-    
-    </Container>
-  </div>
-) : (
-  <p>Loading...</p>
-)}
-
+            </div>
+          </Container>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
 
       {/* <Container>
        

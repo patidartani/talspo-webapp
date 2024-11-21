@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-export const BASE_URL = 'https://dev.talspo.com/admin/api';
+export const BASE_URL = "https://dev.talspo.com/admin/api";
 
 export const SIGNUP_URL = `${BASE_URL}/register`;
 export const LOGIN_URL = `${BASE_URL}/login-view`;
@@ -20,7 +20,7 @@ export const TERM_OF_USE_URL = `${BASE_URL}/get-termsofuse`;
 export const TERMS_CONDITIONS_URL = `${BASE_URL}/get-termscondition`;
 
 export const DISCLAIMER_URL = `${BASE_URL}/get-desclaimer`;
-export const ANTY_SPAM_POLICY_URL =`${BASE_URL}/get-antispam_policy`;
+export const ANTY_SPAM_POLICY_URL = `${BASE_URL}/get-antispam_policy`;
 export const DIGITAL_MILLENNIUMll_COPYRIGHT_ACT_URL = `${BASE_URL}/get-legalcertification`;
 export const GDPR_PRIVACY_POLICY_URL = `${BASE_URL}/get-gprcompilance`;
 export const End_User_License_Agreement_URL = `${BASE_URL}/get-eula`;
@@ -51,7 +51,6 @@ export const fetchGDPRPolicy = async () => {
   }
 };
 
-
 // --------------------- Anty Spam Policy ----------------------
 export const fetchDMCAPolicy = async () => {
   try {
@@ -59,7 +58,10 @@ export const fetchDMCAPolicy = async () => {
     // console.log("Digital Millennium Copyright Act policy Response:", response.data);
     return response.data; // Ensure data is returned
   } catch (error) {
-    console.error("Error fetching Digital Millennium Copyright Act policy:", error);
+    console.error(
+      "Error fetching Digital Millennium Copyright Act policy:",
+      error
+    );
     return null; // Return null in case of an error
   }
 };
@@ -144,7 +146,7 @@ export const fetchJobPosts = async () => {
     // console.log(" Job Posts Response :", response.data);
     return response.data.records || [];
   } catch (error) {
-    console.error('Error fetching job posts:', error);
+    console.error("Error fetching job posts:", error);
     return [];
   }
 };
@@ -157,7 +159,7 @@ export const fetchAboutUs = async () => {
     // console.log("Fetched About Us Data:", response.data);
     return response.data || {};
   } catch (error) {
-    console.error('Error fetching About Us data:', error);
+    console.error("Error fetching About Us data:", error);
     return {};
   }
 };
@@ -170,7 +172,7 @@ export const fetchTalspoSkilledView = async () => {
     // console.log("Skilled Candidates Response:", response.data);
     return response.data.records || [];
   } catch (error) {
-    console.error('Error fetching Talspo Skilled data:', error);
+    console.error("Error fetching Talspo Skilled data:", error);
     return [];
   }
 };
@@ -183,7 +185,7 @@ export const recentBlogPosts = async () => {
     // console.log(" Recent Blogs:", response.data);
     return response.data.records || [];
   } catch (error) {
-    console.error('Error fetching recent blog posts:', error);
+    console.error("Error fetching recent blog posts:", error);
     return [];
   }
 };
@@ -194,19 +196,21 @@ export const featuredBlogPosts = async () => {
     // console.log("Featured Blogs:", response.data);
     return response.data.records || [];
   } catch (error) {
-    console.error('Error fetching featured blog posts:', error);
+    console.error("Error fetching featured blog posts:", error);
     return [];
   }
 };
 
 export const fetchBlogDetail = async (id) => {
   try {
-    const response = await axios.get(`${BASE_URL}/featured-blog-single-record/${id}`);
+    const response = await axios.get(
+      `${BASE_URL}/featured-blog-single-record/${id}`
+    );
     // console.log("Blog detail view:", response.data);
-    return response.data.records || null; 
+    return response.data.records || null;
   } catch (error) {
     console.error("Error fetching blog detail:", error);
-    return null; 
+    return null;
   }
 };
 
@@ -216,15 +220,13 @@ export const createDirectConnectHR = async (formData) => {
   try {
     const response = await axios.post(CREATE_DIRECT_CONNECT_HR_URL, formData, {
       headers: {
-        "Content-Type": "multipart/form-data", 
+        "Content-Type": "multipart/form-data",
       },
     });
     console.log("Connect Hr Form Response:", response.data);
-    return response.data; 
+    return response.data;
   } catch (error) {
     console.error("API Error:", error.response?.data || error.message);
     throw error.response?.data || { message: "Something went wrong" };
   }
 };
-
-

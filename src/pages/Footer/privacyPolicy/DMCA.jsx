@@ -2,11 +2,10 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import Navbar from "../../../pages/Navbar/Navbar";
 import Footer from "../../Footer/Footer";
-import {fetchDMCAPolicy} from "../../../apiService"
-import  { useEffect, useState } from "react";
+import { fetchDMCAPolicy } from "../../../apiService";
+import { useEffect, useState } from "react";
 
 const DmcaPolicy = () => {
-
   const [dmcaPolicy, setDmcaPolicy] = useState(null);
 
   useEffect(() => {
@@ -24,30 +23,26 @@ const DmcaPolicy = () => {
     <>
       <Navbar />
 
- 
-      {
-      dmcaPolicy ? (
-  <div>
-    <div className="policy_heading">
-      <h2>{dmcaPolicy.title}</h2>
-    </div>
-    <Container>
-      <div  className="policy_con">
-   
-          {/* <p>Last updated: {formattedDate}</p> */}
-    
-      <div
+      {dmcaPolicy ? (
+        <div>
+          <div className="policy_heading">
+            <h2>{dmcaPolicy.title}</h2>
+          </div>
+          <Container>
+            <div className="policy_con">
+              {/* <p>Last updated: {formattedDate}</p> */}
+
+              <div
                 dangerouslySetInnerHTML={{
-                  __html:dmcaPolicy.description,
+                  __html: dmcaPolicy.description,
                 }}
               ></div>
-      </div>
-    
-    </Container>
-  </div>
-) : (
-  <p>Loading...</p>
-)}
+            </div>
+          </Container>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
 
       {/* <div className="cookie_heading">
         <h1> This Digital Millennium Copyright Act policy </h1>

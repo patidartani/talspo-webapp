@@ -1,62 +1,64 @@
-
-.eula_heading{
-    margin-top: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: #003266;
-    color:#fff;
+.eula_heading {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #003266;
+  color: #fff;
 }
 
-.eula_heading h1{
-    width: 85%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color:#fff;
-    margin-top: 2vmax;
-    margin-bottom: 2vmax;
-    font-size: 36px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.eula_heading h1 {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  margin-top: 2vmax;
+  margin-bottom: 2vmax;
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
+
+.eula_con {
+  margin: 2rem 0;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+.eula_con p {
+  margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .eula_heading {
+    padding: 1.5rem;
+  }
+
+  .eula_heading h1 {
+    font-size: 2rem;
+  }
 
   .eula_con {
-    margin: 2rem 0;
-    color: #444;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-left: 15rem;
-    margin-right: 15rem;
+    margin-left: 0;
+    margin-right: 0;
   }
-  
-  .eula_con p {
-    margin-bottom: 1rem;
+
+}
+
+@media (max-width: 576px) {
+  .cookie_con {
+    margin-left: 0;
+    margin-right: 0;
   }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .eula_heading {
-      padding: 1.5rem;
-    }
-  
-    .eula_heading h1 {
-      font-size: 2rem;
-    }
-    .eula_con {
-      margin-left: 0;
-      margin-right: 0;
-    }
-    
+
+  .eula_heading h1 {
+    font-size: 1.5rem;
   }
-  @media (max-width: 576px) {
-    .cookie_con {
-      margin-left: 0;
-      margin-right: 0;
-    }
-    .eula_heading h1{
-      font-size: 1.5rem;
-    }
-  }
+}

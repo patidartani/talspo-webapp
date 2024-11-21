@@ -3,9 +3,9 @@ import "./Whowe.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { fetchTalspoSkilledView } from '../../apiService';
-import talspoIcon from "../../assets/images/talspoIcon.png"
-import { createDirectConnectHR } from "../../apiService"; 
+import { fetchTalspoSkilledView } from "../../apiService";
+import talspoIcon from "../../assets/images/talspoIcon.png";
+import { createDirectConnectHR } from "../../apiService";
 
 const Whowe = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -41,7 +41,7 @@ const Whowe = () => {
       },
     ],
   };
-  
+
   useEffect(() => {
     const fetchSkills = async () => {
       const skillsData = await fetchTalspoSkilledView();
@@ -50,7 +50,7 @@ const Whowe = () => {
     };
 
     fetchSkills();
-  }, []); 
+  }, []);
 
   const [showFullMap, setShowFullMap] = useState(false);
 
@@ -59,14 +59,15 @@ const Whowe = () => {
   };
 
   const handleSearch = () => {
-    const results = skills.filter((skill) =>
-      skill.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (skill.location.toLowerCase().includes(location.toLowerCase()) ||
-        skill.pinCode.includes(location) ||
-        skill.area.toLowerCase().includes(location.toLowerCase()) ||
-        skill.city.toLowerCase().includes(location.toLowerCase()) ||
-        skill.state.toLowerCase().includes(location.toLowerCase()) ||
-        skill.country.toLowerCase().includes(location.toLowerCase()))
+    const results = skills.filter(
+      (skill) =>
+        skill.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        (skill.location.toLowerCase().includes(location.toLowerCase()) ||
+          skill.pinCode.includes(location) ||
+          skill.area.toLowerCase().includes(location.toLowerCase()) ||
+          skill.city.toLowerCase().includes(location.toLowerCase()) ||
+          skill.state.toLowerCase().includes(location.toLowerCase()) ||
+          skill.country.toLowerCase().includes(location.toLowerCase()))
     );
     setFilteredSkills(results);
   };
@@ -102,7 +103,7 @@ const Whowe = () => {
   const [countryCode, setCountryCode] = useState("+91"); // Default to India, change as needed
   const [meetingComfort, setMeetingComfort] = useState({
     yes: false,
-    no: false
+    no: false,
   });
   const [isJobOptionChecked, setIsJobOptionChecked] = useState(false); // State to track checkbox status
   const [jobDetails, setJobDetails] = useState({
@@ -125,7 +126,7 @@ const Whowe = () => {
     const { name, checked } = e.target;
     setMeetingComfort((prev) => ({
       ...prev,
-      [name]: checked
+      [name]: checked,
     }));
   };
 
@@ -137,7 +138,7 @@ const Whowe = () => {
     const { name, value } = e.target;
     setJobDetails((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -152,18 +153,24 @@ const Whowe = () => {
     formData.append("date_of_birth", jobDetails.date_of_birth);
     formData.append("email", jobDetails.email);
     formData.append("whatsapp", jobDetails.phone_number);
-    formData.append("location", jobDetails.location );
+    formData.append("location", jobDetails.location);
     formData.append("job_position_title", jobDetails.job_position_title);
     formData.append("jobType", jobDetails.jobType);
-    formData.append("preferred_job_location", jobDetails.preferred_job_location);
-    formData.append("your_skiles_experiance", jobDetails.your_skiles_experiance);
+    formData.append(
+      "preferred_job_location",
+      jobDetails.preferred_job_location
+    );
+    formData.append(
+      "your_skiles_experiance",
+      jobDetails.your_skiles_experiance
+    );
     formData.append("resume", jobDetails.resume);
     formData.append("linkdin_profile", jobDetails.linkdin_profile);
     formData.append("phone_number", jobDetails.phone_number);
 
     try {
       const response = await createDirectConnectHR(formData);
-      console.log("api response",response )
+      console.log("api response", response);
       if (response) {
         alert("Form submitted successfully!");
         closeModal(); // Close modal after successful submission
@@ -179,10 +186,13 @@ const Whowe = () => {
       {isModalOpen && (
         <div className="modal-overlay-slide">
           <div className="modal-content">
-
-            <span className="modal-close" >
+            <span className="modal-close">
               <h5>Direct Connect Human Resources Executive</h5>
-              <i onClick={closeModal} style={{ cursor: "pointer" }} className="ri-close-line"></i>
+              <i
+                onClick={closeModal}
+                style={{ cursor: "pointer" }}
+                className="ri-close-line"
+              ></i>
             </span>
             <form>
               {/* Row 1: Recruitment Purpose (Checkbox) */}
@@ -255,9 +265,7 @@ const Whowe = () => {
                       name="resume"
                       onChange={handleJobInputChange}
                     />
-                    <label htmlFor="resume">
-                      Upload Resume
-                    </label>
+                    <label htmlFor="resume">Upload Resume</label>
                   </div>
 
                   <div className="e-ipt full">
@@ -277,30 +285,34 @@ const Whowe = () => {
                 <input type="text" placeholder="First Name" name="firstName" />
               </div>
               <div className="e-ipt half">
-                <input type="text" placeholder="Middle Name (Optional)" name="middleName" />
+                <input
+                  type="text"
+                  placeholder="Middle Name (Optional)"
+                  name="middleName"
+                />
               </div>
               <div className="e-ipt half">
                 <input type="text" placeholder="Last Name" name="lastName" />
               </div>
               <div className="e-ipt half">
-              <input
-  type="date"
-  name="date_of_birth"
-  placeholder="Date of Birth"
-  value={jobDetails.date_of_birth}
-  onChange={handleJobInputChange}
-/>
+                <input
+                  type="date"
+                  name="date_of_birth"
+                  placeholder="Date of Birth"
+                  value={jobDetails.date_of_birth}
+                  onChange={handleJobInputChange}
+                />
               </div>
 
               {/* Row 4: Contact Information */}
               <div className="e-ipt full">
-              <input
-  type="email"
-  name="email"
-  placeholder="Email Id"
-  value={jobDetails.email}
-  onChange={handleJobInputChange}
-/>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Id"
+                  value={jobDetails.email}
+                  onChange={handleJobInputChange}
+                />
               </div>
 
               {/* Row 5: WhatsApp Contact Number with Country Code */}
@@ -320,21 +332,28 @@ const Whowe = () => {
                     {/* Add other country codes as needed */}
                   </select>
                   <input
-  type="tel"
-  name="phone_number"
-  placeholder="WhatsApp Contact Number"
-  value={jobDetails.phone_number}
-  onChange={handleJobInputChange}
-/>
+                    type="tel"
+                    name="phone_number"
+                    placeholder="WhatsApp Contact Number"
+                    value={jobDetails.phone_number}
+                    onChange={handleJobInputChange}
+                  />
                 </div>
               </div>
 
               <div className="e-ipt full">
-                <input type="text" placeholder="Current Location" name="currentLocation" />
+                <input
+                  type="text"
+                  placeholder="Current Location"
+                  name="currentLocation"
+                />
               </div>
 
               <div className="e-ipt-checkbox full">
-                <h6 className="mt-2">Are you comfortable using Zoom, G-meet, etc. for initial meetings if you are not able to visit our office?</h6>
+                <h6 className="mt-2">
+                  Are you comfortable using Zoom, G-meet, etc. for initial
+                  meetings if you are not able to visit our office?
+                </h6>
                 <label>
                   <input
                     className="mt-2"
@@ -358,10 +377,18 @@ const Whowe = () => {
               </div>
 
               <div className="e-ipt-checkbox full">
-                <h6>Consent <span style={{ color: 'red' }}>*</span>:</h6>
+                <h6>
+                  Consent <span style={{ color: "red" }}>*</span>:
+                </h6>
                 <label>
-                  <input className="mt-2" type="checkbox" name="consent" required />
-                  Agree to be contacted by Talspo via WhatsApp, SMS, Phone, Email, etc.
+                  <input
+                    className="mt-2"
+                    type="checkbox"
+                    name="consent"
+                    required
+                  />
+                  Agree to be contacted by Talspo via WhatsApp, SMS, Phone,
+                  Email, etc.
                 </label>
               </div>
 
@@ -369,16 +396,20 @@ const Whowe = () => {
                 <h6>Subscribe:</h6>
                 <label>
                   <input className="mt-2" type="checkbox" name="subscribe" />
-                  Agree to receive the latest news regarding Talspo services, such as recruitment, talent acquisition, HR transformation, and technology services (AI, machine learning, blockchain, etc.) in HR, skill training, development, and events.
+                  Agree to receive the latest news regarding Talspo services,
+                  such as recruitment, talent acquisition, HR transformation,
+                  and technology services (AI, machine learning, blockchain,
+                  etc.) in HR, skill training, development, and events.
                 </label>
               </div>
 
               {/* Submit Button */}
               <div className="e-ipt full">
-                <button type="submit" onClick={ handleSubmit }>Submit</button>
+                <button type="submit" onClick={handleSubmit}>
+                  Submit
+                </button>
               </div>
             </form>
-
           </div>
         </div>
       )}
@@ -386,7 +417,11 @@ const Whowe = () => {
       <div className="who-page">
         <div className="who-btm">
           <h6>On Demand Skilled Candidates Nearby You</h6>
-          <span style={{ marginLeft: "1vmax" }}>Find skilled candidates based on your requirements in real-time using geo-location enabled search for quick recruitment and talent acquisition.</span>
+          <span style={{ marginLeft: "1vmax" }}>
+            Find skilled candidates based on your requirements in real-time
+            using geo-location enabled search for quick recruitment and talent
+            acquisition.
+          </span>
 
           <div className="search-bar-skill">
             <div className="skill-ipt">
@@ -409,7 +444,9 @@ const Whowe = () => {
             </div>
             <div className="sort-dropdown">
               <select onChange={(e) => handleSort(e)} value={sortOption}>
-                <option value="" disabled>Sort by</option>
+                <option value="" disabled>
+                  Sort by
+                </option>
                 <option value="jobType"> Experience</option>
                 <option value="salary">Trusted/Verified Candidates</option>
                 <option value="active">Actively Looking</option>
@@ -418,7 +455,6 @@ const Whowe = () => {
             <div className="skill-btn">
               <button onClick={handleSearch}>Search</button>
             </div>
-
           </div>
 
           {/* -------------responsive-skill--------- */}
@@ -451,7 +487,6 @@ const Whowe = () => {
             <div className="skill-btn">
               <button onClick={handleSearch}>Search</button>
             </div>
-
           </div>
 
           {/* -------------------------------------------- */}
@@ -475,7 +510,9 @@ const Whowe = () => {
                           <span>Job Type : {skill.jobtype}</span>
                         </div>
 
-                        <button className="get" onClick={openModal}>Connect</button>
+                        <button className="get" onClick={openModal}>
+                          Connect
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -486,8 +523,7 @@ const Whowe = () => {
             <div className="home-map">
               {!showFullMap && (
                 <div className="map-arrow-icon">
-                  <h6 onClick={toggleMapView}>
-                    Show Full Map</h6>
+                  <h6 onClick={toggleMapView}>Show Full Map</h6>
                 </div>
               )}
 
@@ -522,7 +558,6 @@ const Whowe = () => {
               )}
             </div>
           </div>
-
         </div>
       </div>
     </div>
