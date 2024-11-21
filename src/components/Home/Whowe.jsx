@@ -3,9 +3,15 @@ import "./Whowe.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 import { fetchTalspoSkilledView } from "../../apiService";
 import talspoIcon from "../../assets/images/talspoIcon.png";
 import { createDirectConnectHR } from "../../apiService";
+
+// import { fetchTalspoSkilledView } from '../../apiService';
+// import talspoIcon from "../../assets/images/talspoIcon.png"
+import FormHr from "./FormHr";
+
 
 const Whowe = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,6 +20,11 @@ const Whowe = () => {
   const [location, setLocation] = useState("");
   const [filteredSkills, setFilteredSkills] = useState([]);
   const [sortOption, setSortOption] = useState("");
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
 
   const settings = {
     dots: false,
@@ -80,9 +91,6 @@ const Whowe = () => {
     setIsModalOpen(true);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
 
   const handleSort = (e) => {
     const value = e.target.value;
@@ -98,7 +106,7 @@ const Whowe = () => {
     setFilteredSkills(sortedSkills);
   };
 
-  // ----------------------------form-------------------------------------------
+
 
   const [countryCode, setCountryCode] = useState("+91"); // Default to India, change as needed
   const [meetingComfort, setMeetingComfort] = useState({
@@ -181,10 +189,12 @@ const Whowe = () => {
   };
 
   // ------------------------------------------------------------------------------------------------------------
+
   return (
     <div className="Whowe-main">
       {isModalOpen && (
         <div className="modal-overlay-slide">
+
           <div className="modal-content">
             <span className="modal-close">
               <h5>Direct Connect Human Resources Executive</h5>
@@ -411,6 +421,9 @@ const Whowe = () => {
               </div>
             </form>
           </div>
+
+         <FormHr closeModal={closeModal} />
+
         </div>
       )}
 
