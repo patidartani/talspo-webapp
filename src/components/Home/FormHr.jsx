@@ -5,8 +5,8 @@ import Swal from "sweetalert2"; // Importing SweetAlert
 
 const FormHr = ({ closeModal }) => {
   // ------------------ States ---------------------
-//   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [loading, setLoading] = useState(false); 
+  //   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [countryCode, setCountryCode] = useState("+91"); // Default country code
   const [fieldErrors, setFieldErrors] = useState({}); // To store error messages for each field
   const [meetingComfort, setMeetingComfort] = useState({
@@ -24,23 +24,23 @@ const FormHr = ({ closeModal }) => {
     email: "",
     phone_number: "",
     job_position_title: "",
-    jobType: "",
-    location: "",
-    skillsExperience: "",
-    resume: "",
+    jobtype: "",
+    your_skiles_experiance: "",
+    image: "",
     linkdin_profile: "",
+    preferred_job_location: "",
+    location: "",
   });
 
   // ------------------ Handlers ---------------------
-  
+
   const handleCountryCodeChange = (e) => {
     setCountryCode(e.target.value);
   };
 
   const handleMeetingComfortChange = (e) => {
-          setMeetingComfort(e.target.value); // Set the value of 'yes' or 'no' based on the radio button clicked
-        };
-        
+    setMeetingComfort(e.target.value); // Set the value of 'yes' or 'no' based on the radio button clicked
+  };
 
   const handleJobOptionCheckboxChange = (e) => {
     setIsJobOptionChecked(e.target.checked);
@@ -53,69 +53,69 @@ const FormHr = ({ closeModal }) => {
       [name]: files ? files[0] : value,
     }));
   };
-
   const handleSubmit = async (e) => {
-          e.preventDefault();
-          
-          setLoading(true); // Set loading to true when submitting
-        
-          const formData = new FormData();
-          Object.keys(jobDetails).forEach((key) => {
-            formData.append(key, jobDetails[key]);
-          });
-        
-          try {
-            const response = await createDirectConnectHR(formData);
-        
-            if (response.result) {
-              Swal.fire({
-                title: "Success!",
-                text: "Form submitted successfully!",
-                icon: "success",
-                confirmButtonText: "OK",
-              });
-              
-              // Clear form fields after successful submission
-              setJobDetails({
-                first_name: "",
-                middle_name: "",
-                last_name: "",
-                date_of_birth: "",
-                email: "",
-                phone_number: "",
-                job_position_title: "",
-                jobType: "",
-                location: "",
-                skillsExperience: "",
-                resume: "",
-                linkdin_profile: "",
-              });
-              setIsJobOptionChecked(false);
-              closeModal();
-            } else {
-              if (response.error) {
-                setFieldErrors(response.error); // Storing the specific error messages
-              }
-              Swal.fire({
-                title: "Error!",
-                text: response.message || "All fields are required.",
-                icon: "error",
-                confirmButtonText: "OK",
-              });
-            }
-          } catch (error) {
-            console.error("Error submitting form:", error);
-            Swal.fire({
-              title: "Error!",
-              text: "An unexpected error occurred. Please try again.",
-              icon: "error",
-              confirmButtonText: "OK",
-            });
-          } finally {
-            setLoading(false); 
-          }
-        };
-        
+    e.preventDefault();
+    setLoading(true);
+
+    const formData = new FormData();
+    Object.keys(jobDetails).forEach((key) => {
+      formData.append(key, jobDetails[key]);
+    });
+
+    try {
+      const response = await createDirectConnectHR(formData);
+
+      if (response.result) {
+        Swal.fire({
+          title: "Success!",
+          text: "Form submitted successfully!",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+
+        // Clear form fields after successful submission
+        setJobDetails({
+          first_name: "",
+          middle_name: "",
+          last_name: "",
+          date_of_birth: "",
+          email: "",
+          phone_number: "",
+          job_position_title: "",
+          jobtype: "",
+          location: "",
+          your_skiles_experiance: "",
+          image: "",
+          linkdin_profile: "",
+          preferred_job_location: "",
+        });
+        setFieldErrors({}); // Clear field errors
+        closeModal();
+      } else {
+        if (response.error) {
+          setFieldErrors(response.error); // Store validation errors from the API
+        }
+        Swal.fire({
+          title: "Error!",
+          text: response.message || "Form submission failed.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+       setFieldErrors(error);
+      Swal.fire({
+        title: "Error!",
+        text: "An unexpected error occurred. Please try again.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // ------------------ JSX ---------------------
   return (
     <div className="modal-content">
@@ -159,15 +159,16 @@ const FormHr = ({ closeModal }) => {
             <div className="e-ipt full">
               <input
                 type="text"
-                name="job_position_title"
-                placeholder="Job Position Title"
-                value={jobDetails.job_position_title}
+                placeholder="First Name"
+                name="first_name"
+                value={jobDetails.first_name}
                 onChange={handleJobInputChange}
               />
-              {fieldErrors.job_position_title && (
-                <span className="error-text">{fieldErrors.job_position_title[0]}</span>
+              {fieldErrors.first_name && (
+                <span className="error-text">{fieldErrors.first_name[0]}</span>
               )}
             </div>
+
             <div className="e-ipt full">
               <input
                 type="text"
@@ -201,7 +202,9 @@ const FormHr = ({ closeModal }) => {
                 onChange={handleJobInputChange}
               />
               {fieldErrors.skillsExperience && (
-                <span className="error-text">{fieldErrors.skillsExperience[0]}</span>
+                <span className="error-text">
+                  {fieldErrors.skillsExperience[0]}
+                </span>
               )}
             </div>
             <div className="e-ipt full upload-resume">
@@ -222,14 +225,16 @@ const FormHr = ({ closeModal }) => {
                 onChange={handleJobInputChange}
               />
               {fieldErrors.linkdin_profile && (
-                <span className="error-text">{fieldErrors.linkdin_profile[0]}</span>
+                <span className="error-text">
+                  {fieldErrors.linkdin_profile[0]}
+                </span>
               )}
             </div>
           </>
         )}
 
         {/* Personal Details */}
-        <div className="e-ipt half">
+        <div className="e-ipt full">
           <input
             type="text"
             placeholder="First Name"
@@ -238,9 +243,10 @@ const FormHr = ({ closeModal }) => {
             onChange={handleJobInputChange}
           />
           {fieldErrors.first_name && (
-  <span className="error-text">{fieldErrors.first_name[0]}</span>
-)}
+            <span className="error-text">{fieldErrors.first_name[0]}</span>
+          )}
         </div>
+
         <div className="e-ipt half">
           <input
             type="text"
@@ -269,9 +275,9 @@ const FormHr = ({ closeModal }) => {
             value={jobDetails.date_of_birth}
             onChange={handleJobInputChange}
           />
-         {fieldErrors.date_of_birth && (
-    <span className="error-text">{fieldErrors.date_of_birth[0]}</span>
-  )}
+          {fieldErrors.date_of_birth && (
+            <span className="error-text">{fieldErrors.date_of_birth[0]}</span>
+          )}
         </div>
 
         {/* Contact Information */}
@@ -308,42 +314,41 @@ const FormHr = ({ closeModal }) => {
               value={jobDetails.phone_number}
               onChange={handleJobInputChange}
             />
-              {fieldErrors.phone_number && (
-            <span className="error-text">{fieldErrors.phone_number[0]}</span>
-          )}
+            {fieldErrors.phone_number && (
+              <span className="error-text">{fieldErrors.phone_number[0]}</span>
+            )}
           </div>
         </div>
 
         {/* Meeting Comfort */}
         <div className="e-ipt-checkbox full">
-  <h6>
-    Are you comfortable using Zoom, G-meet, etc. for initial meetings if
-    you are not able to visit our office?
-  </h6>
-  <label>
-    <input
-      className="mt-2"
-      type="radio"
-      name="meetingComfort"
-      value="yes"
-      checked={meetingComfort === 'yes'}
-      onChange={handleMeetingComfortChange}
-    />
-    Yes
-  </label>
-  <label>
-    <input
-      className="mt-2"
-      type="radio"
-      name="meetingComfort"
-      value="no"
-      checked={meetingComfort === 'no'}
-      onChange={handleMeetingComfortChange}
-    />
-    No
-  </label>
-</div>
-
+          <h6>
+            Are you comfortable using Zoom, G-meet, etc. for initial meetings if
+            you are not able to visit our office?
+          </h6>
+          <label>
+            <input
+              className="mt-2"
+              type="radio"
+              name="meetingComfort"
+              value="yes"
+              checked={meetingComfort === "yes"}
+              onChange={handleMeetingComfortChange}
+            />
+            Yes
+          </label>
+          <label>
+            <input
+              className="mt-2"
+              type="radio"
+              name="meetingComfort"
+              value="no"
+              checked={meetingComfort === "no"}
+              onChange={handleMeetingComfortChange}
+            />
+            No
+          </label>
+        </div>
 
         <div className="e-ipt-checkbox full">
           <h6>
@@ -364,7 +369,7 @@ const FormHr = ({ closeModal }) => {
 
         <div className="submit-btn-container full">
           <button disabled={loading} type="submit" className="form-submit-btn">
-          {loading ? "Submitting..." : "Submit"}
+            {loading ? "Submitting..." : "Submit"}
           </button>
         </div>
       </form>

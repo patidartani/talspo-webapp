@@ -5,12 +5,14 @@
     justify-content: center;
 }
 
-.error-text {
-  color: red;
-  font-size: 12px;
-  margin-top: 5px;
-}
 
+  .error-text {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+  }
+  
 /* --------------------------------------------------------------------- */
 
  .modal-overlay-slide {
