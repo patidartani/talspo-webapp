@@ -4,6 +4,13 @@
           align-items: center;
           justify-content: center;
 }
+.no-jobs-message {
+     text-align: center;
+     padding: 20px;
+     font-size: 1.2em;
+     color: #777;
+   }
+   
 .Opportunity-main .opportunity-page{
           width: 80%;
           display: flex;
@@ -310,6 +317,7 @@
 .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .deadline .d-one h6{
      font-size: 1vmax;
      letter-spacing: 0.2px;
+     text-align: center;
 }
 .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items{
      width: 100%;

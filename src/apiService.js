@@ -27,6 +27,7 @@ export const End_User_License_Agreement_URL = `${BASE_URL}/get-eula`;
 
 export const CREATE_DIRECT_CONNECT_HR_URL = `${BASE_URL}/create-darect-canect-hr-executive`;
 
+
 // --------------------- GDPR Policy ----------------------
 export const fetchEULAPolicy = async () => {
   try {
@@ -150,6 +151,17 @@ export const fetchJobPosts = async () => {
     return [];
   }
 };
+
+export const fetchJobDetail = async (id) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/job-post-single-record/${id}`);
+    return response.data.records || null;
+  } catch (error) {
+    console.error("Error fetching job detail:", error);
+    return null;
+  }
+};
+
 
 // ---------------------About us------------------------------------
 
