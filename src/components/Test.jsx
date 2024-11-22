@@ -127,7 +127,7 @@
 //       state: "CO",
 //       country: "USA"
 //     },
-   
+
 //   ];
 
 //   setSkills(initialSkills);
@@ -195,7 +195,9 @@ const Test = () => {
       <div className="who-btm">
         <h6>On Demand Skilled Candidates Nearby You</h6>
         <span style={{ marginLeft: "1vmax" }}>
-          Find skilled candidates based on your requirements in real-time using geo-location-enabled search for quick recruitment and talent acquisition.
+          Find skilled candidates based on your requirements in real-time using
+          geo-location-enabled search for quick recruitment and talent
+          acquisition.
         </span>
 
         <div className="search-bar-skill">
@@ -218,7 +220,10 @@ const Test = () => {
             <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
           </div>
           <div className="sort-dropdown">
-            <select onChange={(e) => setSortOption(e.target.value)} value={sortOption}>
+            <select
+              onChange={(e) => setSortOption(e.target.value)}
+              value={sortOption}
+            >
               <option value="" disabled>
                 Sort by
               </option>
@@ -299,26 +304,25 @@ const Test = () => {
             </div>
 
             {selectedSkill && (
-  <div className="selected-skill-details">
-    <span
-      className="close-icon"
-      onClick={() => setSelectedSkill(null)}
-    >
-      ×
-    </span>
-    <h5>{selectedSkill.title}</h5>
-    <p>{selectedSkill.description}</p>
-    <div className="ss">
-      <small>Salary: {selectedSkill.salary}</small>
-      <small>Status: {selectedSkill.status}</small>
-    </div>
-    <div className="hh">
-      <span>Location: {selectedSkill.location}</span>
-      <span>Job Type: {selectedSkill.jobtype}</span>
-    </div>
-  </div>
-)}
-
+              <div className="selected-skill-details">
+                <span
+                  className="close-icon"
+                  onClick={() => setSelectedSkill(null)}
+                >
+                  ×
+                </span>
+                <h5>{selectedSkill.title}</h5>
+                <p>{selectedSkill.description}</p>
+                <div className="ss">
+                  <small>Salary: {selectedSkill.salary}</small>
+                  <small>Status: {selectedSkill.status}</small>
+                </div>
+                <div className="hh">
+                  <span>Location: {selectedSkill.location}</span>
+                  <span>Job Type: {selectedSkill.jobtype}</span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -327,4 +331,3 @@ const Test = () => {
 };
 
 export default Test;
-

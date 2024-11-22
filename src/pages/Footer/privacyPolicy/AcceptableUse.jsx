@@ -19,16 +19,25 @@ const AcceptableUse = () => {
           {/* <p>Last updated: November 09, 2024</p> */}
           <p>Last updated: {formattedDate}</p>
           <p>
-          This Acceptable Use Policy (Abuse Policy) & Responsible AI Policy (’Policy’) is part of our Terms and
-          Conditions (’Legal Terms’) and should therefore be read alongside our main Legal Terms: <a
-                href="https://taispo.com/terms- and-conditions"
-                rel="external nofollow noopener"
-                target="_blank"
-              >
+            This Acceptable Use Policy (Abuse Policy) & Responsible AI Policy
+            (’Policy’) is part of our Terms and Conditions (’Legal Terms’) and
+            should therefore be read alongside our main Legal Terms:{" "}
+            <a
+              href="https://taispo.com/terms- and-conditions"
+              rel="external nofollow noopener"
+              target="_blank"
+            >
               https://taispo.com/terms- and-conditions
-              </a> . When you use the Al-powered services provided by Talspo Private Limited ('AI Products’), you warrant that you will comply with this document, our Legal Terms and all applicable laws and regulations governing AI. Your usage of our AI Products signifies your agreement to engage with our platform in a lawful, ethical, and responsible manner that respects the rights and dignity of all individuals. If you do not agree with these Legal Terms, please refrain from using our Services. Your continued use of our Services implies acceptance of these Legal Terms.
-            
-            
+            </a>{" "}
+            . When you use the Al-powered services provided by Talspo Private
+            Limited ('AI Products’), you warrant that you will comply with this
+            document, our Legal Terms and all applicable laws and regulations
+            governing AI. Your usage of our AI Products signifies your agreement
+            to engage with our platform in a lawful, ethical, and responsible
+            manner that respects the rights and dignity of all individuals. If
+            you do not agree with these Legal Terms, please refrain from using
+            our Services. Your continued use of our Services implies acceptance
+            of these Legal Terms.
           </p>
           <p>
             Please carefully review this Policy which applies to any and all:
@@ -590,7 +599,6 @@ const AcceptableUse = () => {
               </a>
               , emailing legal@taispo.com, visiting
               <a href="https://taispo.com/contact" target="_blank">
-                
                 https://taispo.com/contact
               </a>
               , or referring to the contact details at the bottom of this
@@ -635,7 +643,6 @@ const AcceptableUse = () => {
           <p>
             For more information, visit
             <a href=" https://taispo.com/privacy-policy" target="_blank">
-              
               https://taispo.com/privacy-policy
             </a>
           </p>

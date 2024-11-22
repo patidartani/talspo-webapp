@@ -2,8 +2,8 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import Navbar from "../../../pages/Navbar/Navbar";
 import Footer from "../../Footer/Footer";
-import {fetchDisclaimerPolicy} from "../../../apiService"
-import  { useEffect, useState } from "react";
+import { fetchDisclaimerPolicy } from "../../../apiService";
+import { useEffect, useState } from "react";
 
 const Disclaimer = () => {
   const currentDate = new Date();
@@ -28,25 +28,24 @@ const Disclaimer = () => {
       <Navbar />
 
       {disclaimerPolicy ? (
-  <div>
-    <div className="policy_heading">
-      <h2>{disclaimerPolicy.title}</h2>
-    </div>
-    <Container>
-      <div  className="policy_con">
-          <p>Last updated: {formattedDate}</p>
-      <div
+        <div>
+          <div className="policy_heading">
+            <h2>{disclaimerPolicy.title}</h2>
+          </div>
+          <Container>
+            <div className="policy_con">
+              <p>Last updated: {formattedDate}</p>
+              <div
                 dangerouslySetInnerHTML={{
                   __html: disclaimerPolicy.desclaimer,
                 }}
               ></div>
-      </div>
-    </Container>
-  </div>
-) : (
-  <p>Loading...</p>
-)}
-
+            </div>
+          </Container>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
 
       {/* <div className="use_heading">
         <h1>Disclaimer</h1>

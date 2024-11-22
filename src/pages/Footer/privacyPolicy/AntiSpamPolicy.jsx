@@ -3,8 +3,8 @@ import { Container } from "react-bootstrap";
 import Navbar from "../../../pages/Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import "../privacyPolicy/AntiSpamPolicy.css";
-import {fetchAntySpamPolicy} from "../../../apiService"
-import  { useEffect, useState } from "react";
+import { fetchAntySpamPolicy } from "../../../apiService";
+import { useEffect, useState } from "react";
 
 const AntiSpamPolicy = () => {
   const [antiSpamPolicy, setAntiSpamPolicy] = useState(null);
@@ -22,30 +22,27 @@ const AntiSpamPolicy = () => {
   return (
     <>
       <Navbar />
-      
-      {
-      antiSpamPolicy ? (
-  <div>
-    <div className="policy_heading">
-      <h2>{antiSpamPolicy.title}</h2>
-    </div>
-    <Container>
-      <div  className="policy_con">
-   
-          {/* <p>Last updated: {formattedDate}</p> */}
-    
-      <div
+
+      {antiSpamPolicy ? (
+        <div>
+          <div className="policy_heading">
+            <h2>{antiSpamPolicy.title}</h2>
+          </div>
+          <Container>
+            <div className="policy_con">
+              {/* <p>Last updated: {formattedDate}</p> */}
+
+              <div
                 dangerouslySetInnerHTML={{
-                  __html:antiSpamPolicy.description,
+                  __html: antiSpamPolicy.description,
                 }}
               ></div>
-      </div>
-    
-    </Container>
-  </div>
-) : (
-  <p>Loading...</p>
-)}
+            </div>
+          </Container>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
 
       {/* <div className="anti-spam-policy">
         <h1>Anti-Spam Policy for Talspo Private Limited</h1>

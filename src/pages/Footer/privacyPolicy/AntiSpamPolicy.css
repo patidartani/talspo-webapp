@@ -1,65 +1,69 @@
-.list_policy li{
+.list_policy li {
   list-style: none;
 }
-.anti-spam-policy{
-    margin-top: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: #003266;
-    color:#fff;
+
+.anti-spam-policy {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #003266;
+  color: #fff;
 }
 
-.anti-spam-policy h1{
-    width: 85%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color:#fff;
-    margin-top: 2vmax;
-    margin-bottom: 2vmax;
-    font-size: 36px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.anti-spam-policy h1 {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  margin-top: 2vmax;
+  margin-bottom: 2vmax;
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
+
+.anti-spam-con {
+  margin: 2rem 0;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+.anti-spam-con p {
+  margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .anti-spam-policy {
+    padding: 1.5rem;
+  }
+
+  .anti-spam-policy h1 {
+    font-size: 2rem;
+  }
 
   .anti-spam-con {
-    margin: 2rem 0;
-    color: #444;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-left: 15rem;
-    margin-right: 15rem;
+    margin-left: 0;
+    margin-right: 0;
   }
-  
-  .anti-spam-con p {
-    margin-bottom: 1rem;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .anti-spam-policy {
-      padding: 1.5rem;
-    }
-  
-    .anti-spam-policy h1 {
-      font-size: 2rem;
-    }
-    .anti-spam-con {
-      margin-left: 0;
-      margin-right: 0;
-    }
-    
-  }
-  @media (max-width: 576px) {
-    .anti-spam-con {
-      margin-left: 0;
-      margin-right: 0;
-    }
-    .anti-spam-policy h1{
-      font-size: 1.2rem;
-    }
 
+}
+
+@media (max-width: 576px) {
+  .anti-spam-con {
+    margin-left: 0;
+    margin-right: 0;
   }
+
+  .anti-spam-policy h1 {
+    font-size: 1.2rem;
+  }
+
+}
