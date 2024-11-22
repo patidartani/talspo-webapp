@@ -48,7 +48,7 @@ const BlogDetail = () => {
             <h5>{blogDetail?.title}</h5>
             <img className="img-d" src={blogDetail?.image} alt={blogDetail?.title} />
             <div className="year-d">
-              <small>{blogDetail?.year}</small> <span>Designing, Coding, Learning</span>
+              <small>{blogDetail?.category}</small> <span>{blogDetail?.subtitle}</span>
             </div>
             <p>{blogDetail?.description}</p>
             <p>{blogDetail?.contant}</p>

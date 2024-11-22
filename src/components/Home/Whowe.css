@@ -14,6 +14,15 @@
   }
   
 /* --------------------------------------------------------------------- */
+.error-text {
+  color: red;
+  font-size: 16px; /* You can adjust this as needed */
+  margin-top: 5px;
+  display: block;
+  padding: 5px;
+  position: relative; /* Change from absolute to relative */
+  z-index: 1; /* You can adjust this if necessary */
+}
 
  .modal-overlay-slide {
     position: fixed;
@@ -68,7 +77,8 @@
   
    .modal-overlay-slide .modal-content .e-ipt {
     width: 100%;
-    margin-bottom: 0.5vmax;
+    margin-bottom:1vmax;
+    position: relative;
   }
   
    .modal-overlay-slide .modal-content .e-ipt input {
