@@ -159,7 +159,7 @@ const FormHr = ({ closeModal }) => {
               <input
                 type="text"
                 name="job_position_title"
-                placeholder="Job Position Title"
+                placeholder="Job Position Title*"
                 value={jobDetails.job_position_title}
                 onChange={handleJobInputChange}
               />
@@ -171,7 +171,7 @@ const FormHr = ({ closeModal }) => {
               <input
                 type="text"
                 name="jobtype"
-                placeholder="Job Type"
+                placeholder="Job Type*"
                 value={jobDetails.jobtype}
                 onChange={handleJobInputChange}
               />
@@ -183,7 +183,7 @@ const FormHr = ({ closeModal }) => {
               <input
                 type="text"
                 name="preferred_job_location"
-                placeholder="Preferred Job preferred_job_location"
+                placeholder="Preferred Job location*"
                 value={jobDetails.preferred_job_location}
                 onChange={handleJobInputChange}
               />
@@ -195,7 +195,7 @@ const FormHr = ({ closeModal }) => {
               <input
                 type="text"
                 name="your_skiles_experiance"
-                placeholder="Your Skills & Experience"
+                placeholder="Your Skills & Experience*"
                 value={jobDetails.your_skiles_experiance}
                 onChange={handleJobInputChange}
               />
@@ -211,12 +211,16 @@ const FormHr = ({ closeModal }) => {
                 onChange={handleJobInputChange}
               />
               <label htmlFor="resume">Upload Resume</label>
+              {fieldErrors.error?.image && (
+  <span className="error-text">{fieldErrors.error?.image[0]}</span>
+)}
             </div>
+
             <div className="e-ipt full">
               <input
                 type="text"
                 name="linkdin_profile"
-                placeholder="Insert LinkedIn Profile Link"
+                placeholder="Insert LinkedIn Profile Link*"
                 value={jobDetails.linkdin_profile}
                 onChange={handleJobInputChange}
               />
@@ -231,7 +235,7 @@ const FormHr = ({ closeModal }) => {
         <div className="e-ipt half">
           <input
             type="text"
-            placeholder="First Name"
+            placeholder="First Name*"
             name="first_name"
             value={jobDetails.first_name}
             onChange={handleJobInputChange}
@@ -252,7 +256,7 @@ const FormHr = ({ closeModal }) => {
         <div className="e-ipt half">
           <input
             type="text"
-            placeholder="Last Name"
+            placeholder="Last Name*"
             name="last_name"
             value={jobDetails.last_name}
             onChange={handleJobInputChange}
@@ -262,23 +266,24 @@ const FormHr = ({ closeModal }) => {
           )}
         </div>
         <div className="e-ipt half">
-          <input
-            type="date"
-            name="date_of_birth"
-            value={jobDetails.date_of_birth}
-            onChange={handleJobInputChange}
-          />
-         {fieldErrors.error?.date_of_birth && (
+  <input
+    type="date"
+    name="date_of_birth"
+    value={jobDetails.date_of_birth ? new Date(jobDetails.date_of_birth).toISOString().split('T')[0] : ''}
+    onChange={handleJobInputChange}
+  />
+  {fieldErrors.error?.date_of_birth && (
     <span className="error-text">{fieldErrors.error?.date_of_birth[0]}</span>
   )}
-        </div>
+</div>
+
 
         {/* Contact Information */}
         <div className="e-ipt full">
           <input
             type="email"
             name="email"
-            placeholder="Email Id"
+            placeholder="Email*"
             value={jobDetails.email}
             onChange={handleJobInputChange}
           />
@@ -301,15 +306,27 @@ const FormHr = ({ closeModal }) => {
               <option value="+33">+33 (France)</option>
             </select>
             <input
-              type="tel"
-              name="phone_number"
-              placeholder="WhatsApp Contact Number"
-              value={jobDetails.phone_number}
-              onChange={handleJobInputChange}
-            />
-              {fieldErrors.phone_number && (
-            <span className="error-text">{fieldErrors.phone_number[0]}</span>
-          )}
+  type="tel"
+  name="phone_number"
+  placeholder="WhatsApp Contact Number*"
+  value={jobDetails.phone_number}
+  onChange={(e) => {
+    const value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
+    if (value.length <= 10) {
+      handleJobInputChange({
+        target: {
+          name: 'phone_number',
+          value: value
+        }
+      });
+    }
+  }}
+  maxLength="10" // Optional, can be used to ensure no more than 10 digits
+/>
+{fieldErrors.phone_number && (
+  <span className="error-text">{fieldErrors.phone_number[0]}</span>
+)}
+
           </div>
         </div>
 
@@ -317,7 +334,7 @@ const FormHr = ({ closeModal }) => {
   <input
     type="text"
     name="location"
-    placeholder="Current Location"
+    placeholder="Current Location*"
     value={jobDetails.location}
     onChange={handleJobInputChange}
   />

@@ -115,8 +115,14 @@ const Blog = () => {
                           <span>{blog.category}</span>
                           <h1>{blog.subtitle}</h1>
                         </div>
-                        <div dangerouslySetInnerHTML={{ __html: blog.description }}></div>
-                      </div>
+                        <div style={{
+                          display: '-webkit-box',
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                        }} dangerouslySetInnerHTML={{ __html: blog.contant }}></div>            
+                                  </div>
                     </Link>
                   ))
                 ) : (

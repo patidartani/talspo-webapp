@@ -4,7 +4,7 @@ import Navbar from "../../pages/Navbar/Navbar";
 import { fetchBlogDetail } from '../../apiService';
 import Loading from '../../pages/loading/Loading'; 
 import "./BlogDetail.css";
-import Footer from "../../pages/Footer/Footer"
+import Footer from "../../pages/Footer/Footer";
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -12,18 +12,27 @@ const BlogDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
+  // Function to parse the description and return cleaned text with images
+  const parseDescription = (html) => {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+    const images = Array.from(tempDiv.querySelectorAll('img')).map((img) => img.src);
+
+    // Replace images in description with <img> elements
+    const cleanTextWithImages = tempDiv.innerHTML;
+
+    return { cleanTextWithImages, images };
+  };
+
   useEffect(() => {
     const getBlogDetail = async () => {
       try {
         const data = await fetchBlogDetail(id);
-        console.log("Fetched Blog Detail Data component:", data);
-
         if (!data) {
           console.error("No blog details found for the given ID");
           setError(true);
         } else {
           setBlogDetail(data);
-          console.log("Blog details state updated:", data);
         }
       } catch (error) {
         console.error("Error fetching blog detail:", error);
@@ -39,6 +48,8 @@ const BlogDetail = () => {
   if (loading) return <Loading />;  
   if (error) return <p>There was an error loading the blog details. Please try again later.</p>;
 
+  const { cleanTextWithImages, images } = parseDescription(blogDetail?.description || '');
+
   return (
     <>
       <Navbar />
@@ -50,8 +61,9 @@ const BlogDetail = () => {
             <div className="year-d">
               <small>{blogDetail?.category}</small> <span>{blogDetail?.subtitle}</span>
             </div>
-            <p>{blogDetail?.description}</p>
-            <p>{blogDetail?.contant}</p>
+            <h6>{blogDetail?.contant}</h6>
+            
+            <div className="description-text" dangerouslySetInnerHTML={{ __html: cleanTextWithImages }} />       
           </div>
         </div>
       </div>
