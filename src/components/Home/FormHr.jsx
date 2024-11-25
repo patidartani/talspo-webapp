@@ -105,9 +105,7 @@ const FormHr = ({ closeModal }) => {
     } catch (error) {
       console.error("Error submitting form:", error);
       setFieldErrors(error);
-      console.log("Field error:", fieldErrors);
-      console.log("Error message:", error.message);
-      console.log("DOB error:", error.error?.date_of_birth);
+    
     } finally {
       setLoading(false); 
     }

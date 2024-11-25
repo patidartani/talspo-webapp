@@ -20,6 +20,7 @@ const ViewDetail = () => {
                   try {
                     const data = await fetchJobDetail(id);
                     console.log('Fetched Job Data:', data); 
+                    console.log('postId', data.id )
                     if (!data) throw new Error('No job details found.');
                     setJobDetail(data); 
                   } catch (err) {
@@ -36,7 +37,10 @@ const ViewDetail = () => {
         if (loading) return <Loading />;
         if (error) return <p className="error-message">Failed to load job details: {error.message}</p>;
       
-        const FormHandler = () => navigate('/form');
+        const FormHandler = () => {
+          navigate('/form', { state: { postId: jobDetail.id } });
+        };
+        
 
        
   return (

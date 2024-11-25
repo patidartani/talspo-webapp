@@ -152,51 +152,85 @@
           justify-content: space-between;
           flex-direction: column;
  }
- .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category{
-      width: 100%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      flex-direction: column;
-     gap: 0.6vmax;
-
-}
-.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category h4{
-   font-size: 1.1vmax;
-   color: #7a7a7a;
-}
-.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .category .selected-categories{
-     width: 100%;
-     /* border: 1px solid #c5c5c5; */
-     padding: 0.5vmax;
-     border-radius: 5px;
-     display: flex;
-     flex-wrap: wrap;
-     align-items: flex-start;
-     justify-content: flex-start;
-     gap: 0.2vmax;
-}
-
-.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category  .selected-categories  h1{
-     font-size: 1vmax;
-     background: #003266;
-     color: #fff;
-     padding: 0.5vmax;
-     border-radius: 5px;
-     font-weight: lighter;
-     cursor: pointer;
-   }
-   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category .category-search{
-     width: 100%;
-   }
-   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category .category-search select{
-     width: 100%;
-     outline: none;
-     border: 1px solid #c5c5c5;
-     border-radius: 5px;
-     padding: 0.5vmax 0.5vmax;
-     color: #6b6b6b;
-   }
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .category,
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .skills {
+   width: 100%;
+   display: flex;
+   align-items: flex-start;
+   justify-content: space-between;
+   flex-direction: column;
+   gap: 0.8vmax; /* Slightly increased for better spacing */
+ }
+ 
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .category h4,
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .skills h4 {
+   font-size: 1.2vmax; /* Slightly larger for better readability */
+   color: #6b6b6b; /* Softer color for headers */
+   margin-bottom: 0.3vmax;
+ }
+ 
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .category .category-search,
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .skills .skills-search {
+   width: 100%;
+ }
+ 
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .category .category-search select,
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .skills .skills-search select {
+   width: 100%;
+   outline: none;
+   border: 1px solid #c5c5c5;
+   border-radius: 5px;
+   padding: 0.6vmax;
+   color: #6b6b6b;
+   background-color: #fff;
+   font-size: 1vmax;
+   transition: border 0.3s ease;
+ }
+ 
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .category .category-search select:focus,
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .skills .skills-search select:focus {
+   border: 1px solid #003266;
+ }
+ 
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .category .selected-categories,
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .skills .selected-skills {
+   width: 100%;
+   padding: 0.5vmax;
+   border-radius: 5px;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: flex-start;
+   justify-content: flex-start;
+   gap: 0.3vmax;
+ }
+ 
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .category .selected-categories h1,
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .skills .selected-skills h1 {
+   font-size: 1vmax;
+   background: #003266;
+   color: #fff;
+   padding: 0.6vmax;
+   border-radius: 5px;
+   font-weight: 400;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 0.5vmax;
+ }
+ 
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .category .selected-categories h1 i,
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .skills .selected-skills h1 i {
+   font-size: 1.2vmax;
+   cursor: pointer;
+   color: #fff;
+ }
+ 
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .category .selected-categories h1:hover,
+ .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page .filter-btm .skills .selected-skills h1:hover {
+   background: #004d99;
+ }
+ 
 
  .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .duration,
  .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .job-type,
@@ -454,19 +488,25 @@
      font-size: 2.5vmax;
 }
 
-.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category h4{
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category h4,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .skills h4{
 font-size: 2vmax;
 }
 
-.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category  .selected-categories  h1{
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category  .selected-categories  h1,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .skills   .selected-skills  h1{
 font-size: 2vmax;
 padding: 1vmax;
 }
-.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category .category-search{
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category .category-search,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .skills .skills-search{
 width: 100%;
 }
-.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category .category-search select{
-padding: 1vmax 0.5vmax;
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .category .category-search select,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm  .skills .skills-search select{
+
+padding: 1.7vmax 0.5vmax;
+font-size: 2vmax;
 }
 
 .toggle-option h4 {

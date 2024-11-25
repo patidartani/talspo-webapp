@@ -22,7 +22,6 @@ import Loading from "./pages/loading/Loading"
 import PrivacyPolicy from "./pages/Footer/privacyPolicy/PrivacyPolicy"
 import TermsCondition from "./pages/Footer/privacyPolicy/TermsCondition"
 import TermOfUse from "./pages/Footer/privacyPolicy/TermOfUse"
-import ApplyNow from "./components/Join/ApplyNow"
 import CookiePolicy from "./pages/Footer/privacyPolicy/CookiePolicy"
 import EULA from "./pages/Footer/privacyPolicy/EULA"
 import Disclaimer from "./pages/Footer/privacyPolicy/Disclaimer"
@@ -65,7 +64,6 @@ const App = () => {
         <Route path="/tca" element={<Tca/>} />
         <Route path="/blog-detail/:id" element={<BlogDetail />} />
         <Route  path='/language' element={<LanguageTranslate />}/>
-        <Route  path='/apply' element={<ApplyNow />}/>
         <Route  path='/loading' element={<Loading />}/>
 
         <Route path="/opportunities" element={<Opportunity/>} />
