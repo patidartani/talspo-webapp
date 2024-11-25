@@ -4,7 +4,6 @@ export const BASE_URL = "https://dev.talspo.com/admin/api";
 
 export const SIGNUP_URL = `${BASE_URL}/register`;
 export const LOGIN_URL = `${BASE_URL}/login-view`;
-// export const MESSAGE_URL = `${BASE_URL}/massage-create`;
 
 export const BLOG_POSTS_URL = `${BASE_URL}/recent-post-view`;
 export const FEATURED_BLOG_URL = `${BASE_URL}/featured-blogs-view`;
@@ -13,6 +12,7 @@ export const BLOG_VIEW_URL = `${BASE_URL}/blog-view`;
 export const JOB_POST_URL = `${BASE_URL}/job-post-view`;
 export const ABOUT_US_URL = `${BASE_URL}/about-us-view`;
 export const TAL_SPO_SKILLED_VIEW_URL = `${BASE_URL}/talspo-skilled-view`;
+export const FAQ_URL = `${BASE_URL}/faq-view`
 
 export const PRIVACY_POLICY_URL = `${BASE_URL}/get-privacypolicy`;
 export const COOKIE_POLICY_URL = `${BASE_URL}/get-cookiespolicy`;
@@ -162,6 +162,21 @@ export const fetchJobDetail = async (id) => {
   }
 };
 
+export const submitJobApplication = async (formData) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/opportunities-career-form`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return response.data; 
+  } catch (error) {
+    console.error("Error submitting job application:", error);
+    throw error;  
+  }
+};
+
+
 
 // ---------------------About us------------------------------------
 
@@ -175,6 +190,17 @@ export const fetchAboutUs = async () => {
     return {};
   }
 };
+
+export const faqQuestions = async () => {
+  try {
+     const response = await axios.get(FAQ_URL)
+     return response.data || {}
+  } catch (error) {
+     console.log('error', error)
+     return{};
+  }
+}
+
 
 // ---------------------skilled candidates-------------------------
 

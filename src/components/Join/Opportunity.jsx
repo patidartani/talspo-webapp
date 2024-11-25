@@ -11,11 +11,41 @@ import Loading from "../../pages/loading/Loading"
 
 const Opportunity = () => {
 
-  const [loading, setLoading] = useState(true);
 
+  // ----------------------------filters---------------------------------------------------------------
+
+  const [categories, setCategories] = useState(["Technology", "Design", "Finance"]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
+  const addCategory = (category) => {
+    if (category && !selectedCategories.includes(category)) {
+      setSelectedCategories([...selectedCategories, category]);
+    }
+  };
+
+  const removeCategory = (category) => {
+    setSelectedCategories(selectedCategories.filter((cat) => cat !== category));
+  };
+  const [skills, setSkills] = useState(["React", "JavaScript", "Node.js", "Python"]); // Example skills
+const [selectedSkills, setSelectedSkills] = useState([]);
+
+const addSkill = (skill) => {
+  if (skill && !selectedSkills.includes(skill)) {
+    setSelectedSkills([...selectedSkills, skill]);
+  }
+};
+
+const removeSkill = (skill) => {
+  setSelectedSkills(selectedSkills.filter((s) => s !== skill));
+};
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const ITEMS_PER_PAGE = 5;
   const [currentPage, setCurrentPage] = useState(0);
+  const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
     const loadJobs = async () => {
@@ -31,65 +61,17 @@ const Opportunity = () => {
   const viewDetailHandler = (id) => {
     navigate(`/view-detail/${id}`);
   };
-  
 
-  // ----------------------------------- Filter ------------------------------------------------------
-
-  const categories = ['Developer', 'Designer', 'Data Scientist', 'Manager'];
-  const durations = ['1 Month', '2 Months', '3 Months', '6 Months', '1 Year'];
-  const locations = ['New York', 'Los Angeles', 'San Francisco', 'Chicago', 'Remote'];  
-  const experienceLevels = ['Junior', 'Mid-level', 'Senior'];  
-  const jobTypes = ['Full-time', 'Part-time', 'Contract'];
-
-  const [jobs, setJobs] = useState([]);
-  const [selectedWorkFromHome, setSelectedWorkFromHome] = useState('Any');
-  const [isPartTime, setIsPartTime] = useState(false);
-  const [selectedLocation, setSelectedLocation] = useState('');
-  const [selectedExperience, setSelectedExperience] = useState('');
-  const [selectedJobType, setSelectedJobType] = useState('');
-  const [selectedDuration, setSelectedDuration] = useState('');
-  const [selectedCategories, setSelectedCategories] = useState([]);
-
-  const addCategory = (category) => {
-    if (!selectedCategories.includes(category)) {
-      setSelectedCategories([...selectedCategories, category]);
-    }
-  };
-
-  const removeCategory = (category) => {
-    setSelectedCategories(selectedCategories.filter((cat) => cat !== category));
-  };
-
-  const applyFilters = (job) => {
-    if (selectedCategories.length > 0 && !selectedCategories.some(cat => job.category.includes(cat))) return false;
-    if (selectedWorkFromHome !== 'Any' && job.location !== selectedWorkFromHome) return false;
-    if (isPartTime && job.type !== 'Part Time') return false;
-    if (selectedLocation && job.location !== selectedLocation) return false;
-    if (selectedExperience && job.experience !== selectedExperience) return false;
-    if (selectedJobType && job.type !== selectedJobType) return false;
-    if (selectedDuration && job.duration !== selectedDuration) return false;
-    return true;
-  };
-
-  const filteredJobs = jobs.filter(applyFilters);
-  const pageCount = Math.ceil(filteredJobs.length / ITEMS_PER_PAGE);
-  const currentJobs = filteredJobs.slice(currentPage * ITEMS_PER_PAGE, (currentPage + 1) * ITEMS_PER_PAGE);
+  // Pagination Logic
+  const pageCount = Math.ceil(jobs.length / ITEMS_PER_PAGE);
+  const currentJobs = jobs.slice(currentPage * ITEMS_PER_PAGE, (currentPage + 1) * ITEMS_PER_PAGE);
 
   const handlePageClick = (data) => setCurrentPage(data.selected);
-
-  const clearAllFilters = () => {
-    setSelectedWorkFromHome('Any');
-    setIsPartTime(false);
-    setSelectedLocation('');
-    setSelectedExperience('');
-    setSelectedJobType('');
-    setSelectedDuration('');
-    setSelectedCategories([]);
-  };
 
   if (loading) {
     return <Loading />;
   }
+
 
   return (
     <>
@@ -108,181 +90,198 @@ const Opportunity = () => {
           <div className="opportunity2">
             <h5>Apply Now!</h5>
 
-
-            {/* -------------------------------------------------------------------------- */}
-
+            {/* Filter Design Only */}
             <div className="opt2-btm">
-              {/* Filters */}
-              <div className="Filter-page">
-                <h6>Filters</h6>
-                <p>Please select from the category below</p>
-                <div className="filter-btm">
-                  {/* Category Dropdown */}
-                  <div className="category">
-                    <h4>Category</h4>
-                    <div className="category-search">
-                      <select onChange={(e) => addCategory(e.target.value)} defaultValue="">
-                        <option value="" disabled>Select Category</option>
-                        {categories.map((category, index) => (
-                          <option key={index} value={category}>{category}</option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="selected-categories">
-                      {selectedCategories.map((category, index) => (
-                        <h1 key={index}>
-                          {category} <i className="ri-close-line" onClick={() => removeCategory(category)}></i>
-                        </h1>
-                      ))}
-                    </div>
-                  </div>
+            <div className="Filter-page">
+      <h6>Filters</h6>
+      <p>Please select from the category below</p>
+      <div className="filter-btm">
 
-                  {/* Work from Home Toggle */}
-                  <div className="work-from-home">
-                    <h4>Work from home</h4>
-                      <div className="work-search">
-                      <select onChange={(e) => setSelectedWorkFromHome(e.target.value)} value={selectedWorkFromHome}>
-                        <option value="Any">Any</option>
-                        <option value="Remote">Remote</option>
-                        <option value="In-office">In-office</option>
-                      </select>
-                      </div>
-                  </div>
-
-                  {/* Location Filter */}
-                  <div className="location">
-                    <h4>Location</h4>
-                    <div className="location-search">
-                      <select onChange={(e) => setSelectedLocation(e.target.value)} defaultValue="">
-                        <option value="" disabled>Select Location</option>
-                        {locations.map((location, index) => (
-                          <option key={index} value={location}>{location}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
+        {/* <div className="category">
+          <h4>Category</h4>
+          <div className="category-search">
+            <select
+              onChange={(e) => addCategory(e.target.value)}
+              defaultValue=""
+            >
+              <option value="" disabled>
+                Select Category
+              </option>
+              {categories.map((category, index) => (
+                <option key={index} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="selected-categories">
+            {selectedCategories.map((category, index) => (
+              <h1 key={index}>
+                {category}{" "}
+                <i
+                  className="ri-close-line"
+                  onClick={() => removeCategory(category)}
+                ></i>
+              </h1>
+            ))}
+          </div>
+        </div> */}
 
 
-                  {/* Experience Filter */}
-                  <div className="experience">
-                    <h4>Experience</h4>
-                    <div className="experience-search">
-                      <select onChange={(e) => setSelectedExperience(e.target.value)} defaultValue="">
-                        <option value="" disabled>Select Experience Level</option>
-                        {experienceLevels.map((level, index) => (
-                          <option key={index} value={level}>{level}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
+        <div className="skills">
+      <h4>Skills</h4>
+      <div className="skills-search">
+        <select
+          onChange={(e) => addSkill(e.target.value)}
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Select Skill
+          </option>
+          {skills.map((skill, index) => (
+            <option key={index} value={skill}>
+              {skill}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="selected-skills">
+        {selectedSkills.map((skill, index) => (
+          <h1 key={index}>
+            {skill}{" "}
+            <i
+              className="ri-close-line"
+              onClick={() => removeSkill(skill)}
+            ></i>
+          </h1>
+        ))}
+      </div>
+    </div>
 
-                  {/* Job Type Filter */}
-                  <div className="job-type">
-                    <h4>Job Type</h4>
-                    <div className="job-type-search">
-                      <select onChange={(e) => setSelectedJobType(e.target.value)} defaultValue="">
-                        <option value="" disabled>Select Job Type</option>
-                        {jobTypes.map((type, index) => (
-                          <option key={index} value={type}>{type}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
 
-                  {/* Duration Filter */}
-                  <div className="duration">
-                    <h4>Maximum Duration</h4>
-                    <div className="duration-search">
-                      <select onChange={(e) => setSelectedDuration(e.target.value)} defaultValue="">
-                        <option value="" disabled>Select Duration</option>
-                        {durations.map((duration, index) => (
-                          <option key={index} value={duration}>{duration}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="clear-all">
-                    <a href="#" onClick={clearAllFilters}>Clear all</a>
-                  </div>
-                </div>
+        <div className="work-from-home">
+          <h4>Working Environment</h4>
+          <div className="work-search">
+            <select defaultValue="Any">
+              <option value="Any">Any</option>
+            </select>
+          </div>
+        </div>
+        <div className="location">
+          <h4>Location</h4>
+          <div className="location-search">
+            <select defaultValue="">
+              <option value="" disabled>
+                Select Location
+              </option>
+            </select>
+          </div>
+        </div>
+        <div className="experience">
+          <h4>Experience</h4>
+          <div className="experience-search">
+            <select defaultValue="">
+              <option value="" disabled>
+                Select Experience Level
+              </option>
+            </select>
+          </div>
+        </div>
+        <div className="job-type">
+          <h4>Job Type</h4>
+          <div className="job-type-search">
+            <select defaultValue="">
+              <option value="" disabled>
+                Select Job Type
+              </option>
+            </select>
+          </div>
+        </div>
+        <div className="duration">
+          <h4>Maximum Duration</h4>
+          <div className="duration-search">
+            <select defaultValue="">
+              <option value="" disabled>
+                Select Duration
+              </option>
+            </select>
+          </div>
+        </div>
+        <div className="clear-all">
+          <a href="#" onClick={() => setSelectedCategories([])}>
+            Clear all
+          </a>
+        </div>
+      </div>
+   
               </div>
 
               {/* Job Listings */}
               <div className="jobs-page">
-  <div className="job-search">
-    <div className="ipt-job">
-      <input type="text" placeholder="Search Jobs.." />
-      <img src={iconSearch} alt="Search Icon" />
-    </div>
-  </div>
-
-  {/* Check if there are no jobs available */}
-  {currentJobs.length === 0 ? (
-    <div className="no-jobs-message">
-      <p>No jobs available at the moment.</p>
-    </div>
-  ) : (
-    currentJobs.map((job, index) => (
-      <div className="job-box" key={index}>
-        <h5>{job.title}</h5>
-        <span>{job.category}</span>
-        <small>Location: {job.location}</small>
-        <div className="deadline">
-          <div className="d-one">
-            <h4>START DATE</h4>
-            <h6>{job.start_date}</h6>
-          </div>
-          <div className="d-one">
-            <h4>Experience</h4>
-            <h6>{job.experience}</h6>
-          </div>
-          <div className="d-one">
-            <h4>SALARY</h4>
-            <h6>{job.salary}</h6>
-          </div>
-          <div className="d-one">
-            <h4>DEADLINE</h4>
-            <h6>{job.deadline}</h6>
-          </div>
-        </div>
-        <div className="last-items">
-          <div className="i-left">
-            <h3>{job.work_from}</h3>
-            <h3>{job.job_type}</h3>
-          </div>
-          <div className="i-right">
-          <button onClick={() => viewDetailHandler(job.id)}>View Details</button>
-          </div>
-        </div>
-      </div>
-    ))
-  )}
-
-  {/* Pagination */}
-  <ReactPaginate
-    previousLabel={'<'}
-    nextLabel={'>'}
-    breakLabel={'...'}
-    pageCount={pageCount}
-    onPageChange={handlePageClick}
-    containerClassName={'pagination'}
-    activeClassName={'active'}
-    pageClassName={'page-item'}
-    pageLinkClassName={'page-link'}
-    previousClassName={'previous-item'}
-    previousLinkClassName={'previous-link'}
-    nextClassName={'next-item'}
-    nextLinkClassName={'next-link'}
-    disabledClassName={'disabled'}
-  />
-</div>
-
+                <div className="job-search">
+                  <div className="ipt-job">
+                    <input type="text" placeholder="Search Jobs.." />
+                    <img src={iconSearch} alt="Search Icon" />
+                  </div>
+                </div>
+                {currentJobs.length === 0 ? (
+                  <div className="no-jobs-message">
+                    <p>No jobs available at the moment.</p>
+                  </div>
+                ) : (
+                  currentJobs.map((job, index) => (
+                    <div className="job-box" key={index}>
+                      <h5>{job.title}</h5>
+                      <span>{job.category}</span>
+                      <small>Location: {job.location}</small>
+                      <div className="deadline">
+                        <div className="d-one">
+                          <h4>START DATE</h4>
+                          <h6>{job.start_date}</h6>
+                        </div>
+                        <div className="d-one">
+                          <h4>Experience</h4>
+                          <h6>{job.experience}</h6>
+                        </div>
+                        <div className="d-one">
+                          <h4>SALARY</h4>
+                          <h6>{job.salary}</h6>
+                        </div>
+                        <div className="d-one">
+                          <h4>DEADLINE</h4>
+                          <h6>{job.deadline}</h6>
+                        </div>
+                      </div>
+                      <div className="last-items">
+                        <div className="i-left">
+                          <h3>{job.work_from}</h3>
+                          <h3>{job.job_type}</h3>
+                        </div>
+                        <div className="i-right">
+                          <button onClick={() => viewDetailHandler(job.id)}>View Details</button>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                )}
+                <ReactPaginate
+                  previousLabel={'<'}
+                  nextLabel={'>'}
+                  breakLabel={'...'}
+                  pageCount={pageCount}
+                  onPageChange={handlePageClick}
+                  containerClassName={'pagination'}
+                  activeClassName={'active'}
+                  pageClassName={'page-item'}
+                  pageLinkClassName={'page-link'}
+                  previousClassName={'previous-item'}
+                  previousLinkClassName={'previous-link'}
+                  nextClassName={'next-item'}
+                  nextLinkClassName={'next-link'}
+                  disabledClassName={'disabled'}
+                />
+              </div>
             </div>
-
-            {/* -------------------------------------------------------------------------- */}
-
-
           </div>
         </div>
       </div>
@@ -292,3 +291,7 @@ const Opportunity = () => {
 };
 
 export default Opportunity;
+
+
+
+

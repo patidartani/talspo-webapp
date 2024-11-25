@@ -1,33 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from "../../pages/Navbar/Navbar";
 import Footer from "../../pages/Footer/Footer";
 import "./Faq.css";
 
+import { faqQuestions } from "../../apiService";
+
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [faqs, setFaqs] = useState([]);
 
-  const faqs = [
-    {
-      question: 'What is Talspo?',
-      answer: 'Talspo is a platform designed to help users find talented individuals nearby across various fields.',
-    },
-    {
-      question: 'How does Talspo work?',
-      answer: 'Users can create profiles showcasing their skills, and others can search for talents based on location and expertise.',
-    },
-    {
-      question: 'Is Talspo free to use?',
-      answer: 'Yes, Talspo offers a free tier for users to connect and explore talents. Additional features may be available for a fee.',
-    },
-    {
-      question: 'Can I update my profile?',
-      answer: 'Absolutely! Users can edit their profiles at any time to reflect their current skills and experiences.',
-    },
-    {
-      question: 'How can I get support?',
-      answer: 'You can reach out to our support team via the contact page or through the help section in your account.',
-    },
-  ];
+  useEffect(() => {
+    const fetchFaqs = async () => {
+      try {
+        const response = await faqQuestions();
+        // console.log('Faq Response', response.records); 
+        setFaqs(response.records); 
+      } catch (error) {
+        console.error("Error fetching FAQs:", error); 
+      }
+    };
+
+    fetchFaqs();
+  }, []);
 
   const handleToggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -37,21 +31,20 @@ const Faq = () => {
     <>
       <Navbar />
       <div className="faq-con">
-
-      <div className="faq_top">
+        <div className="faq_top">
           <h5>Frequently Asked Questions</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, illo!</p>
-          </div>
+        </div>
 
         <div className="faq-box">
           <div className="faq-ques">
             {faqs.map((faq, index) => (
               <div className="faq-h" key={index}>
                 <h6 onClick={() => handleToggle(index)}>
-                  {faq.question}
+                  {faq.title}
                   <span className={activeIndex === index ? 'arrow open' : 'arrow'}>&#9662;</span>
                 </h6>
-                {activeIndex === index && <p>{faq.answer}</p>}
+                {activeIndex === index && <p>{faq.description}</p>}
               </div>
             ))}
           </div>
