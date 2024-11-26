@@ -3,13 +3,16 @@ import "./Whowe.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { fetchTalspoSkilledView } from '../../apiService';
-import talspoIcon from "../../assets/images/talspoIcon.png"
+import { fetchTalspoSkilledView } from "../../apiService";
+import talspoIcon from "../../assets/images/talspoIcon.png";
 import FormHr from "./FormHr";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronRight,
+  faChevronLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Whowe = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -187,7 +190,7 @@ const Whowe = () => {
 
   return (
     <div className="Whowe-main">
-       {isModalOpen && (
+      {isModalOpen && (
         <div className="modal-overlay-slide">
           <FormHr closeModal={closeModal} />
         </div>
@@ -196,7 +199,11 @@ const Whowe = () => {
       <div className="who-page">
         <div className="who-btm">
           <h6>On Demand Skilled Candidates Nearby You</h6>
-          <span style={{ marginLeft: "1vmax" }}>Find skilled candidates based on your requirements in real-time using geo-location enabled search for quick recruitment and talent acquisition.</span>
+          <span style={{ marginLeft: "1vmax" }}>
+            Find skilled candidates based on your requirements in real-time
+            using geo-location enabled search for quick recruitment and talent
+            acquisition.
+          </span>
 
           <div className="search-bar-skill">
             <div className="skill-ipt">
@@ -219,7 +226,9 @@ const Whowe = () => {
             </div>
             <div className="sort-dropdown">
               <select onChange={(e) => handleSort(e)} value={sortOption}>
-                <option value="" disabled>Sort by</option>
+                <option value="" disabled>
+                  Sort by
+                </option>
                 <option value="jobType"> Experience</option>
                 <option value="salary">Trusted/Verified Candidates</option>
                 <option value="active">Actively Looking</option>
@@ -228,7 +237,6 @@ const Whowe = () => {
             <div className="skill-btn">
               <button onClick={handleSearch}>Search</button>
             </div>
-
           </div>
 
           {/* -------------responsive-skill--------- */}
@@ -261,7 +269,6 @@ const Whowe = () => {
             <div className="skill-btn">
               <button onClick={handleSearch}>Search</button>
             </div>
-
           </div>
 
           {/* -------------------------------------------- */}
@@ -288,7 +295,6 @@ const Whowe = () => {
                 ))}
               </Slider>
             </div>
-
             <div className="home-map">
               <div
                 ref={smallMapRef}
@@ -301,27 +307,27 @@ const Whowe = () => {
               >
                 {/* Button to toggle full map */}
                 <div className="toggle-map-icon" onClick={toggleMapView}>
-          {showFullMap ? (
-            <>
-              <FontAwesomeIcon icon={faChevronRight} /> Hide Map
-            </>
-          ) : (
-            <>
-              <FontAwesomeIcon icon={faChevronLeft} /> Show Full Map
-            </>
-          )}
-        </div><div className="toggle-map-icon" onClick={toggleMapView}>
-  {showFullMap ? (
-    <>
-      <FontAwesomeIcon icon={faChevronRight} /> Hide Map
-    </>
-  ) : (
-    <>
-      <FontAwesomeIcon icon={faChevronLeft} /> Show Full Map
-    </>
-  )}
-</div>
-
+                  {showFullMap ? (
+                    <>
+                      <FontAwesomeIcon icon={faChevronRight} /> Hide Map
+                    </>
+                  ) : (
+                    <>
+                      <FontAwesomeIcon icon={faChevronLeft} /> Show Full Map
+                    </>
+                  )}
+                </div>
+                <div className="toggle-map-icon" onClick={toggleMapView}>
+                  {showFullMap ? (
+                    <>
+                      <FontAwesomeIcon icon={faChevronRight} /> Hide Map
+                    </>
+                  ) : (
+                    <>
+                      <FontAwesomeIcon icon={faChevronLeft} /> Show Full Map
+                    </>
+                  )}
+                </div>
               </div>
 
               {/* Display the full map when `showFullMap` is true */}

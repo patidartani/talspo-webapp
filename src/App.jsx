@@ -29,7 +29,7 @@ import DmcaPolicy from "./pages/Footer/privacyPolicy/DMCA"
 import GdbrPolicy from "./pages/Footer/privacyPolicy/GdbrPolicy"
 import AntiSpamPolicy from "./pages/Footer/privacyPolicy/AntiSpamPolicy"
 import AcceptableUse from "./pages/Footer/privacyPolicy/AcceptableUse"
-import Test from "./components/Test"
+// import Test from "./components/Test"
 import ViewDetail from "./components/Join/ViewDetail"
 
 import StudentServiceModel from "./components/Services/StudentServiceModel"
@@ -93,7 +93,7 @@ const App = () => {
         <Route path="/talspo-search" element={<TalspoSearchAI/>}/>
         <Route path="/talspo-api" element={<TalspoAPI/>}/>
 
-        <Route path="/test" element={<Test/>}/>
+        {/* <Route path="/test" element={<Test/>}/> */}
       </Routes>
     </div>
   )
