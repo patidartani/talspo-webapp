@@ -12,7 +12,9 @@ export const BLOG_VIEW_URL = `${BASE_URL}/blog-view`;
 export const JOB_POST_URL = `${BASE_URL}/job-post-view`;
 export const ABOUT_US_URL = `${BASE_URL}/about-us-view`;
 export const TAL_SPO_SKILLED_VIEW_URL = `${BASE_URL}/talspo-skilled-view`;
+export const FILTER_API_URL = `${BASE_URL}/`
 export const FAQ_URL = `${BASE_URL}/faq-view`
+export const TECHNO_URL = `${BASE_URL}/ourpartners-view`
 
 export const PRIVACY_POLICY_URL = `${BASE_URL}/get-privacypolicy`;
 export const COOKIE_POLICY_URL = `${BASE_URL}/get-cookiespolicy`;
@@ -151,6 +153,15 @@ export const fetchJobPosts = async () => {
     return [];
   }
 };
+export const filterOpportunity = async () => {
+  try {
+    const response = await axios.get(FILTER_API_URL);
+    return response.data || {};
+  } catch (error) {
+    console.error('Error fetching opportunities from', FILTER_API_URL, error.message);
+    return { error: true, message: error.message }; 
+  }
+};
 
 export const fetchJobDetail = async (id) => {
   try {
@@ -175,7 +186,6 @@ export const submitJobApplication = async (formData) => {
     throw error;  
   }
 };
-
 
 
 // ---------------------About us------------------------------------
@@ -215,7 +225,7 @@ export const fetchTalspoSkilledView = async () => {
   }
 };
 
-// ------------------Blogs Apis----------------------------------
+// ------------------Blogs Apis------------------------------------------------
 
 export const recentBlogPosts = async () => {
   try {
@@ -252,7 +262,7 @@ export const fetchBlogDetail = async (id) => {
   }
 };
 
-// -------------------------who we form api--------------------------------------------------------
+// -------------------------who we form api-----------------------------------------------------
 
 export const createDirectConnectHR = async (formData) => {
   try {
@@ -268,3 +278,17 @@ export const createDirectConnectHR = async (formData) => {
     throw error.response?.data || { message: "Something went wrong" };
   }
 };
+
+
+// ------------------------------------Technology ----------------------------------------------
+
+export const technologyApi = async () => {
+  try {
+    const response = await axios.get(TECHNO_URL);
+    return response.data; 
+  } catch (error) {
+    console.error('Error fetching technology data:', error);
+    return {}; 
+  }
+};
+
