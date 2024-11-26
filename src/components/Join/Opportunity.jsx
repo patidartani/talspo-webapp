@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchJobPosts } from '../../apiService';
+import { fetchJobPosts , filterOpportunity} from '../../apiService';
 import "./Opportunity.css";
 import Navbar from "../../pages/Navbar/Navbar";
 import Footer from "../../pages/Footer/Footer";
@@ -14,19 +14,10 @@ const Opportunity = () => {
 
   // ----------------------------filters---------------------------------------------------------------
 
-  const [categories, setCategories] = useState(["Technology", "Design", "Finance"]);
   const [selectedCategories, setSelectedCategories] = useState([]);
 
-  const addCategory = (category) => {
-    if (category && !selectedCategories.includes(category)) {
-      setSelectedCategories([...selectedCategories, category]);
-    }
-  };
-
-  const removeCategory = (category) => {
-    setSelectedCategories(selectedCategories.filter((cat) => cat !== category));
-  };
-  const [skills, setSkills] = useState(["React", "JavaScript", "Node.js", "Python"]); // Example skills
+ 
+  const [skills, setSkills] = useState(["React", "JavaScript", "Node.js", "Python"]); 
 const [selectedSkills, setSelectedSkills] = useState([]);
 
 const addSkill = (skill) => {
@@ -59,10 +50,9 @@ const removeSkill = (skill) => {
   }, []);
 
   const viewDetailHandler = (id) => {
-    navigate(`/view-detail/${id}`);
+    navigate(`/view-detail/${id}`);  
   };
 
-  // Pagination Logic
   const pageCount = Math.ceil(jobs.length / ITEMS_PER_PAGE);
   const currentJobs = jobs.slice(currentPage * ITEMS_PER_PAGE, (currentPage + 1) * ITEMS_PER_PAGE);
 
@@ -92,73 +82,13 @@ const removeSkill = (skill) => {
 
             {/* Filter Design Only */}
             <div className="opt2-btm">
-            <div className="Filter-page">
-      <h6>Filters</h6>
+                
+                <div className="filter-main-page">
+                <div className="Filter-page">
+        <h6>Filters</h6>
       <p>Please select from the category below</p>
       <div className="filter-btm">
-
-        {/* <div className="category">
-          <h4>Category</h4>
-          <div className="category-search">
-            <select
-              onChange={(e) => addCategory(e.target.value)}
-              defaultValue=""
-            >
-              <option value="" disabled>
-                Select Category
-              </option>
-              {categories.map((category, index) => (
-                <option key={index} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="selected-categories">
-            {selectedCategories.map((category, index) => (
-              <h1 key={index}>
-                {category}{" "}
-                <i
-                  className="ri-close-line"
-                  onClick={() => removeCategory(category)}
-                ></i>
-              </h1>
-            ))}
-          </div>
-        </div> */}
-
-
-        <div className="skills">
-      <h4>Skills</h4>
-      <div className="skills-search">
-        <select
-          onChange={(e) => addSkill(e.target.value)}
-          defaultValue=""
-        >
-          <option value="" disabled>
-            Select Skill
-          </option>
-          {skills.map((skill, index) => (
-            <option key={index} value={skill}>
-              {skill}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="selected-skills">
-        {selectedSkills.map((skill, index) => (
-          <h1 key={index}>
-            {skill}{" "}
-            <i
-              className="ri-close-line"
-              onClick={() => removeSkill(skill)}
-            ></i>
-          </h1>
-        ))}
-      </div>
-    </div>
-
-
+      
         <div className="work-from-home">
           <h4>Working Environment</h4>
           <div className="work-search">
@@ -212,9 +142,68 @@ const removeSkill = (skill) => {
             Clear all
           </a>
         </div>
-      </div>
-   
+      </div> 
               </div>
+              {/* ------------------------------------------sorting------------------------------ ------*/}
+                   <div className="filter-sorting">
+                     <h6>Sort Jobs</h6>
+                     <p>Sort Jobs based on the options given below</p>
+                     <div className="sort-btm">
+
+                    <div className="closest">
+                      <h4>Find Jobs closest to your location</h4>
+                        <div className="location-btn">
+                          <button>sort jobs</button>
+                        </div>
+                    </div>
+
+                    <div className="latest">
+                      <h4>Latest Jobs Available</h4>
+                        <div className="latest-btn">
+                          <button>Get Latest jobs</button>
+                        </div>
+                    </div>
+
+                    <div className="skills">
+                      <h4>Skills</h4>
+                      <div className="skills-search">
+                        <select
+                          onChange={(e) => addSkill(e.target.value)}
+                          defaultValue=""
+                        >
+                          <option value="" disabled>
+                            Select Skill
+                          </option>
+                          {skills.map((skill, index) => (
+                            <option key={index} value={skill}>
+                              {skill}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="selected-skills">
+                        {selectedSkills.map((skill, index) => (
+                          <h1 key={index}>
+                            {skill}{" "}
+                            <i
+                              className="ri-close-line"
+                              onClick={() => removeSkill(skill)}
+                            ></i>
+                          </h1>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="clear-all-sort">
+                      <a href="#">
+                        Clear all
+                      </a>
+                    </div>
+                     </div>
+                   </div>
+              {/* -------------------------------------------------------------------------------------- */}
+                </div>
+
 
               {/* Job Listings */}
               <div className="jobs-page">
@@ -226,7 +215,7 @@ const removeSkill = (skill) => {
                 </div>
                 {currentJobs.length === 0 ? (
                   <div className="no-jobs-message">
-                    <p>No jobs available at the moment.</p>
+                    <p style={{color:"red"}}>No jobs available at the moment.</p>
                   </div>
                 ) : (
                   currentJobs.map((job, index) => (

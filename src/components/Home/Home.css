@@ -259,7 +259,7 @@ width: 90%;
   color: #003266;
 }
 .h3-tbm {
-  width: 100%;
+  width: 85%;
   overflow: hidden;
   position: relative;
   margin-top: 2vmax;
@@ -269,14 +269,14 @@ width: 90%;
   align-items: center;
   white-space: nowrap; /* Prevent line breaks */
   gap: 1vmax;
-  animation: scroll 25s linear infinite; /* Adjust duration for smooth scroll */
+  animation: scroll 35s linear infinite; /* Adjust duration for smooth scroll */
 }
 .line img {
   height: 50px;
 }
 .line {
   border: 1px solid #868686df;
-  padding: 0.5vmax 1vmax;
+  padding: 0.5vmax 2.5vmax;
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 5px;
   height: 60px;

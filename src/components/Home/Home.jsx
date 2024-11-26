@@ -2,18 +2,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
+import { useState, useEffect } from 'react';
 
 import "./Home.css"
 import Navbar from '../../pages/Navbar/Navbar'
 import Whowe from './Whowe'
 import Footer from '../../pages/Footer/Footer'
-// import Whowe from './Whowe'
-import client1 from "../../assets/images/client.svg"
-import client2 from "../../assets/images/client2.svg"
-import client3 from "../../assets/images/client3.svg"
-import client4 from "../../assets/images/client4.svg"
-import client5 from "../../assets/images/client5.png"
-import skill from "../../assets/images/skill.png"
 import Free from './Free'
 // import LernerTrainer from './LernerTrainer'
 import HomeTwo from './HomeTwo';
@@ -22,9 +16,31 @@ import { useNavigate } from 'react-router-dom';
 import HomeBroach from './HomeBroach';
 import FooterTop from '../../pages/Footer/FooterTop';
 import gifImg from "../../assets/images/homeslidergif.gif"
+import {technologyApi} from "../../apiService"
 
 const Home = () => {
   const navigate = useNavigate();
+
+
+  // ---------------------techno api --------------------------------------
+  const [techStack, setTechStack] = useState([]); 
+
+  // Fetch data from the API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await technologyApi(); 
+        console.log("Techno api Response:", response.records); 
+        setTechStack(response.records); 
+      } catch (error) {
+        console.error("Error fetching technology stack:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // -----------------------------------------------------------
 
   const joinfree = () => {
     navigate('/signup')
@@ -102,7 +118,6 @@ const Home = () => {
 
 
         </div>
-        {/* <LernerTrainer />      */}
         <HomeTwo />
         {/* ---------------------------------------------------------------------------------- */}
         <div className="home-two">
@@ -153,32 +168,24 @@ const Home = () => {
 
           </div>
         </div>
-
-        {/* ----------On Demand Skill Showcase Panel (Including Currency Conversion API): */}
         <Whowe />
         {/* ---------------------------------------------------------------------------------- */}
-        {/* ---------------------------------------------------------------------------------- */}
         <div className="home-three">
-          <h5>Our Advance Technology Stack Includes</h5>
-          <div className="h3-tbm">
-            <div className="h3-top">
-              <div className="line"><img src={client1} alt="Client 1" /></div>
-              <div className="line"><img src={client2} alt="Client 2" /></div>
-              <div className="line"><img src={client3} alt="Client 3" /></div>
-              <div className="line"><img src={client4} alt="Client 4" /></div>
-              <div className="line"><img src={client5} alt="Client 5" /></div>
-              <div className="line"><img src={client1} alt="Client 1" /></div>
-
-              <div className="line"><img src={client2} alt="Client 2" /></div>
-              <div className="line"><img src={client3} alt="Client 3" /></div>
-              <div className="line"><img src={client4} alt="Client 4" /></div>
-              <div className="line"><img src={client5} alt="Client 5" /></div>
-              <div className="line"><img src={client3} alt="Client 3" /></div>
-              <div className="line"><img src={client4} alt="Client 4" /></div>
-
-            </div>
-          </div>
+      <h5>Our Advance Technology Stack Includes</h5>
+      <div className="h3-tbm">
+        <div className="h3-top">
+          {techStack.length > 0 ? (
+            techStack.map((tech, index) => (
+              <div className="line" key={index}>
+                <img src={tech.image} alt={`Tech ${tech.id}`} />
+              </div>
+            ))
+          ) : (
+            <p>Loading technologies...</p>
+          )}
         </div>
+      </div>
+    </div>
         {/* ---------------------------------------------------------------------------------- */}
         <HomeBlog />
         <HomeBroach />
