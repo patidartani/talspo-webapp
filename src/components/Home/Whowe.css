@@ -5,9 +5,6 @@
     justify-content: center;
 }
 
-
- 
-  
 /* --------------------------------------------------------------------- */
 .error-text {
   color: red;
@@ -368,39 +365,89 @@
 }
 
 /* Overlay styles */
+
+/* In Test.css */
 .map-overlay {
-  position: fixed;
+  position: fixed; /* Fix the full map to the screen */
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7); /* Transparent dark background */
+  width: 100%;
+  height: 100%; /* Full screen map */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Ensure it's on top of other content */
 }
 
 .map-overlay-content {
   position: relative;
-  background: #fff;
-  /* padding: 1vmax; */
-  border-radius: 10px;
-  width: 85%; /* Adjust width as needed */
-  height: 600px;
-  margin-top: 4vmax;
+  background-color: white;
+  /* padding: 20px; */
+  border-radius: 8px;
+  max-width: 90%;
+  /* max-height: 90%; */
+  width: 100%; /* Adjust map size if needed */
 }
 
 .map-overlay-close {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 1.9vmax;
   cursor: pointer;
-  color: #003266;
-  background-color: #fff;
-  padding: 0.4vmax 0.8vmax;
+  font-size: 24px;
+  color: #333;
 }
+
+
+.home-map {
+  position: relative;
+}
+
+.map-arrow-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  padding: 5px;
+  text-align: center;
+  z-index: 10;
+}
+
+
+.toggle-map-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10; /* Ensures it appears above the map */
+}
+
+
+
+.map-overlay-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #000;
+  z-index: 10;
+}
+
+
 
 /* Style for the iframe */
 .map-overlay iframe {
@@ -812,9 +859,67 @@ font-size: 2vmax;
 }
 
 /* ----------------------------------- */
-
 /* Target the close button in the popup */
 .custom-popup .mapboxgl-popup-close-button {
+  font-size: 32px;
+  width: 32px; 
+  height: 32px; 
+  padding: 0;
+  border-radius: 50%;
+  background-color: #fff;
+  border: none !important;
+}
+
+.salary-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px; 
+  height: 30px; 
+  border-radius: 20%; 
+  background-color: #fff; 
+  color: #000; 
+  font-size: 14px; 
+  font-weight: bold; 
+  text-align: center;
+  line-height: 50px; 
+  border: 2px solid #fff; 
+}
+
+.salary-label {
+  font-size: 14px; 
+  font-weight: bold; 
+  color: #000; 
+}
+.toggle-map-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #fff; 
+  color: #000; 
+  font-size: 16px; 
+  font-weight: bold; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  width: fit-content;
+  margin: 10px auto; 
+  text-align: center; 
+}
+
+.toggle-map-icon:hover {
+  background-color: #fff; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.toggle-map-icon svg {
+  margin-right: 8px; /* Space between the icon and text */
+}
+
+/* Target the close button in the popup */
+/* .custom-popup .mapboxgl-popup-close-button {
   font-size: 32px;
   width: 32px; 
   height: 32px; 
@@ -844,5 +949,5 @@ font-size: 2vmax;
   font-size: 14px; 
   font-weight: bold; 
   color: #000; 
-}
+} */
 
