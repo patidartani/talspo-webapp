@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Whowe.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -6,6 +6,10 @@ import "slick-carousel/slick/slick-theme.css";
 import { fetchTalspoSkilledView } from '../../apiService';
 import talspoIcon from "../../assets/images/talspoIcon.png"
 import FormHr from "./FormHr";
+import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Whowe = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,31 +18,32 @@ const Whowe = () => {
   const [location, setLocation] = useState("");
   const [filteredSkills, setFilteredSkills] = useState([]);
   const [sortOption, setSortOption] = useState("");
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
+  const [showFullMap, setShowFullMap] = useState(false);
+  const smallMapRef = useRef(null);
+  const fullMapRef = useRef(null);
+  const closeModal = () => setIsModalOpen(false);
+  const openModal = () => setIsModalOpen(true);
+  const toggleMapView = () => setShowFullMap(!showFullMap);
 
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Default number of slides
+    slidesToShow: 3,
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
     autoplaySpeed: 2000,
     responsive: [
       {
-        breakpoint: 1150, // Add breakpoint for 1150px
+        breakpoint: 1150,
         settings: {
-          slidesToShow: 1, // Show 1 slide
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 600, // Keep existing 600px breakpoint
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -46,50 +51,131 @@ const Whowe = () => {
       },
     ],
   };
-  
+
   useEffect(() => {
     const fetchSkills = async () => {
       const skillsData = await fetchTalspoSkilledView();
       setSkills(skillsData);
       setFilteredSkills(skillsData);
+
+      // Update skills with coordinates based on location
+      const updatedSkills = await Promise.all(
+        skillsData.map(async (skill) => {
+          const coordinates = await getCoordinates(skill.location);
+          return {
+            ...skill,
+            longitude: coordinates[0],
+            latitude: coordinates[1],
+          };
+        })
+      );
+
+      setFilteredSkills(updatedSkills);
     };
 
     fetchSkills();
-  }, []); 
+  }, []);
 
-  const [showFullMap, setShowFullMap] = useState(false);
-
-  const toggleMapView = () => {
-    setShowFullMap(!showFullMap);
+  const getCoordinates = async (location) => {
+    const response = await fetch(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=pk.eyJ1IjoidGFsc3BvZ3JvdXAiLCJhIjoiY2pxb3ZsZ2V3MWs1ZjQ5cW50cDVmMHB4ciJ9.-7furrxLVkKCZez2khUFqA`
+    );
+    const data = await response.json();
+    if (data.features && data.features.length > 0) {
+      return data.features[0].geometry.coordinates; // [longitude, latitude]
+    }
+    return [0, 0]; // Fallback coordinates
   };
+
+  useEffect(() => {
+    if (smallMapRef.current || fullMapRef.current) {
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoidGFsc3BvZ3JvdXAiLCJhIjoiY2pxb3ZsZ2V3MWs1ZjQ5cW50cDVmMHB4ciJ9.-7furrxLVkKCZez2khUFqA";
+
+      const map = new mapboxgl.Map({
+        container: showFullMap ? fullMapRef.current : smallMapRef.current,
+        center: [78.9629, 20.5937], // Default center
+        zoom: 4,
+      });
+
+      map.on("style.load", () => {
+        filteredSkills.forEach((skill) => {
+          if (skill.longitude && skill.latitude) {
+            const marker = new mapboxgl.Marker({
+              element: createSalaryMarker(skill.salary),
+            })
+              .setLngLat([skill.longitude, skill.latitude])
+              .setPopup(
+                new mapboxgl.Popup({ className: "custom-popup" }).setHTML(`
+                  <div>
+                    <img src="${skill.image}" alt="Skill Image" style="width: 100%; height: auto;" />
+                    <p style="margin-bottom: 8px;"><strong>${skill.title}</strong></p>
+                    <p style="margin-bottom: 8px;"><strong>Description:</strong> ${skill.description}</p>
+                    <div  style="display: flex; justify-content: space-evenly; align-items: center; margin-top: 5px;">
+                     <p style="margin-bottom: 8px;"><strong>Salary:</strong> ₹${skill.salary}</p>
+                    <p style="margin-bottom: 8px;"><strong>Status:</strong> ${skill.status}</p>
+                    <p style="margin-bottom: 8px;"><strong>Location:</strong> ${skill.location}</p>
+                    </div>
+                  </div>
+                `)
+              )
+              .addTo(map);
+
+            function createSalaryMarker(salary) {
+              const markerDiv = document.createElement("div");
+              markerDiv.className = "salary-marker";
+              markerDiv.innerHTML = `<span class="salary-label">${salary}</span>`;
+              return markerDiv;
+            }
+
+            const circleRadius = skill.salary / 1000;
+
+            map.addLayer({
+              id: `salary-circle-${skill.salary}`,
+              type: "circle",
+              source: {
+                type: "geojson",
+                data: {
+                  type: "FeatureCollection",
+                  features: [
+                    {
+                      type: "Feature",
+                      geometry: {
+                        type: "Point",
+                        coordinates: [skill.longitude, skill.latitude],
+                      },
+                      properties: {
+                        salary: skill.salary,
+                      },
+                    },
+                  ],
+                },
+              },
+              paint: {
+                "circle-radius": circleRadius,
+                "circle-opacity": 0.6,
+              },
+            });
+          }
+        });
+      });
+
+      return () => map.remove();
+    }
+  }, [filteredSkills, showFullMap]);
 
   const handleSearch = () => {
     const results = skills.filter((skill) =>
-      skill.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (skill.location.toLowerCase().includes(location.toLowerCase()) ||
-        skill.pinCode.includes(location) ||
-        skill.area.toLowerCase().includes(location.toLowerCase()) ||
-        skill.city.toLowerCase().includes(location.toLowerCase()) ||
-        skill.state.toLowerCase().includes(location.toLowerCase()) ||
-        skill.country.toLowerCase().includes(location.toLowerCase()))
+      skill.name.toLowerCase().includes(location.toLowerCase())
     );
     setFilteredSkills(results);
   };
 
-  const convertCurrency = (amount, currency) => {
-    return `${amount} ${currency}`;
-  };
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-
   const handleSort = (e) => {
     const value = e.target.value;
     setSortOption(value);
+    const sortedSkills = [...filteredSkills];
 
-    let sortedSkills = [...filteredSkills];
     if (value === "salary") {
       sortedSkills.sort((a, b) => b.salary - a.salary);
     } else if (value === "status") {
@@ -99,12 +185,11 @@ const Whowe = () => {
     setFilteredSkills(sortedSkills);
   };
 
-
   return (
     <div className="Whowe-main">
-      {isModalOpen && (
+       {isModalOpen && (
         <div className="modal-overlay-slide">
-         <FormHr closeModal={closeModal} />
+          <FormHr closeModal={closeModal} />
         </div>
       )}
 
@@ -194,13 +279,9 @@ const Whowe = () => {
                           <small>Salary: {skill.salary}</small>
                           <small>Status: {skill.status}</small>
                         </div>
-
-                        <div className="hh">
-                          <span>Location: {skill.location}</span>
-                          <span>Job Type : {skill.jobtype}</span>
-                        </div>
-
-                        <button className="get" onClick={openModal}>Connect</button>
+                        <button className="get" onClick={openModal}>
+                          Connect
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -209,45 +290,61 @@ const Whowe = () => {
             </div>
 
             <div className="home-map">
-              {!showFullMap && (
-                <div className="map-arrow-icon">
-                  <h6 onClick={toggleMapView}>
-                    Show Full Map</h6>
-                </div>
-              )}
+              <div
+                ref={smallMapRef}
+                style={{
+                  width: "100%",
+                  height: "450px",
+                  visibility: showFullMap ? "hidden" : "visible", // Hide small map when full map is visible
+                  position: "relative",
+                }}
+              >
+                {/* Button to toggle full map */}
+                <div className="toggle-map-icon" onClick={toggleMapView}>
+          {showFullMap ? (
+            <>
+              <FontAwesomeIcon icon={faChevronRight} /> Hide Map
+            </>
+          ) : (
+            <>
+              <FontAwesomeIcon icon={faChevronLeft} /> Show Full Map
+            </>
+          )}
+        </div><div className="toggle-map-icon" onClick={toggleMapView}>
+  {showFullMap ? (
+    <>
+      <FontAwesomeIcon icon={faChevronRight} /> Hide Map
+    </>
+  ) : (
+    <>
+      <FontAwesomeIcon icon={faChevronLeft} /> Show Full Map
+    </>
+  )}
+</div>
 
-              <iframe
-                title="Google Map"
-                src="https://www.google.com/maps/embed?..."
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-              />
+              </div>
 
-              {/* Overlay Full Map View */}
+              {/* Display the full map when `showFullMap` is true */}
               {showFullMap && (
                 <div className="map-overlay">
                   <div className="map-overlay-content">
                     <span className="map-overlay-close" onClick={toggleMapView}>
-                      <i className="ri-close-line"></i> {/* Close icon */}
+                      <i className="ri-close-line"></i>
                     </span>
-                    <iframe
-                      title="Google Map"
-                      src="https://www.google.com/maps/embed?..."
-                      width="100%"
-                      height="400"
-                      style={{ border: 0 }}
-                      allowFullScreen=""
-                      loading="lazy"
-                    ></iframe>
+                    <div
+                      ref={fullMapRef}
+                      style={{
+                        width: "100%",
+                        height: "600px",
+                        position: "relative",
+                      }}
+                    />
                   </div>
                 </div>
               )}
             </div>
+            ;
           </div>
-
         </div>
       </div>
     </div>
