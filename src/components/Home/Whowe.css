@@ -384,7 +384,7 @@
 .map-overlay-content {
   position: relative;
   background: #fff;
-  padding: 1vmax;
+  /* padding: 1vmax; */
   border-radius: 10px;
   width: 85%; /* Adjust width as needed */
   height: 600px;
@@ -810,3 +810,39 @@ font-size: 2vmax;
 }
 
 }
+
+/* ----------------------------------- */
+
+/* Target the close button in the popup */
+.custom-popup .mapboxgl-popup-close-button {
+  font-size: 32px;
+  width: 32px; 
+  height: 32px; 
+  padding: 0;
+  border-radius: 50%;
+  background-color: #fff;
+  border: none!important;
+}
+
+.salary-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px; 
+  height: 30px; 
+  border-radius: 20%; 
+  background-color: #fff; 
+  color: #000; 
+  font-size: 14px; 
+  font-weight: bold; 
+  text-align: center;
+  line-height: 50px; 
+  border: 2px solid #fff; 
+}
+
+.salary-label {
+  font-size: 14px; 
+  font-weight: bold; 
+  color: #000; 
+}
+
