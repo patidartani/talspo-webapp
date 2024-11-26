@@ -422,7 +422,7 @@
     padding: 0px;
     /* box-shadow: 0px 1px 2px 0px #929292; */
     border: 0.2px solid #cfcfcf;
-    height: 450px;
+    height: auto;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -433,14 +433,14 @@
 
 .slick-slide .w-box img {
     width: 100%;
-    height: 200px;
+    height: auto;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
 .slick-slide .w-box .text-panel{
     width: 95%;
-    height: 250px;
+    height: auto;
     display: flex;
     align-items: flex-start;
     justify-content:space-between;
