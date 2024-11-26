@@ -4,6 +4,10 @@
           align-items: center;
           justify-content: center;
 }
+.error-message{
+        color: red;
+        font-weight: lighter
+}
 .Form_details .form-content{
           width: 100%;
           display: flex;
@@ -94,15 +98,20 @@
            align-items: flex-start;
            justify-content: flex-start;
            flex-direction: column;
-           margin-top: 1.5vmax;
+           margin-top: 1.1vmax;
 }
-.Form_details .form-content  .content-right .container_data form .form-ipt{
+.Form_details .form-content  .content-right .container_data form .form-ipt {
           width: 100%;
            display: flex;
            align-items: flex-start;
            justify-content: flex-start;
            flex-direction: row;
            gap: 1vmax;
+}
+.Form_details .form-content .content-right .container_data form .form-ipt .error-div{
+display: flex;
+flex-direction: column;
+width: 100%;
 }
 .Form_details .form-content  .content-right .container_data form .form-ipt input{
             width: 100%;

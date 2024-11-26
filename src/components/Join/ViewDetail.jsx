@@ -1,16 +1,48 @@
-import React from 'react'
+import {useState, useEffect} from 'react'
 import "./ViewDetail.css"
 import Navbar from "../../pages/Navbar/Navbar"
 import Footer from "../../pages/Footer/Footer"
 import { useNavigate } from 'react-router-dom'
+import {fetchJobDetail} from "../../apiService"
+import { useParams } from 'react-router-dom';
+import Loading from "../../pages/loading/Loading"
 
 const ViewDetail = () => {
-         const navigate = useNavigate();
 
-         const FormHandler = () => {
-                navigate('/form')
-         }
+        const { id } = useParams();
+        const navigate = useNavigate();
+        const [jobDetail, setJobDetail] = useState(null);
+        const [loading, setLoading] = useState(true);
+        const [error, setError] = useState(null);
+      
+        useEffect(() => {
+                const getJobDetail = async () => {
+                  try {
+                    const data = await fetchJobDetail(id);
+                    console.log('Fetched Job Data:', data); 
+                    console.log('postId', data.id )
+                    if (!data) throw new Error('No job details found.');
+                    setJobDetail(data); 
+                  } catch (err) {
+                    console.error('Error fetching job details:', err); 
+                    setError(err); 
+                  } finally {
+                    setLoading(false);
+                  }
+                };           
+                getJobDetail();
+              }, [id]);
+              
+      
+        if (loading) return <Loading />;
+        if (error) return <p className="error-message">Failed to load job details: {error.message}</p>;
+      
+        const FormHandler = () => {
+          navigate('/form', { state: { postId: jobDetail.id } });
+        };
+        
 
+       
   return (
    <>
    <Navbar />
@@ -18,7 +50,7 @@ const ViewDetail = () => {
            <div className="detail-page">
                  <div className="view-left">
                      <div className="vl-det">
-                         <h5>Front End Developer</h5>
+                         <h5>{jobDetail?.title}</h5>
                           <div className="overview">
                               <h6>Overview</h6>
                               <p>We are seeking a passionate and skilled ReactJS Developer to join our team. This role involves building scalable and efficient web applications using cutting-edge technologies. You will collaborate with a dynamic team of developers, designers, and project managers to deliver impactful user experiences.</p>
@@ -69,15 +101,15 @@ const ViewDetail = () => {
                                 <h5>Job Description:</h5>
                               <div className="jb">
                                         <h6>Role</h6>
-                                        <p>Software department</p>
+                                        <p>{jobDetail?.category}</p>
                               </div>
                               <div className="jb">
                                         <h6>Location</h6>
-                                        <p>Indore</p>
+                                        <p>{jobDetail?.location}</p>
                               </div>
                               <div className="jb">
                                         <h6>Skills</h6>
-                                        <p>React js, Redux, Bootstrap, node</p>
+                                        <p>{jobDetail?.key_skills}</p>
                               </div>
                               <div className="job-flex">
                                <div className="jb">
@@ -86,7 +118,7 @@ const ViewDetail = () => {
                               </div>
                               <div className="jb">
                                         <h6>Experience</h6>
-                                        <p>1 year required</p>
+                                        <p>{jobDetail?.experience}</p>
                               </div>
                                </div>
                               <div className="jb">
@@ -95,7 +127,7 @@ const ViewDetail = () => {
                               </div>
                               <div className="jb">
                                         <h6>Salary</h6>
-                                        <p>50,000-/ per Month</p>
+                                        <p>{jobDetail?.salary}</p>
                               </div>
                               
                               <div className="apply-btn">

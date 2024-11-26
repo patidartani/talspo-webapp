@@ -1,6 +1,5 @@
 import React from 'react'
 import "./HomeBroach.css"
-import networkImg from "../../assets/images/Talspo Connectivity Network Image.png"
 import YlwImg from "../../assets/images/yellowqr.png"
 
 const HomeBroach = () => {
@@ -11,10 +10,8 @@ const HomeBroach = () => {
           <h6>Check Our Company's Latest E-Brochure</h6>
           <img src={YlwImg} alt="" />
         </div>
-        <div className="broch2">
-          <img src={networkImg} alt="" style={{ transform: 'rotate(180deg)' }} />
-          <img src={networkImg} alt="" style={{ transform: 'rotate(0deg)' }} />
-        </div>
+       
+       
         <div className="broch3">
           <h6>Connect with us</h6>
           <button>CONTACT US</button>

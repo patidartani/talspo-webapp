@@ -15,7 +15,7 @@
           color: red;
 }
 .HomeBroach-main .homebroch .broch1{
-       width: 32%;
+       width: 40%;
        display: flex;
        align-items: center;
        justify-content: center;
@@ -29,15 +29,9 @@
 .HomeBroach-main .homebroch .broch1 img{
        width: 100%;
 }
-.HomeBroach-main .homebroch .broch2{
-       width: 32%;
-       display: flex;
-       align-items: center;
-       justify-content: space-evenly;
-       flex-direction: row;
-}
+
 .HomeBroach-main .homebroch .broch3{
-       width: 32%;
+       width: 40%;
        display: flex;
        align-items: center;
        justify-content: center;
