@@ -10,13 +10,15 @@ export const FEATURED_BLOG_URL = `${BASE_URL}/featured-blogs-view`;
 export const BLOG_VIEW_URL = `${BASE_URL}/blog-view`;
 
 export const JOB_POST_URL = `${BASE_URL}/job-post-view`;
+
+
 export const ABOUT_US_URL = `${BASE_URL}/about-us-view`;
 export const TAL_SPO_SKILLED_VIEW_URL = `${BASE_URL}/talspo-skilled-view`;
 export const FILTER_API_URL = `${BASE_URL}/`
 export const FAQ_URL = `${BASE_URL}/faq-view`
 export const TECHNO_URL = `${BASE_URL}/ourpartners-view`
 export const DO_PARTNERSHIP_URL = `${BASE_URL}/partners-view`
-
+export const OUR_TEAM_URL = `${BASE_URL}/team-view`
 
 export const PRIVACY_POLICY_URL = `${BASE_URL}/get-privacypolicy`;
 export const COOKIE_POLICY_URL = `${BASE_URL}/get-cookiespolicy`;
@@ -155,6 +157,10 @@ export const fetchJobPosts = async () => {
     return [];
   }
 };
+
+
+
+
 export const filterOpportunity = async () => {
   try {
     const response = await axios.get(FILTER_API_URL);
@@ -213,6 +219,17 @@ export const faqQuestions = async () => {
   }
 }
 
+export const ourTeam = async () => {
+  try {
+     const response = await axios.get(OUR_TEAM_URL)
+     return response.data || {}
+  } catch (error) {
+     console.log('error our team ', error)
+     return{};
+  }
+}
+
+ 
 
 // ---------------------skilled candidates-------------------------
 
@@ -281,7 +298,6 @@ export const createDirectConnectHR = async (formData) => {
   }
 };
 
-
 // ------------------------------------Technology ----------------------------------------------
 
 export const technologyApi = async () => {
@@ -295,7 +311,6 @@ export const technologyApi = async () => {
 };
 
 // ------------------------------------------- our partners-------------------------------------
-
 
 export const doPartnerhip =  async () => {
   try {
