@@ -1,9 +1,11 @@
-import React from 'react'
+import  {useEffect, useState} from 'react'
 import "./DoPartnership.css"
 import Navbar from '../../pages/Navbar/Navbar';
 import Footer from "../../pages/Footer/Footer"
 import QrImg from "../../assets/images/patnerQrr.png"
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { doPartnerhip } from "../../apiService"
+import Loading from "../../pages/loading/Loading"
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -11,6 +13,52 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 
 const DoPatnership = () => {
+
+  // --------------------partnership api-----------------------------------
+
+  // const [partners, setPartners] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+ useEffect(() => {
+    const fetchPartnershipData = async () => {
+      try {
+        const response = await doPartnerhip(); 
+        console.log("Partnership Data:", response.records); 
+        // setPartners(response.records)
+      } catch (error) {
+        console.error("Error fetching partnership data:", error); 
+      }finally {
+        setLoading(false); 
+      }
+    };
+
+    fetchPartnershipData();
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  const partners = [
+    {
+      name: "ZipERP",
+      image_url: "https://talspo.com/img/partners/ziperp.png",
+      description:
+        "ZipERP is a smart Web based ERP solution primarily designed for Micro and Small enterprises looking for a cost effective solution which can enable them to quickly move away from current manual processes to a fully integrated business solution.",
+      website_url: "http://www.ziperp.net/",
+    },
+    {
+      name: "Inborn Studio",
+      image_url: "https://talspo.com/img/partners/inborn-studio.png",
+      description:
+        "Inborn Studio is a team of thinkers and doers working across brand, design and digital. We turn great ideas into brilliant realities. We're a band of creatives and our clients' biggest champions. We enjoy making companies look better with great design, going above and beyond to please our clients.",
+      website_url: "http://www.inbornstudio.com/",
+    },
+    // Add more partners here if needed
+  ];
+
+   // ---------------------------------------------------------------------
+
   return (
    <>
     <Navbar />
@@ -27,41 +75,36 @@ const DoPatnership = () => {
        </div>
          {/* ------------------------ */}
          <div className="partner-two">
-        <h6>Our Partners</h6>
-        <div className="slider-partner">
-          <Swiper
-            navigation={true}
-            pagination={{ clickable: true }}
-            modules={[Navigation, Pagination]}
-            className="mySwiper"
-          >
-            <SwiperSlide>
-                    <div className="our-partner">
-                              <div className="p-img">
-                                        <img src="https://talspo.com/img/partners/ziperp.png" alt="" />
-                              </div>
-                            <h5>About ZipERP</h5>  
-                            <div className="p-text">
-                               <p>ZipERP is a smart Web based ERP solution primarily designed for Micro and Small enterprises looking for a cost effective solution which can enable them to quickly move away from current manual processes to a fully integrated business solution</p>
-                               <p>To Know More Visit: <a href="">http://www.ziperp.net/</a></p>
-                              </div> 
-                    </div>
+      <h6>Our Partners</h6>
+      <div className="slider-partner">
+        <Swiper
+          navigation={true}
+          pagination={{ clickable: true }}
+          modules={[Navigation, Pagination]}
+          className="mySwiper"
+        >
+          {partners.map((partner, index) => (
+            <SwiperSlide key={index}>
+              <div className="our-partner">
+                <div className="p-img">
+                  <img src={partner.image_url} alt={`Partner ${partner.name}`} />
+                </div>
+                <h5>About {partner.name}</h5>
+                <div className="p-text">
+                  <p>{partner.description}</p>
+                  <p>
+                    To Know More Visit:{" "}
+                    <a href={partner.website_url} target="_blank" rel="noopener noreferrer">
+                      {partner.website_url}
+                    </a>
+                  </p>
+                </div>
+              </div>
             </SwiperSlide>
-            <SwiperSlide>
-            <div className="our-partner">
-                              <div className="p-img">
-                                        <img src="https://talspo.com/img/partners/inborn-studio.png" alt="" />
-                              </div>
-                            <h5>About Inborn Studio</h5>  
-                            <div className="p-text">
-                               <p>Inborn Studio is a team of thinkers and doers working across brand, design and digital. We turn great ideas into brilliant realities. We're a band of creatives and our clients' biggest champions. We enjoy making companies look better with great design, going above and beyond to please our clients.</p>
-                               <p>To Know More Visit: <a href=""> http://www.inbornstudio.com/</a></p>
-                              </div> 
-                    </div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
+          ))}
+        </Swiper>
       </div>
+    </div>
          {/* ------------------------ */}
               <div className="partner-three">
                     <div className="pt-left">
