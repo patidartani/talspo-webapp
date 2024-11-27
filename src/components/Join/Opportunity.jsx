@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchJobPosts , filterOpportunity} from '../../apiService';
+import { fetchJobPosts } from '../../apiService';
 import "./Opportunity.css";
 import Navbar from "../../pages/Navbar/Navbar";
 import Footer from "../../pages/Footer/Footer";
@@ -61,6 +61,11 @@ const removeSkill = (skill) => {
   if (loading) {
     return <Loading />;
   }
+
+  // ---------------------------filter functionality---------------------------------------------------
+
+ 
+  // --------------------------------------------------------------------------------------------------
 
 
   return (
@@ -270,6 +275,9 @@ const removeSkill = (skill) => {
                   disabledClassName={'disabled'}
                 />
               </div>
+
+
+
             </div>
           </div>
         </div>

@@ -54,10 +54,13 @@ const DoPatnership = () => {
         "Inborn Studio is a team of thinkers and doers working across brand, design and digital. We turn great ideas into brilliant realities. We're a band of creatives and our clients' biggest champions. We enjoy making companies look better with great design, going above and beyond to please our clients.",
       website_url: "http://www.inbornstudio.com/",
     },
-    // Add more partners here if needed
   ];
 
-   // ---------------------------------------------------------------------
+   // -------------------------------partnership form --------------------------------------
+
+   
+
+  //  --------------------------------------------------------------------------------------
 
   return (
    <>
@@ -80,7 +83,7 @@ const DoPatnership = () => {
         <Swiper
           navigation={true}
           pagination={{ clickable: true }}
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination]} 
           className="mySwiper"
         >
           {partners.map((partner, index) => (
@@ -89,7 +92,7 @@ const DoPatnership = () => {
                 <div className="p-img">
                   <img src={partner.image_url} alt={`Partner ${partner.name}`} />
                 </div>
-                <h5>About {partner.name}</h5>
+                <h5>  {partner.name}</h5>
                 <div className="p-text">
                   <p>{partner.description}</p>
                   <p>
