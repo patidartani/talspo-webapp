@@ -16,7 +16,7 @@ const DoPatnership = () => {
 
   // --------------------partnership api-----------------------------------
 
-  // const [partners, setPartners] = useState([]);
+  const [partners, setPartners] = useState([]);
   const [loading, setLoading] = useState(true);
 
  useEffect(() => {
@@ -24,7 +24,7 @@ const DoPatnership = () => {
       try {
         const response = await doPartnerhip(); 
         console.log("Partnership Data:", response.records); 
-        // setPartners(response.records)
+        setPartners(response.records)
       } catch (error) {
         console.error("Error fetching partnership data:", error); 
       }finally {
@@ -39,22 +39,7 @@ const DoPatnership = () => {
     return <Loading />;
   }
 
-  const partners = [
-    {
-      name: "ZipERP",
-      image_url: "https://talspo.com/img/partners/ziperp.png",
-      description:
-        "ZipERP is a smart Web based ERP solution primarily designed for Micro and Small enterprises looking for a cost effective solution which can enable them to quickly move away from current manual processes to a fully integrated business solution.",
-      website_url: "http://www.ziperp.net/",
-    },
-    {
-      name: "Inborn Studio",
-      image_url: "https://talspo.com/img/partners/inborn-studio.png",
-      description:
-        "Inborn Studio is a team of thinkers and doers working across brand, design and digital. We turn great ideas into brilliant realities. We're a band of creatives and our clients' biggest champions. We enjoy making companies look better with great design, going above and beyond to please our clients.",
-      website_url: "http://www.inbornstudio.com/",
-    },
-  ];
+ 
 
    // -------------------------------partnership form --------------------------------------
 
@@ -90,15 +75,15 @@ const DoPatnership = () => {
             <SwiperSlide key={index}>
               <div className="our-partner">
                 <div className="p-img">
-                  <img src={partner.image_url} alt={`Partner ${partner.name}`} />
+                  <img src={partner.image} alt={`Partner ${partner.title}`} />
                 </div>
-                <h5>  {partner.name}</h5>
+                <h5>  {partner.title}</h5>
                 <div className="p-text">
                   <p>{partner.description}</p>
                   <p>
                     To Know More Visit:{" "}
-                    <a href={partner.website_url} target="_blank" rel="noopener noreferrer">
-                      {partner.website_url}
+                    <a href={partner.link} target="_blank" rel="noopener noreferrer">
+                      {partner.link}
                     </a>
                   </p>
                 </div>

@@ -401,7 +401,7 @@
      display: flex;
      align-items: center;
      justify-content: space-between;
-     margin-top: 2vmax;
+     margin-top: 1.5vmax;
      flex-direction: row;
 }
 .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .deadline .d-one{
@@ -410,18 +410,32 @@
      align-items: center;
      justify-content: space-between;
      flex-direction: column;
-     gap: 0.5vmax;
+     gap: 0.1vmax;
 }
 .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .deadline .d-one h4{
-     font-size: 0.9vmax;
-     letter-spacing: 0.5px;
+     font-size: 1vmax;
+     letter-spacing: 0.3px;
      font-weight: 600;
 }
 .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .deadline .d-one h6{
-     font-size: 1vmax;
+     font-size: 0.8vmax;
      letter-spacing: 0.2px;
      text-align: center;
 }
+
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .job-active{
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     margin-top: 0.2vmax; 
+}
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .job-active h6{
+    font-size: 0.8vmax;
+    /* font-weight: 600; */
+    letter-spacing: 0.2px;
+}
+
 .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items{
      width: 100%;
      display: flex;
@@ -441,9 +455,9 @@
 }
 
 .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-left h3{
-     font-size: 1vmax;
+     font-size: 0.9vmax;
      background: #cfcfcf41;
-     padding: 0.4vmax 0.7vmax;
+     padding: 0.4vmax 0.8vmax;
      border-radius: 20px;
      color: #7a7a7a;
    }
