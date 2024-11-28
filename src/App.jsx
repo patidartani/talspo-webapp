@@ -32,6 +32,8 @@ import AcceptableUse from "./pages/Footer/privacyPolicy/AcceptableUse"
 // import Test from "./components/Test"
 import ViewDetail from "./components/Join/ViewDetail"
 
+import JobTest from "./components/Join/JobTest"
+
 import StudentServiceModel from "./components/Services/StudentServiceModel"
 import ProfessionalTrainer from "./components/Services/ProfessionalTrainer"
 import CorporateService from "./components/Services/CorporateService"
@@ -94,6 +96,11 @@ const App = () => {
         <Route path="/talspo-api" element={<TalspoAPI/>}/>
 
         {/* <Route path="/test" element={<Test/>}/> */}
+        <Route path="/job-test" element={<JobTest/>}/>
+
+
+
+
       </Routes>
     </div>
   )
