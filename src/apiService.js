@@ -322,4 +322,20 @@ export const doPartnerhip =  async () => {
   }
 }
 
+export const submitCareerForm = async (formData) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/ourpartners-career-form`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    console.log("Career Form Submission Response:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Career Form API Error:", error.response?.data || error.message);
+    throw error.response?.data || { message: "Something went wrong" };
+  }
+};
+
+// -------------------------------------------------------------geo location api-----------------------------------------------
 
