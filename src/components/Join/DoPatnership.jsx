@@ -4,8 +4,10 @@ import Navbar from '../../pages/Navbar/Navbar';
 import Footer from "../../pages/Footer/Footer"
 import QrImg from "../../assets/images/patnerQrr.png"
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { doPartnerhip } from "../../apiService"
+import { doPartnerhip , submitCareerForm} from "../../apiService"
 import Loading from "../../pages/loading/Loading"
+import Swal from "sweetalert2"; // Importing SweetAlert
+
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -18,12 +20,26 @@ const DoPatnership = () => {
 
   const [partners, setPartners] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [message, setMessage ] = useState ("")
+  const [errors, setErrors] = useState({});
+  const [formLoading, setFormLoading] = useState(false);
+
+
+  const [formData, setFormData] = useState({
+    full_name: "",
+    email: "",
+    phone_number: "",
+    company_name: "",
+    company_web_site: "",
+    subject: "",
+    description: "",
+    image: "",
+  });
 
  useEffect(() => {
     const fetchPartnershipData = async () => {
       try {
         const response = await doPartnerhip(); 
-        console.log("Partnership Data:", response.records); 
         setPartners(response.records)
       } catch (error) {
         console.error("Error fetching partnership data:", error); 
@@ -43,7 +59,80 @@ const DoPatnership = () => {
 
    // -------------------------------partnership form --------------------------------------
 
-   
+   const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  
+    // Clear specific error when user starts typing again
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: null // Clear error for the specific field
+    }));
+  };
+  
+
+  const handleFileChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      image: e.target.files[0],
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage("");
+    setErrors({});
+    setFormLoading(true);
+  
+    const data = new FormData();
+    Object.keys(formData).forEach((key) => {
+      data.append(key, formData[key]);
+    });
+  
+    try {
+      const response = await submitCareerForm(data);
+      // console.log("Response:", response);
+  
+      // Check if response.error is false to determine success
+      if (response && response.error === false) {
+        setMessage("Form submitted successfully!");
+  
+        Swal.fire({
+          title: "Success!",
+          text: response.message || "Form submitted successfully!", // Use the success message from the API
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+  
+        // Reset form data after successful submission
+        setFormData({
+          full_name: "",
+          email: "",
+          phone_number: "",
+          company_name: "",
+          company_web_site: "",
+          subject: "",
+          description: "",
+          image: ""
+        });
+        document.querySelector('input[name="image"]').value = null;
+      } else {
+        setMessage(response.message || "Something went wrong!");
+      }
+    } catch (error) {
+      // console.error("Error:", error);
+      setErrors(error.response ? error.response.data.errors : error.message || "Submission failed!");
+      setMessage(error.message || "Submission failed!");
+    } finally {
+      setFormLoading(false); // Set loading to false once submission is complete (whether successful or not)
+    }
+  };
+  
+  
+
 
   //  --------------------------------------------------------------------------------------
 
@@ -108,45 +197,119 @@ const DoPatnership = () => {
               </div>
          {/* ------------------------ */}
          <div className="partner-four">
-                 <h5>Want to Partner </h5>
-                 <h5>With Us? </h5>
-                 <p>Please fill up the form below and if our partnership requirements match, we will get in touch with you very soon.</p>
-                    <div className="partner-form">
-                               <h6>Send Yore Partnership Details</h6>
-                              <form>
-                              <div className="p-inp">
-                              <input type="text" name='name' placeholder='Full Name*' />
-                               </div>  
-                               <div className="p-inp">
-                              <input type="email" name='email' placeholder='Email*' />
-                               </div>  
-                                 <div className="p-inp">
-                               <input type='text' name='number' placeholder='Phone Number*' />
-                               </div>  
-                               <div className="p-inp">
-                               <input type='text' name='name' placeholder='Company Name*' />
-                               </div>  
-                               <div className="p-inp">
-                               <input type='text' name='name' placeholder='Company Website*' />
-                               </div>  
-                               <div className="p-inp">
-                               <input type='text' name='subject' placeholder='Subject*' />
-                               </div>  
-                               <div className="p-inp">
-                               <textarea name="" placeholder='Message*(Describe in few lines about your company and why you want to partner with Talspo' id=""></textarea>
-                               </div>  
-                               <div className="p-inp">
-                                      <p>Please attach your company proposal. Click here to submit a Google Drive link instead.</p>
-                               </div>
-                               <div className="p-inp">
-                                        <input type="file" />
-                               </div>
-                               <div className="p-btn">
-                                        <button>SUBMIT</button>
-                                        </div>  
-                            </form>
-                    </div>
-         </div>
+  <h5>Want to Partner </h5>
+  <h5>With Us? </h5>
+  <p>
+    Please fill up the form below and if our partnership requirements match,
+    we will get in touch with you very soon.
+  </p>
+  <div className="partner-form">
+    <h6>Send Your Partnership Details</h6>
+    <form onSubmit={handleSubmit}>
+      <div className="p-inp">
+        <input
+          type="text"
+          name="full_name"
+          placeholder="Full Name*"
+          value={formData.full_name}
+          onChange={handleChange}
+        />
+        {errors.full_name && <small className="error-p">{errors.full_name[0]}</small>}
+      </div>
+      <div className="p-inp">
+        <input
+          type="email"
+          name="email"
+          placeholder="Email*"
+          value={formData.email}
+          onChange={handleChange}
+        />
+        {errors.email && <small className="error-p">{errors.email[0]}</small>}
+      </div>
+      <div className="p-inp">
+  <input
+    type="tel"
+    name="phone_number"
+    placeholder="Phone Number*"
+    value={formData.phone_number}
+    onChange={(e) => {
+      const value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
+      if (value.length <= 10) {
+        setFormData({
+          ...formData,
+          phone_number: value
+        });
+      }
+    }}
+    maxLength="10" // Limits the input to 10 digits
+  />
+  {errors.phone_number && <small className="error-p">{errors.phone_number[0]}</small>}
+</div>
+
+      <div className="p-inp">
+        <input
+          type="text"
+          name="company_name"
+          placeholder="Company Name*"
+          value={formData.company_name}
+          onChange={handleChange}
+        />
+        {errors.company_name && <small className="error-p">{errors.company_name[0]}</small>}
+      </div>
+      <div className="p-inp">
+        <input
+          type="text"
+          name="company_web_site"
+          placeholder="Company Website*"
+          value={formData.company_web_site}
+          onChange={handleChange}
+        />
+        {errors.company_web_site && <small className="error-p">{errors.company_web_site[0]}</small>}
+      </div>
+      <div className="p-inp">
+        <input
+          type="text"
+          name="subject"
+          placeholder="Subject*"
+          value={formData.subject}
+          onChange={handleChange}
+        />
+        {errors.subject && <small className="error-p">{errors.subject[0]}</small>}
+      </div>
+      <div className="p-inp">
+        <textarea
+          name="description"
+          placeholder="Message* (Describe your company and why you want to partner with Talspo)"
+          value={formData.description}
+          onChange={handleChange}
+        ></textarea>
+        {errors.description && <small className="error-p">{errors.description[0]}</small>}
+      </div>
+      <div className="p-inp">
+        <p>
+          Please attach your company proposal. Click here to submit a Google Drive link instead.
+        </p>
+      </div>
+      <div className="p-inp">
+        <input type="file" name='image' onChange={handleFileChange} />
+        {errors.image && <small className="error-p">{errors.image[0]}</small>}
+      </div>
+      <div className="p-btn">
+      <button type="submit" disabled={formLoading}>
+    {formLoading ? (
+      <div className="submit-loader"></div>  // Show loader when the form is loading
+    ) : (
+      "SUBMIT"
+    )}
+  </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+         {/* ------------------------ */}
+
 
     </div>
     <Footer />

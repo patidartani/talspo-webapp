@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { fetchJobPosts } from '../../apiService';
 import "./Opportunity.css";
@@ -10,6 +11,7 @@ import Loading from "../../pages/loading/Loading";
 import { formatDistanceToNow } from 'date-fns';
 import opt1Img from "../../assets/images/opt1.png";
 
+
 const Opportunity = () => {
   const [filterData, setFilterData] = useState({
     location: [],
@@ -17,7 +19,8 @@ const Opportunity = () => {
     job_type: [],
     work_from: [],
     duration: [],
-    key_skills : []
+    key_skills : [],
+    title: []
   });
 
   const [selectedLocation, setSelectedLocation] = useState("");
@@ -25,6 +28,10 @@ const Opportunity = () => {
   const [selectedJobtype, setSelectedJobtype] = useState('');
   const [selectedWorkEnvironment, setSelectedWorkEnvironment] = useState('');
   const [selectedDuration, setSelectedDuration] = useState('');
+
+  const [selectedTitle, setSelectedTitle] = useState('');
+  const [searchInput, setSearchInput] = useState('');
+    const [filteredTitles, setFilteredTitles] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [jobs, setJobs] = useState([]);
@@ -51,11 +58,9 @@ const Opportunity = () => {
 const [selectedSkills, setSelectedSkills] = useState([]);
 
 
-
-
 // ------------------------------------------------------------------------------------------------------------------------
 
-  const fetchFilters = async (location = "", experience = "", job_type = "", work_from = "", duration = "", key_skills = "") => {
+  const fetchFilters = async (location = "", experience = "", job_type = "", work_from = "", duration = "", key_skills = "", title = "") => {
     try {
       setLoading(true);
       const queryParam = [
@@ -65,6 +70,7 @@ const [selectedSkills, setSelectedSkills] = useState([]);
         work_from ? `work_from=${encodeURIComponent(work_from)}` : '',
         duration ? `duration=${encodeURIComponent(duration)}` : '',
         key_skills ? `key_skills=${encodeURIComponent(key_skills)}` : '',
+        title ? `title=${encodeURIComponent(title)}` : '',
       ]
       .filter(Boolean)
       .join('&');
@@ -83,14 +89,17 @@ const [selectedSkills, setSelectedSkills] = useState([]);
       const uniqueDuration = [...new Set(data.data.data.map((item) => item.duration).filter((dur) => dur !== null))];
       const uniqueKeySkills = [...new Set(data.data.data.map((item) => item.key_skills).flat().filter((skill) => skill !== null))];
 
+      const uniqueTitle = [...new Set(data.data.data.map((item) => item.title).filter((tit) => tit !== null))];
+
       setFilterData((prev) => ({
         ...prev,
         location: uniqueLocations,
         experience: uniqueExperience,
         job_type: uniqueJobTypes,
         work_from: uniqueWorkFrom,
-        duration: uniqueDuration, // Set duration data
+        duration: uniqueDuration,
         key_skills: uniqueKeySkills,
+        title: uniqueTitle
       }));
 
       // Apply filter if location, experience, job_type, work_from, and duration are selected
@@ -101,14 +110,15 @@ const [selectedSkills, setSelectedSkills] = useState([]);
           (job_type ? job.job_type === job_type : true) &&
           (work_from ? job.work_from === work_from : true) &&
           (duration ? job.duration === duration : true) && 
-          (key_skills ? job.key_skills?.includes(key_skills) : true)        );
+          (key_skills ? job.key_skills?.includes(key_skills) : true)  &&
+          (title ? job.title.toLowerCase().trim() === title.toLowerCase().trim() : true)
+        );
       });
 
-      
-
       setJobs(filteredJobs);
-      console.log('filteredJobs', filteredJobs)
-      setLoading(false);
+      console.log("Filtering by title:", title);
+      console.log("Jobs after title filter:", filteredJobs);
+            setLoading(false);
     } catch (error) {
       console.error("Error fetching filter data:", error);
       setLoading(false);
@@ -155,8 +165,7 @@ const [selectedSkills, setSelectedSkills] = useState([]);
             selectedDuration,
             key_skills
           );
-        };
-        
+        }; 
 
   const handleClearAll = async () => {
     setSelectedLocation("");
@@ -172,6 +181,45 @@ const [selectedSkills, setSelectedSkills] = useState([]);
     setLoading(false);
   };
 
+  const handleLatestJobs = () => {
+    const sortedJobs = [...jobs].sort((a, b) => {
+      const dateA = new Date(a.updated_at || a.created_at);
+      const dateB = new Date(b.updated_at || b.created_at);
+      return dateB - dateA;
+    });
+    setJobs(sortedJobs);
+  };
+
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchInput(value);
+  
+    const filtered = filterData.title.filter((title) =>
+      title.toLowerCase().includes(value.toLowerCase())
+    );
+    console.log("Filtered Titles:", filtered); 
+    setFilteredTitles(filtered);
+  };
+  
+  const handleTitleSelect = (title) => {
+    setSearchInput(title); // Set the search input to the selected title
+    setFilteredTitles([]); 
+    setSelectedTitle(title); // Set the selected title
+    // Apply the filter based on the selected title
+    fetchFilters(
+      selectedLocation, 
+      selectedExperience, 
+      selectedJobtype, 
+      selectedWorkEnvironment, 
+      selectedDuration, 
+      selectedSkills, // Ensure skills are passed as needed
+      title // Pass the title as the last parameter
+    );
+    
+    
+  };
+  
   const viewDetailHandler = (id) => {
     navigate(`/view-detail/${id}`);
   };
@@ -324,17 +372,16 @@ const [selectedSkills, setSelectedSkills] = useState([]);
                         </div>
                     </div>
 
-                    <div className="latest">
-                      <h4>Latest Jobs Available</h4>
-                        <div className="latest-btn">
-                          <button>Get Latest jobs</button>
-                        </div>
-                    </div>
-
+            <div className="latest">
+            <h4>Latest Jobs Available</h4>
+            <div className="latest-btn">
+              <button onClick={handleLatestJobs}>Get Latest jobs</button>
+            </div>
+          </div>
                     <div className="skills">
   <h4>Skills</h4>
   <div className="skills-search">
-    <select value={selectedSkills} onChange={handleSkillChange}>
+    <select value={selectedSkills} onChange={handleSkillChange} > 
       <option value="" disabled>
         Select Skill
       </option>
@@ -351,8 +398,7 @@ const [selectedSkills, setSelectedSkills] = useState([]);
       )}
     </select>
   </div>
-
-  
+ 
 </div>
 
 
@@ -369,9 +415,31 @@ const [selectedSkills, setSelectedSkills] = useState([]);
               <div className="jobs-page">
                 <div className="job-search">
                   <div className="ipt-job">
-                    <input type="text" placeholder="Search Jobs for skills,location.." />
+                    <input
+                      type="text"
+                      placeholder="Search Jobs..."
+                      value={searchInput}
+                      onChange={handleSearchChange}
+                    />
                     <img src={iconSearch} alt="Search Icon" />
                   </div>
+                 
+                 <div className="job-selection-list">
+                 {searchInput && filteredTitles.length > 0 && (
+                    <div className="suggestions-list">
+                      {filteredTitles.map((title, index) => (
+                        <div
+                          key={index}
+                          className="suggestion-item"
+                          onClick={() => handleTitleSelect(title)}
+                        >
+                          {title}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                 </div>
+
                 </div>
                 {currentJobs.length === 0 ? (
                   <div className="no-jobs-message">
@@ -445,3 +513,4 @@ const [selectedSkills, setSelectedSkills] = useState([]);
 };
 
 export default Opportunity;
+
