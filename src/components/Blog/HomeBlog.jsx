@@ -10,7 +10,7 @@ const HomeBlog = () => {
    useEffect(() => {
       const fetchBlogs = async () => {
          const posts = await featuredBlogPosts(); // Fetch the blog posts
-         console.log("Fetched blog posts:", posts);
+         // console.log("Fetched blog posts:", posts);
          setBlogs(posts); // Store the posts in state
       };
 

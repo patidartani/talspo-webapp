@@ -1,106 +1,14 @@
-.about-container {
-        margin-left: 20px;
-        margin-left: 20px;
-}
-
-.about_container h1 {
-        margin-top: 100px;
-        text-align: center;
-}
-
-.about_container p {
-        text-align: center;
-        color: #333;
-        font-size: 18px;
-}
-
-.about_container img {
-        width: 100%;
-        height: 400px;
-}
-
-.about_us {
-        margin-top: 20px;
-        width: 100%;
-}
-.about_us, .about_text {
-        margin-top: 3rem;
-        padding: 2rem 0;
-      }
-      
-      .about_box {
-        text-align: center;
-        margin-bottom: 1.5rem;
-      }
-      
-      .about_box h2 {
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #003266;
-        margin-bottom: 1rem;
-      }
-      
-      .about_btn {
-        background-color: #003266;
-        color: #fff;
-        padding: 0.5rem 1.5rem;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: background-color 0.3s ease;
-      }
-      
-      .about_btn:hover {
-        background-color: #002244;
-      }
-      
-      .about_con, .about_text > div {
-        font-size: 1rem;
-        color: #444;
-        line-height: 1.6;
-      }
-      
-      .about_text img {
-        width: 100%;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-      }
-      
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .about_box h2 {
-          font-size: 2rem;
-        }
-      
-        .about_con, .about_text > div {
-          font-size: 0.95rem;
-        }
-      
-        .about_btn {
-          font-size: 0.9rem;
-          padding: 0.5rem 1rem;
-        }
-      }
-      
-      @media (max-width: 576px) {
-        .about_box h2 {
-          font-size: 1.8rem;
-        }
-      
-        .about_btn {
-          font-size: 0.85rem;
-          padding: 0.4rem 0.9rem;
-        }
-      }
-      
-/* --------------------------------------------------- */
 
 .AboutUs-container {
         width: 100%;
+        height: auto;
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: #f0f0f0;
+        padding-top: 2vmax;
+        padding-bottom: 2vmax;
+        flex-direction: column;
 }
 
 .AboutUs-container .about-content {
@@ -159,134 +67,392 @@
         align-items: flex-start;
         justify-content: space-between;
         flex-direction: column;
-        margin-top: 2vmax;
-        gap: 3vmax;
-}
+        margin-top: 1vmax;
+        border-top: 1px solid #bfbfbf;
+        border-bottom: 1px solid #bfbfbf;
 
-.AboutUs-container .about-content .about-btm .about-box {
+}
+.AboutUs-container .about-content .about-btm .tabs-about{
         width: 100%;
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        flex-direction: column;
-        gap: 0.2vmax;
-}
-
-.AboutUs-container .about-content .about-btm .about-box h5 {
-        font-weight: 600;
-}
-
-.AboutUs-container .about-content .about-btm .about-box .about-img {
-        width: 100%;
-        height: 400px;
-        background: #aeaeae;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: row;
+        gap: 0.3vmax;
+        margin-top: 3.5vmax;
+}
+.AboutUs-container .about-content .about-btm .tabs-about   .about-tab,
+.AboutUs-container .about-content .about-btm .tabs-about   .journey-tab,
+.AboutUs-container .about-content .about-btm .tabs-about   .values-tab,
+.AboutUs-container .about-content .about-btm .tabs-about .logo-story-tab,
+.AboutUs-container .about-content .about-btm .tabs-about .ipr-tab,
+.AboutUs-container .about-content .about-btm .tabs-about .recognition-tab{
+        border: none;
+        font-size: 1.3vmax;
+        color: #393939;
+        letter-spacing: 0.3px;
+        border-radius: 50px;
+        padding: 0.3vmax 1.2vmax;
 }
 
-.AboutUs-container .about-content .about-btm .about-box .about-img img {
+.tabs-about button.active {
+        background-color: #003266;
+        color: #fff !important;
+}
+
+.AboutUs-container .about-content .about-btm .tabs-content{
         width: 100%;
-        height: 400px;
-
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 1vmax;
+        margin-top: 2vmax;
+        background-color: #fff;
+        padding: 1vmax;
+        margin-bottom: 7vmax;
+        
 }
 
+.AboutUs-container .extra-content{
+        width: 70%;
+        gap: 2vmax;
+}
+.AboutUs-container .extra-content h5{
+       font-size: 1.7vmax;
+       font-weight: 600;
+}
+.AboutUs-container .extra-content p{
+        font-size: 1.3vmax;
+        font-weight: 600;
+ }
+ .AboutUs-container .extra-content small{
+        font-size: 1vmax;
+        letter-spacing: 0.5px;
+ }
+.AboutUs-container .extra-content .extra-two{
+        margin-top: 2.5vmax;
+ }
+ .AboutUs-container .extra-content .extra-two  .two-extra{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 3vmax;
+        background: #fff;
+        padding: 2vmax;
+        margin-top: 1vmax;
+ }
+ .AboutUs-container .extra-content .extra-two  .two-extra .extraLeft,
+ .AboutUs-container .extra-content .extra-two  .two-extra .extraRight{       
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+ }
+ .AboutUs-container .extra-content .extra-two  .two-extra .extraLeft h6,
+ .AboutUs-container .extra-content .extra-two  .two-extra .extraRight h6{      
+      font-size: 1.5vmax;
+ }
+ .AboutUs-container .extra-content  h4{
+      font-size: 1.1vmax;
+      margin-top: 2vmax;
+      color: #535353;
+ }
+
+ .AboutUs-container .extra-content .know-team-btn{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+ }
+ .AboutUs-container .extra-content .know-team-btn button{
+      border: none;
+      background-color: #003266;
+      color: #fff;
+      padding: 0.7vmax 2vmax;
+      border-radius: 10px;
+ }
+
+/* ---------------------------slider about---------------------------- */
+
+.AboutUs-container .slider-about{
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-top: 2vmax;
+        margin-top: 2vmax;
+}
+.AboutUs-container .slider-container {
+        width: 100%;
+        overflow: visible;
+        position: relative; 
+    }
+    
+    .AboutUs-container .slick-slider {
+        margin: 0 auto; 
+    }
+    
+    .AboutUs-container .slick-slide {
+        padding: 0 13px; 
+        box-sizing: border-box;
+    }
+    
+    .AboutUs-container .extra-slide {
+        border: 4px solid red;
+        width: 100%; 
+background-color: yellow;
+        height: 200px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center !important;
+        justify-content: center !important; 
+        flex-direction: column;
+        cursor: pointer;
+    }
+    .AboutUs-container .extra-slide   .extra-slide-image{
+        width: 100%;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .AboutUs-container .extra-slide img{
+       width: 30%;
+    }
+    .AboutUs-container .extra-slide a{
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        font-size: 1.2vmax;
+        font-weight: 600;
+        text-decoration: none;
+        color: #000;
+     }
+    
+/* Container for arrows */
+.AboutUs-container .slick-prev,
+.AboutUs-container .slick-next {
+    width: 30px; /* Adjust size */
+    height: 30px;
+    color: #000; /* Icon color */
+    border-radius: 50%; /* Make it circular */
+    border: 2px solid black; /* Add a border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1; /* Ensure they are above other elements */
+}
+.AboutUs-container .slick-prev {
+    left: -50px; /* Adjust positioning */
+}
+.AboutUs-container .slick-next {
+    right: -50px; /* Adjust positioning */
+}
+.AboutUs-container .slick-prev::before,
+.AboutUs-container .slick-next::before {
+    content: ''; /* Removes the default arrow content */
+}
+
+
+.AboutUs-container .qr-code-about{
+        margin-top: 2vmax;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1vmax;
+}
+.AboutUs-container .qr-code-about img{
+        width: 20%;
+}
+.AboutUs-container .qr-code-about button{
+      border: none;
+      background-color: #003266;
+      color: #fff;
+      padding: 0.6vmax 1vmax;
+      border-radius: 10px;
+}
+.AboutUs-container .qr-code-about h6{
+        font-weight: 600;
+        font-size: 1.5vmax;
+        margin-top: 1vmax;
+  }
+  .AboutUs-container .qr-code-about h5{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      margin-top: 2vmax;
+      gap: 1vmax;
+   border-bottom: 1px solid rgb(118, 118, 118);
+      margin-bottom: 2vmax;
+  }
+  .AboutUs-container .qr-code-about h5 a{
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+    }
+    .AboutUs-container .qr-code-about h5 a img{
+        width: 30%;
+       }
 
 @media (max-width:600px) {
-        .AboutUs-container {
-                width: 100%;
-                padding-top: 10vmax;
-        }
-
-        .AboutUs-container .about-content {
-                width: 95%;
-        }
-
-        .AboutUs-container .about-content .about-top {
-                width: 100%;
-                height: 200px;
-                flex-direction: column;
-        }
-
-        .AboutUs-container .about-content .about-top .a-left {
-                width: 100%;
-        }
-
-        .AboutUs-container .about-content .about-top .a-left h6 {
-                font-size: 4vmax;
-        }
-
-        .AboutUs-container .about-content .about-top .a-left p {
-                font-size: 2.5vmax;
-        }
-
-        .AboutUs-container .about-content .about-top .a-right {
-                width: 100%;
-        }
-
-        .AboutUs-container .about-content .about-top .a-right img {
-                width: 100%;
-        }
-
-        .AboutUs-container .about-content .about-btm {
-                width: 100%;
-                margin-top: 25vmax;
-        }
-
-        .AboutUs-container .about-content .about-btm .about-box {
-                width: 100%;
-
-        }
+    
+.AboutUs-container {
+        width: 100%
 }
 
+.AboutUs-container .about-content {
+        width: 95%;
+}
+
+.AboutUs-container .about-content .about-top {
+        width: 100%;
+        height: 300px;
+}
+.AboutUs-container .about-content .about-top .a-left h6 {
+        font-size: 4vmax;
+}
+.AboutUs-container .about-content .about-top .a-left p {
+        font-size: 2vmax;
+}
+.AboutUs-container .about-content .about-top .a-right {
+        width: 50%;
+}
+
+.AboutUs-container .about-content .about-top .a-right img {
+        width: 100%;
+}
+
+.AboutUs-container .about-content .about-btm {
+        width: 95%;
+        align-items: center;
+}
+.AboutUs-container .about-content .about-btm .tabs-about{
+        width: 100%;
+        align-items: center;
+        gap: 0.5vmax;
+}
+.AboutUs-container .about-content .about-btm .tabs-about   .about-tab,
+.AboutUs-container .about-content .about-btm .tabs-about   .journey-tab,
+.AboutUs-container .about-content .about-btm .tabs-about   .values-tab,
+.AboutUs-container .about-content .about-btm .tabs-about .logo-story-tab,
+.AboutUs-container .about-content .about-btm .tabs-about .ipr-tab,
+.AboutUs-container .about-content .about-btm .tabs-about .recognition-tab{
+        font-size: 1.2vmax;
+        letter-spacing: 0px;
+}
+.tabs-about button.active {
+        background-color: #003266;
+        color: #fff !important;
+}
+
+
+/* ---------------------------slider about---------------------------- */
+
+.AboutUs-container .slider-about{
+        width: 70%
+} 
+    .AboutUs-container .extra-slide {
+        height: auto;
+    }
+    .AboutUs-container .extra-slide   .extra-slide-image{
+        width: 100%;
+        height: auto;
+        margin-top: 2vmax;
+    }
+    .AboutUs-container .extra-slide a{
+        font-size: 2.5vmax
+     }
+
+.AboutUs-container .qr-code-about{
+        width: 80%;
+}
+.AboutUs-container .qr-code-about img{
+        width: 90%;
+}
+.AboutUs-container .qr-code-about button{
+      padding: 1.4vmax 2vmax;
+      margin-top: 2vmax;
+}
+.AboutUs-container .qr-code-about h6{
+        font-size: 3vmax;
+  }
+  .AboutUs-container .qr-code-about h5{
+      width: 100%;
+      overflow: hidden;
+      flex-wrap: wrap;
+  }
+  .AboutUs-container .qr-code-about h5 a{
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+    }
+    .AboutUs-container .qr-code-about h5 a img{
+        width: 10%;
+       }
+
+
+   
+}
 @media (min-width:600px) and (max-width:1150px) {
+    
         .AboutUs-container {
-                width: 100%;
-                padding: 5vmax;
+                width: 100%
         }
-
+        
         .AboutUs-container .about-content {
                 width: 95%;
         }
-
+        
         .AboutUs-container .about-content .about-top {
-                width: 100%;
-                height: auto;
-                flex-direction: column;
+                width: 95%;
+                height: 300px;
         }
-
-        .AboutUs-container .about-content .about-top .a-left {
-                width: 100%;
-        }
-
         .AboutUs-container .about-content .about-top .a-left h6 {
                 font-size: 4vmax;
         }
-
         .AboutUs-container .about-content .about-top .a-left p {
-                font-size: 2.5vmax;
+                font-size: 2vmax;
         }
-
         .AboutUs-container .about-content .about-top .a-right {
-                width: 100%;
+                width: 50%;
         }
-
+        
         .AboutUs-container .about-content .about-top .a-right img {
                 width: 100%;
         }
-
+        
         .AboutUs-container .about-content .about-btm {
-                width: 100%;
-                margin-top: 5vmax;
+                width: 95%;
+                align-items: center;
         }
-
-        .AboutUs-container .about-content .about-btm .about-box {
+        .AboutUs-container .about-content .about-btm .tabs-about{
                 width: 100%;
-
-        } .AboutUs-container .about-content .about-btm .about-box h5 {
-                font-size: 3vmax;
-           }
-        .AboutUs-container .about-content .about-btm .about-box p {
-             font-size: 2vmax;
+                align-items: center;
+                gap: 1vmax;
         }
-}
+        .AboutUs-container .about-content .about-btm .tabs-about   .about-tab,
+        .AboutUs-container .about-content .about-btm .tabs-about   .journey-tab,
+        .AboutUs-container .about-content .about-btm .tabs-about   .values-tab,
+        .AboutUs-container .about-content .about-btm .tabs-about .logo-story-tab,
+        .AboutUs-container .about-content .about-btm .tabs-about .ipr-tab,
+        .AboutUs-container .about-content .about-btm .tabs-about .recognition-tab{
+                font-size: 1.8vmax;
+                letter-spacing: 1px;
+                padding: 1vmax 1.5vmax;
+        }
+           
+        }
+        
+
+

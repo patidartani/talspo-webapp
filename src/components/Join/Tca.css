@@ -120,8 +120,157 @@
           color: #333;
           background-color: #ffffff;
         }
+/* ------------------------------------------------------------------------------------------------------------- */
+/* Adjust the overall form styling */
+.Faq-main .tca-forms-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 4vmax;
+}
+
+.Faq-main .tca-forms-content .tca-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Faq-main .tca-forms-content .tca-form .formm {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #afafaf;
+  padding: 2vmax;
+  border-radius: 10px;
+}
+
+.Faq-main .tca-forms-content .tca-form .formm h5 {
+  font-weight: 600;
+  font-size: 1.6vmax;
+  letter-spacing: 1px;
+}
+
+.Faq-main .tca-forms-content .tca-form .formm span {
+  font-weight: 600;
+  font-size: 1.1vmax;
+}
+
+.Faq-main .tca-forms-content .tca-form .formm p {
+  margin-top: 1vmax;
+}
+
+.Faq-main .tca-forms-content .tca-form .formm form {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3vmax;
+  flex-direction: column;
+}
+
+ .campus-ipt {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+ input,
+ select,
+ textarea {
+  width: 100%;
+  outline: none;
+  padding: 0.5vmax 1vmax;
+  border-radius: 5px;
+  border: 1px solid #bababa;
+}
+
+ label {
+  letter-spacing: 0.3px;
+}
+
+.campus-ipts{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  justify-content: flex-start;
+
+}
+
+.iptssss{
+   gap: 2vmax;
+   margin-top: 0.5vmax;
+}
+.radio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  margin: 0 10px;
+  gap: 10px; /* Space between label and radio button */
+}
+
+.radio label {
+  margin: 0; /* Remove extra space */
+}
+
+.radio input[type="radio"] {
+  margin: 0; /* Remove default space */
+}
+
+.conditional-form{
+  margin-top: 1vmax;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.conditional-form h6{
+  font-size: 1.4vmax;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+ .school-form,
+ .clg-form,
+ .company-form,
+ .org-form{
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1vmax;
+ }
+
+.submit-form{
+  border: none;
+  background: none;
+  background-color: #003266;
+  color: #fff;
+  padding: 0.7vmax 1.5vmax;
+  border-radius: 10px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------- */
         
         @media (max-width:600px) {
+          .Faq-main .tca-forms-content .tca-form .formm {
+            width: 95%;
+           
+          }
+          .Faq-main .tca-forms-content .tca-form .formm form {
+            gap: 2vmax;
+           
+          }
           .Faq-main {
             width: 100%;
             padding-top: 10vmax;

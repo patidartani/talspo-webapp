@@ -11,6 +11,7 @@ import Loading from "../../pages/loading/Loading";
 import { formatDistanceToNow } from 'date-fns';
 import opt1Img from "../../assets/images/opt1.png";
 
+import { getDistance } from "geolib";
 
 const Opportunity = () => {
   const [filterData, setFilterData] = useState({
@@ -56,6 +57,63 @@ const Opportunity = () => {
 
 //   --------------------------------------sorting functionality----------------------------------------------------------
 const [selectedSkills, setSelectedSkills] = useState([]);
+
+const getUserLocation = () => {
+  return new Promise((resolve, reject) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          resolve({ latitude, longitude });
+        },
+        (error) => {
+          reject("Error fetching location: " + error.message);
+        }
+      );
+    } else {
+      reject("Geolocation is not supported by this browser.");
+    }
+  });
+};
+
+
+const haversineDistance = (lat1, lon1, lat2, lon2) => {
+  const R = 6371; // Radius of Earth in kilometers
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lon2 - lon1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c; // Distance in kilometers
+};
+
+const handleSortJobsByLocation = async () => {
+  try {
+    // Get user's current location
+    const { latitude, longitude } = await getUserLocation();
+
+    // Sort jobs by distance from user's location
+    const sortedJobs = [...jobs].map((job) => {
+      const jobLatitude = parseFloat(job.latitude);
+      const jobLongitude = parseFloat(job.longitude);
+
+      if (!isNaN(jobLatitude) && !isNaN(jobLongitude)) {
+        const distance = haversineDistance(latitude, longitude, jobLatitude, jobLongitude);
+        return { ...job, distance };
+      } else {
+        return { ...job, distance: Infinity };
+      }
+    }).sort((a, b) => a.distance - b.distance); // Sort jobs based on the distance
+
+    setJobs(sortedJobs); // Update the job list with sorted jobs
+  } catch (error) {
+    console.error("Error fetching location or sorting jobs:", error);
+  }
+};
 
 
 // ------------------------------------------------------------------------------------------------------------------------
@@ -365,12 +423,13 @@ const [selectedSkills, setSelectedSkills] = useState([]);
                      <p>Sort Jobs based on the options given below</p>
                      <div className="sort-btm">
 
-                    <div className="closest">
-                      <h4>Find Jobs closest to your location</h4>
-                        <div className="location-btn">
-                          <button>sort jobs</button>
-                        </div>
-                    </div>
+                     <div className="closest">
+  <h4>Find Jobs closest to your location</h4>
+  <div className="location-btn">
+    <button onClick={handleSortJobsByLocation}>Sort Jobs</button>
+  </div>
+</div>
+
 
             <div className="latest">
             <h4>Latest Jobs Available</h4>
@@ -399,7 +458,7 @@ const [selectedSkills, setSelectedSkills] = useState([]);
     </select>
   </div>
  
-</div>
+                  </div>
 
 
                     <div className="clear-all-sort">

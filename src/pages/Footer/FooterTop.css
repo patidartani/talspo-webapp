@@ -45,14 +45,21 @@
           width: 35%;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
           flex-direction: column;
           gap: 1vmax;
           border-left: 1px solid #003266;
           border-right: 1px solid #003266;
-
           padding: 2vmax;
+          position: relative;
 }
+.FooterTop-main .Footer-Top-page .footer2 h6{
+     font-size: 1.5vmax;
+     font-weight: 600;
+      position: absolute;
+      bottom: 14vmax;
+}
+
 .FooterTop-main .Footer-Top-page .footer2 .f_btn{
           color: #003266;
           border-radius: 5px;
@@ -91,8 +98,10 @@
         /* text-decoration: none; */
         color: #000;
         font-weight: 600;
-        font-size: 1.7vmax;
+        font-size: 2vmax;
+        margin: 0 15px;
 }
+
 
 .footer3 h5 a img {
        /* width: 30px;  */

@@ -9,7 +9,24 @@ import Loading from '../../pages/loading/Loading'; // Import the Loading compone
 import { Link } from 'react-router-dom';
 import IconBlog from "../../assets/images/talspoIcon.png"
 
+import ReactPaginate from "react-paginate";
+import BlogText from './BlogText';
+
 const Blog = () => {
+
+
+  const blogsPerPage = 4; // Number of blogs per page
+  const [currentPage, setCurrentPage] = useState(0);
+
+  
+
+  // Handle page click
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+  };
+
+
+
   const [blogPosts, setBlogPosts] = useState([]);
   const [featuredBlogs, setFeaturedBlogs] = useState([]);
   const [showAllPosts, setShowAllPosts] = useState(false);
@@ -52,6 +69,11 @@ const Blog = () => {
     return <Loading />;
   }
 
+  // Calculate blogs for the current page
+  const offset = currentPage * blogsPerPage;
+  const currentBlogs = featuredBlogs.slice(offset, offset + blogsPerPage);
+  const pageCount = Math.ceil(featuredBlogs.length / blogsPerPage);
+
   return (
     <>
       <Navbar />
@@ -91,6 +113,7 @@ const Blog = () => {
               )}
             </div>
           </div>
+
           <div className="Blog-search">
             <div className="ipt-blg">
               <input type="text" placeholder="Search Blogs.." />
@@ -100,41 +123,67 @@ const Blog = () => {
 
           {/* ----------------- Featured Posts Section ----------------- */}
           <div className="blog-container">
-            <h6>Featured Blogs</h6>
-            <div className="blog-content">
-              <div className="blog_list">
-                {Array.isArray(featuredBlogs) && featuredBlogs.length > 0 ? (
-                  featuredBlogs.map((blog, index) => (
-                    <Link to={`/blog-detail/${blog.id}`} key={index} className="list-blg">
-                      <div className="bl-img">
-                        <img src={blog.image} alt={blog.title} />
-                      </div>
-                      <div className="bl-text">
-                        <h5>{blog.title}</h5>
-                        <div className="num">
-                          <span>{blog.category}</span>
-                          <h1>{blog.subtitle}</h1>
-                        </div>
-                        <div style={{
-                          display: '-webkit-box',
-                          WebkitLineClamp: 3,
-                          WebkitBoxOrient: 'vertical',
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                        }} dangerouslySetInnerHTML={{ __html: blog.contant }}></div>            
-                                  </div>
-                    </Link>
-                  ))
-                ) : (
-                  <p>No featured blog posts available</p>
-                )}
-              </div>
+      <h6>Featured Blogs</h6>
+      <div className="blog-content">
+        <div className="blog_list">
+          {Array.isArray(currentBlogs) && currentBlogs.length > 0 ? (
+            currentBlogs.map((blog, index) => (
+              <Link to={`/blog-detail/${blog.id}`} key={index} className="list-blg">
+                <div className="bl-img">
+                  <img src={blog.image} alt={blog.title} />
+                </div>
+                <div className="bl-text">
+                  <h5>{blog.title}</h5>
+                  <div className="num">
+                    <span>{blog.category}</span>
+                    <h1>{blog.subtitle}</h1>
+                  </div>
+                  <div
+                    style={{
+                      display: "-webkit-box",
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                    }}
+                    dangerouslySetInnerHTML={{ __html: blog.contant }}
+                  ></div>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p>No featured blog posts available</p>
+          )}
+        </div>
 
-              <div className="Blogs_img">
-                <img src={BlogMan} alt="BlogMan" />
-              </div>
-            </div>
-          </div>
+        <div className="Blogs_img">
+          <img src={BlogMan} alt="BlogMan" />
+        </div>
+      </div>
+
+      {/* ReactPaginate */}
+      <ReactPaginate
+        previousLabel={"<"}
+        nextLabel={">"}
+        breakLabel={"..."}
+        pageCount={pageCount}
+        onPageChange={handlePageClick}
+        containerClassName={"pagination"}
+        activeClassName={"active"}
+        pageClassName={"page-item"}
+        pageLinkClassName={"page-link"}
+        previousClassName={"previous-item"}
+        previousLinkClassName={"previous-link"}
+        nextClassName={"next-item"}
+        nextLinkClassName={"next-link"}
+        disabledClassName={"disabled"}
+      />
+           </div>
+          {/* --------------------------------------------------------------- */}
+
+          
+
+        <BlogText />   
 
         </div>
       </div>

@@ -161,16 +161,16 @@ const Navbar = () => {
                 onMouseEnter={handleServicesMouseEnter}
                 onMouseLeave={handleServicesMouseLeave}
               >
-                <Link id='res-hide' to="/services">Services</Link>
+                <Link id='res-hide' to=''>Services</Link>
                 {isServicesDropdownVisible && (
                   <div className="services-dropdown">
+                    <Link to="/services">Services</Link>
                     <Link to="/student-service">Students/Learner Model Services</Link>
                     <Link to="/professional-service">Professional + Trainers Model Services</Link>
                     <Link to="/corporate-service">Corporate + Organization Model Services</Link>
                     <Link to="/co-working">Co-Working Spaces + Co-works & Co-live & Events Model Services</Link>
                   </div>
                 )}
-
                  {/* -----------------------service--responsive--------------- */}
                     
                  <div className="service-dropdown-responsive" style={{ fontSize: '2.5vmax', fontWeight: '500' }}>
@@ -181,10 +181,11 @@ const Navbar = () => {
 
         {isServicesDropdownOpen && (
           <div className='' style={{ marginTop: '0.2rem', marginLeft:"1.5vmax" }}>
-            <Link to="" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Students/Learner Model Services</Link>
-            <Link to="" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Professional + Trainers Model Services</Link>
-            <Link to="" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Corporate + Organization Model Services</Link>
-            <Link to="" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Co-Working Spaces + Co-works & Co-live & Events Model Services</Link>
+            <Link to="/services" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Services</Link>
+            <Link to="/student-service" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Students/Learner Model Services</Link>
+            <Link to="/professional-service" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Professional + Trainers Model Services</Link>
+            <Link to="/corporate-service" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Corporate + Organization Model Services</Link>
+            <Link to="/co-working" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Co-Working Spaces + Co-works & Co-live & Events Model Services</Link>
           </div>
         )}
       </div>

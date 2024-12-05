@@ -3,7 +3,7 @@ import "./Whowe.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { fetchTalspoSkilledView } from "../../apiService";
+import { fetchTalspoSkilledView, fetchSearchSuggestions } from "../../apiService";
 import talspoIcon from "../../assets/images/talspoIcon.png";
 import FormHr from "./FormHr";
 import mapboxgl from "mapbox-gl";
@@ -30,7 +30,7 @@ const Whowe = () => {
 
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -55,15 +55,29 @@ const Whowe = () => {
     ],
   };
 
+  const removeDuplicates = (skills) => {
+    const uniqueSkills = skills.filter(
+      (skill, index, self) =>
+        index === self.findIndex((s) => s.id === skill.id)
+    );
+    return uniqueSkills;
+  };
+  
+
   useEffect(() => {
     const fetchSkills = async () => {
       const skillsData = await fetchTalspoSkilledView();
-      setSkills(skillsData);
-      setFilteredSkills(skillsData);
-
-      // Update skills with coordinates based on location
+      console.log("Skills Before Removing Duplicates:", skillsData);
+    
+      const uniqueSkills = removeDuplicates(skillsData);
+      console.log("Unique Skills:", uniqueSkills);
+    
+      setSkills(uniqueSkills);
+      setFilteredSkills(uniqueSkills);
+    
+      // Continue processing for coordinates if needed
       const updatedSkills = await Promise.all(
-        skillsData.map(async (skill) => {
+        uniqueSkills.map(async (skill) => {
           const coordinates = await getCoordinates(skill.location);
           return {
             ...skill,
@@ -72,9 +86,11 @@ const Whowe = () => {
           };
         })
       );
-
+    
+      console.log("Updated Skills with Coordinates:", updatedSkills);
       setFilteredSkills(updatedSkills);
     };
+    
 
     fetchSkills();
   }, []);
@@ -167,26 +183,89 @@ const Whowe = () => {
     }
   }, [filteredSkills, showFullMap]);
 
-  const handleSearch = () => {
-    const results = skills.filter((skill) =>
-      skill.name.toLowerCase().includes(location.toLowerCase())
-    );
-    setFilteredSkills(results);
-  };
 
-  const handleSort = (e) => {
-    const value = e.target.value;
-    setSortOption(value);
-    const sortedSkills = [...filteredSkills];
+  // ---------------------------------------------------------------------------
+  const [suggestions, setSuggestions] = useState([]);
+  const [selectedTitle, setSelectedTitle] = useState(null); // Track selected title
+  const [selectedLocation, setSelectedLocation] = useState(null);
 
-    if (value === "salary") {
-      sortedSkills.sort((a, b) => b.salary - a.salary);
-    } else if (value === "status") {
-      sortedSkills.sort((a, b) => a.status.localeCompare(b.status));
+  useEffect(() => {
+    const fetchSuggestions = async () => {
+      try {
+        const data = await fetchSearchSuggestions(searchTerm, location);
+        console.log("Fetched Suggestions:", data);
+        setSuggestions(data.data.data); // Set the correct response data here
+      } catch (error) {
+        console.error("Error fetching suggestions:", error);
+      }
+    };
+
+    if ((searchTerm && !selectedTitle) || (location && !selectedLocation)) {
+      fetchSuggestions();
+    } else {
+      setSuggestions([]);
     }
+  }, [searchTerm, location, selectedTitle, selectedLocation]);
 
-    setFilteredSkills(sortedSkills);
+  const handleTitleSelect = (selectedTitle) => {
+    setSearchTerm(selectedTitle); // Set selected title to searchTerm
+    setSelectedTitle(selectedTitle); // Track the selected title
+    setSuggestions([]); // Clear suggestions after selection
+    console.log("Selected Title:", selectedTitle); 
   };
+
+  const handleLocationSelect = (selectedLocation) => {
+    setLocation(selectedLocation); // Set selected location to location input
+    setSelectedLocation(selectedLocation); // Track the selected location
+    setSuggestions([]); // Clear suggestions after selection
+    console.log("Selected Location:", selectedLocation);
+  };
+
+  const handleSearch = async () => {
+    try {
+      const apiUrl = `https://dev.talspo.com/admin/api/search-filter?title=${encodeURIComponent(selectedTitle || "")}&location=${encodeURIComponent(selectedLocation || "")}`;
+      console.log("API URL:", apiUrl);
+  
+      const response = await fetch(apiUrl, {
+        headers: {
+          "Content-Type": "application/json",
+          // Add Authorization header if required
+          // Authorization: "Bearer <your_token>",
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      }
+  
+      const data = await response.json();
+      console.log("Full API Response:", data);
+  
+      // Handle paginated data
+      const skills = data?.data?.data || [];
+      console.log("Fetched Skills:", skills);
+  
+      if (skills.length === 0) {
+        console.log("No results found");
+      }
+  
+      // Apply additional filtering (if required)
+      const filteredSkills = skills.filter(skill => {
+        return (
+          (selectedTitle ? skill.title.includes(selectedTitle) : true) &&
+          (selectedLocation ? skill.location.includes(selectedLocation) : true)
+        );
+      });
+  
+      console.log("Filtered Skills:", filteredSkills);
+      setFilteredSkills(filteredSkills);
+    } catch (error) {
+      console.error("Error fetching filtered skills:", error);
+    }
+  };
+  
+
+  // ---------------------------------------------------------------------------
 
   return (
     <div className="Whowe-main">
@@ -205,6 +284,8 @@ const Whowe = () => {
             acquisition.
           </span>
 
+ {/* ----------------------------------------------------------------------------------------- */}
+
           <div className="search-bar-skill">
             <div className="skill-ipt">
               <input
@@ -214,8 +295,17 @@ const Whowe = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
               <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+              {searchTerm && !selectedTitle && Array.isArray(suggestions) && (
+          <ul className="suggestions-list">
+            {suggestions.map((item, index) => (
+              <li key={index} onClick={() => handleTitleSelect(item.title)}>
+                {item.title} {/* Display title suggestions */}
+              </li>
+            ))}
+          </ul>
+        )}
             </div>
-            <div className="skill-ipt">
+            <div className="skill-ipt"> 
               <input
                 type="text"
                 placeholder="Search by Location (Pin Code, Area, City, etc.)"
@@ -223,9 +313,19 @@ const Whowe = () => {
                 onChange={(e) => setLocation(e.target.value)}
               />
               <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+              {location && !selectedLocation && Array.isArray(suggestions) && (
+          <ul className="suggestions-list">
+            {suggestions.map((item, index) => (
+              <li key={index} onClick={() => handleLocationSelect(item.location)}>
+                {item.location} {/* Display location suggestions */}
+              </li>
+            ))}
+          </ul>
+        )}
+
             </div>
             <div className="sort-dropdown">
-              <select onChange={(e) => handleSort(e)} value={sortOption}>
+              <select >
                 <option value="" disabled>
                   Sort by
                 </option>
@@ -234,10 +334,15 @@ const Whowe = () => {
                 <option value="active">Actively Looking</option>
               </select>
             </div>
+
             <div className="skill-btn">
-              <button onClick={handleSearch}>Search</button>
+            <button onClick={handleSearch}>Search</button>
             </div>
+            
           </div>
+
+ {/* ----------------------------------------------------------------------------------------- */}
+
 
           {/* -------------responsive-skill--------- */}
           <div className="search-bar-skill-responsive">
@@ -260,41 +365,46 @@ const Whowe = () => {
               <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
             </div>
             <div className="sort-dropdown">
-              <select onChange={(e) => handleSort(e)} value={sortOption}>
+              <select  value={sortOption}>
                 <option value="">Sort by</option>
                 <option value="jobType"> Experience</option>
                 <option value="salary">Trusted/Verified Candidates</option>
               </select>
             </div>
             <div className="skill-btn">
-              <button onClick={handleSearch}>Search</button>
+              <button>Search</button>
             </div>
           </div>
 
           {/* -------------------------------------------- */}
           <div className="who-slide">
-            <div className="slider-container">
-              <Slider {...settings}>
-                {filteredSkills.map((skill, index) => (
-                  <div key={index}>
-                    <div className="w-box">
-                      <img src={skill.image} alt={skill.name} />
-                      <div className="text-panel">
-                        <h5>{skill.title}</h5>
-                        <p>{skill.description}</p>
-                        <div className="ss">
-                          <small>Salary: {skill.salary}</small>
-                          <small>Status: {skill.status}</small>
-                        </div>
-                        <button className="get" onClick={openModal}>
-                          Connect
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </Slider>
+          <div className="slider-container">
+  <Slider {...settings}>
+    {filteredSkills.map((skill, index) => (
+      <div key={`${skill.id}-${index}`}>
+        <div className="w-box">
+          <img src={skill.image} alt={skill.name} />
+          <div className="text-panel">
+            <h5>{skill.title}</h5>
+            <p>{skill.description}</p>
+            <div className="ss">
+              <small>Salary: {skill.salary}</small>
+              <small>Status: {skill.status}</small>
             </div>
+            <div className="hh">
+              <span>Location: {skill.location}</span>
+            </div>
+            <span>Experience: {skill.experience}</span>
+            <button className="get" onClick={openModal}>
+              Connect
+            </button>
+          </div>
+        </div>
+      </div>
+    ))}
+  </Slider>
+</div>
+
             <div className="home-map">
               <div
                 ref={smallMapRef}

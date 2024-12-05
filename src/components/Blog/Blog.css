@@ -103,7 +103,7 @@
     
     .Blog-main .blogs .Blog-search .ipt-blg {
       width: 40%;
-      padding: 0.5vmax 1vmax;
+      padding: 0.1vmax 1vmax;
       border: 1px solid #9f9f9f;
       border-radius: 50px;
       position: relative; 
@@ -148,6 +148,7 @@
           justify-content: space-between;
           flex-direction: column;
           margin-top: 3vmax;
+          border-bottom: 1px solid #939393;
     }
     .Blog-main .blogs     .blog-container   .blog-content{
           width: 100%;
@@ -244,6 +245,18 @@
           width: 100%;
           margin-top: 10vmax;
     }
+
+/* ---------------------------------------------------------------------------- */
+.extra-blog{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column
+}
+
+
+
 
 @media (max-width : 600px) {
       .Blog-main{

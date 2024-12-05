@@ -3,6 +3,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          padding-bottom: 3vmax;
         }
         
         .OurTeam-main .ourteam {
@@ -12,7 +13,6 @@
           justify-content: center;
           flex-direction: column;
           margin-top: 5vmax
-
         }
         
         .OurTeam-main .ourteam .team-top {
@@ -36,15 +36,13 @@
           justify-content: center;
           background-color: #fff;
           flex-direction: column;
-        }
-        
+        }   
         .OurTeam-main .ourteam .team-btm .one {
           width: 40%;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-direction: column;
-          margin-top: 2vmax;
           font-family: Arial, Helvetica, sans-serif;
         }
         
@@ -52,168 +50,217 @@
           font-size: 2vmax;
           font-weight: 700;
           letter-spacing: 1px;
+          color: #003266;
         }
         
         .OurTeam-main .ourteam .team-btm .one p {
           text-align: center;
         }
-        
-        .OurTeam-main .ourteam .team-btm .one .team-btn {
-          color: #003266;
-          font-weight: 600;
-          border-radius: 5px;
-          border: 2px solid #003266;
-          -webkit-box-shadow: 0 2px #003f80;
-          -moz-box-shadow: 0 2px #003f80;
-          box-shadow: 0 2px #003f80;
-        }
-        
-        .OurTeam-main .ourteam .team-btm .one .team-btn button {
-          padding: 10px 20px;
-          color: #003f80;
-          border: none;
-          cursor: pointer;
-          border-radius: 10px;
-          font-size: 0.9rem;
-          background: none;
-          font-weight: 600;
-        }
-        
         .OurTeam-main .ourteam .team-btm .two {
-          width: 80%;
-          height: 400px;
+          width: 85%;
           font-family: Arial, Helvetica, sans-serif;
-          margin-top: 3vmax;
+          margin-top: 2vmax;
           overflow: hidden;
-        }
-  
-      
-        .OurTeam-main .ourteam .team-btm .two .slick-slide {
-          margin: 0 15px;
-          height: 400px;
-
-      }
-      
-      .OurTeam-main .ourteam .team-btm .two .team {
-          width: 100%; /* Set width to 100% to fill the slick slide */
           display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
           flex-direction: column;
-          align-items: center;
-          text-align: center;
-          border-radius: 10px;
-          box-shadow: 0px 1px 2px 0px #003266;
-      }
-      
-      .OurTeam-main .ourteam .team-btm .two .team .t-img {
+          gap: 4vmax;
+        }
+        .OurTeam-main .ourteam .team-btm .two   .teamOne,
+        .OurTeam-main .ourteam .team-btm .two   .teamTwo,
+        .OurTeam-main .ourteam .team-btm .two   .teamThree{
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          flex-direction: column;
+          gap: 0.5vmax;
+        }
+        .OurTeam-main .ourteam .team-btm .two  h5{
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          flex-direction: column;
+          gap: 1vmax;
+          font-size: 2vmax;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+        .OurTeam-main .ourteam .team-btm .two .btns-tab{
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          gap: 1vmax;
+          margin-top: 0.6vmax;
+          border-bottom: 1px solid #a2a2a2;
+          padding-bottom: 1vmax;
+        }
+        .OurTeam-main .ourteam .team-btm .two    .btns-tab .founder,
+        .OurTeam-main .ourteam .team-btm .two    .btns-tab .co-founder,
+        .OurTeam-main .ourteam .team-btm .two    .btns-tab .advisors,
+        .OurTeam-main .ourteam .team-btm .two    .btns-tab .Previous,
+        .OurTeam-main .ourteam .team-btm .two    .btns-tab .Current,
+        .OurTeam-main .ourteam .team-btm .two    .btns-tab .Previous-int,
+        .OurTeam-main .ourteam .team-btm .two    .btns-tab .Current-int{
+           border: none;
+            background: none;
+            color: #737373;
+            font-size: 1.3vmax;
+            padding: 0.3vmax 1vmax;
+            border-radius: 50px;
+        }
+.OurTeam-main .ourteam .team-btm .two .btns-tab button.active {
+  background-color: #003266;
+  color: #fff !important;
+}
+/* ---------------------------------------------------------------------------------- */
+        .OurTeam-main .ourteam .team-btm .two .leadership-tab-content,
+        .OurTeam-main .ourteam .team-btm .two .developers-tab-content,
+        .OurTeam-main .ourteam .team-btm .two .Interns-tab-content{
+
+          width: 100%;
+        }
+        .OurTeam-main .ourteam .team-btm .two  .leader{
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          flex-direction: row;
+          gap: 1.5vmax;
+          flex-wrap: wrap;
+        }
+        .OurTeam-main .ourteam .team-btm .two  .leader .tab-box{
+          width: 17%;
+          height: 280px;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-direction: column;
+          border: 1px solid #cfcfcf ;
+        }
+        .OurTeam-main .ourteam .team-btm .two  .leader .tab-box .img{
           width: 100%;
           height: 200px;
-          background: #0000003f;
-          border-top-left-radius: 10px;
-          border-top-right-radius: 10px;
           display: flex;
-          align-items: center;
-          justify-content: center;
-      }
-      
-      .OurTeam-main .ourteam .team-btm .two .team .t-img img {
-          width: 80%;
-          height: 100%;
-      }
-      
-      .OurTeam-main .ourteam .team-btm .two .team .text {
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+        .OurTeam-main .ourteam .team-btm .two  .leader .tab-box .img img{ 
           width: 100%;
-          height: 150px;
-          padding: 0.2vmax;
-      }
-      
-      .OurTeam-main .ourteam .team-btm .two .team .text h6 {
-          font-weight: 700;
-          font-size: 1.4vmax;
-          letter-spacing: 0.5px;
-      }
-      
-      .OurTeam-main .ourteam .team-btm .two .team .text span {
-          font-size: 0.8vmax;
-          text-align: center;
-          letter-spacing: 0.5px;
-          text-transform: uppercase;
-      }
-      
-      .OurTeam-main .ourteam .team-btm .two .team .text p {
-          font-size: 1vmax;
-          letter-spacing: 0.5px;
-          margin-top: 0.5vmax;
-      }
-      .OurTeam-main .ourteam .team-btm .three {
-          width: 40%;
+          height: 200px;
+        }
+        .OurTeam-main .ourteam .team-btm .two  .leader .tab-box   .text-tab{
           display: flex;
-          align-items: center;
-          justify-content: center;
+          width: 100%;
+          height: 80px;
+          align-items: flex-start;
+          justify-content: flex-start;
           flex-direction: column;
-          margin-top: 1vmax;
-          font-family: Arial, Helvetica, sans-serif;
-          margin-bottom: 2vmax;
+          padding: 0.5vmax;
+          background-color: #cfcfcf;
+          overflow: hidden;
         }
-        .OurTeam-main .ourteam .team-btm .three p{
-       text-align: center;
+        .OurTeam-main .ourteam .team-btm .two  .leader .tab-box   .text-tab h6{
+         font-weight: 600;
         }
-         
+        .OurTeam-main .ourteam .team-btm .two  .leader .tab-box   .text-tab span{
+         font-size: 1vmax;
+         }
+      
+       
 
 
 @media (max-width:600px) {
-          .OurTeam-main {
-                    width: 100%;
-                    padding-top: 10vmax;
+  .OurTeam-main {
+    width: 100%;
+  }
+  .OurTeam-main .ourteam {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5vmax
+  }
+  .OurTeam-main .ourteam .team-top {
+    width: 100%;
+    height: 300px;
+  }
+  .OurTeam-main .ourteam .team-top img {
+    width: 100%;
+    height:150px;
 
-                  }
-                  .OurTeam-main .ourteam .team-top {
-                    width: 100%;
-                    height: auto;
-                  }
-                  
-                  .OurTeam-main .ourteam .team-top img {
-                    width: 100%;
-                    height: auto;
+  }
+  .OurTeam-main .ourteam .team-btm {
+    width: 100%;
+  }   
+  .OurTeam-main .ourteam .team-btm .one {
+    width: 95%;
+  }
+  .OurTeam-main .ourteam .team-btm .one h5 {
+    font-size: 3.5vmax;
+  }
+  .OurTeam-main .ourteam .team-btm .one p {
+    text-align: center;
+  }
+  .OurTeam-main .ourteam .team-btm .two {
+    width: 95%;
+    margin-top: 0vmax;
+  }
 
-                  }
-                  
-                  .OurTeam-main .ourteam .team-btm {
-                    width: 100%;
-                  }
-                  
-                  .OurTeam-main .ourteam .team-btm .one {
-                    width: 90%;
-                  }
-                  
-                  .OurTeam-main .ourteam .team-btm .one h5 {
-                    font-size: 3vmax;
-                  }
-                  .OurTeam-main .ourteam .team-btm .two {
-                    width: 90%;
-                    height: 400px;
-                  }
-          
-               
-                
-                .OurTeam-main .ourteam .team-btm .two .team .text h6 {
-                    font-size: 3vmax;
-                    margin-top: 2vmax;
-                }
-                
-                .OurTeam-main .ourteam .team-btm .two .team .text span {
-                    font-size: 1.2vmax;
-                
-                }
-                
-                .OurTeam-main .ourteam .team-btm .two .team .text p {
-                    font-size: 2vmax;
-                }
-                .OurTeam-main .ourteam .team-btm .three {
-                    width: 90%;
-                  }
-                
-                   
-          
-          
-                
+  .OurTeam-main .ourteam .team-btm .two  h5{
+    font-size: 4vmax;
+       align-items: center;
+       text-align: center;
+  }
+  .OurTeam-main .ourteam .team-btm .two .btns-tab{
+    width: 100%;
+    gap: 2vmax;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .OurTeam-main .ourteam .team-btm .two    .btns-tab .founder,
+  .OurTeam-main .ourteam .team-btm .two    .btns-tab .co-founder,
+  .OurTeam-main .ourteam .team-btm .two    .btns-tab .advisors,
+  .OurTeam-main .ourteam .team-btm .two    .btns-tab .Previous,
+  .OurTeam-main .ourteam .team-btm .two    .btns-tab .Current,
+  .OurTeam-main .ourteam .team-btm .two    .btns-tab .Previous-int,
+  .OurTeam-main .ourteam .team-btm .two    .btns-tab .Current-int{
+      font-size: 2vmax;
+      padding: 1vmax 1.5vmax;
+  }
+/* ---------------------------------------------------------------------------------- */
+  .OurTeam-main .ourteam .team-btm .two  .leader{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .OurTeam-main .ourteam .team-btm .two  .leader .tab-box{
+    width: 70%;
+    height: auto;
+  }
+  .OurTeam-main .ourteam .team-btm .two  .leader .tab-box .img{
+    width: 100%;
+    height: auto;
+  }
+  .OurTeam-main .ourteam .team-btm .two  .leader .tab-box .img img{ 
+    width: 100%;
+    height: auto;
+  }
+  .OurTeam-main .ourteam .team-btm .two  .leader .tab-box   .text-tab{
+    width: 100%;
+    height: auto;
+  }
+  .OurTeam-main .ourteam .team-btm .two  .leader .tab-box   .text-tab h6{
+   font-weight: 600;
+  }
+  .OurTeam-main .ourteam .team-btm .two  .leader .tab-box   .text-tab span{
+   font-size: 2vmax;
+   }
+
+ 
 }

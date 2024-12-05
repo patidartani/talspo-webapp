@@ -188,7 +188,7 @@
          
 /* --------------------------------------------------------------------- */
 .who-page {
-    width: 90%;
+    width: 95%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -317,6 +317,45 @@
   outline: none;
 }
 
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 222222;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestions-list li {
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Highlight suggestion on hover */
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Style for the sort dropdown */
+.sort-dropdown select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+}
+
 .who-slide {
     width: 100%;
     display: flex;
@@ -328,7 +367,7 @@
 
 .who-slide .home-map{
    width: 30%;
-   height: 450px;
+   height: 50px;
 }
 .who-slide .home-map iframe{
   width: 100%;
@@ -470,7 +509,7 @@
     padding: 0px;
     /* box-shadow: 0px 1px 2px 0px #929292; */
     border: 0.2px solid #cfcfcf;
-    height: 450px;
+    height: 500px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -482,14 +521,14 @@
 
 .slick-slide .w-box img {
     width: 100%;
-    height: auto;
+    height: 200px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
 .slick-slide .w-box .text-panel{
     width: 95%;
-    height: auto;
+    height: 300px;
     display: flex;
     align-items: flex-start;
     justify-content:space-between;
@@ -519,7 +558,7 @@
 }
 .slick-slide .w-box span{
     font-size: 1vmax;
-    margin-top: 0.5vmax;
+    margin-top: 0.2vmax;
     /* font-weight: 600; */
 
 }

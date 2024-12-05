@@ -47,25 +47,55 @@
           font-weight: lighter;
 }
 .Contact-main .contact-page .contact-btm{
-          width: 85%;
+          width: 100%;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          flex-direction: column-reverse;
-          margin-top: 2vmax;
+          flex-direction: column;
           gap: 2vmax;
 }
 .Contact-main .contact-page .contact-btm .left-gif{
        width: 100%;
        display: flex;
        align-items: center;
+       background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+       padding: 1vmax;
        justify-content: center;
+       background-image: url("/src/assets/images/contactback.png.avif");
 }
-.Contact-main .contact-page .contact-btm .left-gif iframe{
-       width: 100%;
-       height: 520px;
+.Contact-main .contact-page .contact-btm .left-gif .map-box-content{
+       width: 40%;
+       border-radius: 10px;
+       height: 700px;
+       display: flex;
+       align-items: flex-start;
+       justify-content: space-between;
+       flex-direction: column;
        object-fit: cover;
+       background: #f3f0f0;
+       padding-top: 2vmax;
 }
+.Contact-main .contact-page .contact-btm .left-gif .map-box-content p{
+       padding-left: 2vmax;
+       font-size: 2vmax;
+}
+.Contact-main .contact-page .contact-btm .left-gif .map-box-content iframe{
+       width: 100%;
+       height: 600px;
+       border-radius: 10px;
+
+}
+ .Contact-main .contact-page .contact-btm .form-container{
+       width: 70%;
+       display: flex;
+       align-items: flex-start;
+       justify-content: space-between;
+       flex-direction: row;
+       gap: 1vmax;
+ }
+
 .Contact-main .contact-page .contact-btm .form-page{
           width: 50%;
           display: flex;
@@ -79,7 +109,23 @@
           padding-top: 1vmax;
           padding-bottom: 0.5vmax;
 }
+.Contact-main .contact-page .contact-btm .form-side{
+       width: 50%;
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       gap: 1vmax;
+}
+.Contact-main .contact-page .contact-btm .form-side img{
+       width: 50%;
 
+}
+.Contact-main .contact-page .contact-btm .form-side h5{
+     font-size: 1.5vmax;
+}
+.Contact-main .contact-page .contact-btm .form-side h6{
+       font-size: 1.1vmax;
+  }
 
 .Contact-main .contact-page .contact-btm .form-page h5{
       font-weight: 700;
@@ -99,7 +145,8 @@
           display: flex;
           align-items: center;
           flex-direction: column;
-          gap: 1.2vmax;
+          gap: 1.6vmax;
+          margin-top: 2vmax;
 }
 
 .Contact-main .contact-page .contact-btm .form-page form .ipt{
@@ -118,7 +165,7 @@
 .Contact-main .contact-page .contact-btm .form-page form .ipt select{
           width: 100%;
           border-radius: 5px;
-          padding: 0.4vmax 0.6vmax;
+          padding: 0.5vmax 1vmax;
           outline: none;
           color: #565656;
           border: none;
@@ -167,8 +214,6 @@
 
 
 
-
-
 @media (max-width:600px) {
           .Contact-main{
                     width: 100%;
@@ -198,8 +243,28 @@
 .Contact-main .contact-page .contact-btm .left-gif{
        width: 100%;
 }
-
-         
+.Contact-main .contact-page .contact-btm .left-gif .map-box-content{
+       width: 100%;
+       height: auto;
+}
+.Contact-main .contact-page .contact-btm .form-container{
+       width: 95%;
+       flex-direction: column;
+       gap: 3vmax;
+       padding-top: 3vmax;
+ }  
+ .Contact-main .contact-page .contact-btm .form-side{
+       width: 100%;    
+}
+.Contact-main .contact-page .contact-btm .form-side img{
+       width: 70%;
+}
+.Contact-main .contact-page .contact-btm .form-side h5{
+     font-size: 3vmax;
+}
+.Contact-main .contact-page .contact-btm .form-side h6{
+       font-size: 2vmax;
+  } 
           .Contact-main .contact-page .contact-btm .form-page{
                     width: 100%;
           }
@@ -208,8 +273,7 @@
     }
     .Contact-main .contact-page .contact-btm .form-page p{
        font-size: 2vmax;
-}
-          
+}       
           .Contact-main .contact-page .contact-btm .form-page form{
                     gap: 2vmax;
                     margin-top: 0vmax;
@@ -232,7 +296,6 @@
           }
            
 }
-
 
 @media (min-width:600px) and (max-width:1150px) {
           .Contact-main{

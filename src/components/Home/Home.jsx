@@ -17,10 +17,62 @@ import HomeBroach from './HomeBroach';
 import FooterTop from '../../pages/Footer/FooterTop';
 import gifImg from "../../assets/images/homeslidergif.gif"
 import {technologyApi} from "../../apiService"
+import Loading from "../../pages/loading/Loading"
 
 const Home = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true); 
+  const items = [
+    {
+      title: "Experienced Team",
+      description:
+        "Our team comprises industry experts who understand the challenges and demands of today’s job market.",
+      icon: "ri-group-2-fill",
+      imageUrl:
+        "https://img.freepik.com/premium-vector/frequently-asked-questions-faq-questions-answers_773186-1025.jpg?semt=ais_hybrid",
+    },
+    {
+      title: "Quick Job Matching",
+      description:
+        "Talspo’s advanced algorithms connect job seekers with opportunities that match their skills and aspirations in real-time.",
+      icon: "ri-rocket-line",
+      imageUrl:
+        "https://images.businessnewsdaily.com/app/uploads/2017/08/06120028/Communicate-nonverbally-during-the-job-interview.png",
+    },
+    {
+      title: "Global Reach",
+      description:
+        "Our platform connects talent and employers from around the world, offering global opportunities for local job seekers.",
+      icon: "ri-global-line",
+      imageUrl:
+        "https://cdni.iconscout.com/illustration/premium/thumb/soft-skills-9221151-7518679.png",
+    },
+    {
+      title: "Real-Time Updates",
+      description:
+        "Stay updated with real-time notifications about job opportunities, applications, and more, ensuring you never miss a chance.",
+      icon: "ri-time-line",
+      imageUrl:
+        "https://static.vecteezy.com/system/resources/previews/010/872/627/original/3d-job-interview-illustration-png.png",
+    },
+    {
+      title: "Supportive Community",
+      description:
+        "Join a network of professionals and employers who support each other in career development and growth.",
+      icon: "ri-hand-heart-line",
+      imageUrl:
+        "https://static.vecteezy.com/system/resources/previews/010/872/229/original/3d-job-applicant-illustration-png.png",
+    },
+  ];
 
+  // Initialize state after items is defined
+  const [activeIndex, setActiveIndex] = useState(0); // Track active index
+  const [selectedImage, setSelectedImage] = useState(items[0].imageUrl); // Track selected image
+
+  const handleClick = (imageUrl, index) => {
+    setActiveIndex(index); // Update active index
+    setSelectedImage(imageUrl); // Update selected image
+  };
 
   // ---------------------techno api --------------------------------------
   const [techStack, setTechStack] = useState([]); 
@@ -30,15 +82,22 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await technologyApi(); 
-        console.log("Techno api Response:", response.records); 
+        // console.log("Techno api Response:", response.records); 
         setTechStack(response.records); 
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching technology stack:", error);
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, []);
+
+  if (isLoading) {
+    return <Loading />; // Render Loading component while data is being fetched
+  }
+
 
   // -----------------------------------------------------------
 
@@ -58,8 +117,6 @@ const Home = () => {
     <div className='Home-main'>
       <div className="Home-page">
         <Navbar />
-
-        {/* ---------------------------------------------------------------------------------- */}
         <div className="Home">
           <div className="left">
             <h6>With Talspo, <br /> Connect with people in real-time to learn skills</h6>
@@ -120,56 +177,43 @@ const Home = () => {
         </div>
         <HomeTwo />
         {/* ---------------------------------------------------------------------------------- */}
+
+
         <div className="home-two">
-          <h5>Why Choose Talspo?</h5>
-          <p>You can explore, spot, connect talented people naerby (Online). </p>
-          <div className="home-two-btm">
-            <div className="home2-left">
-              <img src='https://img.freepik.com/premium-vector/frequently-asked-questions-faq-questions-answers_773186-1025.jpg?semt=ais_hybrid' alt="" />
-            </div>
-            <div className="home2-right">
-              <div className="linee">
-                <div className="linee-left">
-                  <div className="icon-line">
-                    <i className="ri-group-2-fill"></i>
-                  </div>
-                </div>
-                <div className="linee-right">
-                  <h6>Experienced Team</h6>
-                  <p>Our team comprises industry experts who understand the challenges and demands of today’s job market.</p>
-                </div>
-              </div>
-
-              <div className="linee">
-                <div className="linee-left">
-                  <div className="icon-line">
-                    <i className="ri-rocket-line"></i>
-                  </div>
-                </div>
-                <div className="linee-right">
-                  <h6>Quick Job Matching</h6>
-                  <p>Talspo’s advanced algorithms connect job seekers with opportunities that match their skills and aspirations in real-time.</p>
-                </div>
-              </div>
-
-              <div className="linee">
-                <div className="linee-left">
-                  <div className="icon-line">
-                    <i className="ri-global-line"></i>
-                  </div>
-                </div>
-                <div className="linee-right">
-                  <h6>Global Reach</h6>
-                  <p>Our platform connects talent and employers from around the world, offering global opportunities for local job seekers.</p>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
+      <h5>Why Choose Talspo?</h5>
+      <p>You can explore, spot, connect talented people nearby (Online).</p>
+      <div className="home-two-btm">
+        <div className="home2-left">
+          <img src={selectedImage || "defaultImage.jpg"} alt="Selected" />
         </div>
-        <Whowe />
+        <div className="home2-right">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className={`linee ${activeIndex === index ? "active" : ""}`}
+              onClick={() => handleClick(item.imageUrl, index)}
+            >
+              <div className="linee-left">
+                <div className="icon-line">
+                  <i className={item.icon}></i>
+                </div>
+              </div>
+              <div className="linee-right">
+                <h6>{item.title}</h6>
+                <p>{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+
+
+
+
         {/* ---------------------------------------------------------------------------------- */}
+        <Whowe />
         <div className="home-three">
       <h5>Our Advance Technology Stack Includes</h5>
       <div className="h3-tbm">
