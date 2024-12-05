@@ -94,7 +94,7 @@
   display: flex;
   align-items: center;
   background-color: #fff;
-  padding: 4px 10px;
+  padding: 2px 10px;
   border-radius: 50px;
 }
 
@@ -273,23 +273,21 @@
 .language-selector {
   display: inline-flex;
   align-items: center;
-  padding: 0.7vmax 0.3vmax;
+  justify-content: center;
+  padding: 0.5vmax 0.1vmax;
   border: 1px solid #003266;
-  /* Adjust color as needed */
   border-radius: 5px;
   background-color: #f9f9f9;
-  /* Background color */
   color: #333;
-  /* Text color */
   font-size: 1vmax;
   margin-left: 1vmax;
-  gap: 0.1vmax;
+  /* gap: 0.1vmax; */
   box-shadow: 0 2px #003266;
 
 }
 
 .globe-icon {
-  font-size: 1.2vmax;
+  font-size: 1.4vmax;
   /* Globe icon size */
   color: #003266;
   /* Adjust color as needed */
@@ -298,7 +296,7 @@
 .language-selector select {
   border: none;
   background: transparent;
-  font-size: 0.7vmax;
+  font-size: 0.6vmax;
   color: #333;
   cursor: pointer;
   outline: none;

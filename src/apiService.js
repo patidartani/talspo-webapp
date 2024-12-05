@@ -5,6 +5,8 @@ export const BASE_URL = "https://dev.talspo.com/admin/api";
 export const SIGNUP_URL = `${BASE_URL}/register`;
 export const LOGIN_URL = `${BASE_URL}/login-view`;
 
+export const  SKILL_FILTER_URL  = `${BASE_URL}/search-filter`
+
 export const BLOG_POSTS_URL = `${BASE_URL}/recent-post-view`;
 export const FEATURED_BLOG_URL = `${BASE_URL}/featured-blogs-view`;
 export const BLOG_VIEW_URL = `${BASE_URL}/blog-view`;
@@ -297,6 +299,23 @@ export const createDirectConnectHR = async (formData) => {
     throw error.response?.data || { message: "Something went wrong" };
   }
 };
+
+// ---------------------home-skill filter-------------------------------------------------
+
+export const fetchSearchSuggestions = async () => {
+  try {
+    const response = await axios.get(SKILL_FILTER_URL);
+
+    const suggestions = response?.data;
+    // console.log('Suggestions:', suggestions);
+    return suggestions;
+  } catch (error) {
+    console.error("Error fetching Talspo Skilled data:", error);
+    return [];
+  }
+};
+
+
 
 // ------------------------------------Technology ----------------------------------------------
 

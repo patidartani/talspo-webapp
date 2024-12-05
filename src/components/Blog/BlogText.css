@@ -1,0 +1,65 @@
+.BlogText-container{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          padding-top: 4vmax;
+}
+.BlogText-container h6{
+          width: 50%;
+          text-align: center;
+          font-weight: 600;
+          font-size: 1.4vmax;
+}
+.BlogText-container .blog-text{
+          width: 90%;
+         display: flex;
+         align-items: flex-start;
+         justify-content: space-between;
+         flex-direction: column;
+         margin-top: 2vmax;
+}
+ .BlogText-container .blog-text .key-frames{
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-direction: column;
+          gap: 1vmax;
+ }
+ .BlogText-container .blog-text  span{
+        font-size: 1.2vmax;
+        letter-spacing: 1px;
+        margin-bottom: 1vmax;
+
+ }
+ .BlogText-container .blog-text .key-frames small{
+         font-size: 1.1vmax;
+         text-transform: uppercase;
+         letter-spacing: 0.4px;
+   }
+
+   .BlogText-container .blog-text .points{
+          width: 100%;
+          margin-top: 2vmax;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-direction: column;
+   }
+   .BlogText-container .blog-text .blog-btns{
+          margin-top: 3vmax;
+          width: 90%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+   }
+   .BlogText-container .blog-text .blog-btns button{
+         border: none;
+         padding: 0.8vmax 1.5vmax;
+         font-weight: 600;
+         border-radius: 10px;
+         color: #fff;
+         background-color: #003266;
+   }

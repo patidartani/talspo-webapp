@@ -6,8 +6,25 @@ import { FaGraduationCap } from 'react-icons/fa';
 import { ImCreditCard } from "react-icons/im";
 import { MdMenuBook } from "react-icons/md";
 import { TbWorldSearch } from "react-icons/tb";
+import { useNavigate } from 'react-router-dom';
+import FooterTop from '../../pages/Footer/FooterTop';
 
 const Services = () => {
+  const navigate = useNavigate();
+
+  const studentHandler = () => {
+    navigate('/student-service')
+  }
+  const coworkingHandler = () => {
+    navigate('/co-working')
+  }
+  const trainersHandler = () => {
+    navigate('/professional-service')
+  }
+  const organizeHandler = () => {
+    navigate('/corporate-service')
+  }
+
   return (
     <>
       <Navbar />
@@ -20,7 +37,7 @@ const Services = () => {
 
           <div className="service-btm">
             {/* ----------------------------------- */}
-            <div className="service">
+            <div className="service" style={{cursor:"pointer"}} onClick={studentHandler}>
               <div className="one">
                 <div className="s-left">
                   <div className="icon">
@@ -28,7 +45,7 @@ const Services = () => {
                   </div>
                 </div>
                 <div className="s-right">
-                  <h5>Job Search Engine</h5>
+                  <h5>Students/Learner Model Services</h5>
                   <p>
                     Our platform provides a powerful job search engine to help you find opportunities that match your skills and interests.
                   </p>
@@ -36,7 +53,7 @@ const Services = () => {
               </div>
             </div>
             {/* ----------------------------------- */}
-            <div className="service2">
+            <div className="service2" style={{cursor:"pointer"}} onClick={trainersHandler} >
               <div className="one">
                 <div className="s-left">
                   <div className="icon">
@@ -44,7 +61,7 @@ const Services = () => {
                   </div>
                 </div>
                 <div className="s-right">
-                  <h5>Skill Development Courses</h5>
+                  <h5>Professional/Trainers Model Services</h5>
                   <p>
                     Access a variety of online courses designed to help you build skills and enhance your employability.
                   </p>
@@ -52,7 +69,7 @@ const Services = () => {
               </div>
             </div>
             {/* ----------------------------------- */}
-            <div className="service">
+            <div className="service" style={{cursor:"pointer"}} onClick={organizeHandler}>
               <div className="one">
                 <div className="s-left">
                   <div className="icon">
@@ -60,7 +77,7 @@ const Services = () => {
                   </div>
                 </div>
                 <div className="s-right">
-                  <h5>Resume and Cover Letter Assistance</h5>
+                  <h5>Corporate/Organization Model Services</h5>
                   <p>
                     Get professional help with crafting a compelling resume and cover letter to stand out in your job applications.
                   </p>
@@ -68,7 +85,7 @@ const Services = () => {
               </div>
             </div>
             {/* ----------------------------------- */}
-            <div className="service2">
+            <div className="service2" style={{cursor:"pointer"}} onClick={coworkingHandler}>
               <div className="one">
                 <div className="s-left">
                   <div className="icon">
@@ -76,7 +93,7 @@ const Services = () => {
                   </div>
                 </div>
                 <div className="s-right">
-                  <h5>Interview Preparation Workshops</h5>
+                  <h5>Co-Working Spaces/Co-works & Co-live & Events Model Services</h5>
                   <p>
                     Join our workshops to hone your interview skills and increase your chances of success in securing a job.
                   </p>
@@ -84,24 +101,11 @@ const Services = () => {
               </div>
             </div>
             {/* ----------------------------------- */}
-            <div className="service">
-  <div className="one">
-    <div className="s-left">
-      <div className="icon">
-        <MdMenuBook className="react-icon" />
-      </div>
-    </div>
-    <div className="s-right">
-      <h5>Interview Coaching & Mock Interviews</h5>
-      <p>
-        Receive personalized coaching and participate in mock interviews to enhance your confidence and improve your performance.
-      </p>
-    </div>
-  </div>
-</div>
+          
           </div>
         </div>
       </div>
+      <FooterTop />
       <Footer />
     </>
   );

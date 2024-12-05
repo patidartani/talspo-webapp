@@ -3,6 +3,7 @@ import "./HowWeWork.css"
 import Gif from "../../assets/images/How_We_Work_UC.gif"
 import Navbar from "../../pages/Navbar/Navbar"
 import Footer from "../../pages/Footer/Footer"
+import FooterTop from '../../pages/Footer/FooterTop'
 
 
 const HowWeWork = () => {
@@ -46,6 +47,8 @@ const HowWeWork = () => {
                       </div>
 
  </div>
+
+ <FooterTop />
  <Footer />
     </>
   )

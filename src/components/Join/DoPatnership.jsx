@@ -13,6 +13,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
+import FooterTop from '../../pages/Footer/FooterTop';
 
 const DoPatnership = () => {
 
@@ -131,7 +132,48 @@ const DoPatnership = () => {
     }
   };
   
-  
+
+  const companySectors = [
+    "Abortion Policy/Anti-Abortion",
+    "Abortion Policy/Pro-Abortion Rights",
+    "Accountants",
+    "Advertising/Public Relations",
+    "Aerospace, Defense Contractors",
+    "Agribusiness",
+    "Agricultural Services & Products",
+    "Agriculture",
+    "Air Transport",
+    "Air Transport Unions",
+    "Airlines",
+    "Alcoholic Beverages",
+    "Alternative Energy Production & Services",
+    "Architectural Services",
+    "Attorneys/Law Firms",
+    "Auto Dealers",
+    "Auto Dealers, Japanese",
+    "Auto Manufacturers",
+    "Automotive",
+    "Banking, Mortgage",
+    "Banks, Commercial",
+    "Banks, Savings & Loans",
+    "Bars & Restaurants",
+    "Beer, Wine & Liquor",
+    "Books, Magazines & Newspapers",
+    "Broadcasters, Radio/TV",
+    "Builders/General Contractors",
+    "Builders/Residential",
+    "Building Materials & Equipment",
+    "Building Trade Unions",
+    "Business Associations",
+    "Business Services",
+    "Cable & Satellite TV Production & Distribution",
+    "Candidate Committees",
+    "Candidate Committees, Democratic",
+    "Candidate Committees, Republican",
+    "Car Dealers",
+    "Car Dealers, Imports",
+    // Add more if needed
+  ];
 
 
   //  --------------------------------------------------------------------------------------
@@ -256,6 +298,20 @@ const DoPatnership = () => {
         />
         {errors.company_name && <small className="error-p">{errors.company_name[0]}</small>}
       </div>
+
+
+    <div className="p-inp">
+    <select id="issueType">
+        <option value="" disabled>
+          Company Sector
+        </option>
+        {companySectors.map((sector, index) => (
+          <option key={index} value={sector}>
+            {sector}
+          </option>
+        ))}
+      </select>
+    </div>
       <div className="p-inp">
         <input
           type="text"
@@ -312,6 +368,7 @@ const DoPatnership = () => {
 
 
     </div>
+    <FooterTop />
     <Footer />
    </>
   )

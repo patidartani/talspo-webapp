@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import scaner from "../../assets/images/yellowqr.png"
 
 import "./Contact.css";
 import Navbar from "../../pages/Navbar/Navbar";
 import Footer from "../../pages/Footer/Footer";
+import FooterTop from '../Footer/FooterTop';
 
 const MESSAGE_URL = "https://dev.talspo.com/admin/api/massage-create";
 
@@ -80,20 +82,20 @@ const Contact = () => {
   };
   
   
-  
-
   return (
     <>
       <Navbar />
       <div className='Contact-main'>
         <div className="contact-page">
           <div className="contact-top">
-            <h5>Contact Us</h5>
+            <h5>Get in Touch</h5>
             <p>Need help? Want to give your feedback? Feel free to reach out to us.</p>
           </div>
           <div className="contact-btm">
             <div className="left-gif">
-              <iframe
+               <div className="map-box-content">
+                <p style={{color:"#003266"}}><i  className="ri-map-pin-fill"></i> Company Address............... </p>
+               <iframe
                 title="Google Map"
                 src="https://www.google.com/maps/embed?..."
                 width="100%"
@@ -102,7 +104,16 @@ const Contact = () => {
                 allowFullScreen=""
                 loading="lazy"
               ></iframe>
+               </div>
             </div>
+            <div className="form-container">
+              <div className="form-side">
+               <h5>Contact Us</h5>
+               <h6>Find our contact details and get in touch with our team for any assistance or inquiries.</h6>
+               <h6><i className="ri-mail-fill"></i> Email: example@gmail.com</h6>
+               <h6><i className="ri-map-pin-fill"></i> Address: </h6>
+               <img src={scaner} alt="" />
+              </div>
             <div className="form-page">
               <h5>Send Us A Message</h5>
               <p>Please contact us for any assistance by filling up the form below. We will get back to you within 24 hours.</p>
@@ -112,6 +123,13 @@ const Contact = () => {
                 </div>
                 <div className="ipt">
                   <input type="email" name="email" placeholder="Email*" required value={formData.email} onChange={handleChange} />
+                </div>
+                <div className="ipt">
+      <select id="issueType" >
+        <option value="" disabled>Type Of Issue</option>
+        <option value="technical">Technical Issue</option>
+        <option value="nonTechnical">Non-Technical Issue</option>
+      </select>
                 </div>
                 <div className="ipt">
                   <input type="text" name="subject" placeholder="Subject*" required value={formData.subject} onChange={handleChange} />
@@ -124,9 +142,12 @@ const Contact = () => {
                 </div>
               </form>
             </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <FooterTop />
       <Footer />
     </>
   );
