@@ -12,7 +12,10 @@ export const FEATURED_BLOG_URL = `${BASE_URL}/featured-blogs-view`;
 export const BLOG_VIEW_URL = `${BASE_URL}/blog-view`;
 
 export const JOB_POST_URL = `${BASE_URL}/job-post-view`;
-
+export const HOW_WORK_URL = `${BASE_URL}/how-work-view`
+export const CAMPUS_FAQ = `${BASE_URL}/campus-faq-view`
+export const WHO_WE_TWO = `${BASE_URL}/home-page-view` 
+export const WHY_CHOOSE_TALSPO = `${BASE_URL}/why-choose-talspo-view`
 
 export const ABOUT_US_URL = `${BASE_URL}/about-us-view`;
 export const TAL_SPO_SKILLED_VIEW_URL = `${BASE_URL}/talspo-skilled-view`;
@@ -21,6 +24,8 @@ export const FAQ_URL = `${BASE_URL}/faq-view`
 export const TECHNO_URL = `${BASE_URL}/ourpartners-view`
 export const DO_PARTNERSHIP_URL = `${BASE_URL}/partners-view`
 export const OUR_TEAM_URL = `${BASE_URL}/team-view`
+
+export const ACHIEVEMENT_URL = `${BASE_URL}/achievements-view`
 
 export const PRIVACY_POLICY_URL = `${BASE_URL}/get-privacypolicy`;
 export const COOKIE_POLICY_URL = `${BASE_URL}/get-cookiespolicy`;
@@ -200,16 +205,6 @@ export const submitJobApplication = async (formData) => {
 
 // ---------------------About us------------------------------------
 
-export const fetchAboutUs = async () => {
-  try {
-    const response = await axios.get(ABOUT_US_URL);
-    // console.log("Fetched About Us Data:", response.data);
-    return response.data || {};
-  } catch (error) {
-    console.error("Error fetching About Us data:", error);
-    return {};
-  }
-};
 
 export const faqQuestions = async () => {
   try {
@@ -283,6 +278,23 @@ export const fetchBlogDetail = async (id) => {
   }
 };
 
+
+export const searchBlog = async (query, category) => {
+  try {
+    const response = await axios.get('https://dev.talspo.com/admin/api/search_blog', {
+      params: {
+        title: query,
+        category: category,  // Include category as parameter
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching blogs by search term:', error);
+    throw error;
+  }
+};
+
+
 // -------------------------who we form api-----------------------------------------------------
 
 export const createDirectConnectHR = async (formData) => {
@@ -334,6 +346,7 @@ export const technologyApi = async () => {
 export const doPartnerhip =  async () => {
   try {
      const response = await axios.get(DO_PARTNERSHIP_URL);
+     console.log('response data', response)
      return response.data;
   } catch (error) {
      console.log('error fetching partnership data', error);
@@ -356,5 +369,60 @@ export const submitCareerForm = async (formData) => {
   }
 };
 
-// -------------------------------------------------------------geo location api-----------------------------------------------
+// -------------------------------------------------------------how we work----------------------------------------------
+export const howWork  = async () => {
+  try {
+       const response = await axios.get(HOW_WORK_URL)
+       return response.data;
+  } catch (error) {
+         console.log('Error', error)
+     return{};
+  }
+}
+// -------------------------------------------------------------campus Faq----------------------------------------------
 
+export const campusFaq  = async () => {
+  try {
+       const response = await axios.get(CAMPUS_FAQ)
+       return response.data;
+  } catch (error) {
+         console.log('Error', error)
+     return{};
+  }
+}
+
+// ----------------------------------WHo we two--------------------------------------
+ export const whoWeTwo = async () => {
+  try {
+    const response = await axios.get(WHO_WE_TWO)
+    return response.data;
+  } catch (error) {
+     console.log('Error', error);
+     return{}
+  }
+ }
+
+//  ----------------------------why choode talspo------------------------------------------------------
+
+export const whyChooseTalspo = async () => {
+  try {
+     const response = await axios.get(WHY_CHOOSE_TALSPO)
+     return response.data;
+  } catch (error) {
+       console.log('error', error)
+       return{};
+  }
+}
+// -------------------------------------our team-------------------------------
+
+export const achievement = async () => {
+  try {
+     const response = await axios.get(ACHIEVEMENT_URL)
+     return response.data;
+  } catch (error) {
+       console.log('error', error)
+       return{};
+  }
+}
+
+// -----------------------------------------------------------------------------

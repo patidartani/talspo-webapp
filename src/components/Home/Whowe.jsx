@@ -67,10 +67,10 @@ const Whowe = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       const skillsData = await fetchTalspoSkilledView();
-      console.log("Skills Before Removing Duplicates:", skillsData);
+      // console.log("Skills Before Removing Duplicates:", skillsData);
     
       const uniqueSkills = removeDuplicates(skillsData);
-      console.log("Unique Skills:", uniqueSkills);
+      // console.log("Unique Skills:", uniqueSkills);
     
       setSkills(uniqueSkills);
       setFilteredSkills(uniqueSkills);
@@ -87,7 +87,7 @@ const Whowe = () => {
         })
       );
     
-      console.log("Updated Skills with Coordinates:", updatedSkills);
+      // console.log("Updated Skills with Coordinates:", updatedSkills);
       setFilteredSkills(updatedSkills);
     };
     
@@ -193,7 +193,7 @@ const Whowe = () => {
     const fetchSuggestions = async () => {
       try {
         const data = await fetchSearchSuggestions(searchTerm, location);
-        console.log("Fetched Suggestions:", data);
+        // console.log("Fetched Suggestions:", data);
         setSuggestions(data.data.data); // Set the correct response data here
       } catch (error) {
         console.error("Error fetching suggestions:", error);

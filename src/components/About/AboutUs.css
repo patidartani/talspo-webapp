@@ -113,6 +113,97 @@
         margin-bottom: 7vmax;
         
 }
+.journey-tab-content h5{
+   font-size: 1.3vmax;
+   font-weight: 600;
+   letter-spacing: 0.3px;
+}
+
+
+.AboutUs-container .about-content .about-btm .journey-data{
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content:space-between;
+        flex-direction: row;
+        gap: 1vmax;
+        margin-top: 2vmax;
+        position: relative;
+}
+.AboutUs-container .about-content .about-btm .journey-data .scroll-line {
+        width: 1%;
+        height: auto; /* Adjust height as needed */
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .AboutUs-container .about-content .about-btm .journey-data .scroll-line .scroll-indicator {
+        width: 20%; 
+        height: 30px;
+        background: #393939;
+        position: absolute;
+        transition: top 0.3s ease; /* Smooth animation when changing position */
+      }
+      
+.AboutUs-container .about-content .about-btm .journey-data .journey-left{
+        width: 15%;
+        height: auto;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 1vmax;
+}
+.AboutUs-container .about-content .about-btm .journey-data .journey-left h6{
+       cursor: pointer;
+       background-color: #003266;
+       padding: 0.5vmax 1vmax;
+       border-radius: 50px;
+       color: #fff;
+}
+.AboutUs-container .about-content .about-btm .journey-data .journey-left h6.active-year {
+      background-color: #393939;
+      color: #bfbfbf;
+      }
+      
+.AboutUs-container .about-content .about-btm .journey-data .journey-right{
+        width: 80%;
+        height: auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        /* overflow: hidden; */
+}
+.AboutUs-container .about-content .about-btm .journey-data .journey-right .journey-scroll{
+        width: 100%;
+        height: auto;
+        /* overflow-y: auto; */
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+}
+.AboutUs-container .about-content .about-btm .journey-data .journey-right .j-one{
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        border-bottom: 1px solid #b1b1b1;
+        padding-bottom: 1vmax;
+}
+.AboutUs-container .about-content .about-btm .journey-data .journey-right .j-one img{
+       width: 90%;
+}
+
+
+
+/* ---------------------------------------------------------------------- */
 
 .AboutUs-container .extra-content{
         width: 70%;

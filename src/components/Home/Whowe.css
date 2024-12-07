@@ -6,6 +6,8 @@
 }
 
 /* --------------------------------------------------------------------- */
+
+
 .error-text {
   color: red;
   font-size: 16px; /* You can adjust this as needed */
@@ -125,6 +127,7 @@
    .modal-overlay-slide .modal-content button:hover {
     background-color: #001a28;
   }
+
   
    .modal-overlay-slide .modal-content .e-ipt-checkbox h6 {
     font-size: 1.1vmax;

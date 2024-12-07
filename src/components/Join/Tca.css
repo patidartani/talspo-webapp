@@ -79,7 +79,7 @@
         
         .Faq-main .faq-btm .questions {
           width: 100%;
-          height: 400px;
+          height: auto;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -207,22 +207,6 @@
 .iptssss{
    gap: 2vmax;
    margin-top: 0.5vmax;
-}
-.radio {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
-  margin: 0 10px;
-  gap: 10px; /* Space between label and radio button */
-}
-
-.radio label {
-  margin: 0; /* Remove extra space */
-}
-
-.radio input[type="radio"] {
-  margin: 0; /* Remove default space */
 }
 
 .conditional-form{
