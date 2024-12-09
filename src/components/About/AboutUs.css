@@ -118,8 +118,71 @@
    font-weight: 600;
    letter-spacing: 0.3px;
 }
-
-
+.recognition-tab-content h6,
+.ipr-tab-content h6,
+.logo-story-tab-content h6{
+        font-size: 1.4vmax;
+        font-weight: 600;
+}
+/* -----------------------logo story slider------------------------------------------------- */
+.logo-story-tab-content{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+}
+/* Parent container styling */
+.logo-story-slider {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1vmax;
+        margin-bottom: 1vmax;
+      }
+  .carousel{
+        width: 100%;
+  } 
+  .carousel-item{
+        width: 80%;
+        height: 500px;
+  }   
+ .carousel-item img {
+        width: 100%;
+        height: 500px;
+        transition: none; 
+        transform: none; 
+ }
+     .carousel-control-prev, .carousel-control-next {
+        color: #fff !important; 
+        background: #000 !important; 
+        width: 40px !important;
+        height: 40px; 
+        border-radius: 50px; 
+        padding: 0.1vmax 1vmax;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 40% !important;
+      }    
+      .carousel-control-prev:hover, .carousel-control-next:hover {
+        color: #000;
+      }    
+      .carousel-control-prev-icon, .carousel-control-next-icon {
+        filter: invert(1); 
+      }
+      .carousel-control-prev {
+        left: -50px;
+      }     
+      .carousel-control-next {
+        right: -50px;
+      }
+      .carousel-item {
+        padding: 10px;
+      }   
+/* ----------------------------------------------------------------------------- */
 .AboutUs-container .about-content .about-btm .journey-data{
         width: 100%;
         height: auto;

@@ -42,7 +42,7 @@ const Home = () => {
      const whyChoose = async () => {
        try {
          const response = await whyChooseTalspo(); // Assuming this function fetches data
-         console.log('Why choose response', response.records);
+        //  console.log('Why choose response', response.records);
          setItems(response.records); // Update state with API data
          if (response.records.length > 0) {
            setSelectedImage(response.records[0].image); // Set the first image as selected

@@ -5,6 +5,16 @@ import AboutTopImg from "../../assets/images/aboutusTop.webp";
 import Footer from "../../pages/Footer/Footer";
  import { useNavigate } from "react-router-dom";
 
+ import RecognitionImg from "../../assets/images/recognition.png"
+ import patentIPRimg from "../../assets/images/patentIPR.png"
+ import logoimg1 from "../../assets/images/logostory1.png"
+ import logoimg2 from "../../assets/images/logostoy2.png"
+ import logoimg3 from "../../assets/images/logostory3.png"
+ import logoimg4 from "../../assets/images/logostory4.png"
+ import { HiOutlineArrowSmallRight , HiOutlineArrowSmallLeft} from "react-icons/hi2";
+
+
+
  import Slider from "react-slick";
  import TalspoIcon from "../../assets/images/talspoIcon.png"
  import qr from "../../assets/images/yellowqr.png"
@@ -19,8 +29,7 @@ import FooterTop from "../../pages/Footer/FooterTop";
 
 const AboutUs = () => {
 
-
-  const [activeYear, setActiveYear] = useState("2021"); // Default active year.
+  const [activeYear, setActiveYear] = useState("2021");
 
   const years = ["2021", "2020", "1999", "2002", "2008"];
 
@@ -212,12 +221,7 @@ const AboutUs = () => {
              </div>
            </div>
             )}
-            {activeTab === "values" && (
-              <div className="values-tab-content">
-                <h6>Our Values</h6>
-                <p>Integrity, innovation, and inclusivity define us.</p>
-              </div>
-            )}
+            
             {activeTab === "logo-story" && (
               <div className="logo-story-tab-content">
                 <h6>The Logo Story</h6>
@@ -225,24 +229,50 @@ const AboutUs = () => {
                   Talspo's logo represents our vision of collaboration and growth, embodying the
                   unity of learners and trainers.
                 </p>
+
+                  <div className="logo-story-slider">
+                    <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+                      <div className="carousel-inner">
+                        <div className="carousel-item active">
+                          <img className=" w-70" src={logoimg1} alt="First slide" />
+                        </div>
+                        <div className="carousel-item">
+                          <img className=" w-70" src={logoimg2} alt="Second slide" />
+                        </div>
+                        <div className="carousel-item">
+                          <img className=" w-70" src={logoimg3} alt="Third slide" />
+                        </div>
+                        <div className="carousel-item">
+                          <img className=" w-70" src={logoimg4} alt="Fourth slide" />
+                        </div>
+                      </div>
+                      <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                        <HiOutlineArrowSmallLeft />
+                      </a>
+                      <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                        <HiOutlineArrowSmallRight />
+                      </a>
+                    </div>
+                 </div>
+
               </div>
             )}
             {activeTab === "ipr" && (
               <div className="ipr-tab-content">
-                <h6> Talspo Intellectual Property Rights (IPR) Certification</h6>
+                <h6>Intellectual Property Rights (IPR) Certification: Patent Grant Certification </h6>
                 <p>
-                  All Talspo trademarks, logos, and intellectual property are protected and reflect
-                  our dedication to innovation and creativity.
+                Status: Granted in India – View Patent Certificate
                 </p>
+                <p>Patent Certificate Legal Status: Inforce</p>
+                <img src={patentIPRimg} alt="" />
               </div>
             )}
             {activeTab === "recognition" && (
               <div className="recognition-tab-content">
-                <h6>Recognition</h6>
+                <h6>Recognition & Certification</h6>
+                 <img src={RecognitionImg} alt="" />
                 <p>
-                  Talspo has been recognized by global institutions for its contributions to bridging
-                  the talent gap and empowering individuals with skills that matter. We’re proud of our
-                  awards and accolades, which reflect our commitment to innovation and excellence.
+                Talspo Private Limited received a Certificate of Recognition from DPIIT (DIPP), recognized as a startup. 
                 </p>
               </div>
             )}

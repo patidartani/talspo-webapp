@@ -28,6 +28,33 @@ const Whowe = () => {
   const openModal = () => setIsModalOpen(true);
   const toggleMapView = () => setShowFullMap(!showFullMap);
 
+
+
+// -----------------------------------Currency Conversion spi ----------------------------------------------------------
+
+const [selectedCurrencies, setSelectedCurrencies] = useState({});
+
+const handleCurrencyChange = (skillId, selectedCurrency) => {
+  setSelectedCurrencies(prevState => ({
+    ...prevState,
+    [skillId]: selectedCurrency
+  }));
+};
+
+const [currencyRates, setCurrencyRates] = useState({});
+
+  // Fetch the currency rates
+  useEffect(() => {
+    fetch("https://api.currencyapi.com/v3/latest?apikey=cur_live_xz60droFw3MXDi34MEDxoivOeOlY20iDQIXKbJyq&currencies=INR%2CAED%2CEUR%2CUSD%2CSGD%2CGBP&base_currency=INR")
+      .then((response) => response.json())
+      .then((data) => setCurrencyRates(data.data));
+  }, []);
+
+ 
+
+
+// --------------------------------------------------------------------------------------------------------------------
+
   const settings = {
     dots: false,
     infinite: false,
@@ -67,7 +94,7 @@ const Whowe = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       const skillsData = await fetchTalspoSkilledView();
-      // console.log("Skills Before Removing Duplicates:", skillsData);
+      console.log("Skills Before Removing Duplicates:", skillsData);
     
       const uniqueSkills = removeDuplicates(skillsData);
       // console.log("Unique Skills:", uniqueSkills);
@@ -379,31 +406,58 @@ const Whowe = () => {
           {/* -------------------------------------------- */}
           <div className="who-slide">
           <div className="slider-container">
-  <Slider {...settings}>
-    {filteredSkills.map((skill, index) => (
-      <div key={`${skill.id}-${index}`}>
-        <div className="w-box">
-          <img src={skill.image} alt={skill.name} />
-          <div className="text-panel">
-            <h5>{skill.title}</h5>
-            <p>{skill.description}</p>
-            <div className="ss">
-              <small>Salary: {skill.salary}</small>
-              <small>Status: {skill.status}</small>
+      <Slider {...settings}>
+        {filteredSkills.map((skill, index) => {
+          const supportedCurrencies = JSON.parse(skill.supportedcurrencies);
+
+          // Get the selected currency for the current skill or use default if not selected
+          const selectedCurrency = selectedCurrencies[skill.id] || skill.basecurrency;
+
+          // Get the conversion rate for the selected currency
+          const rate = currencyRates[selectedCurrency] ? currencyRates[selectedCurrency].value : 1;
+          const convertedSalary = skill.salary * rate;
+
+          return (
+            <div key={`${skill.id}-${index}`}>
+              <div className="w-box">
+                <img src={skill.image} alt={skill.name} />
+                <div className="text-panel">
+                  <h5>{skill.title}</h5>
+                  <div className="ss">
+                    <small>Location: {skill.location}</small>
+                    <small>Status: {skill.status}</small>
+                  </div>
+                  <span>Experience: {skill.experience}</span>
+                  <div className="hh">
+                    {/* Display salary with selected currency */}
+                    <small>
+                      Salary: {convertedSalary.toFixed(2)} {selectedCurrency}
+                    </small>
+                  </div>
+
+                  {/* Currency selection dropdown */}
+                  <select
+                    className="custom-select mt-1"
+                    value={selectedCurrency}
+                    onChange={(e) => handleCurrencyChange(skill.id, e.target.value)}
+                  >
+                    {supportedCurrencies.map((currency, idx) => (
+                      <option key={idx} value={currency}>
+                        {currency}
+                      </option>
+                    ))}
+                  </select>
+
+                  <button className="get" onClick={openModal}>
+                    Connect
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="hh">
-              <span>Location: {skill.location}</span>
-            </div>
-            <span>Experience: {skill.experience}</span>
-            <button className="get" onClick={openModal}>
-              Connect
-            </button>
-          </div>
-        </div>
-      </div>
-    ))}
-  </Slider>
-</div>
+          );
+        })}
+      </Slider>
+    </div>
 
             <div className="home-map">
               <div
@@ -459,7 +513,7 @@ const Whowe = () => {
                 </div>
               )}
             </div>
-            ;
+            
           </div>
         </div>
       </div>
