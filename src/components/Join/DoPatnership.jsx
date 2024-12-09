@@ -41,6 +41,7 @@ const DoPatnership = () => {
     const fetchPartnershipData = async () => {
       try {
         const response = await doPartnerhip(); 
+        console.log('response partners ', response)
         setPartners(response.records)
       } catch (error) {
         console.error("Error fetching partnership data:", error); 
@@ -95,7 +96,7 @@ const DoPatnership = () => {
   
     try {
       const response = await submitCareerForm(data);
-      // console.log("Response:", response);
+      console.log("Response form partner:", response);
   
       // Check if response.error is false to determine success
       if (response && response.error === false) {

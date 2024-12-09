@@ -3,9 +3,17 @@ import "./AboutUs.css";
 import Navbar from "../../pages/Navbar/Navbar";
 import AboutTopImg from "../../assets/images/aboutusTop.webp";
 import Footer from "../../pages/Footer/Footer";
-// import { fetchAboutUs } from "../../apiService";
-import Loading from "../../pages/loading/Loading";
  import { useNavigate } from "react-router-dom";
+
+ import RecognitionImg from "../../assets/images/recognition.png"
+ import patentIPRimg from "../../assets/images/patentIPR.png"
+ import logoimg1 from "../../assets/images/logostory1.png"
+ import logoimg2 from "../../assets/images/logostoy2.png"
+ import logoimg3 from "../../assets/images/logostory3.png"
+ import logoimg4 from "../../assets/images/logostory4.png"
+ import { HiOutlineArrowSmallRight , HiOutlineArrowSmallLeft} from "react-icons/hi2";
+
+
 
  import Slider from "react-slick";
  import TalspoIcon from "../../assets/images/talspoIcon.png"
@@ -20,6 +28,52 @@ import YouTube from "../../assets/images/YouTube.png"
 import FooterTop from "../../pages/Footer/FooterTop";
 
 const AboutUs = () => {
+
+  const [activeYear, setActiveYear] = useState("2021");
+
+  const years = ["2021", "2020", "1999", "2002", "2008"];
+
+  const getIndicatorPosition = () => {
+    const yearIndex = years.indexOf(activeYear);
+    const gap = 300 / years.length; // Height of scroll-line divided by number of years
+    return yearIndex * gap; // Dynamic position based on the index
+  };
+
+  const journeyData = {
+    "2021": {
+      title: "Talspo 2021 Journey",
+      description:
+        "In 2021, Talspo marked a year of remarkable growth, overcoming challenges and embracing new opportunities. We expanded our horizons, launched innovative solutions, and strengthened our community bonds, laying a strong foundation for future endeavors.",
+      img: "https://cdn.pixabay.com/photo/2020/03/01/00/55/compass-4891499_1280.jpg",
+    },
+    "2020": {
+      title: "Talspo 2020 Journey",
+      description:
+        "The year 2020 was a testament to our resilience and adaptability. Despite global uncertainties, Talspo successfully introduced cutting-edge technologies and navigated through a rapidly changing landscape with unwavering commitment.",
+      img: "https://cdn.pixabay.com/photo/2017/08/05/23/29/hand-2586638_1280.jpg",
+    },
+    "1999": {
+      title: "Talspo 1999 Journey",
+      description:
+        "1999 was the year of inception for Talspo. With a vision to innovate and lead, we began our journey towards excellence, driven by a passion for technology and a desire to make a meaningful impact.",
+      img: "https://cdn.pixabay.com/photo/2023/10/18/15/43/compass-8324516_1280.jpg",
+    },
+    "2002": {
+      title: "Talspo 2002 Journey",
+      description:
+        "In 2002, Talspo achieved significant milestones, establishing itself as a trusted name in the industry. Our focus on quality and customer satisfaction helped us build a loyal clientele and expand our services.",
+      img: "https://cdn.pixabay.com/photo/2024/03/04/21/49/tracks-8613278_1280.jpg",
+    },
+    "2008": {
+      title: "Talspo 2008 Journey",
+      description:
+        "The year 2008 was pivotal for Talspo, as we introduced groundbreaking innovations that set us apart in the competitive market. This year underscored our dedication to pushing boundaries and achieving excellence.",
+      img: "https://cdn.pixabay.com/photo/2017/04/05/01/12/traveler-2203666_640.jpg",
+    },
+  };
+  
+
+  // -----------------------------------------------------------------------
 
   const settings = {
     infinite: true,
@@ -59,30 +113,7 @@ const AboutUs = () => {
       navigate('/our-team')
      }
 
-  // const [aboutData, setAboutData] = useState(null);
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const getAboutUsData = async () => {
-  //     try {
-  //       const data = await fetchAboutUs();
-  //       console.log("Fetched About Us Data Response:", data);
-  //       setAboutData(data);
-  //     } catch (error) {
-  //       console.error("Error fetching About Us data:", error);
-  //       setAboutData({ error: true, records: [] });
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   getAboutUsData();
-  // }, []);
-
-  // if (loading) {
-  //   return <Loading />;
-  // }
-
+ 
   return (
     <>
     <Navbar />
@@ -125,7 +156,7 @@ const AboutUs = () => {
               className={`ipr-tab ${activeTab === "ipr" ? "active" : ""}`}
               onClick={() => setActiveTab("ipr")}
             >
-              (TIPR)
+             Patent (IPR)
             </button>
             <button
               className={`recognition-tab ${activeTab === "recognition" ? "active" : ""}`}
@@ -151,17 +182,46 @@ const AboutUs = () => {
               </div>
             )}
             {activeTab === "journey" && (
-              <div className="journey-tab-content">
-                <h6>Our Journey</h6>
-                <p>Here’s how Talspo evolved over the years...</p>
-              </div>
+             <div className="journey-tab-content">
+             <h5>Our Journey</h5>
+             <div className="journey-data">
+               {/* Scroll Line */}
+               <div className="scroll-line">
+                 <div
+                   className="scroll-indicator"
+                   style={{ top: `${getIndicatorPosition()}px` }}
+                 ></div>
+               </div>
+       
+               {/* Journey Left */}
+               <div className="journey-left">
+                 {years.map((year) => (
+                   <h6
+                     key={year}
+                     className={activeYear === year ? "active-year" : ""}
+                     onClick={() => setActiveYear(year)}
+                   >
+                     {year}
+                   </h6>
+                 ))}
+               </div>
+       
+               {/* Journey Right */}
+               <div className="journey-right">
+                 <div className="journey-scroll">
+                   <div className="j-one">
+                     <h5>{journeyData[activeYear].title}</h5>
+                     <p>{journeyData[activeYear].description}</p>
+                     <p>{journeyData[activeYear].description}</p>
+
+                     <img src={journeyData[activeYear].img} alt={activeYear} />
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
             )}
-            {activeTab === "values" && (
-              <div className="values-tab-content">
-                <h6>Our Values</h6>
-                <p>Integrity, innovation, and inclusivity define us.</p>
-              </div>
-            )}
+            
             {activeTab === "logo-story" && (
               <div className="logo-story-tab-content">
                 <h6>The Logo Story</h6>
@@ -169,24 +229,50 @@ const AboutUs = () => {
                   Talspo's logo represents our vision of collaboration and growth, embodying the
                   unity of learners and trainers.
                 </p>
+
+                  <div className="logo-story-slider">
+                    <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+                      <div className="carousel-inner">
+                        <div className="carousel-item active">
+                          <img className=" w-70" src={logoimg1} alt="First slide" />
+                        </div>
+                        <div className="carousel-item">
+                          <img className=" w-70" src={logoimg2} alt="Second slide" />
+                        </div>
+                        <div className="carousel-item">
+                          <img className=" w-70" src={logoimg3} alt="Third slide" />
+                        </div>
+                        <div className="carousel-item">
+                          <img className=" w-70" src={logoimg4} alt="Fourth slide" />
+                        </div>
+                      </div>
+                      <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                        <HiOutlineArrowSmallLeft />
+                      </a>
+                      <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                        <HiOutlineArrowSmallRight />
+                      </a>
+                    </div>
+                 </div>
+
               </div>
             )}
             {activeTab === "ipr" && (
               <div className="ipr-tab-content">
-                <h6> Talspo Intellectual Property Rights</h6>
+                <h6>Intellectual Property Rights (IPR) Certification: Patent Grant Certification </h6>
                 <p>
-                  All Talspo trademarks, logos, and intellectual property are protected and reflect
-                  our dedication to innovation and creativity.
+                Status: Granted in India – View Patent Certificate
                 </p>
+                <p>Patent Certificate Legal Status: Inforce</p>
+                <img src={patentIPRimg} alt="" />
               </div>
             )}
             {activeTab === "recognition" && (
               <div className="recognition-tab-content">
-                <h6>Recognition</h6>
+                <h6>Recognition & Certification</h6>
+                 <img src={RecognitionImg} alt="" />
                 <p>
-                  Talspo has been recognized by global institutions for its contributions to bridging
-                  the talent gap and empowering individuals with skills that matter. We’re proud of our
-                  awards and accolades, which reflect our commitment to innovation and excellence.
+                Talspo Private Limited received a Certificate of Recognition from DPIIT (DIPP), recognized as a startup. 
                 </p>
               </div>
             )}

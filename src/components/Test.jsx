@@ -1,306 +1,297 @@
-// import { useState, useEffect } from 'react';
-// import { fetchJobPosts } from '../../apiService';
-// import "./Opportunity.css";
-// import Navbar from "../../pages/Navbar/Navbar";
-// import Footer from "../../pages/Footer/Footer";
-// import ReactPaginate from 'react-paginate';
-// import { useNavigate } from 'react-router-dom';
-// import iconSearch from "../../assets/images/talspoIcon.png";
-// import Loading from "../../pages/loading/Loading";
-// import { formatDistanceToNow } from 'date-fns';
-// import opt1Img from "../../assets/images/opt1.png";
+import {useEffect, useState} from 'react';
+import './OurTeam.css';
+import Navbar from '../../pages/Navbar/Navbar';
+import Footer from '../../pages/Footer/Footer';
+// import {ourTeam} from "../../apiService"
+// import Loading from "../../pages/loading/Loading"
 
-// const Opportunity = () => {
-//   const [filterData, setFilterData] = useState({
-//     location: [],
-//     experience: [],
-//     title: []
-//   });
+import OurTeamimg from '../../assets/images/teamourr.png';
+import FooterTop from '../../pages/Footer/FooterTop';
 
-//   const [selectedLocation, setSelectedLocation] = useState("");
-//   const [selectedExperience, setSelectedExperience] = useState("");
-//   const [selectedTitle, setSelectedTitle] = useState('');
+const OurTeam = () => {
 
-//   const [loading, setLoading] = useState(true);
-//   const [jobs, setJobs] = useState([]);
-//   const [searchInput, setSearchInput] = useState('');
-//   const [filteredTitles, setFilteredTitles] = useState([]);
-//   const navigate = useNavigate();
-//   const ITEMS_PER_PAGE = 5;
-//   const [currentPage, setCurrentPage] = useState(0);
+  const [activeTabs, setActiveTabs] = useState({
+    leadership: "founder",
+    developers: "Previous",
+    interns: "Previous-int",
+  });
 
-//   useEffect(() => {
-//     const loadJobs = async () => {
-//       const fetchedJobs = await fetchJobPosts();
-//       console.log('fetchedJobs', fetchedJobs);
-//       setJobs(fetchedJobs);
-//       setLoading(false);
-//     };
+  const handleTabChange = (category, tab) => {
+    setActiveTabs((prevState) => ({ ...prevState, [category]: tab }));
+  }
 
-//     loadJobs();
-//     fetchFilters();
-//   }, []);
-
-//   const fetchFilters = async (location = "", experience = "", title = "") => {
-//     try {
-//       setLoading(true);
-//       const queryParam = [
-//         location ? `location=${encodeURIComponent(location)}` : '',
-//         experience ? `experience=${encodeURIComponent(experience)}` : '',
-//         title ? `title=${encodeURIComponent(title)}` : '',
-//       ]
-//       .filter(Boolean)
-//       .join('&');
-
-//       const response = await fetch(`https://dev.talspo.com/admin/api/showcase/search?${queryParam}`);
-//       if (!response.ok) {
-//         throw new Error(`HTTP error! status: ${response.status}`);
-//       }
-//       const data = await response.json();
-
-//       // Extract unique filter values
-//       const uniqueLocations = [...new Set(data.data.data.map((item) => item.location).filter((loc) => loc !== null))];
-//       const uniqueExperience = [...new Set(data.data.data.map((item) => item.experience).filter((exp) => exp !== null))];
-//       const uniqueTitle = [...new Set(data.data.data.map((item) => item.title).filter((tit) => tit !== null))];
-
-//       setFilterData((prev) => ({
-//         ...prev,
-//         location: uniqueLocations,
-//         experience: uniqueExperience,
-//         title: uniqueTitle
-//       }));
-
-//       // Apply filter if location, experience, job_type, work_from, and duration are selected
-//       const filteredJobs = data.data.data.filter((job) => {
-//         return (
-//           (location ? job.location === location : true) &&
-//           (experience ? job.experience === experience : true) &&
-//           (title ? job.title === title : true)
-//         );
-//       });
-
-//       setJobs(filteredJobs);
-//       console.log('filteredJobs', filteredJobs);
-//       setLoading(false);
-//     } catch (error) {
-//       console.error("Error fetching filter data:", error);
-//       setLoading(false);
-//     }
-//   };
-
-//   const handleLocationChange = (e) => {
-//     const location = e.target.value;
-//     setSelectedLocation(location);
-//     fetchFilters(location, selectedExperience);
-//   };
-
-//   const handleExperienceChange = (e) => {
-//     const experience = e.target.value;
-//     setSelectedExperience(experience);
-//     fetchFilters(selectedLocation, experience);
-//   };
-
-//   const handleClearAll = async () => {
-//     setSelectedLocation("");
-//     setSelectedExperience("");
-//     setLoading(true);
-
-//     await fetchFilters();
-//     const allJobs = await fetchJobPosts();
-//     setJobs(allJobs);
-//     setLoading(false);
-//   };
-
-//   const viewDetailHandler = (id) => {
-//     navigate(`/view-detail/${id}`);
-//   };
-
-//   const pageCount = Math.ceil(jobs.length / ITEMS_PER_PAGE);
-//   const currentJobs = jobs.slice(currentPage * ITEMS_PER_PAGE, (currentPage + 1) * ITEMS_PER_PAGE);
-
-//   const handlePageClick = (data) => setCurrentPage(data.selected);
-
-//   const handleSearchChange = (e) => {
-//     const value = e.target.value;
-//     setSearchInput(value);
+  const leadershipData = {
+    founder: [
+      {
+        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Andrea-La-Mendola-Chief-Operating-Officer-2.jpg",
+        name: "Anand Mehta",
+        position: "Chief Operating Officer",
+      },
+      {
+        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Profile-Julia-Soriano-1-1-1500x1500.jpg",
+        name: "Anand Mehta",
+        position: "Chief Operating Officer",
+      },{
+        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Chris-Bobko-Head-of-Engineering-Integration-4.jpg",
+        name: "Anand Mehta",
+        position: "Chief Operating Officer",
+      },{
+        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Derya-Thompson_HyperloopTT-1500x1500.jpeg",
+        name: "Anand Mehta",
+        position: "Chief Operating Officer",
+      },{
+        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Andres-de-Leon-Chief-Executive-Officer-6.jpg",
+        name: "Anand Mehta",
+        position: "Chief Operating Officer",
+      },{
+        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Andrea-La-Mendola-Chief-Operating-Officer-2.jpg",
+        name: "Anand Mehta",
+        position: "Chief Operating Officer",
+      },{
+        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Chuck-Michael_HyperloopTT.jpg",
+        name: "Anand Mehta",
+        position: "Chief Operating Officer",
+      },{
+        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Ben-Cooke-Head-of-Media-Relations-2.jpg",
+        name: "Anand Mehta",
+        position: "Chief Operating Officer",
+      },{
+        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Shelby-Phillips_HyperloopTT-e1723042821790.jpeg",
+        name: "Anand Mehta",
+        position: "Chief Operating Officer",
+      },
+      {
+        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/David-Doll-Chief-Engineering-Council-Member-3.jpg",
+        name: "David Doll",
+        position: "Chief Engineering Officer",
+      },
+      // Add more founder data as needed
+    ],
+    "co-founder": [
+      {
+        img: "https://images.pexels.com/photos/789822/pexels-photo-789822.jpeg?auto=compress&cs=tinysrgb&w=600",
+        name: "Jane Doe",
+        position: "Co-Founder & CTO",
+      },
+      {
+        img: "https://images.pexels.com/photos/1036622/pexels-photo-1036622.jpeg?auto=compress&cs=tinysrgb&w=600",
+        name: "John Smith",
+        position: "Co-Founder & COO",
+      },
+      // Add more co-founder data as needed
+    ],
+    advisors: [
+      {
+        img: "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=600",
+        name: "Dr. Emily Carter",
+        position: "Strategic Advisor",
+      },
+      {
+        img: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=600",
+        name: "Michael Lee",
+        position: "Financial Advisor",
+      },
+    ],
+  };
   
-//     const filtered = filterData.title.filter((title) =>
-//       title.toLowerCase().includes(value.toLowerCase())
-//     );
-//     setFilteredTitles(filtered);
-//   };
-  
-//   const handleTitleSelect = (title) => {
-//     setSearchInput(title); // Set the search input to the selected title
-//     setFilteredTitles([]); // Hide the suggestions after selection
-//     setSelectedTitle(title); // Set the selected title
-//     fetchFilters(selectedLocation, selectedExperience, title); // Apply the filter based on the selected title
-//   };
-  
-//   if (loading) {
-//     return <Loading />;
-//   }
 
-//   return (
-//     <>
-//       <Navbar />
-//       <div className="Opportunity-main">
-//         <div className="opportunity-page">
-//           <div className="opportunity2">
-//             <h5>Apply Now!</h5>
+  return (
+    <>
+    <Navbar />
+    <div className="OurTeam-main">
+      <div className="ourteam">
+        <div className="team-top">
+          <img src={OurTeamimg} alt="Our Team" />
+        </div>
+        <div className="team-btm">
+          <div className="one">
+            <h5>Meet Our Beautiful Team</h5>
+            <p>
+              We are passionate professionals working together to create impactful solutions.
+              Our team brings a blend of creativity, expertise, and dedication.
+            </p>
+          </div>
+          <div className="two">
 
-//             {/* Filter Section */}
-//             <div className="opt2-btm">
-//               <div className="filter-main-page">
-//                 <div className="Filter-page">
-//                   <h6>Filters</h6>
-//                   <p>Please select from the category below</p>
-//                   <div className="filter-btm">
 
-//                     {/* Location Filter */}
-//                     <div className="location">
-//                       <h4>Location</h4>
-//                       <div className="location-search">
-//                         <select value={selectedLocation} onChange={handleLocationChange}>
-//                           <option value="" disabled>Select Location</option>
-//                           {filterData.location.length > 0 ? (
-//                             filterData.location.map((loc, index) => (
-//                               <option key={index} value={loc}>
-//                                 {loc}
-//                               </option>
-//                             ))
-//                           ) : (
-//                             <option value="" disabled>No Locations Available</option>
-//                           )}
-//                         </select>
-//                       </div>
-//                     </div>
+          <div className="teamOne">
+  <h5>Leadership</h5>
+  <div className="btns-tab">
+    {["founder", "co-founder", "advisors", "investors"].map((tab) => (
+      <button
+        key={tab}
+        className={`${tab} ${activeTabs.leadership === tab ? "active" : ""}`}
+        onClick={() => handleTabChange("leadership", tab)}
+      >
+        {tab.charAt(0).toUpperCase() + tab.slice(1).replace("-", " ")}
+      </button>
+    ))}
+  </div>
+  <div className="leadership-tab-content">
+    {Object.keys(leadershipData).map(
+      (key) =>
+        activeTabs.leadership === key && (
+          <div key={key} className="leader">
+            {leadershipData[key].map((person, index) => (
+              <div key={index} className="tab-box">
+                <div className="img">
+                  {person.img && <img src={person.img} alt={person.name} />}
+                </div>
+                <div className="text-tab">
+                  <h6>{person.name}</h6>
+                  <span>{person.position}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        )
+    )}
+  </div>
+</div>
 
-//                     {/* Experience Filter */}
-//                     <div className="experience">
-//                       <h4>Experience</h4>
-//                       <div className="experience-search">
-//                         <select value={selectedExperience} onChange={handleExperienceChange}>
-//                           <option value="" disabled>Select Experience Level</option>
-//                           {filterData.experience.length > 0 ? (
-//                             filterData.experience.map((exp, index) => (
-//                               <option key={index} value={exp}> 
-//                                 {exp}
-//                               </option>
-//                             ))
-//                           ) : (
-//                             <option value="" disabled>No Experience Levels Available</option>
-//                           )}
-//                         </select>
-//                       </div>
-//                     </div>
+{/* ------------------------------------------------------------------------------------------ */}
+            <div className="teamTwo">
+              <h5>Management and Technology Developer</h5>
+              <div className="btns-tab">
+                <button
+                  className={`Previous ${activeTabs.developers === "Previous" ? "active" : ""}`}
+                  onClick={() => handleTabChange("developers", "Previous")}
+                >
+                  Previous
+                </button>
+                <button
+                  className={`Current ${activeTabs.developers === "Current" ? "active" : ""}`}
+                  onClick={() => handleTabChange("developers", "Current")}
+                >
+                  Current
+                </button>
+              </div>
 
-//                   {/* Clear All */}
-//                     <div className="clear-all">
-//                       <a href="#" onClick={handleClearAll}>
-//                         Clear all
-//                       </a>
-//                     </div>
-//                   </div>
-//                 </div>
-             
-//               </div>
+              <div className="developers-tab-content">
+                {activeTabs.developers === "Previous" && <div className='leader'>
+                  <div className="tab-box">
+                              <div className="img">
+                                 <img src="https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Andres-de-Leon-Chief-Executive-Officer-6.jpg" alt="" />
+                                </div>  
+                                <div className="text-tab">
+                                  <h6>Anand Mehta</h6>
+                                  <span>Chief Operating Officer</span>
+                                </div>
+                           </div>
+                           <div className="tab-box">
+                              <div className="img">
+                                 <img src="https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Shelby-Phillips_HyperloopTT-e1723042821790.jpeg" alt="" />
+                                </div>  
+                                <div className="text-tab">
+                                  <h6>Anand Mehta</h6>
+                                  <span>Chief Operating Officer</span>
+                                </div>
+                           </div>
+                           <div className="tab-box">
+                              <div className="img">
+                                 <img src="https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Cristian-Santibanez-Marketing-Operations-Urban-Mobility-Lead-3.jpg" alt="" />
+                                </div>  
+                                <div className="text-tab">
+                                  <h6>Anand Mehta</h6>
+                                  <span>Chief Operating Officer</span>
+                                </div>
+                           </div>
+                  </div>}
+                {activeTabs.developers === "Current" && <div className='leader'>
+                  <div className="tab-box">
+                              <div className="img">
+                                 <img src="https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Charles.png" alt="" />
+                                </div>  
+                                <div className="text-tab">
+                                  <h6>Anand Mehta</h6>
+                                  <span>Chief Operating Officer</span>
+                                </div>
+                           </div>
+                           <div className="tab-box">
+                              <div className="img">
+                                 <img src="https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Ben-Cooke-Head-of-Media-Relations-2.jpg" alt="" />
+                                </div>  
+                                <div className="text-tab">
+                                  <h6>Anand Mehta</h6>
+                                  <span>Chief Operating Officer</span>
+                                </div>
+                           </div><div className="tab-box">
+                              <div className="img">
+                                 <img src="https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Michael-Burton-Talent-Acquisition-Lead.jpg" alt="" />
+                                </div>  
+                                <div className="text-tab">
+                                  <h6>Anand Mehta</h6>
+                                  <span>Chief Operating Officer</span>
+                                </div>
+                           </div>
+                  </div>
+                  }
+              </div>
+            </div>
+{/* ------------------------------------------------------------------------------------------ */}
 
-//               <div className="jobs-page">
-//                 <div className="job-search">
-//                   <div className="ipt-job">
-//                     <input
-//                       type="text"
-//                       placeholder="Search Jobs..."
-//                       value={searchInput}
-//                       onChange={handleSearchChange}
-//                     />
-//                     <img src={iconSearch} alt="Search Icon" />                  
-//                   </div>
-//                   {searchInput && filteredTitles.length > 0 && (
-//                <div className="suggestions-list">
-//     {filteredTitles.map((title, index) => (
-//       <div
-//         key={index}
-//         className="suggestion-item"
-//         onClick={() => handleTitleSelect(title)} 
-//       >
-//         {title}
-//       </div>
-//     ))}
-//   </div>
-// )}
+            <div className="teamThree">
+              <h5>Interns</h5>
+              <div className="btns-tab">
+                <button
+                  className={`Previous-int ${
+                    activeTabs.interns === "Previous-int" ? "active" : ""
+                  }`}
+                  onClick={() => handleTabChange("interns", "Previous-int")}
+                >
+                  Previous
+                </button>
+                <button
+                  className={`Current-int ${
+                    activeTabs.interns === "Current-int" ? "active" : ""
+                  }`}
+                  onClick={() => handleTabChange("interns", "Current-int")}
+                >
+                  Current
+                </button>
+              </div>
+              <div className="Interns-tab-content">
+                {activeTabs.interns === "Previous-int" && <div className='leader'>
+                  <div className="tab-box">
+                              <div className="img">
+                                 <img src="https://images.pexels.com/photos/29553145/pexels-photo-29553145/free-photo-of-portrait-of-a-woman-in-mexico-city-park.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+                                </div>  
+                                <div className="text-tab">
+                                  <h6>Anand Mehta</h6>
+                                  <span>Chief Operating Officer</span>
+                                </div>
+                           </div>
+                           <div className="tab-box">
+                              <div className="img"> <img src="https://images.pexels.com/photos/29547164/pexels-photo-29547164/free-photo-of-professional-woman-in-modern-laboratory-holding-tablet.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" /></div>  
+                                <div className="text-tab">
+                                  <h6>Anand Mehta</h6>
+                                  <span>Chief Operating Officer</span>
+                                </div>
+                           </div>
+                  </div>}
+                {activeTabs.interns === "Current-int" && <div className='leader'>
+                  <div className="tab-box">
+                              <div className="img"> <img src="https://images.pexels.com/photos/29540826/pexels-photo-29540826/free-photo-of-smiling-young-woman-with-dark-hair-portrait.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" /></div>  
+                                <div className="text-tab">
+                                  <h6>Anand Mehta</h6>
+                                  <span>Chief Operating Officer</span>
+                                </div>
+                           </div>
+                  </div>}
+              </div>
+            </div>
 
-//                 </div>
-//                 {currentJobs.length === 0 ? (
-//                   <div className="no-jobs-message">
-//                     <p style={{ color: "red" }}>No jobs available at the moment.</p>
-//                   </div>
-//                 ) : (
-//                   currentJobs.map((job, index) => (
-//                     <div className="job-box" key={index}>
-//                       <h5>{job.title}</h5>
-//                       <span>{job.key_skills}</span>
-//                       {/* <small>Location: {job.location}</small> */}
-//                       <div className="deadline">
-//                         <div className="d-one">
-//                           <h4>Location</h4>
-//                           <h6>{job.location}</h6>
-//                         </div>
-//                         <div className="d-one">
-//                           <h4>Experience</h4>
-//                           <h6>{job.experience}</h6>
-//                         </div>
-//                         <div className="d-one">
-//                           <h4>Salary</h4>
-//                           <h6>{job.salary}</h6>
-//                         </div>
-//                         <div className="d-one">
-//                           <h4>Duration</h4>
-//                           <h6>{job.duration}</h6>
-//                         </div>
-//                       </div>
-//                       <div className="last-items">
-//                         <div className="i-left">
-//                           <h3>{job.work_from}</h3>
-//                           <h3>{job.job_type}</h3>
-//                         </div>
-//                         <div className="i-right">
-//                           <button onClick={() => viewDetailHandler(job.id)}>View Details</button>
-//                         </div>
-//                       </div>
+{/* ------------------------------------------------------------------------------------------ */}
 
-//                       <div className="job-active">
-//                       <h6> Active {formatDistanceToNow(new Date(job.updated_at), { addSuffix: true })}  </h6>    
-//                     </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-//                     </div>
-//                   ))
-//                 )}
-//                 <ReactPaginate
-//                   previousLabel={'<'}
-//                   nextLabel={'>'}
-//                   breakLabel={'...'}
-//                   pageCount={pageCount}
-//                   onPageChange={handlePageClick}
-//                   containerClassName={'pagination'}
-//                   activeClassName={'active'}
-//                   pageClassName={'page-item'}
-//                   pageLinkClassName={'page-link'}
-//                   previousClassName={'previous-item'}
-//                   previousLinkClassName={'previous-link'}
-//                   nextClassName={'next-item'}
-//                   nextLinkClassName={'next-link'}
-//                   disabledClassName={'disabled'}
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//       <Footer />
-//     </>
-//   );
-// };
+    <FooterTop />
+    <Footer />
+  </>
+  );
+};
 
-// export default Opportunity ;
+export default OurTeam;

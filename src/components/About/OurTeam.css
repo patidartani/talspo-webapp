@@ -4,6 +4,8 @@
           align-items: center;
           justify-content: center;
           padding-bottom: 3vmax;
+          border-bottom: 1px solid #d3d3d3;
+          margin-bottom: 2vmax;
         }
         
         .OurTeam-main .ourteam {
@@ -101,6 +103,8 @@
         .OurTeam-main .ourteam .team-btm .two    .btns-tab .founder,
         .OurTeam-main .ourteam .team-btm .two    .btns-tab .co-founder,
         .OurTeam-main .ourteam .team-btm .two    .btns-tab .advisors,
+        .OurTeam-main .ourteam .team-btm .two    .btns-tab .investors,
+
         .OurTeam-main .ourteam .team-btm .two    .btns-tab .Previous,
         .OurTeam-main .ourteam .team-btm .two    .btns-tab .Current,
         .OurTeam-main .ourteam .team-btm .two    .btns-tab .Previous-int,
@@ -226,6 +230,7 @@
   .OurTeam-main .ourteam .team-btm .two    .btns-tab .founder,
   .OurTeam-main .ourteam .team-btm .two    .btns-tab .co-founder,
   .OurTeam-main .ourteam .team-btm .two    .btns-tab .advisors,
+  .OurTeam-main .ourteam .team-btm .two    .btns-tab                                                   .investors,
   .OurTeam-main .ourteam .team-btm .two    .btns-tab .Previous,
   .OurTeam-main .ourteam .team-btm .two    .btns-tab .Current,
   .OurTeam-main .ourteam .team-btm .two    .btns-tab .Previous-int,

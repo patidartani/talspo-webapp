@@ -42,11 +42,11 @@ const Footer = () => {
 
         {/* ---------------------------------------------------------- */}
       </div>
-      <div className="f_btm">
+      {/* <div className="f_btm">
         <h1>
           Total Visitors: <small>234567</small>
         </h1>
-      </div>
+      </div> */}
     </div>
   );
 };

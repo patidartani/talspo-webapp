@@ -4,39 +4,35 @@ import Navbar from "../../pages/Navbar/Navbar";
 import BlogImg from "../../assets/images/blogimg.png";
 import BlogMan from "../../assets/images/BlogMan.png";
 import Footer from '../../pages/Footer/Footer';
-import { recentBlogPosts, featuredBlogPosts } from '../../apiService';
+import { recentBlogPosts, featuredBlogPosts, searchBlog } from '../../apiService'; // Add searchBlog API here
 import Loading from '../../pages/loading/Loading'; // Import the Loading component
 import { Link } from 'react-router-dom';
-import IconBlog from "../../assets/images/talspoIcon.png"
-
+import IconBlog from "../../assets/images/talspoIcon.png";
 import ReactPaginate from "react-paginate";
-import BlogText from './BlogText';
+import BlogText from "../../components/Blog/BlogText"
 
 const Blog = () => {
-
-
   const blogsPerPage = 4; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(0);
+  const [searchTerm, setSearchTerm] = useState(""); 
+  const [category, setCategory] = useState("");
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [featuredBlogs, setFeaturedBlogs] = useState([]);
+  const [currentBlogs, setCurrentBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [showAllPosts, setShowAllPosts] = useState(false);
 
-  
 
   // Handle page click
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
   };
 
-
-
-  const [blogPosts, setBlogPosts] = useState([]);
-  const [featuredBlogs, setFeaturedBlogs] = useState([]);
-  const [showAllPosts, setShowAllPosts] = useState(false);
-  const [loading, setLoading] = useState(true); // Loading state for the entire page
-
+  // Fetch featured blogs and recent posts
   useEffect(() => {
     const loadRecentBlogs = async () => {
       try {
         const recentPosts = await recentBlogPosts();
-        console.log("Fetched Recent Posts:", recentPosts);
         setBlogPosts(recentPosts);
       } catch (error) {
         console.error('Error loading recent blog posts:', error);
@@ -46,8 +42,8 @@ const Blog = () => {
     const loadFeaturedBlogs = async () => {
       try {
         const featuredPosts = await featuredBlogPosts();
-        console.log("Fetched Featured Posts:", featuredPosts);
         setFeaturedBlogs(featuredPosts);
+        setCurrentBlogs(featuredPosts); // Initially show all featured blogs
       } catch (error) {
         console.error('Error loading featured blog posts:', error);
       }
@@ -61,6 +57,36 @@ const Blog = () => {
     fetchData();
   }, []);
 
+
+  const handleSearch = async (event) => {
+    const searchQuery = event.target.value;
+    setSearchTerm(searchQuery);
+    
+    const [titleQuery, categoryQuery] = searchQuery.split(" ").filter(Boolean);
+    
+    setCategory(categoryQuery || ""); 
+    
+    if (searchQuery.trim() === "") {
+      setCurrentBlogs(featuredBlogs);
+    } else {
+      try {
+        const response = await searchBlog(titleQuery, categoryQuery); 
+      
+        if (response && response.length > 0) {
+          setCurrentBlogs(response);
+        } else {
+          setCurrentBlogs(featuredBlogs);
+        }
+      } catch (error) {
+        console.error("Error searching blogs:", error);
+        setCurrentBlogs(featuredBlogs); 
+      }
+    }
+  };
+  
+  
+
+
   const toggleShowAll = () => {
     setShowAllPosts(!showAllPosts);
   };
@@ -69,10 +95,9 @@ const Blog = () => {
     return <Loading />;
   }
 
-  // Calculate blogs for the current page
   const offset = currentPage * blogsPerPage;
-  const currentBlogs = featuredBlogs.slice(offset, offset + blogsPerPage);
-  const pageCount = Math.ceil(featuredBlogs.length / blogsPerPage);
+  const pageCount = Math.ceil(currentBlogs.length / blogsPerPage);
+  const displayedBlogs = currentBlogs.slice(offset, offset + blogsPerPage);
 
   return (
     <>
@@ -116,7 +141,12 @@ const Blog = () => {
 
           <div className="Blog-search">
             <div className="ipt-blg">
-              <input type="text" placeholder="Search Blogs.." />
+            <input
+      type="text"
+      placeholder="Search Blogs by Title and Category"
+      value={searchTerm}
+      onChange={handleSearch} // Trigger search on input change
+    />
               <img src={IconBlog} alt="Search Icon" />
             </div>
           </div>
@@ -125,37 +155,36 @@ const Blog = () => {
           <div className="blog-container">
       <h6>Featured Blogs</h6>
       <div className="blog-content">
-        <div className="blog_list">
-          {Array.isArray(currentBlogs) && currentBlogs.length > 0 ? (
-            currentBlogs.map((blog, index) => (
-              <Link to={`/blog-detail/${blog.id}`} key={index} className="list-blg">
-                <div className="bl-img">
-                  <img src={blog.image} alt={blog.title} />
-                </div>
-                <div className="bl-text">
-                  <h5>{blog.title}</h5>
-                  <div className="num">
-                    <span>{blog.category}</span>
-                    <h1>{blog.subtitle}</h1>
+      <div className="blog_list">
+            {Array.isArray(displayedBlogs) && displayedBlogs.length > 0 ? (
+              displayedBlogs.map((blog, index) => (
+                <Link to={`/blog-detail/${blog.id}`} key={index} className="list-blg">
+                  <div className="bl-img">
+                    <img src={blog.image} alt={blog.title} />
                   </div>
-                  <div
-                    style={{
-                      display: "-webkit-box",
-                      WebkitLineClamp: 3,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                    }}
-                    dangerouslySetInnerHTML={{ __html: blog.contant }}
-                  ></div>
-                </div>
-              </Link>
-            ))
-          ) : (
-            <p>No featured blog posts available</p>
-          )}
-        </div>
-
+                  <div className="bl-text">
+                    <h5>{blog.title}</h5>
+                    <div className="num">
+                      <span>{blog.category}</span>
+                      <h1>{blog.subtitle}</h1>
+                    </div>
+                    <div
+                      style={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                      }}
+                      dangerouslySetInnerHTML={{ __html: blog.contant }}
+                    ></div>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <p>No featured blog posts available</p>
+            )}
+          </div>
         <div className="Blogs_img">
           <img src={BlogMan} alt="BlogMan" />
         </div>

@@ -3,6 +3,9 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          border-bottom: 1px solid #acacac;
+          margin-bottom: 3vmax;
+          padding-bottom: 2vmax;
 
 }
 .Achive-main .Achive-page{
@@ -56,6 +59,7 @@
        align-items: center;
        flex-direction: column;
        margin-top: 1vmax;
+        flex-wrap: wrap; 
        gap: 2vmax;
 }
 .Achive-main .Achive-page .achive-btm{
@@ -64,9 +68,14 @@
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
-          flex-direction: row-reverse;
+          flex-direction: row;
           gap: 2vmax;
 }
+
+     
+.Achive-main .Achive-page .achive-btm.reverse {
+       flex-direction: row-reverse;
+     }
 .Achive-main .Achive-page .achive-btm .a-left{
        width: 50%;
        height: 350px;
