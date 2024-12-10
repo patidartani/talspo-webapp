@@ -6,6 +6,14 @@
 }
 
 /* --------------------------------------------------------------------- */
+.filter-icon {
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  color: #555;
+}
 
 
 .error-text {
@@ -301,6 +309,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .who-btm .search-bar-skill .map-btn button,

@@ -9,6 +9,7 @@ import FormHr from "./FormHr";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaFilter } from "react-icons/fa";
 import {
   faChevronRight,
   faChevronLeft,
@@ -27,8 +28,6 @@ const Whowe = () => {
   const closeModal = () => setIsModalOpen(false);
   const openModal = () => setIsModalOpen(true);
   const toggleMapView = () => setShowFullMap(!showFullMap);
-
-
 
 // -----------------------------------Currency Conversion spi ----------------------------------------------------------
 
@@ -49,10 +48,7 @@ const [currencyRates, setCurrencyRates] = useState({});
       .then((response) => response.json())
       .then((data) => setCurrencyRates(data.data));
   }, []);
-
  
-
-
 // --------------------------------------------------------------------------------------------------------------------
 
   const settings = {
@@ -94,7 +90,7 @@ const [currencyRates, setCurrencyRates] = useState({});
   useEffect(() => {
     const fetchSkills = async () => {
       const skillsData = await fetchTalspoSkilledView();
-      console.log("Skills Before Removing Duplicates:", skillsData);
+      // console.log("Skills Before Removing Duplicates:", skillsData);
     
       const uniqueSkills = removeDuplicates(skillsData);
       // console.log("Unique Skills:", uniqueSkills);
@@ -256,7 +252,7 @@ const [currencyRates, setCurrencyRates] = useState({});
       const response = await fetch(apiUrl, {
         headers: {
           "Content-Type": "application/json",
-          // Add Authorization header if required
+           // Add Authorization header if required                               
           // Authorization: "Bearer <your_token>",
         },
       });
@@ -289,8 +285,7 @@ const [currencyRates, setCurrencyRates] = useState({});
     } catch (error) {
       console.error("Error fetching filtered skills:", error);
     }
-  };
-  
+  }; 
 
   // ---------------------------------------------------------------------------
 
@@ -351,6 +346,21 @@ const [currencyRates, setCurrencyRates] = useState({});
         )}
 
             </div>
+
+
+            <div className="sort-dropdown">
+      <div className="dropdown-wrapper">
+      <FaFilter className="filter-icon mr-5" />
+        <select>
+          <option value="" disabled>
+            Filtered Jobs 
+          </option>
+          <option value="">Skill Type</option>
+          <option value="">Salary</option>
+          <option value="">Job Type</option>
+        </select>
+      </div>
+    </div>
             <div className="sort-dropdown">
               <select >
                 <option value="" disabled>
@@ -405,59 +415,59 @@ const [currencyRates, setCurrencyRates] = useState({});
 
           {/* -------------------------------------------- */}
           <div className="who-slide">
-          <div className="slider-container">
-      <Slider {...settings}>
-        {filteredSkills.map((skill, index) => {
-          const supportedCurrencies = JSON.parse(skill.supportedcurrencies);
+            <div className="slider-container">
+              <Slider {...settings}>
+                {filteredSkills.map((skill, index) => {
+                  const supportedCurrencies = JSON.parse(skill.supportedcurrencies);
 
-          // Get the selected currency for the current skill or use default if not selected
-          const selectedCurrency = selectedCurrencies[skill.id] || skill.basecurrency;
+                  // Get the selected currency for the current skill or use default if not selected
+                  const selectedCurrency = selectedCurrencies[skill.id] || skill.basecurrency;
 
-          // Get the conversion rate for the selected currency
-          const rate = currencyRates[selectedCurrency] ? currencyRates[selectedCurrency].value : 1;
-          const convertedSalary = skill.salary * rate;
+                  // Get the conversion rate for the selected currency
+                  const rate = currencyRates[selectedCurrency] ? currencyRates[selectedCurrency].value : 1;
+                  const convertedSalary = skill.salary * rate;
 
-          return (
-            <div key={`${skill.id}-${index}`}>
-              <div className="w-box">
-                <img src={skill.image} alt={skill.name} />
-                <div className="text-panel">
-                  <h5>{skill.title}</h5>
-                  <div className="ss">
-                    <small>Location: {skill.location}</small>
-                    <small>Status: {skill.status}</small>
-                  </div>
-                  <span>Experience: {skill.experience}</span>
-                  <div className="hh">
-                    {/* Display salary with selected currency */}
-                    <small>
-                      Salary: {convertedSalary.toFixed(2)} {selectedCurrency}
-                    </small>
-                  </div>
+                  return (
+                    <div key={`${skill.id}-${index}`}>
+                      <div className="w-box">
+                        <img src={skill.image} alt={skill.name} />
+                        <div className="text-panel">
+                          <h5>{skill.title}</h5>
+                          <div className="ss">
+                            <small>Location: {skill.location}</small>
+                            <small>Status: {skill.status}</small>
+                          </div>
+                          <span>Experience: {skill.experience}</span>
+                          <div className="hh">
+                            {/* Display salary with selected currency */}
+                            <small>
+                              Salary: {convertedSalary.toFixed(2)} {selectedCurrency}
+                            </small>
+                          </div>
 
-                  {/* Currency selection dropdown */}
-                  <select
-                    className="custom-select mt-1"
-                    value={selectedCurrency}
-                    onChange={(e) => handleCurrencyChange(skill.id, e.target.value)}
-                  >
-                    {supportedCurrencies.map((currency, idx) => (
-                      <option key={idx} value={currency}>
-                        {currency}
-                      </option>
-                    ))}
-                  </select>
+                          {/* Currency selection dropdown */}
+                          <select
+                            className="custom-select mt-1"
+                            value={selectedCurrency}
+                            onChange={(e) => handleCurrencyChange(skill.id, e.target.value)}
+                          >
+                            {supportedCurrencies.map((currency, idx) => (
+                              <option key={idx} value={currency}>
+                                {currency}
+                              </option>
+                            ))}
+                          </select>
 
-                  <button className="get" onClick={openModal}>
-                    Connect
-                  </button>
-                </div>
-              </div>
+                          <button className="get" onClick={openModal}>
+                            Connect
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </Slider>
             </div>
-          );
-        })}
-      </Slider>
-    </div>
 
             <div className="home-map">
               <div
