@@ -44,6 +44,7 @@ import SiteMap from "./components/Home/SiteMap"
 import TalspoAPI from "./components/About/TalspoAPI"
 import TalspoSearchAI from "./components/About/TalspoSearchAI"
 import LegalCertificate from "./pages/Footer/privacyPolicy/LegalCertificate"
+import Talfia from "./components/About/Talfia"
 
 const App = () => {
   return (
@@ -74,6 +75,8 @@ const App = () => {
 
         <Route path="/form" element={<Form/>}/>
         <Route path="/links" element={<SiteMap/>}/>
+        <Route path="/talfia" element={<Talfia/>}/>
+
 
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         <Route path="/term-condition" element={<TermsCondition/>}/>

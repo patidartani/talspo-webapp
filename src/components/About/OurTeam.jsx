@@ -22,6 +22,7 @@ const OurTeam = () => {
     const fetchTeamData = async () => {
       try {
         const response = await ourTeam();
+        console.log('response tea,' , response)
         setTeamData(response.records || []);
         setIsLoading(false); 
       } catch (error) {
@@ -36,10 +37,11 @@ const OurTeam = () => {
   const getFilteredData = (team, category, tab) => {
     return team.filter(
       (item) =>
-        item.meet_our_team.toLowerCase() === category.toLowerCase() &&
-        item.category.toLowerCase() === tab.toLowerCase()
+        (item.meet_our_team || "").toLowerCase() === category.toLowerCase() &&
+        (item.category || "").toLowerCase() === tab.toLowerCase()
     );
   };
+  
 
   const handleTabChange = (category, tab) => {
     setActiveTabs((prevState) => ({ ...prevState, [category]: tab }));
