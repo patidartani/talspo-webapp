@@ -5,12 +5,6 @@ import AboutTopImg from "../../assets/images/aboutusTop.webp";
 import Footer from "../../pages/Footer/Footer";
  import { useNavigate } from "react-router-dom";
 
- import RecognitionImg from "../../assets/images/recognition.png"
- import patentIPRimg from "../../assets/images/patentIPR.png"
- import logoimg1 from "../../assets/images/logostory1.png"
- import logoimg2 from "../../assets/images/logostoy2.png"
- import logoimg3 from "../../assets/images/logostory3.png"
- import logoimg4 from "../../assets/images/logostory4.png"
  import { HiOutlineArrowSmallRight , HiOutlineArrowSmallLeft} from "react-icons/hi2";
 
 
@@ -27,51 +21,9 @@ import XIcon from "../../assets/images/XIcon.png"
 import YouTube from "../../assets/images/YouTube.png"
 import FooterTop from "../../pages/Footer/FooterTop";
 
+import { getPatentData, getKnowUsData, getJourneyTalspoData, getLogoStoryData, getRecognitionData } from '../../apiService';
+
 const AboutUs = () => {
-
-  const [activeYear, setActiveYear] = useState("2021");
-
-  const years = ["2021", "2020", "1999", "2002", "2008"];
-
-  const getIndicatorPosition = () => {
-    const yearIndex = years.indexOf(activeYear);
-    const gap = 300 / years.length; // Height of scroll-line divided by number of years
-    return yearIndex * gap; // Dynamic position based on the index
-  };
-
-  const journeyData = {
-    "2021": {
-      title: "Talspo 2021 Journey",
-      description:
-        "In 2021, Talspo marked a year of remarkable growth, overcoming challenges and embracing new opportunities. We expanded our horizons, launched innovative solutions, and strengthened our community bonds, laying a strong foundation for future endeavors.",
-      img: "https://cdn.pixabay.com/photo/2020/03/01/00/55/compass-4891499_1280.jpg",
-    },
-    "2020": {
-      title: "Talspo 2020 Journey",
-      description:
-        "The year 2020 was a testament to our resilience and adaptability. Despite global uncertainties, Talspo successfully introduced cutting-edge technologies and navigated through a rapidly changing landscape with unwavering commitment.",
-      img: "https://cdn.pixabay.com/photo/2017/08/05/23/29/hand-2586638_1280.jpg",
-    },
-    "1999": {
-      title: "Talspo 1999 Journey",
-      description:
-        "1999 was the year of inception for Talspo. With a vision to innovate and lead, we began our journey towards excellence, driven by a passion for technology and a desire to make a meaningful impact.",
-      img: "https://cdn.pixabay.com/photo/2023/10/18/15/43/compass-8324516_1280.jpg",
-    },
-    "2002": {
-      title: "Talspo 2002 Journey",
-      description:
-        "In 2002, Talspo achieved significant milestones, establishing itself as a trusted name in the industry. Our focus on quality and customer satisfaction helped us build a loyal clientele and expand our services.",
-      img: "https://cdn.pixabay.com/photo/2024/03/04/21/49/tracks-8613278_1280.jpg",
-    },
-    "2008": {
-      title: "Talspo 2008 Journey",
-      description:
-        "The year 2008 was pivotal for Talspo, as we introduced groundbreaking innovations that set us apart in the competitive market. This year underscored our dedication to pushing boundaries and achieving excellence.",
-      img: "https://cdn.pixabay.com/photo/2017/04/05/01/12/traveler-2203666_640.jpg",
-    },
-  };
-  
 
   // -----------------------------------------------------------------------
 
@@ -113,7 +65,63 @@ const AboutUs = () => {
       navigate('/our-team')
      }
 
- 
+// -----------------------------all-apis-------------------------------------------
+const [patentData, setPatentData] = useState([]);
+  const [knowUsData, setKnowUsData] = useState([]);
+  const [logoStoryData, setLogoStoryData] = useState([]);
+  const [recognitionData, setRecognitionData] = useState([]);
+
+  const [journeyData, setJourneyData] = useState([]);
+  const [activeYear, setActiveYear] = useState(null);
+
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchTabsData = async () => {
+      try {
+        const patentResponse = await getPatentData();
+        setPatentData(patentResponse.data.records);
+
+        const knowUsResponse = await getKnowUsData();
+        setKnowUsData(knowUsResponse.data.records);
+
+        const logoStoryResponse = await getLogoStoryData();
+        setLogoStoryData(logoStoryResponse.data.records);
+
+        const recognitionResponse = await getRecognitionData();
+        setRecognitionData(recognitionResponse.data.records);
+
+        const journeyResponse = await getJourneyTalspoData(); 
+        const data = journeyResponse.data.records;
+        setJourneyData(data);
+        setActiveYear(data[0]?.year);
+
+       
+
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError(error.message);
+      }
+    };
+
+    fetchTabsData();  // Calling the function to fetch data on component mount
+  }, []); 
+
+
+  const years = journeyData.map((record) => record.year);
+
+  // Get the data for the active year
+  const activeRecord = journeyData.find((record) => record.year === activeYear);
+
+  // Calculate the position of the scroll indicator dynamically
+  const getIndicatorPosition = () => {
+    const yearIndex = years.indexOf(activeYear);
+    const gap = 300 / years.length; // Adjust based on the total height of the scroll line
+    return yearIndex * gap;
+  };
+
+
+//  ----------------------------------------------------------------------------------
   return (
     <>
     <Navbar />
@@ -127,9 +135,13 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="a-right">
-            <img src={AboutTopImg} alt="About Us" />
+            {/* <img src={AboutTopImg} alt="About Us" /> */}
+            <iframe src="https://www.youtube.com/embed/hMjaZKCh3Nc?autoplay=1&mute=1&loop=1&playlist=hMjaZKCh3Nc" frameborder="0"></iframe>
           </div>
         </div>
+
+
+{/* -------------------------------------------------------------------------------------------------- */}             
 
         <div className="about-btm">
           <div className="tabs-about">
@@ -167,125 +179,107 @@ const AboutUs = () => {
           </div>
 
           <div className="tabs-content">
-            {activeTab === "about" && (
-              <div className="about-tab-content">
-                <h6 style={{fontWeight:"600", fontSize:"1.3vmax"}}>Introduction</h6>
-                <p>
-                  In a world facing a critical talent mismatch, we introduce a revolutionary talent
-                  collaboration marketplace that connects individuals seeking to upskill with local
-                  trainers and resources. Our AI-driven platform ensures real-time skill development
-                  and job matching, fostering a vibrant community of learners and experts. Our goal is
-                  to transform the global education landscape, making skill acquisition accessible and
-                  effective for all.
-                </p>
-                <h5>"TALENT AGGREGATOR"</h5>
-              </div>
-            )}
+          {activeTab === "about" && (
+          <div className="about-tab-content">
+            <h6 style={{ fontWeight: "600", fontSize: "1.3vmax" }}>
+              {knowUsData.length > 0 && knowUsData[0].title}
+            </h6>
+            <p>{knowUsData.length > 0 && knowUsData[0].description}</p>
+            {/* <h5>"TALENT AGGREGATOR"</h5> */}
+          </div>
+        )}
             {activeTab === "journey" && (
-             <div className="journey-tab-content">
-             <h5>Our Journey</h5>
-             <div className="journey-data">
-               {/* Scroll Line */}
-               <div className="scroll-line">
-                 <div
-                   className="scroll-indicator"
-                   style={{ top: `${getIndicatorPosition()}px` }}
-                 ></div>
-               </div>
-       
-               {/* Journey Left */}
-               <div className="journey-left">
-                 {years.map((year) => (
-                   <h6
-                     key={year}
-                     className={activeYear === year ? "active-year" : ""}
-                     onClick={() => setActiveYear(year)}
-                   >
-                     {year}
-                   </h6>
-                 ))}
-               </div>
-       
-               {/* Journey Right */}
-               <div className="journey-right">
-                 <div className="journey-scroll">
-                   <div className="j-one">
-                     <h5>{journeyData[activeYear].title}</h5>
-                     <p>{journeyData[activeYear].description}</p>
-                     <p>{journeyData[activeYear].description}</p>
+     <div className="journey-tab-content">
+     <h5>Our Journey</h5>
+     {error && <p className="error-message">{error}</p>}
 
-                     <img src={journeyData[activeYear].img} alt={activeYear} />
-                   </div>
-                 </div>
-               </div>
+     <div className="journey-data">
+       {/* Scroll Line */}
+       <div className="scroll-line">
+         <div
+           className="scroll-indicator"
+           style={{ top: `${getIndicatorPosition()}px` }}
+         ></div>
+       </div>
+
+       {/* Journey Left */}
+       <div className="journey-left">
+         {years.map((year) => (
+           <h6
+             key={year}
+             className={activeYear === year ? "active-year" : ""}
+             onClick={() => setActiveYear(year)}
+           >
+             {year}
+           </h6>
+         ))}
+       </div>
+
+       {/* Journey Right */}
+       <div className="journey-right">
+         {activeRecord && (
+           <div className="journey-scroll">
+             <div className="j-one">
+               <h5>{activeRecord.title}</h5>
+               <p>{activeRecord.description}</p>
+               <img src={activeRecord.image} alt={activeRecord.year} />
              </div>
            </div>
-            )}
+         )}
+       </div>
+     </div>
+   </div>
+    )}
             
             {activeTab === "logo-story" && (
-              <div className="logo-story-tab-content">
-                <h6>The Logo Story</h6>
-                <p>
-                  Talspo's logo represents our vision of collaboration and growth, embodying the
-                  unity of learners and trainers.
-                </p>
+          <div className="logo-story-tab-content">
+            <h6>The Logo Story</h6>
+            <p>
+              Talspo's logo represents our vision of collaboration and growth, embodying the
+              unity of learners and trainers.
+            </p>
 
-                  <div className="logo-story-slider">
-                    <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-                      <div className="carousel-inner">
-                        <div className="carousel-item active">
-                          <img className=" w-70" src={logoimg1} alt="First slide" />
-                        </div>
-                        <div className="carousel-item">
-                          <img className=" w-70" src={logoimg2} alt="Second slide" />
-                        </div>
-                        <div className="carousel-item">
-                          <img className=" w-70" src={logoimg3} alt="Third slide" />
-                        </div>
-                        <div className="carousel-item">
-                          <img className=" w-70" src={logoimg4} alt="Fourth slide" />
-                        </div>
-                      </div>
-                      <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-                        <HiOutlineArrowSmallLeft />
-                      </a>
-                      <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-                        <HiOutlineArrowSmallRight />
-                      </a>
+            <div className="logo-story-slider">
+              <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+                <div className="carousel-inner">
+                  {logoStoryData.map((item, index) => (
+                    <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={item.id}>
+                      <img className="w-70" src={item.image} alt={`Logo Story ${index + 1}`} />
                     </div>
-                 </div>
-
+                  ))}
+                </div>
+                <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                  <HiOutlineArrowSmallLeft />
+                </a>
+                <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                  <HiOutlineArrowSmallRight />
+                </a>
               </div>
-            )}
+            </div>
+          </div>
+        )}
             {activeTab === "ipr" && (
-              <div className="ipr-tab-content">
-                <h6>Intellectual Property Rights (IPR) Certification: Patent Grant Certification </h6>
-                <p>
-                Status: Granted in India – View Patent Certificate
-                </p>
-                <p>Patent Certificate Legal Status: Inforce</p>
-                <img src={patentIPRimg} alt="" />
-              </div>
-            )}
+          <div className="ipr-tab-content">
+            <h6>{patentData.length > 0 && patentData[0].title}</h6>
+            <p>{patentData.length > 0 && patentData[0].description}</p>
+            {/* <p>Patent Certificate Legal Status: Inforce</p> */}
+            <img src={patentData.length > 0 ? patentData[0].image : ""} alt="Patent" />
+          </div>
+        )}
             {activeTab === "recognition" && (
-              <div className="recognition-tab-content">
-                <h6>Recognition & Certification</h6>
-                 <img src={RecognitionImg} alt="" />
-                <p>
-                Talspo Private Limited received a Certificate of Recognition from DPIIT (DIPP), recognized as a startup. 
-                </p>
-              </div>
-            )}
+          <div className="recognition-tab-content">
+            <h6>{recognitionData.length > 0 && recognitionData[0].title}</h6>
+            <p>{recognitionData.length > 0 && recognitionData[0].description}</p>
+            <img src={recognitionData.length > 0 ? recognitionData[0].image : ""} alt="Recognition" />
+          </div>
+        )}
           </div>
         </div>
 
 
-
-               
-
-      </div>
-
-
+{/* -------------------------------------------------------------------------------------------------- */}             
+</div>
+{/* -------------------------------------------------------------------------------------------------- */}
 
       <div className="extra-content">
             <h5>Company Purpose Section</h5>

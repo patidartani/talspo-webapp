@@ -4,6 +4,8 @@ export const BASE_URL = "https://dev.talspo.com/admin/api";
 
 export const SIGNUP_URL = `${BASE_URL}/register`;
 export const LOGIN_URL = `${BASE_URL}/login-view`;
+export const NAVBAR_MODEL_DYNAMIC = 'https://dev.talspo.com/admin/api/view-model_service';
+
 
 export const  SKILL_FILTER_URL  = `${BASE_URL}/search-filter`
 
@@ -17,7 +19,6 @@ export const CAMPUS_FAQ = `${BASE_URL}/campus-faq-view`
 export const WHO_WE_TWO = `${BASE_URL}/home-page-view` 
 export const WHY_CHOOSE_TALSPO = `${BASE_URL}/why-choose-talspo-view`
 
-export const ABOUT_US_URL = `${BASE_URL}/about-us-view`;
 export const TAL_SPO_SKILLED_VIEW_URL = `${BASE_URL}/talspo-skilled-view`;
 export const FILTER_API_URL = `${BASE_URL}/`
 export const FAQ_URL = `${BASE_URL}/faq-view`
@@ -425,14 +426,37 @@ export const achievement = async () => {
   }
 }
 
-// ---------------------currency Conversion api --------------------------------------------------------
+// --------------------------navbar meodel dynamic api -------------------------------------------------------------
+export const navModelDynamic = async () => {
+  try {
+    const response = await fetch(NAVBAR_MODEL_DYNAMIC);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching navbar data:', error);
+    return {};  // Return empty object in case of error
+  }
+};
+
+// ------------------------------------about us all apis-------------------------------------
 
 
-// ---------------------------------------------------------------------------------------------------------------
+const apiInstance = axios.create({
+  baseURL: BASE_URL,  // Using the centralized base URL
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
-
-
-
+// API functions
+export const getPatentData = () => apiInstance.get('/view-patent');
+export const getKnowUsData = () => apiInstance.get('/view-konw_us');
+export const getJourneyTalspoData = () => apiInstance.get('/view-journey_talspo');
+export const getLogoStoryData = () => apiInstance.get('/view-logo_story');
+export const getRecognitionData = () => apiInstance.get('/view-recognition');
 
 
 

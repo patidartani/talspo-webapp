@@ -348,19 +348,19 @@ const [currencyRates, setCurrencyRates] = useState({});
             </div>
 
 
-            <div className="sort-dropdown">
-      <div className="dropdown-wrapper">
-      <FaFilter className="filter-icon mr-5" />
-        <select>
-          <option value="" disabled>
-            Filtered Jobs 
-          </option>
-          <option value="">Skill Type</option>
-          <option value="">Salary</option>
-          <option value="">Job Type</option>
-        </select>
-      </div>
-    </div>
+            {/* <div className="sort-dropdown">
+              <div className="dropdown-wrapper">
+                <FaFilter className="filter-icon mr-5" />
+                <select>
+                  <option value="" disabled>
+                    Filtered Jobs
+                  </option>
+                  <option value="">Skill Type</option>
+                  <option value="">Salary</option>
+                  <option value="">Job Type</option>
+                </select>
+              </div>
+            </div> */}
             <div className="sort-dropdown">
               <select >
                 <option value="" disabled>

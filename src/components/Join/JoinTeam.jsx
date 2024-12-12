@@ -3,7 +3,7 @@ import "./JoinTeam.css"
 import Navbar from "../../pages/Navbar/Navbar"
 import Footer from "../../pages/Footer/Footer"
 import arojoin3 from "../../assets/images/aronew.png"
-// import linkedin from "../../assets/images/download.png"
+import linkdin from "../../assets/images/linkdin.png"
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -128,7 +128,7 @@ const JoinTeam = () => {
                                      <a href="">Apply through F6S</a>
                                   </div><div className="interest">
                                      <div className="int-img2">
-                                     <img src={linkedin} alt="" />
+                                     <img src={linkdin} alt="" />
                                      </div>
                                      <a href="">Apply through LinkedIn</a>
                                   </div>

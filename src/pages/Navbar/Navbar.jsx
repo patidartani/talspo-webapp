@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import "./Navbar.css"; // Ensure this path is correct
 import mainLogo from "../../assets/images/NewmainLogo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -6,9 +6,10 @@ import talspoIcon from "../../assets/images/talspoIcon.png"
 import { FaGlobe } from "react-icons/fa";
 
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-
+import { navModelDynamic } from '../../apiService';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearUser } from '../../redux-toolkit/slices/authSlice'; // Clear user action
+import axios from 'axios';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -61,6 +62,27 @@ const Navbar = () => {
       }
     }
   };
+  // ---------------------------nav model dynamic------------------------------------------------
+
+  const [navbarData, setNavbarData] = useState({});
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchNavbarData = async () => {
+      try {
+        const data = await navModelDynamic();
+        // console.log('data nav model', data.records)
+        setNavbarData(data.records);
+      } catch (error) {
+        console.error('Error fetching navbar data:', error);
+        setError(error.message);
+      }
+    };
+
+    fetchNavbarData();
+  }, []);
+
+ 
 
   // -------------------------responsive code----------------------------------
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
@@ -78,7 +100,8 @@ const Navbar = () => {
   const toggleServicesDropdown = () => {
     setIsServicesDropdownOpen(!isServicesDropdownOpen);
   };
-  // -------------------------responsive code----------------------------------
+  // -------------------------responsive code---------------------------------
+
 
   return (
     <div className="Navbar-main">
@@ -126,7 +149,7 @@ const Navbar = () => {
                     <Link to="/talspo-search">Talspo Search AI</Link>
                     <Link to="/talspo-api">Talspo API</Link>
                     <Link to='/'>Talspo Affiliate Programe</Link>
-                    <Link to="/talfia">Talfia</Link>
+                    <Link to="/talfia">Talfia(*sub-brand of Talspo)</Link>
                   </div>
                 )}
 
@@ -147,7 +170,7 @@ const Navbar = () => {
                       <Link to="/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talspo Search AI</Link>
                       <Link to="/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talspo API</Link>
                       <Link to="/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talspo Affiliate Programe</Link>
-                      <Link to="/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talfia</Link>
+                      <Link to="/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talfia(*sub-brand of Talspo)</Link>
 
 
                     </div>
@@ -207,7 +230,7 @@ const Navbar = () => {
                 <Link id='res-hide' to="">Join</Link>
                 {isJoinDropdownVisible && (
                   <div className="join-dropdown">
-                    {/* <Link to="/join">Join Us</Link> */}
+                    <Link to="/join">Join Us</Link>
                     <Link to="/opportunities">Find Opportunities</Link>
                     <Link to="/partners">Do Partnership</Link>
                     <Link to="/tca">
@@ -224,7 +247,7 @@ const Navbar = () => {
 
                   {isJoinDropdownOpen && (
                     <div style={{ marginTop: '0.2rem', marginLeft:"1.5vmax" }}>
-                      {/* <Link to="/join-us" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Join Us</Link> */}
+                      <Link to="/join" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Join Us</Link>
                       <Link to="/opportunities" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Find Opportunities</Link>
                       <Link to="/partners" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Do Partnership</Link>
                       <Link to="/tca" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>TCA</Link>
@@ -261,8 +284,6 @@ const Navbar = () => {
               </select>
             </div>
 
-
-
           </div>
 
           <div className="menu-icon" onClick={toggleNav}>
@@ -271,19 +292,26 @@ const Navbar = () => {
         </div>
 
 
-
       </div>
       <div className="model-dropdown">
-        <h6 onClick={handleToggle} style={{ cursor: "pointer" }}>Model Service</h6>
-        {isOpen && (
-          <div className="model-text">
-            <img src={mainLogo} alt="Logo" />
-            <small>
-              Jobs Connect: <span style={{ color: "red" }}>Coming Soon...</span>
-            </small>
-          </div>
-        )}
-      </div>
+      <h6 onClick={handleToggle} style={{ cursor: "pointer" }}>Model Service</h6>
+      {isOpen && (
+        <div className="model-text">
+          {navbarData.length > 0 ? (
+            navbarData.map((item, index) => (
+              <div key={index}>
+                <img src={item.image} alt={item.title} style={{ width: '100%' }} />
+                <small>
+                   <span style={{ color: "red" }}>{item.title}</span>
+                </small>
+              </div>
+            ))
+          ) : (
+            <div>No data available</div>
+          )}
+        </div>
+      )}
+    </div>
     </div>
   );
 };

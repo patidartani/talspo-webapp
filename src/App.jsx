@@ -59,7 +59,6 @@ const App = () => {
         <Route  path='/achievements' element={<Achive />}/>
         <Route  path='/services' element={<Services />}/>
         <Route  path='/partners' element={<DoPatnership />}/>
-        <Route  path='/join' element={<JoinTeam />}/>
         <Route path="/blog" element={<Blog/>} />
         <Route path="/about-us" element={<AboutUs/>} />
         <Route path="/how-we-work" element={<HowWeWork/>} />
@@ -100,6 +99,9 @@ const App = () => {
 
         {/* <Route path="/test" element={<Test/>}/> */}
         <Route path="/job-test" element={<JobTest/>}/>
+        <Route path="/join" element={<JoinTeam/>}/>
+
+
 
 
 
