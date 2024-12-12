@@ -93,25 +93,39 @@ const Contact = () => {
           </div>
           <div className="contact-btm">
             <div className="left-gif">
-               <div className="map-box-content">
-                <p style={{color:"#003266"}}><i  className="ri-map-pin-fill"></i> Company Address............... </p>
-               <iframe
-                title="Google Map"
-                src="https://www.google.com/maps/embed?..."
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-              ></iframe>
-               </div>
+            <div className="map-box-content">
+  {/* Address */}
+  <p
+    style={{
+      color: "#003266",
+      fontSize: "1.2vmax",
+    }}
+  >
+    <i className="ri-map-pin-fill"></i> Ocean Park Township, Indore Bypass Road, near Delhi Public School Indore, Nipania, Indore, Madhya Pradesh 452016
+  </p>
+
+  {/* Map */}
+  <iframe
+    title="Google Map"
+    src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Ocean%20Park%20Township,%20Indore%20Bypass%20Road,%20near%20Delhi%20Public%20School%20Indore,%20Nipania,%20Indore,%20Madhya%20Pradesh%20452016&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+    width="100%"
+    height="300"
+    style={{ border: 0 }}
+    allowFullScreen=""
+    loading="lazy"
+  ></iframe>
+</div>
+
             </div>
+
+
+            
             <div className="form-container">
               <div className="form-side">
                <h5>Contact Us</h5>
                <h6>Find our contact details and get in touch with our team for any assistance or inquiries.</h6>
                <h6><i className="ri-mail-fill"></i> Email: example@gmail.com</h6>
-               <h6><i className="ri-map-pin-fill"></i> Address: </h6>
+               <h6><i className="ri-map-pin-fill"></i> Address:  Ocean Park Township, Indore Bypass Road, near Delhi Public School Indore, Nipania, Indore, Madhya Pradesh 452016 </h6>
                <img src={scaner} alt="" />
               </div>
             <div className="form-page">

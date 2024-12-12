@@ -11,15 +11,15 @@ const HomeBlog = () => {
       const fetchBlogs = async () => {
          const posts = await featuredBlogPosts(); // Fetch the blog posts
          // console.log("Fetched blog posts:", posts);
-         setBlogs(posts); // Store the posts in state
+         setBlogs(posts);
       };
 
-      fetchBlogs(); // Call the fetch function
+      fetchBlogs(); 
    }, []);
 
    // Function to navigate to the blog detail page
    const handleReadMore = (id) => {
-      navigate(`/blog-detail/${id}`); // Navigate to the blog detail page with the specific blog ID
+      navigate(`/blog-detail/${id}`); 
    };
 
    return (

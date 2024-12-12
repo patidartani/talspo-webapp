@@ -38,8 +38,8 @@ const HomeTwo = () => {
         </div>
         <div className="Two_Right">
           <h5>{whoWeData.title}</h5>
-          <p>{whoWeData.description}</p>
-          <div className="kn">
+          <div dangerouslySetInnerHTML={{ __html: whoWeData?.description }} />
+                    <div className="kn">
             <button onClick={abouMove}>Know More</button>
           </div>
         </div>

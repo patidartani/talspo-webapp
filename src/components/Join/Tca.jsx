@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef } from 'react';
 import './Tca.css';
 import Navbar from '../../pages/Navbar/Navbar';
 import Footer from '../../pages/Footer/Footer';
@@ -12,6 +12,8 @@ const Tca = () => {
 // ----------------------------------------------faq campus-----------------------------------------------
 const [faqs, setFaqs] = useState([]); // Initialize as an empty array
 const [activeIndex, setActiveIndex] = useState(null);
+
+
 
 useEffect(() => {
   const fetchFaqs = async () => {
@@ -145,6 +147,15 @@ const handleToggle = (index) => {
     }
   };
 
+
+  const tcaFormsContentRef = useRef(null);
+const handleApplyNowClick = () => {
+  tcaFormsContentRef.current.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+};
+
   // -------------------------------------------------------------------------------------------------------------
   return (
     <>
@@ -155,7 +166,7 @@ const handleToggle = (index) => {
             <h4>Talspo Campus <br /> Ambassador</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nisi voluptatibus cumque sunt quas delectus officia odio possimus, illum repellat!</p>
             <div className="fq-btn">
-              <button>Apply Now</button>
+              <button onClick={handleApplyNowClick}>Apply Now</button>
             </div>
           </div>
           <div className="fq-right">
@@ -164,7 +175,8 @@ const handleToggle = (index) => {
         </div>
 
         <div className="faq-video">
-          video
+        <iframe src="https://www.youtube.com/embed/hMjaZKCh3Nc?autoplay=1&mute=1&loop=1&playlist=hMjaZKCh3Nc" frameborder="0"></iframe>
+
         </div>
 
         <div className="faq-btm">
@@ -187,7 +199,7 @@ const handleToggle = (index) => {
     </div>
   
         {/* ------------------------------------------------------------------------------------------------------------- */}
-        <div className="tca-forms-content">
+        <div className="tca-forms-content" id="tca-forms-content" ref={tcaFormsContentRef}>
           <div className="tca-form">
             <div className="formm">
               <h5>Registration Form</h5>

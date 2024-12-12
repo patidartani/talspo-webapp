@@ -51,13 +51,17 @@
           width: 100%;
         }
         .faq-video {
-          width: 80%;
-          height: 300px;
+          width: 60%;
+          height: 500px;
           background: #ccc;
           margin-top: 4vmax;
           display: flex;
           align-items: center;
           justify-content: center;
+        }
+        .faq-video iframe {
+          width: 100%;
+          height:500px;
         }
         .Faq-main .faq-btm {
           width: 100%;

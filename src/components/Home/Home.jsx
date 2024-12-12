@@ -196,7 +196,9 @@ const Home = () => {
               </div>
               <div className="linee-right">
                 <h6>{item.title}</h6>
-                <p>{item.description}</p>
+                <p>{item.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
+          
+
               </div>
             </div>
           ))}

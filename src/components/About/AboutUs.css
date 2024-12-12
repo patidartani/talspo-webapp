@@ -57,8 +57,9 @@
         justify-content: center;
 }
 
-.AboutUs-container .about-content .about-top .a-right img {
+.AboutUs-container .about-content .about-top .a-right iframe {
         width: 85%;
+        height: 300px;
 }
 
 .AboutUs-container .about-content .about-btm {
