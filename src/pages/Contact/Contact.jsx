@@ -107,7 +107,7 @@ const Contact = () => {
   {/* Map */}
   <iframe
     title="Google Map"
-    src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Ocean%20Park%20Township,%20Indore%20Bypass%20Road,%20near%20Delhi%20Public%20School%20Indore,%20Nipania,%20Indore,%20Madhya%20Pradesh%20452016&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.125479534646!2d75.92761057406582!3d22.76072412605141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a190fcf557c1f89%3A0x5c803986dedaec6e!2sTalspo%20Private%20Limited%20%7BNEARBY%20Talent%20Discovery%7D!5e0!3m2!1sen!2sin!4v1734076164421!5m2!1sen!2sin "
     width="100%"
     height="300"
     style={{ border: 0 }}

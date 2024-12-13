@@ -9,7 +9,7 @@ import FormHr from "./FormHr";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FaFilter } from "react-icons/fa";
+import { FaCheck } from 'react-icons/fa';
 import {
   faChevronRight,
   faChevronLeft,
@@ -41,14 +41,33 @@ const handleCurrencyChange = (skillId, selectedCurrency) => {
 };
 
 const [currencyRates, setCurrencyRates] = useState({});
+const [error, setError] = useState(null);
 
   // Fetch the currency rates
   useEffect(() => {
-    fetch("https://api.currencyapi.com/v3/latest?apikey=cur_live_xz60droFw3MXDi34MEDxoivOeOlY20iDQIXKbJyq&currencies=INR%2CAED%2CEUR%2CUSD%2CSGD%2CGBP&base_currency=INR")
-      .then((response) => response.json())
-      .then((data) => setCurrencyRates(data.data));
+    fetch(
+      "https://api.currencyapi.com/v3/latest?apikey=cur_live_xz60droFw3MXDi34MEDxoivOeOlY20iDQIXKbJyq&currencies=INR%2CAED%2CEUR%2CUSD%2CSGD%2CGBP&base_currency=INR"
+    )
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((errorData) => {
+            throw new Error(errorData.message); // Extract the error message from the response
+          });
+        }
+        return response.json();
+      })
+      .then((data) => setCurrencyRates(data.data))
+      .catch((error) => {
+        console.error("API Error:", error.message); // Log the exact error message
+        
+        if (error.message === "You used all your monthly requests. Please upgrade your plan at https://app.currencyapi.com/subscription") {
+          setError("Sorry, we have reached the request limit. Please try again later."); // Friendly error message
+        } else {
+          setError("Something went wrong. Please try again."); // Generic error message
+        }
+      });
   }, []);
- 
+  
 // --------------------------------------------------------------------------------------------------------------------
 
   const settings = {
@@ -262,11 +281,11 @@ const [currencyRates, setCurrencyRates] = useState({});
       }
   
       const data = await response.json();
-      console.log("Full API Response:", data);
+      // console.log("Full API Response:", data);
   
       // Handle paginated data
       const skills = data?.data?.data || [];
-      console.log("Fetched Skills:", skills);
+      // console.log("Fetched Skills:", skills);
   
       if (skills.length === 0) {
         console.log("No results found");
@@ -280,7 +299,7 @@ const [currencyRates, setCurrencyRates] = useState({});
         );
       });
   
-      console.log("Filtered Skills:", filteredSkills);
+      // console.log("Filtered Skills:", filteredSkills);
       setFilteredSkills(filteredSkills);
     } catch (error) {
       console.error("Error fetching filtered skills:", error);
@@ -431,6 +450,11 @@ const [currencyRates, setCurrencyRates] = useState({});
                     <div key={`${skill.id}-${index}`}>
                       <div className="w-box">
                         <img src={skill.image} alt={skill.name} />
+                        {skill.verified === "true" && (
+                          <div className="verified-icon">
+                            ✅
+                          </div>
+                        )}
                         <div className="text-panel">
                           <h5>{skill.title}</h5>
                           <div className="ss">
@@ -438,6 +462,9 @@ const [currencyRates, setCurrencyRates] = useState({});
                             <small>Status: {skill.status}</small>
                           </div>
                           <span>Experience: {skill.experience}</span>
+                          <span>Actively Looking: {skill.actively_looking }</span>
+                          {/* <span>verify Looking: {skill.verified }</span> */}
+
                           <div className="hh">
                             {/* Display salary with selected currency */}
                             <small>
@@ -446,8 +473,8 @@ const [currencyRates, setCurrencyRates] = useState({});
                           </div>
 
                           {/* Currency selection dropdown */}
-                          <select
-                            className="custom-select mt-1"
+                          <select style={{outline:"none"}}
+                            className="custom-select mt-1 w-100"
                             value={selectedCurrency}
                             onChange={(e) => handleCurrencyChange(skill.id, e.target.value)}
                           >
@@ -467,7 +494,14 @@ const [currencyRates, setCurrencyRates] = useState({});
                   );
                 })}
               </Slider>
+              {error && (
+        <div className="error-message">
+          {/* <p>{error}</p> */}
+        </div>
+      )}
             </div>
+
+          
 
             <div className="home-map">
               <div

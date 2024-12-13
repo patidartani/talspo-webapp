@@ -145,16 +145,28 @@
   .carousel{
         width: 100%;
   } 
-  .carousel-item{
-        width: 80%;
-        height: 500px;
-  }   
- .carousel-item img {
-        width: 100%;
-        height: 500px;
+ /* Adjust the image size and center it */
+.carousel-item img {
+        width: auto; /* Ensure the image's aspect ratio is maintained */
+        max-width: 80%; /* Set a maximum width to make the image smaller */
+        height: 400px; /* Allow the height to scale with the width */
+        margin: 0 auto; /* Center the image horizontally */
+        display: block; /* Ensure the image behaves as a block-level element */
         transition: none; 
         transform: none; 
- }
+        
+      }
+      
+      /* Optionally, adjust the height of the carousel-item to fit the new image size */
+      .carousel-item {
+        width: 80%;
+        height: auto; /* Allow the height to adjust based on the image's aspect ratio */
+        display: flex;
+        justify-content: center; /* Ensure the content inside is centered */
+        align-items: center; /* Align the image vertically in the center */
+        padding: 10px;
+      }
+      
      .carousel-control-prev, .carousel-control-next {
         color: #fff !important; 
         background: #000 !important; 

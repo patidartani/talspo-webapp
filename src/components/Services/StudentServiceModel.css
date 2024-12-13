@@ -113,3 +113,92 @@
       width: 100%;
       height: auto;}
   }
+
+
+
+
+
+
+
+  /* ---------------------newpage css--------------------------------- */
+
+  .StudentServiceModel{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 8vmax;
+    margin-bottom: 3vmax;
+  }
+  .StudentServiceModel .students-learner{
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .StudentServiceModel .students-learner h5{
+   font-size: 1.7vmax;
+   font-weight: 600;
+   color: #003266;
+  }
+.StudentServiceModel .students-learner .student-icon{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5vmax;
+}
+.StudentServiceModel .students-learner .student-icon img{
+  width: 6%;
+  animation: studentIcon 1.5s infinite linear;
+}
+@keyframes studentIcon {
+  from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
+}
+
+.StudentServiceModel .students-learner .student-btm{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 2vmax;
+  gap: 0.6vmax;
+}
+
+.StudentServiceModel .students-learner .student-btm small{
+  font-size: 1.2vmax;
+ margin-top: 0.5vmax;
+ }
+ .StudentServiceModel .students-learner .student-btm b{
+  font-size: 1.5vmax;
+  letter-spacing: 0.3px;
+ }
+ .StudentServiceModel .students-learner .student-btm p{
+  font-size: 1.1vmax;
+  letter-spacing: 0.3px;
+ }
+.StudentServiceModel .students-learner .student-btm h3{
+ margin-top: 0.5vmax;
+ font-size: 1.1vmax;
+ color: #555;
+ margin-bottom: 2vmax;
+}
+.StudentServiceModel .students-learner  .how-services{
+  margin-top: 1vmax;
+  margin-bottom: 1vmax;
+}
+.StudentServiceModel .students-learner  .how-services button{
+ border: none;
+ padding: 0.7vmax 1vmax;
+ background-color: #003266;
+ color: #ffffff;
+ border-radius: 10px;
+}

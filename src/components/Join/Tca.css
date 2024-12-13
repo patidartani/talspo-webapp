@@ -185,17 +185,17 @@
   align-items: flex-start;
 }
 
- input,
- select,
- textarea {
+  .campus-ipt  input,
+  .campus-ipt  select,
+  .campus-ipt  textarea {
   width: 100%;
   outline: none;
   padding: 0.5vmax 1vmax;
   border-radius: 5px;
   border: 1px solid #bababa;
-}
+} 
 
- label {
+ .campus-ipt  label {
   letter-spacing: 0.3px;
 }
 

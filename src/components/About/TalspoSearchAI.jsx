@@ -21,11 +21,17 @@ const TalspoSearchAI = () => {
             </Col>
             <Col md={6} sm={12}>
               <div className="service_video" style={{ position: 'relative', height: '0', paddingBottom: '56.25%' }}>
-                <iframe 
-                  src="https://www.youtube.com/embed/hMjaZKCh3Nc?autoplay=1&mute=1&loop=1&playlist=hMjaZKCh3Nc" 
-                  frameBorder="0" 
-                  style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%' }} 
-                  allow="autoplay; fullscreen" 
+              <iframe
+                  src="https://www.youtube.com/embed/o7QuAauyzP4?autoplay=1&mute=1&loop=1&playlist=o7QuAauyzP4"
+                  frameBorder="0"
+                  style={{
+                    position: "absolute",
+                    top: "0",
+                    left: "0",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                  allow="autoplay; fullscreen"
                   title="Talspo Search AI Video"
                 ></iframe>
               </div>

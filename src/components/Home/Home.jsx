@@ -130,11 +130,11 @@ const Home = () => {
         autoplay={{ delay: 3000, disableOnInteraction: false }}
       >
         {/* First Image Slide */}
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <div className="swiper-image-container">
             <img src={images[0]} alt="Slide 1" />
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
 
         {/* Video Slide */}
         <SwiperSlide>
@@ -146,14 +146,23 @@ const Home = () => {
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
-              title="Talspo Video"
+              title="Talspo Video 1"
             ></iframe>
           </div>
         </SwiperSlide>
 
+        {/* Video Slide 2 */}
         <SwiperSlide>
-          <div className="swiper-image-container">
-            <img src={images[1]} alt="Slide 2" style={{ width: '50%' }} />
+          <div className="video-container">
+            <iframe
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/egavdrxEd8c?autoplay=1&mute=1&loop=1&playlist=egavdrxEd8c"
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              title="Talspo Video 2"
+            ></iframe>
           </div>
         </SwiperSlide>
       </Swiper>
@@ -191,13 +200,12 @@ const Home = () => {
             >
               <div className="linee-left">
                 <div className="icon-line">
-                  <i className={item.icon}></i>
+                  <i className={item.icon}></i>  
                 </div>
               </div>
               <div className="linee-right">
                 <h6>{item.title}</h6>
                 <p>{item.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
-          
 
               </div>
             </div>
