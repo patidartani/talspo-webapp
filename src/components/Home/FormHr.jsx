@@ -56,7 +56,7 @@ const FormHr = ({ closeModal }) => {
     }));
   };
 
-  console.log("dob error in console ",fieldErrors.error?.email);
+  // console.log("dob error in console ",fieldErrors.error?.email);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -128,26 +128,26 @@ const FormHr = ({ closeModal }) => {
         {/* Recruitment Purpose */}
         <div className="e-ipt-checkbox full">
           <h6>Recruitment Purpose:</h6>
-          <label>
+          <div className="line-div">
             <input type="checkbox" name="recruitmentPurposeNearby" />
             For NEARBY (Geo-Location) Skilled Candidates
-          </label>
-          <label>
+          </div>
+          <div className="line-div" >
             <input type="checkbox" name="recruitmentPurposeHR" />
             For My Human Resource (HR)/ Talent Agency
-          </label>
+          </div>
         </div>
 
         {/* Job Option Checkbox */}
         <div className="e-ipt-checkbox full">
-          <label>
+          <div className="line-div">
             <input
               type="checkbox"
               name="getJob"
               onChange={handleJobOptionCheckboxChange}
             />
             For Getting Job
-          </label>
+          </div>
         </div>
 
         {/* Conditional Job Details */}

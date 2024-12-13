@@ -22,6 +22,7 @@ import YouTube from "../../assets/images/YouTube.png"
 import FooterTop from "../../pages/Footer/FooterTop";
 
 import { getPatentData, getKnowUsData, getJourneyTalspoData, getLogoStoryData, getRecognitionData } from '../../apiService';
+import WhyChooseData from "./WhyChooseData";
 
 const AboutUs = () => {
 
@@ -348,12 +349,34 @@ too in Real-Time</h4>
 By providing a geo-location-based marketplace, users can access tailored learning 
 experiences that align with market demands. Additionally, our comprehensive 
 performance metrics empower individuals to track their progress, ensuring effective 
-skill acquisition and enhancing overall employability in a competitive landscape.</span>
+skill acquisition and enhancing overall employability in a competitive landscape. <br />
+
+   <h6 className="mt-3">1.Pain points being solved:</h6>
+   
+   <small>Mismatch, Accessibility, Relevance, Authenticity, 1-Stop, Skill Recruiting 
+   </small> <br />
+</span> <br />
+<b>Real-Time (LIVE) Talent Collaboration Marketplace
+Providing 360-Degree Peer-to-Peer (P2P) Talent Connections 
+Marketplace in Real-Time as a Software as a Service (SaaS) Model.</b> <br />
+<span style={{marginTop:"3vmax"}}>
+The best thing that makes us keep working on this problem is that we have in-depth 
+domain expertise with detailed research and development (R&D) of the target market 
+and self-experience(s), it’s like “Fire in the Belly Situation” for us. We are all team 
+members are continuous learners with having prior startup experience(s).
+</span>
+
+
+
+                  <WhyChooseData />
+                     
 
 
                   <div className="know-team-btn mt-5">
                   <button onClick={ourTeamHandler}>Know Team</button>
                   </div>
+
+
 
 
       </div> 

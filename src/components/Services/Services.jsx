@@ -35,6 +35,14 @@ const Services = () => {
             <p>Explore Our Job Portal Services</p>
           </div>
 
+          <div className="services-mid">
+            <iframe
+              src="https://www.youtube.com/embed/0KDVwYZFvt0?autoplay=1&mute=1&loop=1&playlist=0KDVwYZFvt0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            ></iframe>
+          </div>
+
           <div className="service-btm">
             {/* ----------------------------------- */}
             <div className="service" style={{cursor:"pointer"}} onClick={studentHandler}>
@@ -103,6 +111,8 @@ const Services = () => {
             {/* ----------------------------------- */}
           
           </div>
+
+
         </div>
       </div>
       <FooterTop />

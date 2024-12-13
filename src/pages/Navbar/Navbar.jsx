@@ -278,9 +278,9 @@ const Navbar = () => {
             <div className="language-selector">
               <FaGlobe className="globe-icon" />
               <select id="targetLang">
-                <option value="en">Eng</option>
-                <option value="es">Spa</option>
-                <option value="fr">Hi</option>
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="fr">Hindi</option>
               </select>
             </div>
 
@@ -302,7 +302,8 @@ const Navbar = () => {
               <div key={index}>
                 <img src={item.image} alt={item.title} style={{ width: '100%' }} />
                 <small>
-                   <span style={{ color: "red" }}>{item.title}</span>
+          <div dangerouslySetInnerHTML={{ __html: item?.title }} />
+
                 </small>
               </div>
             ))

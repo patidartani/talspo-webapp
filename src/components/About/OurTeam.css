@@ -19,17 +19,38 @@
         
         .OurTeam-main .ourteam .team-top {
           width: 100%;
-          height: 300px;
           display: flex;
-          align-items: center;
           justify-content: center;
-          background-color: #dffff4;
-          overflow: hidden;
+          align-items: center;
+          flex-direction: column;
+          background: #003266;
+          color:#fff;
+          padding: 2vmax;
         }
-        
-        .OurTeam-main .ourteam .team-top img {
-          width: 80%;
-        }
+
+ .OurTeam-main .ourteam .team-top h5{
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:#fff;
+  font-size: 2.3vmax;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2vmax;
+}
+
+ .OurTeam-main .ourteam .team-top p{
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:#fff;
+  font-size: 1.1vmax;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: lighter;
+}
         
         .OurTeam-main .ourteam .team-btm {
           width: 100%;
@@ -38,30 +59,41 @@
           justify-content: center;
           background-color: #fff;
           flex-direction: column;
-        }   
+        }  
+        
         .OurTeam-main .ourteam .team-btm .one {
           width: 40%;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-direction: column;
+          margin-top: 1vmax;
           font-family: Arial, Helvetica, sans-serif;
         }
         
         .OurTeam-main .ourteam .team-btm .one h5 {
-          font-size: 2vmax;
+          font-size: 1.5vmax;
           font-weight: 700;
           letter-spacing: 1px;
           color: #003266;
+          width: 100%;
+          text-align: end;
+          font-family: cursive;
         }
         
         .OurTeam-main .ourteam .team-btm .one p {
           text-align: center;
+          font-size: 1.3vmax;
+          padding-left: 1vmax;
+          text-align: start;
+          border-left: 3px solid #003266;
+          font-family: cursive;
+
         }
         .OurTeam-main .ourteam .team-btm .two {
           width: 85%;
           font-family: Arial, Helvetica, sans-serif;
-          margin-top: 2vmax;
+          margin-top: 1vmax;
           overflow: hidden;
           display: flex;
           align-items: flex-start;
@@ -173,7 +205,17 @@
         .OurTeam-main .ourteam .team-btm .two  .leader .tab-box   .text-tab span{
          font-size: 1vmax;
          }
-      
+ 
+         .OurTeam-main .ourteam .team-last-videos {
+          width: 85%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background-color: #fff;
+          flex-direction: row;
+          margin-top: 2vmax;
+          gap: 2vmax;
+        }
        
 
 

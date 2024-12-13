@@ -18,6 +18,7 @@ export const HOW_WORK_URL = `${BASE_URL}/how-work-view`
 export const CAMPUS_FAQ = `${BASE_URL}/campus-faq-view`
 export const WHO_WE_TWO = `${BASE_URL}/home-page-view` 
 export const WHY_CHOOSE_TALSPO = `${BASE_URL}/why-choose-talspo-view`
+export const WHY_CHOOSE_TALSPO_DATA = `${BASE_URL}/view-know_choose_talspo`
 
 export const TAL_SPO_SKILLED_VIEW_URL = `${BASE_URL}/talspo-skilled-view`;
 export const FILTER_API_URL = `${BASE_URL}/`
@@ -414,6 +415,17 @@ export const whyChooseTalspo = async () => {
        return{};
   }
 }
+
+export const whyChooseTalspoData = async () => {
+  try {
+     const response = await axios.get(WHY_CHOOSE_TALSPO_DATA)
+     return response.data;
+  } catch (error) {
+       console.log('error', error)
+       return{};
+  }
+}
+
 // -------------------------------------our team-------------------------------
 
 export const achievement = async () => {
@@ -458,5 +470,5 @@ export const getJourneyTalspoData = () => apiInstance.get('/view-journey_talspo'
 export const getLogoStoryData = () => apiInstance.get('/view-logo_story');
 export const getRecognitionData = () => apiInstance.get('/view-recognition');
 
-
+// --------------------------------------------------------------------------------------
 

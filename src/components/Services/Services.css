@@ -43,8 +43,20 @@
           font-size: 1.2vmax;
           text-transform: uppercase;
           letter-spacing: 1px;
+   
           font-weight: lighter;
 }
+
+.Services-main .Services-page .services-mid{
+        width: 60%;
+        margin-top: 2vmax;
+        height: 500px;
+}
+.Services-main .Services-page .services-mid iframe{
+        width: 100%;
+        height: 500px;
+}
+
 .Services-main .Services-page .service-btm {
           width: 100%;
           display: flex;

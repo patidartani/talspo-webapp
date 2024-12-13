@@ -3,7 +3,6 @@ import './OurTeam.css';
 import Navbar from '../../pages/Navbar/Navbar';
 import Footer from '../../pages/Footer/Footer';
 import { ourTeam } from "../../apiService";
-import OurTeamimg from '../../assets/images/teamourr.png';
 import FooterTop from '../../pages/Footer/FooterTop';
 
 import Loading from "../../pages/loading/Loading"
@@ -15,8 +14,7 @@ const OurTeam = () => {
   const [activeTabs, setActiveTabs] = useState({
     leadership: "founder",
     developers: "Current",
-    interns: "Current-int",
-  });
+    interns: "Current",  });
 
   useEffect(() => {
     const fetchTeamData = async () => {
@@ -58,15 +56,15 @@ const OurTeam = () => {
       <div className="OurTeam-main">
         <div className="ourteam">
           <div className="team-top">
-            <img src={OurTeamimg} alt="Our Team" />
+            <h5>Meet The Team</h5>
+            <p> The awesome people behind Talspo</p>
           </div>
           <div className="team-btm">
             <div className="one">
-              <h5>Meet Our Beautiful Team</h5>
               <p>
-                We are passionate professionals working together to create impactful solutions.
-                Our team brings a blend of creativity, expertise, and dedication.
+                 Your friends will believe in your potential, your enemies will make you live up to it.
               </p>
+              <h5>Tim Fargo </h5>
             </div>
             <div className="two">
               {/* Leadership */}
@@ -164,6 +162,26 @@ const OurTeam = () => {
               </div>
             </div>
           </div>
+
+          <div className="team-last-videos">
+          <iframe
+                  src="https://www.youtube.com/embed/0bLHeDOJV40"
+                  width="100%"
+                  height="315"
+                  style={{ border: "none" }}
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>
+<iframe
+                  src="https://www.youtube.com/embed/0bLHeDOJV40"
+                  width="100%"
+                  height="315"
+                  style={{ border: "none" }}
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>          </div>
+
+
         </div>
       </div>
       <FooterTop />

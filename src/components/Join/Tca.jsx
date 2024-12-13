@@ -19,7 +19,6 @@ useEffect(() => {
   const fetchFaqs = async () => {
     try {
       const response = await campusFaq();
-      console.log('response',response); // Log the response to check its structure
       if (response && response.records && Array.isArray(response.records)) {
         setFaqs(response.records); // Use 'records' instead of 'faqs'
       } else {
@@ -175,9 +174,14 @@ const handleApplyNowClick = () => {
         </div>
 
         <div className="faq-video">
-        <iframe src="https://www.youtube.com/embed/hMjaZKCh3Nc?autoplay=1&mute=1&loop=1&playlist=hMjaZKCh3Nc" frameborder="0"></iframe>
+  <iframe 
+    src="https://www.youtube.com/embed/EwvHiZD0No8?autoplay=1&mute=1&loop=1&playlist=EwvHiZD0No8" 
+   
+    allow="autoplay; encrypted-media" 
+    allowfullscreen
+  ></iframe>
+</div>
 
-        </div>
 
         <div className="faq-btm">
       <h5>FAQs for Talspo Campus Ambassador Program</h5>

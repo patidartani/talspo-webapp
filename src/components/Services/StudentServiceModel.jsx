@@ -1,41 +1,69 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
-import "./StudentServiceModel.css";
-import giff_img from "../../assets/images/giff.gif";
-import Navbar from "../../pages/Navbar/Navbar";
-import Footer from "../../pages/Footer/Footer";
+import React from 'react'
+import Navbar from "../../pages/Navbar/Navbar"
+import Footer from "../../pages/Footer/Footer"
+import "./StudentServiceModel.css"
+
+import StudentIcon from "../../assets/images/StudentIcon.png"
+import { useNavigate } from 'react-router-dom'
 
 const StudentServiceModel = () => {
+  const navigate = useNavigate();
+
+   const howHandler = () => {
+    navigate("/how-we-work")
+   }
+
   return (
     <>
     <Navbar />
-    
-    <div className="service_con">
-      <div className="service_box">
-        <h1>Students/Learner Model Service</h1>
-        <Row>
-          <Col md={6} sm={12}>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
-              corrupti aut doloribus eius error, provident nemo cumque facilis
-              perspiciatis impedit, odit id, excepturi alias quasi repellendus
-              aliquam pariatur. Enim
-            </p>
-          </Col>
-          <Col md={6} sm={12}>
-            <div className="service_img">
-              <img src={giff_img} alt="img" />
-            </div>
-          </Col>
-        </Row>
-      </div>
-      <div className="service_head">
-        <h1>Coming Soon.....</h1>
-      </div>
-    </div>
-    <Footer />
-    </>
-  );
-};
+    <div className='StudentServiceModel'>
 
-export default StudentServiceModel;
+<div className="students-learner">
+  <h5>Students/ Learner Model Services Page</h5>
+   <div className="student-icon">
+    <img src={StudentIcon} alt="" />
+   </div>
+   <div className="student-btm">
+      <b>For Whom?</b>
+      <p>This platform benefits secondary/high school students, under-graduates, graduates and people willing 
+      to learn from any other Massive Online Open Courses providers.</p>
+      <b>Why to choose us?</b>
+      <p>You will be able to Network, Learn New Skill Sets, Teach Skills you are best in teaching (Exchange
+& Enhance Your Knowledge at the Same Time) and all these with more Innovative Way of 
+Connecting with Everyone NEAR YOU.</p>
+
+
+<b>As a learner:</b>
+        <p>You can choose the skills you want to learn from our approved list of trainers which 
+will help you to simplify, conclude and connect with any trainer with ease. You will be showcased
+with the ratings and the genuine reviews of our trainers. This will help you get the best possible 
+skilled trainer from our platform.</p>
+
+         <b>As a Teacher: </b> 
+        <p>
+         You can post your skilled areas and can upload your profile on our platform and can directly 
+connect to the learner requiring the desired skill set. This will help in ease processing and the both 
+(leaner and teacher) will be benefited with less efforts in searching their recipients.
+        </p>
+
+      <small>Follow Your Passion, Develop the skills you missed due to some reasons.</small>
+      <h3>So, don’t wait, Follow Your Passion and Make Your Dream Come True by Start executing and 
+      Stop Thinking!</h3>
+
+
+    </div>
+
+    <div className="how-services">
+      <button onClick={howHandler}>How It Works?</button>
+    </div>
+ 
+  
+</div>
+
+</div>
+<Footer />
+    </>
+  )
+}
+
+export default StudentServiceModel

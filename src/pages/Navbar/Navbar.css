@@ -184,7 +184,7 @@
   border-radius: 5px;
   border: 2px solid #fe0000;
   box-shadow: 0 2px #fe0000;
-  width: 20%;
+  width: 18%;
   transition: background-color 0.3s, color 0.2s;
   display: flex;
   align-items: center;
@@ -213,7 +213,7 @@
 }
 
 .Navbar-main .navbar-page .nav-right .links .sign-in-btn button {
-  padding: 10px 20px;
+  padding: 8px 18px;
   color: inherit;
   border: none;
   cursor: pointer;
@@ -274,36 +274,29 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5vmax 0.1vmax;
+  padding: 0.7vmax 0.5vmax;
   border: 1px solid #003266;
   border-radius: 5px;
   background-color: #f9f9f9;
   color: #333;
   font-size: 1vmax;
   margin-left: 1vmax;
-  /* gap: 0.1vmax; */
+  gap: 0.2vmax;
   box-shadow: 0 2px #003266;
-
+  position: relative;
 }
-
 .globe-icon {
-  font-size: 1.4vmax;
-  /* Globe icon size */
+  font-size: 1vmax;
   color: #003266;
-  /* Adjust color as needed */
 }
-
 .language-selector select {
   border: none;
   background: transparent;
-  font-size: 0.6vmax;
+  font-size: 0.9vmax;
   color: #333;
   cursor: pointer;
   outline: none;
 }
-
-
-
 
 
 @media (max-width: 600px) {

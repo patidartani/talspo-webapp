@@ -1,0 +1,32 @@
+.Why-Choose-Talspo{
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          flex-direction: column;
+          margin-top: 2vmax;
+          margin-bottom: 2vmax;
+          gap: 1.5vmax;
+}
+.Why-Choose-Talspo  h5{
+          font-weight: 600;
+          font-size: 1.2vmax;
+ }
+.Why-Choose-Talspo .why-tlsp{
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          flex-direction: column;
+          gap: 1.5vmax;
+}
+.Why-Choose-Talspo .why-tlsp h6{
+          font-size: 1.2vmax;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+}
+.Why-Choose-Talspo .why-tlsp small{
+          color: rgba(39, 39, 39, 0.774);
+          margin-top: 1vmax;
+          margin-bottom: 1vmax;
+}
