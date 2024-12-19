@@ -1,297 +1,597 @@
-import {useEffect, useState} from 'react';
-import './OurTeam.css';
-import Navbar from '../../pages/Navbar/Navbar';
-import Footer from '../../pages/Footer/Footer';
-// import {ourTeam} from "../../apiService"
-// import Loading from "../../pages/loading/Loading"
+// import React, { useState, useEffect, useRef } from "react";
+// import "./Whowe.css";
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// import { fetchTalspoSkilledView, fetchSearchSuggestions } from "../../apiService";
+// import talspoIcon from "../../assets/images/talspoIcon.png";
+// import FormHr from "./FormHr";
+// import mapboxgl from "mapbox-gl";
+// import "mapbox-gl/dist/mapbox-gl.css";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FaCheck } from 'react-icons/fa';
+// import {
+//   faChevronRight,
+//   faChevronLeft,
+// } from "@fortawesome/free-solid-svg-icons";
 
-import OurTeamimg from '../../assets/images/teamourr.png';
-import FooterTop from '../../pages/Footer/FooterTop';
+// const Whowe = () => {
+//   const [isModalOpen, setIsModalOpen] = useState(false);
+//   const [skills, setSkills] = useState([]);
+//   const [searchTerm, setSearchTerm] = useState("");
+//   const [location, setLocation] = useState("");
+//   const [filteredSkills, setFilteredSkills] = useState([]);
+//   const [sortOption, setSortOption] = useState("");
+//   const [showFullMap, setShowFullMap] = useState(false);
+//   const smallMapRef = useRef(null);
+//   const fullMapRef = useRef(null);
+//   const closeModal = () => setIsModalOpen(false);
+//   const openModal = () => setIsModalOpen(true);
+//   const toggleMapView = () => setShowFullMap(!showFullMap);
 
-const OurTeam = () => {
+//   // -----------------------------------Currency Conversion api ----------------------------------------------------------
 
-  const [activeTabs, setActiveTabs] = useState({
-    leadership: "founder",
-    developers: "Previous",
-    interns: "Previous-int",
-  });
+//   const [selectedCurrencies, setSelectedCurrencies] = useState({});
 
-  const handleTabChange = (category, tab) => {
-    setActiveTabs((prevState) => ({ ...prevState, [category]: tab }));
-  }
+//   const handleCurrencyChange = (skillId, selectedCurrency) => {
+//     setSelectedCurrencies(prevState => ({
+//       ...prevState,
+//       [skillId]: selectedCurrency
+//     }));
+//   };
 
-  const leadershipData = {
-    founder: [
-      {
-        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Andrea-La-Mendola-Chief-Operating-Officer-2.jpg",
-        name: "Anand Mehta",
-        position: "Chief Operating Officer",
-      },
-      {
-        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Profile-Julia-Soriano-1-1-1500x1500.jpg",
-        name: "Anand Mehta",
-        position: "Chief Operating Officer",
-      },{
-        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Chris-Bobko-Head-of-Engineering-Integration-4.jpg",
-        name: "Anand Mehta",
-        position: "Chief Operating Officer",
-      },{
-        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Derya-Thompson_HyperloopTT-1500x1500.jpeg",
-        name: "Anand Mehta",
-        position: "Chief Operating Officer",
-      },{
-        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Andres-de-Leon-Chief-Executive-Officer-6.jpg",
-        name: "Anand Mehta",
-        position: "Chief Operating Officer",
-      },{
-        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Andrea-La-Mendola-Chief-Operating-Officer-2.jpg",
-        name: "Anand Mehta",
-        position: "Chief Operating Officer",
-      },{
-        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Chuck-Michael_HyperloopTT.jpg",
-        name: "Anand Mehta",
-        position: "Chief Operating Officer",
-      },{
-        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Ben-Cooke-Head-of-Media-Relations-2.jpg",
-        name: "Anand Mehta",
-        position: "Chief Operating Officer",
-      },{
-        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Shelby-Phillips_HyperloopTT-e1723042821790.jpeg",
-        name: "Anand Mehta",
-        position: "Chief Operating Officer",
-      },
-      {
-        img: "https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/David-Doll-Chief-Engineering-Council-Member-3.jpg",
-        name: "David Doll",
-        position: "Chief Engineering Officer",
-      },
-      // Add more founder data as needed
-    ],
-    "co-founder": [
-      {
-        img: "https://images.pexels.com/photos/789822/pexels-photo-789822.jpeg?auto=compress&cs=tinysrgb&w=600",
-        name: "Jane Doe",
-        position: "Co-Founder & CTO",
-      },
-      {
-        img: "https://images.pexels.com/photos/1036622/pexels-photo-1036622.jpeg?auto=compress&cs=tinysrgb&w=600",
-        name: "John Smith",
-        position: "Co-Founder & COO",
-      },
-      // Add more co-founder data as needed
-    ],
-    advisors: [
-      {
-        img: "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=600",
-        name: "Dr. Emily Carter",
-        position: "Strategic Advisor",
-      },
-      {
-        img: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=600",
-        name: "Michael Lee",
-        position: "Financial Advisor",
-      },
-    ],
-  };
-  
+//   const [currencyRates, setCurrencyRates] = useState({});
+//   const [error, setError] = useState(null);
 
-  return (
-    <>
-    <Navbar />
-    <div className="OurTeam-main">
-      <div className="ourteam">
-        <div className="team-top">
-          <img src={OurTeamimg} alt="Our Team" />
-        </div>
-        <div className="team-btm">
-          <div className="one">
-            <h5>Meet Our Beautiful Team</h5>
-            <p>
-              We are passionate professionals working together to create impactful solutions.
-              Our team brings a blend of creativity, expertise, and dedication.
-            </p>
-          </div>
-          <div className="two">
+//   // Fetch the currency rates
+//   useEffect(() => {
+//     fetch(
+//       "https://api.currencyapi.com/v3/latest?apikey=cur_live_xz60droFw3MXDi34MEDxoivOeOlY20iDQIXKbJyq&currencies=INR%2CAED%2CEUR%2CUSD%2CSGD%2CGBP&base_currency=INR"
+//     )
+//       .then((response) => {
+//         if (!response.ok) {
+//           return response.json().then((errorData) => {
+//             throw new Error(errorData.message); // Extract the error message from the response
+//           });
+//         }
+//         return response.json();
+//       })
+//       .then((data) => setCurrencyRates(data.data))
+//       .catch((error) => {
+//         console.error("API Error:", error.message); // Log the exact error message
+
+//         if (error.message === "You used all your monthly requests. Please upgrade your plan at https://app.currencyapi.com/subscription") {
+//           setError("Sorry, we have reached the request limit. Please try again later."); // Friendly error message
+//         } else {
+//           setError("Something went wrong. Please try again."); // Generic error message
+//         }
+//       });
+//   }, []);
+
+//   // --------------------------------------------------geo location sorting------------------------------------------------------------------
+
+//   const getCurrentLocation = () => {
+//     return new Promise((resolve, reject) => {
+//       navigator.geolocation.getCurrentPosition(
+//         (position) => {
+//           const { latitude, longitude } = position.coords;
+//           resolve({ latitude, longitude });
+//         },
+//         (error) => reject(error)
+//       );
+//     });
+//   };
+
+//   const calculateDistance = (lat1, lon1, lat2, lon2) => {
+//     const R = 6371; // Radius of the Earth in km
+//     const dLat = (lat2 - lat1) * (Math.PI / 180);
+//     const dLon = (lon2 - lon1) * (Math.PI / 180);
+//     const a =
+//       Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+//       Math.cos(lat1 * (Math.PI / 180)) *
+//       Math.cos(lat2 * (Math.PI / 180)) *
+//       Math.sin(dLon / 2) * Math.sin(dLon / 2);
+//     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+//     const distance = R * c; // Distance in km
+//     return distance;
+//   };
+
+//   const handleNearbyFilterChange = (event) => {
+//     const selectedOption = event.target.value;
+
+//     if (selectedOption === "NEARBY") {
+//       handleSearch();
+//     }
+//   };
+//   // --------------------------------------------------------------------------------------------------------------------
+//   const settings = {
+//     dots: false,
+//     infinite: false,
+//     speed: 500,
+//     slidesToShow: 3,
+//     slidesToScroll: 1,
+//     arrows: false,
+//     autoplay: true,
+//     autoplaySpeed: 2000,
+//     responsive: [
+//       {
+//         breakpoint: 1150,
+//         settings: {
+//           slidesToShow: 1,
+//           slidesToScroll: 1,
+//         },
+//       },
+//       {
+//         breakpoint: 600,
+//         settings: {
+//           slidesToShow: 1,
+//           slidesToScroll: 1,
+//         },
+//       },
+//     ],
+//   };
+//   const removeDuplicates = (skills) => {
+//     const uniqueSkills = skills.filter(
+//       (skill, index, self) =>
+//         index === self.findIndex((s) => s.id === skill.id)
+//     );
+//     return uniqueSkills;
+//   };
+//   useEffect(() => {
+//     const fetchSkills = async () => {
+//       const skillsData = await fetchTalspoSkilledView();
+//       // console.log("Skills Before Removing Duplicates:", skillsData);
+
+//       const uniqueSkills = removeDuplicates(skillsData);
+//       // console.log("Unique Skills:", uniqueSkills);
+
+//       setSkills(uniqueSkills);
+//       setFilteredSkills(uniqueSkills);
+
+//       // Continue processing for coordinates if needed
+//       const updatedSkills = await Promise.all(
+//         uniqueSkills.map(async (skill) => {
+//           const coordinates = await getCoordinates(skill.location);
+//           return {
+//             ...skill,
+//             longitude: coordinates[0],
+//             latitude: coordinates[1],
+//           };
+//         })
+//       );
+
+//       // console.log("Updated Skills with Coordinates:", updatedSkills);
+//       setFilteredSkills(updatedSkills);
+//     };
 
 
-          <div className="teamOne">
-  <h5>Leadership</h5>
-  <div className="btns-tab">
-    {["founder", "co-founder", "advisors", "investors"].map((tab) => (
-      <button
-        key={tab}
-        className={`${tab} ${activeTabs.leadership === tab ? "active" : ""}`}
-        onClick={() => handleTabChange("leadership", tab)}
-      >
-        {tab.charAt(0).toUpperCase() + tab.slice(1).replace("-", " ")}
-      </button>
-    ))}
-  </div>
-  <div className="leadership-tab-content">
-    {Object.keys(leadershipData).map(
-      (key) =>
-        activeTabs.leadership === key && (
-          <div key={key} className="leader">
-            {leadershipData[key].map((person, index) => (
-              <div key={index} className="tab-box">
-                <div className="img">
-                  {person.img && <img src={person.img} alt={person.name} />}
-                </div>
-                <div className="text-tab">
-                  <h6>{person.name}</h6>
-                  <span>{person.position}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        )
-    )}
-  </div>
-</div>
+//     fetchSkills();
+//   }, []);
 
-{/* ------------------------------------------------------------------------------------------ */}
-            <div className="teamTwo">
-              <h5>Management and Technology Developer</h5>
-              <div className="btns-tab">
-                <button
-                  className={`Previous ${activeTabs.developers === "Previous" ? "active" : ""}`}
-                  onClick={() => handleTabChange("developers", "Previous")}
-                >
-                  Previous
-                </button>
-                <button
-                  className={`Current ${activeTabs.developers === "Current" ? "active" : ""}`}
-                  onClick={() => handleTabChange("developers", "Current")}
-                >
-                  Current
-                </button>
-              </div>
+//   // ---------------------------------------------------------------------------
+//   const [suggestions, setSuggestions] = useState([]);
+//   const [selectedTitle, setSelectedTitle] = useState(null);
+//   const [selectedLocation, setSelectedLocation] = useState(null);
 
-              <div className="developers-tab-content">
-                {activeTabs.developers === "Previous" && <div className='leader'>
-                  <div className="tab-box">
-                              <div className="img">
-                                 <img src="https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Andres-de-Leon-Chief-Executive-Officer-6.jpg" alt="" />
-                                </div>  
-                                <div className="text-tab">
-                                  <h6>Anand Mehta</h6>
-                                  <span>Chief Operating Officer</span>
-                                </div>
-                           </div>
-                           <div className="tab-box">
-                              <div className="img">
-                                 <img src="https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Shelby-Phillips_HyperloopTT-e1723042821790.jpeg" alt="" />
-                                </div>  
-                                <div className="text-tab">
-                                  <h6>Anand Mehta</h6>
-                                  <span>Chief Operating Officer</span>
-                                </div>
-                           </div>
-                           <div className="tab-box">
-                              <div className="img">
-                                 <img src="https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Cristian-Santibanez-Marketing-Operations-Urban-Mobility-Lead-3.jpg" alt="" />
-                                </div>  
-                                <div className="text-tab">
-                                  <h6>Anand Mehta</h6>
-                                  <span>Chief Operating Officer</span>
-                                </div>
-                           </div>
-                  </div>}
-                {activeTabs.developers === "Current" && <div className='leader'>
-                  <div className="tab-box">
-                              <div className="img">
-                                 <img src="https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Charles.png" alt="" />
-                                </div>  
-                                <div className="text-tab">
-                                  <h6>Anand Mehta</h6>
-                                  <span>Chief Operating Officer</span>
-                                </div>
-                           </div>
-                           <div className="tab-box">
-                              <div className="img">
-                                 <img src="https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Ben-Cooke-Head-of-Media-Relations-2.jpg" alt="" />
-                                </div>  
-                                <div className="text-tab">
-                                  <h6>Anand Mehta</h6>
-                                  <span>Chief Operating Officer</span>
-                                </div>
-                           </div><div className="tab-box">
-                              <div className="img">
-                                 <img src="https://www.hyperlooptt.com/hyperlooptt/wp-content/uploads/2020/06/Michael-Burton-Talent-Acquisition-Lead.jpg" alt="" />
-                                </div>  
-                                <div className="text-tab">
-                                  <h6>Anand Mehta</h6>
-                                  <span>Chief Operating Officer</span>
-                                </div>
-                           </div>
-                  </div>
-                  }
-              </div>
-            </div>
-{/* ------------------------------------------------------------------------------------------ */}
+//   useEffect(() => {
+//     const fetchSuggestions = async () => {
+//       try {
+//         const data = await fetchSearchSuggestions(searchTerm, location);
+//         // console.log("Fetched Suggestions:", data);
+//         setSuggestions(data.data.data); // Set the correct response data here
+//       } catch (error) {
+//         console.error("Error fetching suggestions:", error);
+//       }
+//     };
 
-            <div className="teamThree">
-              <h5>Interns</h5>
-              <div className="btns-tab">
-                <button
-                  className={`Previous-int ${
-                    activeTabs.interns === "Previous-int" ? "active" : ""
-                  }`}
-                  onClick={() => handleTabChange("interns", "Previous-int")}
-                >
-                  Previous
-                </button>
-                <button
-                  className={`Current-int ${
-                    activeTabs.interns === "Current-int" ? "active" : ""
-                  }`}
-                  onClick={() => handleTabChange("interns", "Current-int")}
-                >
-                  Current
-                </button>
-              </div>
-              <div className="Interns-tab-content">
-                {activeTabs.interns === "Previous-int" && <div className='leader'>
-                  <div className="tab-box">
-                              <div className="img">
-                                 <img src="https://images.pexels.com/photos/29553145/pexels-photo-29553145/free-photo-of-portrait-of-a-woman-in-mexico-city-park.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
-                                </div>  
-                                <div className="text-tab">
-                                  <h6>Anand Mehta</h6>
-                                  <span>Chief Operating Officer</span>
-                                </div>
-                           </div>
-                           <div className="tab-box">
-                              <div className="img"> <img src="https://images.pexels.com/photos/29547164/pexels-photo-29547164/free-photo-of-professional-woman-in-modern-laboratory-holding-tablet.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" /></div>  
-                                <div className="text-tab">
-                                  <h6>Anand Mehta</h6>
-                                  <span>Chief Operating Officer</span>
-                                </div>
-                           </div>
-                  </div>}
-                {activeTabs.interns === "Current-int" && <div className='leader'>
-                  <div className="tab-box">
-                              <div className="img"> <img src="https://images.pexels.com/photos/29540826/pexels-photo-29540826/free-photo-of-smiling-young-woman-with-dark-hair-portrait.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" /></div>  
-                                <div className="text-tab">
-                                  <h6>Anand Mehta</h6>
-                                  <span>Chief Operating Officer</span>
-                                </div>
-                           </div>
-                  </div>}
-              </div>
-            </div>
+//     if ((searchTerm && !selectedTitle) || (location && !selectedLocation)) {
+//       fetchSuggestions();
+//     } else {
+//       setSuggestions([]);
+//     }
+//   }, [searchTerm, location, selectedTitle, selectedLocation]);
 
-{/* ------------------------------------------------------------------------------------------ */}
+//   const handleTitleSelect = (selectedTitle) => {
+//     setSearchTerm(selectedTitle);
+//     setSelectedTitle(selectedTitle);
+//     setSuggestions([]);
+//   };
 
-          </div>
-        </div>
-      </div>
-    </div>
+//   const handleLocationSelect = (selectedLocation) => {
+//     setLocation(selectedLocation);
+//     setSelectedLocation(selectedLocation);
+//     setSuggestions([]);
+//   };
 
-    <FooterTop />
-    <Footer />
-  </>
-  );
-};
+//   const handleSearch = async () => {
+//     try {
+//       const apiUrl = `https://dev.talspo.com/admin/api/search-filter?title=${encodeURIComponent(selectedTitle || "")}&location=${encodeURIComponent(selectedLocation || "")}`;
+//       // console.log("API URL:", apiUrl);
 
-export default OurTeam;
+//       const response = await fetch(apiUrl, {
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       });
+
+//       if (!response.ok) {
+//         throw new Error(`Error: ${response.status} - ${response.statusText}`);
+//       }
+
+//       const data = await response.json();
+//       const skills = data?.data?.data || [];
+
+//       if (skills.length === 0) {
+//         console.log("No results found");
+//       }
+
+//       // Fetch user's current location
+//       const { latitude: userLat, longitude: userLon } = await getCurrentLocation();
+
+//       // Calculate distance for each skill/job and add it to the skill object
+//       const skillsWithDistance = skills.map((skill) => {
+//         const distance = calculateDistance(
+//           userLat,
+//           userLon,
+//           parseFloat(skill.latitude),
+//           parseFloat(skill.longitude)
+//         );
+//         return { ...skill, distance };
+//       });
+
+//       // Sort the skills by distance if "NEARBY" is selected
+//       const sortedSkills = skillsWithDistance.sort((a, b) => a.distance - b.distance);
+
+//       // Apply additional filtering
+//       const filteredSkills = sortedSkills.filter((skill) => {
+//         return (
+//           (selectedTitle ? skill.title.includes(selectedTitle) : true) &&
+//           (selectedLocation ? skill.location.includes(selectedLocation) : true)
+//         );
+//       });
+//       console.log('filteredSkills', filteredSkills)
+
+//       setFilteredSkills(filteredSkills);
+//     } catch (error) {
+//       console.error("Error fetching filtered skills:", error);
+//     }
+//   };
+
+//   const getCoordinates = async (location) => {
+//     const response = await fetch(
+//       `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=pk.eyJ1IjoidGFsc3BvZ3JvdXAiLCJhIjoiY2pxb3ZsZ2V3MWs1ZjQ5cW50cDVmMHB4ciJ9.-7furrxLVkKCZez2khUFqA`
+//     );
+//     const data = await response.json();
+//     if (data.features && data.features.length > 0) {
+//       return data.features[0].geometry.coordinates; // [longitude, latitude]
+//     }
+//     return [0, 0];
+//   };
+
+//   useEffect(() => {
+//     if (smallMapRef.current || fullMapRef.current) {
+//       mapboxgl.accessToken =
+//         "pk.eyJ1IjoidGFsc3BvZ3JvdXAiLCJhIjoiY2pxb3ZsZ2V3MWs1ZjQ5cW50cDVmMHB4ciJ9.-7furrxLVkKCZez2khUFqA";
+
+//       const map = new mapboxgl.Map({
+//         container: showFullMap ? fullMapRef.current : smallMapRef.current,
+//         center: [78.9629, 20.5937],
+//         zoom: 4,
+//       });
+
+//       map.on("style.load", () => {
+//         console.log("Filtered Skills map wali:", filteredSkills);  // Log the filteredSkills data
+
+//         filteredSkills.forEach((skill, index) => {
+//           if (skill.longitude && skill.latitude) {
+//             const marker = new mapboxgl.Marker({
+//               element: createSalaryMarker(skill.title),
+//             })
+//               .setLngLat([skill.longitude, skill.latitude])
+//               .setPopup(
+//                 new mapboxgl.Popup({ className: "custom-popup" }).setHTML(`
+//                   <div>
+//                     <img src="${skill.image}" alt="Skill Image" style="width: 100%; height: auto;" />
+//                     <p style="margin-bottom: 8px;"><strong>${skill.title}</strong></p>
+//                     <p style="margin-bottom: 8px;"><strong>Description:</strong> ${skill.description}</p>
+//                     <div  style="display: flex; justify-content: space-evenly; align-items: center; margin-top: 5px;">
+//                      <p style="margin-bottom: 8px;"><strong>Salary:</strong> ₹${skill.salary}</p>
+//                     <p style="margin-bottom: 8px;"><strong>Status:</strong> ${skill.status}</p>
+//                     <p style="margin-bottom: 8px;"><strong>Location:</strong> ${skill.location}</p>
+//                     </div>
+//                   </div>
+//                 `)
+//               )
+//               .addTo(map);
+
+//             function createSalaryMarker(title) {
+//               const markerDiv = document.createElement("div");
+//               markerDiv.className = "salary-marker";
+//               markerDiv.innerHTML = `<span class="salary-label">${title}</span>`;
+//               return markerDiv;
+//             }
+
+//             // Ensure the layer ID is unique by adding a unique identifier (e.g., index or skill.id)
+//             const layerId = `salary-circle-${skill.title}-${index}`;
+
+//             // Check if the layer already exists before adding it
+//             if (!map.getLayer(layerId)) {
+//               map.addLayer({
+//                 id: layerId,
+//                 type: "circle",
+//                 source: {
+//                   type: "geojson",
+//                   data: {
+//                     type: "FeatureCollection",
+//                     features: [
+//                       {
+//                         type: "Feature",
+//                         geometry: {
+//                           type: "Point",
+//                           coordinates: [skill.longitude, skill.latitude],
+//                         },
+//                         properties: {
+//                           salary: skill.title,
+//                         },
+//                       },
+//                     ],
+//                   },
+//                 },
+//                 paint: {
+//                   "circle-radius": 10,
+//                   "circle-color": "#FF5733",
+//                 },
+//               });
+//             }
+//           }
+//         });
+//       });
+
+//       return () => map.remove();
+//     }
+//   }, [filteredSkills, showFullMap]);
+//   // ---------------------------------------------------------------------------
+//   return (
+//     <div className="Whowe-main">
+//       {isModalOpen && (
+//         <div className="modal-overlay-slide">
+//           <FormHr closeModal={closeModal} />
+//         </div>
+//       )}
+
+//       <div className="who-page">
+//         <div className="who-btm">
+//           <h6>On Demand Skilled Candidates Nearby You</h6>
+//           <span style={{ marginLeft: "1vmax" }}>
+//             Find skilled candidates based on your requirements in real-time
+//             using geo-location enabled search for quick recruitment and talent
+//             acquisition.
+//           </span>
+
+//           {/* ----------------------------------------------------------------------------------------- */}
+//           <div className="search-bar-skill">
+//             <div className="skill-ipt">
+//               <input
+//                 type="text"
+//                 placeholder="Search for Developers, Designers..."
+//                 value={searchTerm}
+//                 onChange={(e) => setSearchTerm(e.target.value)}
+//               />
+//               <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+//               {searchTerm && !selectedTitle && Array.isArray(suggestions) && (
+//                 <ul className="suggestions-list">
+//                   {suggestions.map((item, index) => (
+//                     <li key={index} onClick={() => handleTitleSelect(item.title)}>
+//                       {item.title} {/* Display title suggestions */}
+//                     </li>
+//                   ))}
+//                 </ul>
+//               )}
+//             </div>
+//             <div className="skill-ipt">
+//               <input
+//                 type="text"
+//                 placeholder="Search by Location (Pin Code, Area, City, etc.)"
+//                 value={location}
+//                 onChange={(e) => setLocation(e.target.value)}
+//               />
+//               <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+//               {location && !selectedLocation && Array.isArray(suggestions) && (
+//                 <ul className="suggestions-list">
+//                   {suggestions.map((item, index) => (
+//                     <li key={index} onClick={() => handleLocationSelect(item.location)}>
+//                       {item.location} {/* Display location suggestions */}
+//                     </li>
+//                   ))}
+//                 </ul>
+//               )}
+
+//             </div>
+//             <div className="sort-dropdown">
+//               <div className="dropdown-wrapper">
+//                 <select onChange={handleNearbyFilterChange}>
+//                   <option value="" disabled>Filtered Jobs</option>
+//                   {/* <option value="">Salary</option> */}
+//                   <option value="NEARBY">Nearby</option>
+//                 </select>
+//               </div>
+//             </div>
+
+//             <div className="sort-dropdown">
+//               <select >
+//                 <option value="" disabled>
+//                   Sort by
+//                 </option>
+//                 <option value="jobType"> Experience</option>
+//                 <option value="salary">Trusted/Verified Candidates</option>
+//                 <option value="active">Actively Looking</option>
+//               </select>
+//             </div>
+
+//             <div className="skill-btn">
+//               <button onClick={handleSearch}>Search</button>
+//             </div>
+
+//           </div>
+//           {/* -------------responsive-skill----------------------------- */}
+//           <div className="search-bar-skill-responsive">
+//             <div className="skill-ipt">
+//               <input
+//                 type="text"
+//                 placeholder="Search for Developers,Designers..."
+//                 value={searchTerm}
+//                 onChange={(e) => setSearchTerm(e.target.value)}
+//               />
+//               <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+//             </div>
+//             <div className="skill-ipt">
+//               <input
+//                 type="text"
+//                 placeholder="Search by Location (Pin Code, Area, City, etc.)"
+//                 value={location}
+//                 onChange={(e) => setLocation(e.target.value)}
+//               />
+//               <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+//             </div>
+//             <div className="sort-dropdown">
+//               <select value={sortOption}>
+//                 <option value="">Sort by</option>
+//                 <option value="jobType"> Experience</option>
+//                 <option value="salary">Trusted/Verified Candidates</option>
+//               </select>
+//             </div>
+//             <div className="skill-btn">
+//               <button>Search</button>
+//             </div>
+//           </div>
+//           {/* -------------------------------------------- */}
+//           <div className="who-slide">
+//             <div className="slider-container">
+//               <Slider {...settings}>
+//                 {filteredSkills.map((skill, index) => {
+//                   const supportedCurrencies = JSON.parse(skill.supportedcurrencies);
+
+//                   // Get the selected currency for the current skill or use default if not selected
+//                   const selectedCurrency = selectedCurrencies[skill.id] || skill.basecurrency;
+
+//                   // Get the conversion rate for the selected currency
+//                   const rate = currencyRates[selectedCurrency] ? currencyRates[selectedCurrency].value : 1;
+//                   const convertedSalary = skill.salary * rate;
+
+//                   return (
+//                     <div key={`${skill.id}-${index}`}>
+//                       <div className="w-box">
+//                         <img src={skill.image} alt={skill.name} />
+//                         {skill.verified === "true" && (
+//                           <div className="verified-icon">
+//                             ✅
+//                           </div>
+//                         )}
+//                         <div className="text-panel">
+//                           <h5>{skill.title}</h5>
+//                           <div className="ss">
+//                             <small>Location: {skill.location}</small>
+//                             <small>Status: {skill.status}</small>
+//                           </div>
+//                           <span>Experience: {skill.experience}</span>
+//                           <span>Actively Looking: {skill.actively_looking}</span>
+//                           {/* <span>verify Looking: {skill.verified }</span> */}
+
+//                           <div className="hh">
+//                             {/* Display salary with selected currency */}
+//                             <small>
+//                               Salary: {convertedSalary.toFixed(2)} {selectedCurrency}
+//                             </small>
+//                           </div>
+
+//                           {/* Currency selection dropdown */}
+//                           <select style={{ outline: "none" }}
+//                             className="custom-select mt-1 w-100"
+//                             value={selectedCurrency}
+//                             onChange={(e) => handleCurrencyChange(skill.id, e.target.value)}
+//                           >
+//                             {supportedCurrencies.map((currency, idx) => (
+//                               <option key={idx} value={currency}>
+//                                 {currency}
+//                               </option>
+//                             ))}
+//                           </select>
+
+//                           <button className="get" onClick={openModal}>
+//                             Connect
+//                           </button>
+//                         </div>
+//                       </div>
+//                     </div>
+//                   );
+//                 })}
+//               </Slider>
+//               {error && (
+//                 <div className="error-message">
+//                   {/* <p>{error}</p> */}
+//                 </div>
+//               )}
+//             </div>
+//             <div className="home-map">
+//               <div
+//                 ref={smallMapRef}
+//                 style={{
+//                   width: "100%",
+//                   height: "450px",
+//                   visibility: showFullMap ? "hidden" : "visible",
+//                   position: "relative",
+//                 }}
+//               >
+//                 {/* Button to toggle full map */}
+//                 <div className="toggle-map-icon" onClick={toggleMapView}>
+//                   {showFullMap ? (
+//                     <>
+//                       <FontAwesomeIcon icon={faChevronRight} /> Hide Map
+//                     </>
+//                   ) : (
+//                     <>
+//                       <FontAwesomeIcon icon={faChevronLeft} /> Show Full Map
+//                     </>
+//                   )}
+//                 </div>
+//                 <div className="toggle-map-icon" onClick={toggleMapView}>
+//                   {showFullMap ? (
+//                     <>
+//                       <FontAwesomeIcon icon={faChevronRight} /> Hide Map
+//                     </>
+//                   ) : (
+//                     <>
+//                       <FontAwesomeIcon icon={faChevronLeft} /> Show Full Map
+//                     </>
+//                   )}
+//                 </div>
+//               </div>
+
+//               {/* Display the full map when `showFullMap` is true */}
+//               {showFullMap && (
+//                 <div className="map-overlay">
+//                   <div className="map-overlay-content">
+//                     <span className="map-overlay-close" onClick={toggleMapView}>
+//                       <i className="ri-close-line"></i>
+//                     </span>
+//                     <div
+//                       ref={fullMapRef}
+//                       style={{
+//                         width: "100%",
+//                         height: "600px",
+//                         position: "relative",
+//                       }}
+//                     />
+//                   </div>
+//                 </div>
+//               )}
+//             </div>
+
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Whowe;

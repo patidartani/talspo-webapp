@@ -49,7 +49,7 @@ const OurTeam = () => {
     return <Loading />;
     }
 
-
+    
   return (
     <>
       <Navbar />
@@ -164,22 +164,24 @@ const OurTeam = () => {
           </div>
 
           <div className="team-last-videos">
-          <iframe
-                  src="https://www.youtube.com/embed/0bLHeDOJV40"
-                  width="100%"
-                  height="315"
-                  style={{ border: "none" }}
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                ></iframe>
-<iframe
-                  src="https://www.youtube.com/embed/0bLHeDOJV40"
-                  width="100%"
-                  height="315"
-                  style={{ border: "none" }}
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                ></iframe>          </div>
+  <iframe
+    src="https://www.youtube.com/embed/mkOWfKR84sE"
+    width="100%"
+    height="315"
+    style={{ border: "none" }}
+    allow="autoplay; encrypted-media"
+    allowFullScreen
+  ></iframe>
+  <iframe
+    src="https://www.youtube.com/embed/wSW4QcFvlgA"
+    width="100%"
+    height="315"
+    style={{ border: "none" }}
+    allow="autoplay; encrypted-media"
+    allowFullScreen
+  ></iframe>
+</div>
+
 
 
         </div>

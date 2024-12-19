@@ -34,7 +34,28 @@
 .Home .left span{
   font-weight: 600;
   letter-spacing: 1px;
+  margin-top: 2vmax;
+  font-size: 1.1vmax;
+  text-transform: uppercase;
 }
+
+/* Define the rotation animation */
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-80%);
+    opacity: 0;
+  }
+}
+
+.text.slide-up {
+  animation: slideUp 0.4s forwards; 
+}
+
+
 .Home .left small{
 color: red;
 }
@@ -45,7 +66,7 @@ color: red;
   color: #000;
 }
 .Home .left p{
-  font-size: 1.2vmax
+  font-size: 1.4vmax
 }
 .Home .left .home-btns{
   display: flex;
