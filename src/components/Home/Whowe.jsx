@@ -29,7 +29,7 @@ const Whowe = () => {
   const openModal = () => setIsModalOpen(true);
   const toggleMapView = () => setShowFullMap(!showFullMap);
 
-// -----------------------------------Currency Conversion spi ----------------------------------------------------------
+// -----------------------------------Currency Conversion api ----------------------------------------------------------
 
 const [selectedCurrencies, setSelectedCurrencies] = useState({});
 
@@ -68,8 +68,40 @@ const [error, setError] = useState(null);
       });
   }, []);
   
-// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------geo location sorting------------------------------------------------------------------
+const getCurrentLocation = () => {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        resolve({ latitude, longitude });
+      },
+      (error) => reject(error)
+    );
+  });
+};
+const calculateDistance = (lat1, lon1, lat2, lon2) => {
+  const R = 6371; // Radius of the Earth in km
+  const dLat = (lat2 - lat1) * (Math.PI / 180);
+  const dLon = (lon2 - lon1) * (Math.PI / 180);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1 * (Math.PI / 180)) *
+      Math.cos(lat2 * (Math.PI / 180)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const distance = R * c; // Distance in km
+  return distance;
+};
 
+const handleNearbyFilterChange = (event) => {
+  const selectedOption = event.target.value;
+
+  if (selectedOption === "NEARBY") {
+    handleSearch();
+  }
+};
+// --------------------------------------------------------------------------------------------------------------------
   const settings = {
     dots: false,
     infinite: false,
@@ -136,99 +168,9 @@ const [error, setError] = useState(null);
 
     fetchSkills();
   }, []);
-
-  const getCoordinates = async (location) => {
-    const response = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=pk.eyJ1IjoidGFsc3BvZ3JvdXAiLCJhIjoiY2pxb3ZsZ2V3MWs1ZjQ5cW50cDVmMHB4ciJ9.-7furrxLVkKCZez2khUFqA`
-    );
-    const data = await response.json();
-    if (data.features && data.features.length > 0) {
-      return data.features[0].geometry.coordinates; // [longitude, latitude]
-    }
-    return [0, 0]; // Fallback coordinates
-  };
-
-  useEffect(() => {
-    if (smallMapRef.current || fullMapRef.current) {
-      mapboxgl.accessToken =
-        "pk.eyJ1IjoidGFsc3BvZ3JvdXAiLCJhIjoiY2pxb3ZsZ2V3MWs1ZjQ5cW50cDVmMHB4ciJ9.-7furrxLVkKCZez2khUFqA";
-
-      const map = new mapboxgl.Map({
-        container: showFullMap ? fullMapRef.current : smallMapRef.current,
-        center: [78.9629, 20.5937], // Default center
-        zoom: 4,
-      });
-
-      map.on("style.load", () => {
-        filteredSkills.forEach((skill) => {
-          if (skill.longitude && skill.latitude) {
-            const marker = new mapboxgl.Marker({
-              element: createSalaryMarker(skill.salary),
-            })
-              .setLngLat([skill.longitude, skill.latitude])
-              .setPopup(
-                new mapboxgl.Popup({ className: "custom-popup" }).setHTML(`
-                  <div>
-                    <img src="${skill.image}" alt="Skill Image" style="width: 100%; height: auto;" />
-                    <p style="margin-bottom: 8px;"><strong>${skill.title}</strong></p>
-                    <p style="margin-bottom: 8px;"><strong>Description:</strong> ${skill.description}</p>
-                    <div  style="display: flex; justify-content: space-evenly; align-items: center; margin-top: 5px;">
-                     <p style="margin-bottom: 8px;"><strong>Salary:</strong> ₹${skill.salary}</p>
-                    <p style="margin-bottom: 8px;"><strong>Status:</strong> ${skill.status}</p>
-                    <p style="margin-bottom: 8px;"><strong>Location:</strong> ${skill.location}</p>
-                    </div>
-                  </div>
-                `)
-              )
-              .addTo(map);
-
-            function createSalaryMarker(salary) {
-              const markerDiv = document.createElement("div");
-              markerDiv.className = "salary-marker";
-              markerDiv.innerHTML = `<span class="salary-label">${salary}</span>`;
-              return markerDiv;
-            }
-
-            const circleRadius = skill.salary / 1000;
-
-            map.addLayer({
-              id: `salary-circle-${skill.salary}`,
-              type: "circle",
-              source: {
-                type: "geojson",
-                data: {
-                  type: "FeatureCollection",
-                  features: [
-                    {
-                      type: "Feature",
-                      geometry: {
-                        type: "Point",
-                        coordinates: [skill.longitude, skill.latitude],
-                      },
-                      properties: {
-                        salary: skill.salary,
-                      },
-                    },
-                  ],
-                },
-              },
-              paint: {
-                "circle-radius": circleRadius,
-                "circle-opacity": 0.6,
-              },
-            });
-          }
-        });
-      });
-
-      return () => map.remove();
-    }
-  }, [filteredSkills, showFullMap]);
-
-
   // ---------------------------------------------------------------------------
   const [suggestions, setSuggestions] = useState([]);
-  const [selectedTitle, setSelectedTitle] = useState(null); // Track selected title
+  const [selectedTitle, setSelectedTitle] = useState(null); 
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   useEffect(() => {
@@ -250,29 +192,25 @@ const [error, setError] = useState(null);
   }, [searchTerm, location, selectedTitle, selectedLocation]);
 
   const handleTitleSelect = (selectedTitle) => {
-    setSearchTerm(selectedTitle); // Set selected title to searchTerm
-    setSelectedTitle(selectedTitle); // Track the selected title
-    setSuggestions([]); // Clear suggestions after selection
-    console.log("Selected Title:", selectedTitle); 
+    setSearchTerm(selectedTitle);
+    setSelectedTitle(selectedTitle);
+    setSuggestions([]);
   };
 
   const handleLocationSelect = (selectedLocation) => {
-    setLocation(selectedLocation); // Set selected location to location input
-    setSelectedLocation(selectedLocation); // Track the selected location
-    setSuggestions([]); // Clear suggestions after selection
-    console.log("Selected Location:", selectedLocation);
+    setLocation(selectedLocation);
+    setSelectedLocation(selectedLocation); 
+    setSuggestions([]);
   };
 
   const handleSearch = async () => {
     try {
       const apiUrl = `https://dev.talspo.com/admin/api/search-filter?title=${encodeURIComponent(selectedTitle || "")}&location=${encodeURIComponent(selectedLocation || "")}`;
-      console.log("API URL:", apiUrl);
+      // console.log("API URL:", apiUrl);
   
       const response = await fetch(apiUrl, {
         headers: {
           "Content-Type": "application/json",
-           // Add Authorization header if required                               
-          // Authorization: "Bearer <your_token>",
         },
       });
   
@@ -281,31 +219,154 @@ const [error, setError] = useState(null);
       }
   
       const data = await response.json();
-      // console.log("Full API Response:", data);
-  
-      // Handle paginated data
       const skills = data?.data?.data || [];
-      // console.log("Fetched Skills:", skills);
   
       if (skills.length === 0) {
         console.log("No results found");
       }
   
-      // Apply additional filtering (if required)
-      const filteredSkills = skills.filter(skill => {
+      // Fetch user's current location
+      const { latitude: userLat, longitude: userLon } = await getCurrentLocation();
+  
+      // Calculate distance for each skill/job and add it to the skill object
+      const skillsWithDistance = skills.map((skill) => {
+        const distance = calculateDistance(
+          userLat,
+          userLon,
+          parseFloat(skill.latitude),
+          parseFloat(skill.longitude)
+        );
+        return { ...skill, distance };
+      });
+  
+      // Sort the skills by distance if "NEARBY" is selected
+      const sortedSkills = skillsWithDistance.sort((a, b) => a.distance - b.distance);
+  
+      // Apply additional filtering
+      const filteredSkills = sortedSkills.filter((skill) => {
         return (
           (selectedTitle ? skill.title.includes(selectedTitle) : true) &&
           (selectedLocation ? skill.location.includes(selectedLocation) : true)
         );
       });
+      console.log('filteredSkills',filteredSkills)
   
-      // console.log("Filtered Skills:", filteredSkills);
       setFilteredSkills(filteredSkills);
     } catch (error) {
       console.error("Error fetching filtered skills:", error);
     }
-  }; 
+  };
 
+  const getCoordinates = async (location) => {
+    const response = await fetch(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=pk.eyJ1IjoidGFsc3BvZ3JvdXAiLCJhIjoiY2pxb3ZsZ2V3MWs1ZjQ5cW50cDVmMHB4ciJ9.-7furrxLVkKCZez2khUFqA`
+    );
+    const data = await response.json();
+    if (data.features && data.features.length > 0) {
+      return data.features[0].geometry.coordinates; // [longitude, latitude]
+    }
+    return [0, 0];
+  };
+
+  useEffect(() => {
+    if (smallMapRef.current || fullMapRef.current) {
+      mapboxgl.accessToken = "pk.eyJ1IjoidGFsc3BvZ3JvdXAiLCJhIjoiY2pxb3ZsZ2V3MWs1ZjQ5cW50cDVmMHB4ciJ9.-7furrxLVkKCZez2khUFqA";
+  
+      const map = new mapboxgl.Map({
+        container: showFullMap ? fullMapRef.current : smallMapRef.current,
+        center: [78.9629, 20.5937],
+        zoom: 4,
+      });
+  
+      map.on("style.load", () => {
+        console.log("Filtered Skills map wali:", filteredSkills);
+  
+        filteredSkills.forEach((skill, index) => {
+          console.log("Filtered Skill:", skill);
+  
+          // Check coordinates and use fallback if missing
+          if (!skill.longitude || !skill.latitude) {
+            console.log(`No coordinates for ${skill.title}, using default coordinates.`);
+            skill.longitude = 78.9629;  // Fallback longitude
+            skill.latitude = 20.5937;   // Fallback latitude
+          }
+  
+          console.log("Longitude:", skill.longitude, "Latitude:", skill.latitude);
+  
+          if (skill.longitude && skill.latitude) {
+            console.log("Adding marker for:", skill.title);
+  
+            const marker = new mapboxgl.Marker({
+              element: createSalaryMarker(skill.title),
+            })
+              .setLngLat([skill.longitude, skill.latitude])
+              .setPopup(
+                new mapboxgl.Popup({ className: "custom-popup" }).setHTML(`
+                  <div>
+                    <img src="${skill.image}" alt="Skill Image" style="width: 100%; height: auto;" />
+                    <p style="margin-bottom: 8px;"><strong>${skill.title}</strong></p>
+                    <p style="margin-bottom: 8px;"><strong>Description:</strong> ${skill.description}</p>
+                    <div style="display: flex; justify-content: space-evenly; align-items: center; margin-top: 5px;">
+                      <p style="margin-bottom: 8px;"><strong>Salary:</strong> ₹${skill.salary}</p>
+                      <p style="margin-bottom: 8px;"><strong>Status:</strong> ${skill.status}</p>
+                      <p style="margin-bottom: 8px;"><strong>Location:</strong> ${skill.location}</p>
+                    </div>
+                  </div>
+                `)
+              )
+              .addTo(map);
+  
+            function createSalaryMarker(title) {
+              const markerDiv = document.createElement("div");
+              markerDiv.className = "salary-marker";
+              markerDiv.innerHTML = `<span class="salary-label">${title}</span>`;
+              console.log("Created marker with title:", title);
+              return markerDiv;
+            }
+  
+            const layerId = `salary-circle-${skill.title}-${index}`;
+            if (!map.getLayer(layerId)) {
+              map.addLayer({
+                id: layerId,
+                type: "circle",
+                source: {
+                  type: "geojson",
+                  data: {
+                    type: "FeatureCollection",
+                    features: [
+                      {
+                        type: "Feature",
+                        geometry: {
+                          type: "Point",
+                          coordinates: [skill.longitude, skill.latitude],
+                        },
+                        properties: {
+                          salary: skill.title,
+                        },
+                      },
+                    ],
+                  },
+                },
+                paint: {
+                  "circle-radius": 10,
+                  "circle-color": "#FF5733",
+                },
+              });
+            }
+          } else {
+            console.log("Invalid coordinates for skill:", skill.title);
+          }
+        });
+      });
+  
+      return () => map.remove();
+    }
+  }, [filteredSkills, showFullMap]);
+  
+  
+  
+  
+  
   // ---------------------------------------------------------------------------
 
   return (
@@ -367,25 +428,22 @@ const [error, setError] = useState(null);
             </div>
 
 
-            {/* <div className="sort-dropdown">
+            <div className="sort-dropdown">
               <div className="dropdown-wrapper">
-                <FaFilter className="filter-icon mr-5" />
-                <select>
-                  <option value="" disabled>
-                    Filtered Jobs
-                  </option>
-                  <option value="">Skill Type</option>
-                  <option value="">Salary</option>
-                  <option value="">Job Type</option>
-                </select>
+              <select onChange={handleNearbyFilterChange}>
+  <option value="" disabled>Filtered Jobs</option>
+  {/* <option value="">Salary</option> */}
+  <option value="NEARBY">Nearby</option>
+</select>
               </div>
-            </div> */}
+            </div>
+
             <div className="sort-dropdown">
               <select >
                 <option value="" disabled>
                   Sort by
                 </option>
-                <option value="jobType"> Experience</option>
+                <option value="jobType"> Experience</option> 
                 <option value="salary">Trusted/Verified Candidates</option>
                 <option value="active">Actively Looking</option>
               </select>
@@ -398,8 +456,6 @@ const [error, setError] = useState(null);
           </div>
 
  {/* ----------------------------------------------------------------------------------------- */}
-
-
           {/* -------------responsive-skill--------- */}
           <div className="search-bar-skill-responsive">
             <div className="skill-ipt">
@@ -509,7 +565,7 @@ const [error, setError] = useState(null);
                 style={{
                   width: "100%",
                   height: "450px",
-                  visibility: showFullMap ? "hidden" : "visible", // Hide small map when full map is visible
+                  visibility: showFullMap ? "hidden" : "visible", 
                   position: "relative",
                 }}
               >

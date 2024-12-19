@@ -60,11 +60,38 @@ const Home = () => {
      setSelectedImage(imageUrl); // Update selected image
    };
 // -----------------------------------------------------------
+const texts = [
+  "Empowering Skills Connecting Talent Nearby You By:",
+    "CREATING SUCCESSFUL SKILL SET DEALS NEARBY (REAL-TIME)",
+    "Bridging the Talent Mismatch Gap",
+    "Transforming Talent Development for Tomorrow",
+    "Creating Nearby Talent Discovery Ecosystem",
+    "Human Resources (HR), Talent Acquisition, Skill Training, Coaching, and Consulting",
+    "Software-as-a-Service (SaaS) platform."
+];
+
+const [currentText, setCurrentText] = useState(texts[0]);
+const [animationClass, setAnimationClass] = useState(""); // For animation toggle
+let index = 0;
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setAnimationClass("slide-up");
+
+    setTimeout(() => {
+      index = (index + 1) % texts.length;
+      setCurrentText(texts[index]);
+      setAnimationClass(""); // Reset animation
+    }, 500);
+  }, 2000); 
+
+  return () => clearInterval(interval); // Cleanup
+}, []);
+
 
   // ---------------------techno api --------------------------------------
   const [techStack, setTechStack] = useState([]); 
 
-  // Fetch data from the API
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -82,11 +109,8 @@ const Home = () => {
   }, []);
 
   if (isLoading) {
-    return <Loading />; // Render Loading component while data is being fetched
+    return <Loading />;
   }
-
- 
-
   const joinfree = () => {
     navigate('/signup')
   };
@@ -94,10 +118,6 @@ const Home = () => {
     navigate('/about-us')
   };
 
-  const images = [
-    'https://static.vecteezy.com/system/resources/thumbnails/001/879/458/small_2x/digital-library-to-get-ideas-inspiration-and-solutions-online-learning-for-students-reading-app-online-books-education-by-blog-illustration-landing-page-card-banner-brochure-flyer-free-vector.jpg',
-    gifImg
-  ];
 
   return (
     <div className='Home-main'>
@@ -105,12 +125,15 @@ const Home = () => {
         <Navbar />
         <div className="Home">
           <div className="left">
-            <h6>With Talspo, <br /> Connect with people in real-time to learn skills</h6>
+            <h6>With Talspo</h6>
             <p>
               Be a <small>Learner</small>, <small>Teacher</small>, or <small>Both</small>.
               Talspo helps to solve skill mismatch globally in both Online and Offline mode.
             </p>
-            <span>DYNAMIC TEXT HERE</span>
+
+            <div className="text-container mb-2">
+              <span className={`text ${animationClass}`}>{currentText}</span>
+            </div>
 
             <div className="home-btns">
               <div className="join-free">
@@ -213,8 +236,6 @@ const Home = () => {
         </div>
       </div>
     </div>
-
-
 
         {/* ---------------------------------------------------------------------------------- */}
         <Whowe />

@@ -5,6 +5,7 @@
     justify-content: center;
 }
 
+
 /* --------------------------------------------------------------------- */
 .filter-icon {
   position: absolute;
@@ -418,20 +419,19 @@
 /* Overlay styles */
 
 /* In Test.css */
-.map-overlay {
+.map-overlay-box {
   position: fixed; /* Fix the full map to the screen */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%; /* Full screen map */
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 5vmax;
 }
 
-.map-overlay-content {
+.map-overlay-content-box {
   position: relative;
   background-color: white;
   /* padding: 20px; */
@@ -945,16 +945,17 @@ font-size: 2vmax;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90px; 
-  height: 30px; 
-  border-radius: 20%; 
+  /* width: 90px;  */
+  /* height: 30px;  */
+  border-radius: 10px; 
   background-color: #fff; 
   color: #000; 
   font-size: 14px; 
   font-weight: bold; 
   text-align: center;
   line-height: 50px; 
-  border: 2px solid #fff; 
+  padding: 0px 10px;
+  /* border: 2px solid #fff;  */
 }
 
 .salary-label {
