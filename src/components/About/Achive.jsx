@@ -48,7 +48,9 @@ const Achive = () => {
               >
                 <div className="a-left">
                   <h6>{achieve.title}</h6>
-                  <p>{achieve.description}</p>
+                  {/* <p>{achieve.description}</p> */}
+                <p>{achieve.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
+
                 </div>
                 <div className="a-right">
                   <img src={achieve.image} alt={achieve.title} />
