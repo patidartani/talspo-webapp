@@ -249,7 +249,7 @@ const handleNearbyFilterChange = (event) => {
           (selectedLocation ? skill.location.includes(selectedLocation) : true)
         );
       });
-      console.log('filteredSkills',filteredSkills)
+      // console.log('filteredSkills',filteredSkills)
   
       setFilteredSkills(filteredSkills);
     } catch (error) {
@@ -279,10 +279,10 @@ const handleNearbyFilterChange = (event) => {
       });
   
       map.on("style.load", () => {
-        console.log("Filtered Skills map wali:", filteredSkills);
+        // console.log("Filtered Skills map wali:", filteredSkills);
   
         filteredSkills.forEach((skill, index) => {
-          console.log("Filtered Skill:", skill);
+          // console.log("Filtered Skill:", skill);
   
           // Check coordinates and use fallback if missing
           if (!skill.longitude || !skill.latitude) {
@@ -294,7 +294,7 @@ const handleNearbyFilterChange = (event) => {
           console.log("Longitude:", skill.longitude, "Latitude:", skill.latitude);
   
           if (skill.longitude && skill.latitude) {
-            console.log("Adding marker for:", skill.title);
+            // console.log("Adding marker for:", skill.title);
   
             const marker = new mapboxgl.Marker({
               element: createSalaryMarker(skill.title),
@@ -320,7 +320,7 @@ const handleNearbyFilterChange = (event) => {
               const markerDiv = document.createElement("div");
               markerDiv.className = "salary-marker";
               markerDiv.innerHTML = `<span class="salary-label">${title}</span>`;
-              console.log("Created marker with title:", title);
+              // console.log("Created marker with title:", title);
               return markerDiv;
             }
   
@@ -362,11 +362,6 @@ const handleNearbyFilterChange = (event) => {
       return () => map.remove();
     }
   }, [filteredSkills, showFullMap]);
-  
-  
-  
-  
-  
   // ---------------------------------------------------------------------------
 
   return (
@@ -376,7 +371,6 @@ const handleNearbyFilterChange = (event) => {
           <FormHr closeModal={closeModal} />
         </div>
       )}
-
       <div className="who-page">
         <div className="who-btm">
           <h6>On Demand Skilled Candidates Nearby You</h6>
@@ -385,9 +379,7 @@ const handleNearbyFilterChange = (event) => {
             using geo-location enabled search for quick recruitment and talent
             acquisition.
           </span>
-
  {/* ----------------------------------------------------------------------------------------- */}
-
           <div className="search-bar-skill">
             <div className="skill-ipt">
               <input
@@ -454,7 +446,6 @@ const handleNearbyFilterChange = (event) => {
             </div>
             
           </div>
-
  {/* ----------------------------------------------------------------------------------------- */}
           {/* -------------responsive-skill--------- */}
           <div className="search-bar-skill-responsive">
@@ -487,7 +478,6 @@ const handleNearbyFilterChange = (event) => {
               <button>Search</button>
             </div>
           </div>
-
           {/* -------------------------------------------- */}
           <div className="who-slide">
             <div className="slider-container">

@@ -66,7 +66,8 @@ const texts = [
     "Bridging the Talent Mismatch Gap",
     "Transforming Talent Development for Tomorrow",
     "Creating Nearby Talent Discovery Ecosystem",
-    "Human Resources (HR), Talent Acquisition, Skill Training, Coaching, and Consulting",
+    "Human Resources (HR), Talent Acquisition",
+    "Skill Training, Coaching, and Consulting",
     "Software-as-a-Service (SaaS) platform."
 ];
 
@@ -125,15 +126,19 @@ useEffect(() => {
         <Navbar />
         <div className="Home">
           <div className="left">
-            <h6>With Talspo</h6>
+            <h6> Welcome to Talspo(Explore.Spot.Connect.)™</h6>
+            <p style={{fontSize:'1vmax'}}>Where we empower the future of Talent Acquisition and Human Resource solutions through the Transformative Power of Artificial Intelligence (AI) and Blockchain Software as a Service (SaaS) products.</p>
+
             <p>
               Be a <small>Learner</small>, <small>Teacher</small>, or <small>Both</small>.
               Talspo helps to solve skill mismatch globally in both Online and Offline mode.
             </p>
 
-            <div className="text-container mb-2">
+
+            <div className="text-container">
               <span className={`text ${animationClass}`}>{currentText}</span>
             </div>
+
 
             <div className="home-btns">
               <div className="join-free">
@@ -144,14 +149,19 @@ useEffect(() => {
           </div>
 
           <div className="right">
-      <Swiper
-        ref={swiperRef} // Set the swiper reference
-        modules={[Autoplay]}
-        spaceBetween={30}
-        slidesPerView={1}
-        loop={true}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-      >
+          <Swiper
+  ref={swiperRef} // Set the swiper reference
+  modules={[Autoplay]}
+  spaceBetween={30}
+  slidesPerView={1}
+  loop={true}
+  autoplay={{
+    delay: 10000, // Delay between slide transitions (15 seconds)
+    disableOnInteraction: false,
+  }}
+  speed={2000} // Transition speed (3 seconds)
+>
+
         {/* First Image Slide */}
         {/* <SwiperSlide>
           <div className="swiper-image-container">
@@ -221,11 +231,11 @@ useEffect(() => {
               className={`linee ${activeIndex === index ? "active" : ""}`}
               onClick={() => handleClick(item.image, index)}
             >
-              <div className="linee-left">
+              {/* <div className="linee-left">
                 <div className="icon-line">
                   <i className={item.icon}></i>  
                 </div>
-              </div>
+              </div> */}
               <div className="linee-right">
                 <h6>{item.title}</h6>
                 <p>{item.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>

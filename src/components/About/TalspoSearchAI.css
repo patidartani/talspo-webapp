@@ -1,0 +1,112 @@
+.talspo-search-ai{
+          width: 80%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          flex-direction: column;
+}
+.talspo-search-ai h5{
+        font-size: 1.7vmax;
+        font-weight: 700;
+}
+.talspo-search-ai p{
+          font-size: 1.2vmax;
+          margin-top: 0.5vmax;
+  }
+  .talspo-search-ai small{
+         width: 100%;
+         text-align: center;
+         font-weight: 600;
+         font-size: 1.4vmax;
+         margin-top: 3vmax;
+  }
+  .talspo-search-ai li{
+          margin-top: 1vmax
+   }
+
+/* ---------------talfia css----------------- */
+.Talfia-page{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-top: 8vmax;
+        padding-bottom: 3vmax;
+}
+.Talfia-page h5{
+       color: #003f80;
+       font-size: 1.8vmax;
+       font-weight: 600;
+}
+.Talfia-page .talfia-video{
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 1vmax;
+}
+.Talfia-page .talfia-video iframe{
+        width: 50%;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+}
+.Talfia-page .talfia{
+        width: 80%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        padding-top: 3vmax;
+}
+.Talfia-page .talfia h6{
+        font-size: 1.5vmax;
+        font-weight: 600;
+ }
+ .Talfia-page .talfia p{
+        font-size: 1.3vmax;
+        letter-spacing: 1px;
+ }
+ .Talfia-page .talfia li{
+        font-size: 1vmax;
+        letter-spacing: 0.3px;
+ }
+ .Talfia-page .talfia small{
+        font-size: 1.1vmax;
+        letter-spacing: 0.1px;
+        margin-top: 2vmax;
+ }
+
+ /* ---------------------talspo-affiliate-program--------------------------- */
+ .affiliate-program{
+        width: 100%;
+        display: flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction: column;
+        padding-bottom: 3vmax;
+ }
+ .affiliate-program .aff-prog{
+        width: 80%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+ }
+ .affiliate-program .aff-prog h5{
+       text-decoration: underline;
+       letter-spacing: 0.3px;
+ }
+ .affiliate-program .aff-prog small,
+ .affiliate-program .aff-prog li{
+  font-size: 1.1vmax;
+  letter-spacing: 0.1px;
+  margin-top: 0.8vmax;
+  color: #1d1d1d;
+  }
+ 

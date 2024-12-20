@@ -148,7 +148,7 @@ const Navbar = () => {
                     <Link to="/how-we-work">How We Work</Link>
                     <Link to="/talspo-search">Talspo Search AI</Link>
                     <Link to="/talspo-api">Talspo API</Link>
-                    <Link to='/'>Talspo Affiliate Programe</Link>
+                    <Link to='/talspo-affiliate'>Talspo Affiliate Programe</Link>
                     <Link to="/talfia">Talfia(*sub-brand of Talspo)</Link>
                   </div>
                 )}
@@ -167,10 +167,10 @@ const Navbar = () => {
                       <Link to="/our-team" style={{ display: 'block', marginTop: '0.2rem' , fontSize:"1.9vmax" }}>Our Team</Link>
                       <Link to="/achievements" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Achievements</Link>
                       <Link to="/how-we-work" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>How We Work</Link>
-                      <Link to="/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talspo Search AI</Link>
-                      <Link to="/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talspo API</Link>
-                      <Link to="/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talspo Affiliate Programe</Link>
-                      <Link to="/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talfia(*sub-brand of Talspo)</Link>
+                      <Link to="/talspo-search" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talspo Search AI</Link>
+                      <Link to="talspo-api/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talspo API</Link>
+                      <Link to="/talspo-affiliate" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talspo Affiliate Programe</Link>
+                      <Link to="/talfia" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talfia(*sub-brand of Talspo)</Link>
 
 
                     </div>
