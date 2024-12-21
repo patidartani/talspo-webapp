@@ -28,17 +28,13 @@ import Disclaimer from "./pages/Footer/privacyPolicy/Disclaimer"
 import DmcaPolicy from "./pages/Footer/privacyPolicy/DMCA"
 import GdbrPolicy from "./pages/Footer/privacyPolicy/GdbrPolicy"
 import AntiSpamPolicy from "./pages/Footer/privacyPolicy/AntiSpamPolicy"
-import AcceptableUse from "./pages/Footer/privacyPolicy/AcceptableUse"
 // import Test from "./components/Test"
 import ViewDetail from "./components/Join/ViewDetail"
-
 import JobTest from "./components/Join/JobTest"
-
 import StudentServiceModel from "./components/Services/StudentServiceModel"
 import ProfessionalTrainer from "./components/Services/ProfessionalTrainer"
 import CorporateService from "./components/Services/CorporateService"
 import CoWorking from "./components/Services/CoWorking"
-
 import Form from "./components/Join/Form"
 import SiteMap from "./components/Home/SiteMap"
 import TalspoAPI from "./components/About/TalspoAPI"

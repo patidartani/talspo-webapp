@@ -26,7 +26,7 @@ const TalspoAffiliate = () => {
             <Col md={6} sm={12}>
               <div className="service_video" style={{ position: 'relative', height: '0', paddingBottom: '56.25%' }}>
                 <iframe
-                  src="https://www.youtube.com/embed/o7QuAauyzP4?autoplay=1&mute=1&loop=1&playlist=o7QuAauyzP4"
+                  src="https://www.youtube.com/embed/OQvIlOG3zyM"
                   frameBorder="0"
                   style={{
                     position: "absolute",

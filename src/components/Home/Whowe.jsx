@@ -286,12 +286,12 @@ const handleNearbyFilterChange = (event) => {
   
           // Check coordinates and use fallback if missing
           if (!skill.longitude || !skill.latitude) {
-            console.log(`No coordinates for ${skill.title}, using default coordinates.`);
+            // console.log(`No coordinates for ${skill.title}, using default coordinates.`);
             skill.longitude = 78.9629;  // Fallback longitude
             skill.latitude = 20.5937;   // Fallback latitude
           }
   
-          console.log("Longitude:", skill.longitude, "Latitude:", skill.latitude);
+          // console.log("Longitude:", skill.longitude, "Latitude:", skill.latitude);
   
           if (skill.longitude && skill.latitude) {
             // console.log("Adding marker for:", skill.title);
