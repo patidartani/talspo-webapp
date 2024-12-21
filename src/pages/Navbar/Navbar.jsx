@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Navbar.css"; // Ensure this path is correct
 import mainLogo from "../../assets/images/NewmainLogo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -82,8 +82,6 @@ const Navbar = () => {
     fetchNavbarData();
   }, []);
 
- 
-
   // -------------------------responsive code----------------------------------
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
   const [isJoinDropdownOpen, setIsJoinDropdownOpen] = useState(false);
@@ -155,33 +153,29 @@ const Navbar = () => {
 
                 {/* -------------------about responsive--------------------- */}
                 <div className="about-dropdown-responsive" style={{ fontSize: '2.5vmax', fontWeight: '500' }}>
-                  <div className='hed' onClick={toggleAboutDropdown} style={{ cursor: 'pointer'}}>
-                    <Link to="" style={{ marginRight: '0.5rem', textDecoration: 'none'}}>About</Link>
+                  <div className='hed' onClick={toggleAboutDropdown} style={{ cursor: 'pointer' }}>
+                    <Link to="" style={{ marginRight: '0.5rem', textDecoration: 'none' }}>About</Link>
                     {isAboutDropdownOpen ? <FaChevronUp style={{ fontSize: '1em' }} /> : <FaChevronDown style={{ fontSize: '1em' }} />}
                   </div>
 
                   {isAboutDropdownOpen && (
-                    <div className='boox' style={{ marginTop: '0.3rem', marginLeft:"1.5vmax" }}>
-                      <Link to="/about-us" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>About Us</Link>
-                      <Link to="/faq" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>FAQs</Link>
-                      <Link to="/our-team" style={{ display: 'block', marginTop: '0.2rem' , fontSize:"1.9vmax" }}>Our Team</Link>
-                      <Link to="/achievements" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Achievements</Link>
-                      <Link to="/how-we-work" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>How We Work</Link>
-                      <Link to="/talspo-search" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talspo Search AI</Link>
-                      <Link to="talspo-api/" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talspo API</Link>
-                      <Link to="/talspo-affiliate" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talspo Affiliate Programe</Link>
-                      <Link to="/talfia" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax"  }}>Talfia(*sub-brand of Talspo)</Link>
-
-
+                    <div className='boox' style={{ marginTop: '0.3rem', marginLeft: "1.5vmax" }}>
+                      <Link to="/about-us" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>About Us</Link>
+                      <Link to="/faq" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>FAQs</Link>
+                      <Link to="/our-team" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>Our Team</Link>
+                      <Link to="/achievements" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>Achievements</Link>
+                      <Link to="/how-we-work" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>How We Work</Link>
+                      <Link to="/talspo-search" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>Talspo Search AI</Link>
+                      <Link to="talspo-api/" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>Talspo API</Link>
+                      <Link to="/talspo-affiliate" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>Talspo Affiliate Programe</Link>
+                      <Link to="/talfia" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>Talfia(*sub-brand of Talspo)</Link>
                     </div>
                   )}
                 </div>
 
                 {/* -------------------about responsive end--------------------- */}
 
-
               </div>
-
               <div
                 className="services"
                 onMouseEnter={handleServicesMouseEnter}
@@ -197,27 +191,26 @@ const Navbar = () => {
                     <Link to="/co-working">Co-Working Spaces + Co-works & Co-live & Events Model Services</Link>
                   </div>
                 )}
-                 {/* -----------------------service--responsive--------------- */}
-                    
-                 <div className="service-dropdown-responsive" style={{ fontSize: '2.5vmax', fontWeight: '500' }}>
-        <div onClick={toggleServicesDropdown} style={{ cursor: 'pointer' }}>
-          <Link to="" style={{ marginRight: '0.5rem', textDecoration: 'none' }}>Services</Link>
-          {isServicesDropdownOpen ? <FaChevronUp style={{ fontSize: '1em' }} /> : <FaChevronDown style={{ fontSize: '1em' }} />}
-        </div>
+                {/* -----------------------service--responsive--------------- */}
 
-        {isServicesDropdownOpen && (
-          <div className='' style={{ marginTop: '0.2rem', marginLeft:"1.5vmax" }}>
-            <Link to="/services" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Services</Link>
-            <Link to="/student-service" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Students/Learner Model Services</Link>
-            <Link to="/professional-service" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Professional + Trainers Model Services</Link>
-            <Link to="/corporate-service" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Corporate + Organization Model Services</Link>
-            <Link to="/co-working" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Co-Working Spaces + Co-works & Co-live & Events Model Services</Link>
-          </div>
-        )}
-      </div>
+                <div className="service-dropdown-responsive" style={{ fontSize: '2.5vmax', fontWeight: '500' }}>
+                  <div onClick={toggleServicesDropdown} style={{ cursor: 'pointer' }}>
+                    <Link to="" style={{ marginRight: '0.5rem', textDecoration: 'none' }}>Services</Link>
+                    {isServicesDropdownOpen ? <FaChevronUp style={{ fontSize: '1em' }} /> : <FaChevronDown style={{ fontSize: '1em' }} />}
+                  </div>
 
-                 {/* -----------------------service--responsive--------------- */}
-             
+                  {isServicesDropdownOpen && (
+                    <div className='' style={{ marginTop: '0.2rem', marginLeft: "1.5vmax" }}>
+                      <Link to="/services" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>Services</Link>
+                      <Link to="/student-service" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>Students/Learner Model Services</Link>
+                      <Link to="/professional-service" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>Professional + Trainers Model Services</Link>
+                      <Link to="/corporate-service" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>Corporate + Organization Model Services</Link>
+                      <Link to="/co-working" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>Co-Working Spaces + Co-works & Co-live & Events Model Services</Link>
+                    </div>
+                  )}
+                </div>
+
+                {/* -----------------------service--responsive--------------- */}
 
               </div>
 
@@ -246,22 +239,20 @@ const Navbar = () => {
                   </div>
 
                   {isJoinDropdownOpen && (
-                    <div style={{ marginTop: '0.2rem', marginLeft:"1.5vmax" }}>
-                      <Link to="/join" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Join Us</Link>
-                      <Link to="/opportunities" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Find Opportunities</Link>
-                      <Link to="/partners" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>Do Partnership</Link>
-                      <Link to="/tca" style={{ display: 'block', marginTop: '0.2rem', fontSize:"1.9vmax" }}>TCA</Link>
+                    <div style={{ marginTop: '0.2rem', marginLeft: "1.5vmax" }}>
+                      <Link to="/join" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>Join Us</Link>
+                      <Link to="/opportunities" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>Find Opportunities</Link>
+                      <Link to="/partners" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>Do Partnership</Link>
+                      <Link to="/tca" style={{ display: 'block', marginTop: '0.2rem', fontSize: "1.9vmax" }}>TCA</Link>
                     </div>
                   )}
                 </div>
                 {/* -----------------------joinn responsive------------- */}
 
               </div>
-
               <Link to="/blog">Blog</Link>
               <Link to="/contact-us">Contact</Link>
             </div>
-
             <div className="sign-in-btn">
               {isAuthenticated ? (
                 <div className="profile-container">
@@ -294,25 +285,25 @@ const Navbar = () => {
 
       </div>
       <div className="model-dropdown">
-      <h6 onClick={handleToggle} style={{ cursor: "pointer" }}>Model Service</h6>
-      {isOpen && (
-        <div className="model-text">
-          {navbarData.length > 0 ? (
-            navbarData.map((item, index) => (
-              <div key={index}>
-                <img src={item.image} alt={item.title} style={{ width: '100%' }} />
-                <small>
-          <div dangerouslySetInnerHTML={{ __html: item?.title }} />
+        <h6 onClick={handleToggle} style={{ cursor: "pointer" }}>Model Service</h6>
+        {isOpen && (
+          <div className="model-text">
+            {navbarData.length > 0 ? (
+              navbarData.map((item, index) => (
+                <div key={index}>
+                  <img src={item.image} alt={item.title} style={{ width: '100%' }} />
+                  <small>
+                    <div dangerouslySetInnerHTML={{ __html: item?.title }} />
 
-                </small>
-              </div>
-            ))
-          ) : (
-            <div>No data available</div>
-          )}
-        </div>
-      )}
-    </div>
+                  </small>
+                </div>
+              ))
+            ) : (
+              <div>No data available</div>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

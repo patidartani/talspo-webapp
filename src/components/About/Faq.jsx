@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../../pages/Navbar/Navbar";
 import Footer from "../../pages/Footer/Footer";
 import "./Faq.css";
-import Loading from "../../pages/loading/Loading"; 
+import Loading from "../../pages/loading/Loading";
 import { faqQuestions } from "../../apiService";
 import FooterTop from "../../pages/Footer/FooterTop";
 
@@ -19,10 +19,9 @@ const Faq = () => {
       } catch (error) {
         console.error("Error fetching FAQs:", error);
       } finally {
-        setIsLoading(false); 
+        setIsLoading(false);
       }
     };
-
     fetchFaqs();
   }, []);
 
@@ -52,7 +51,7 @@ const Faq = () => {
                   <span className={activeIndex === index ? "arrow open" : "arrow"}>&#9662;</span>
                 </h6>
                 {activeIndex === index && (
-                  <p style={{ fontSize: "1.2vmax" }}>{faq.description}</p>
+                  <p><div style={{ fontSize: "1.2vmax" }} dangerouslySetInnerHTML={{ __html: faq.description }} /></p>
                 )}
               </div>
             ))}

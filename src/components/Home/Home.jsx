@@ -15,8 +15,7 @@ import HomeBlog from '../Blog/HomeBlog';
 import { useNavigate } from 'react-router-dom';
 import HomeBroach from './HomeBroach';
 import FooterTop from '../../pages/Footer/FooterTop';
-import gifImg from "../../assets/images/homeslidergif.gif"
-import {technologyApi, whyChooseTalspo} from "../../apiService"
+import {technologyApi, whyChooseTalspo, homepageContent} from "../../apiService"
 import Loading from "../../pages/loading/Loading"
 
 import { useRef } from "react"; 
@@ -30,65 +29,74 @@ const Home = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true); 
 
-
- 
    // ------------------------why choose talspo----------------------
-   const [items, setItems] = useState([]); // Store the fetched data
-   const [activeIndex, setActiveIndex] = useState(0); // Track active index
-   const [selectedImage, setSelectedImage] = useState(""); // Track selected image
+   const [items, setItems] = useState([]); 
+   const [activeIndex, setActiveIndex] = useState(0); 
+   const [selectedImage, setSelectedImage] = useState(""); 
+   const [homeContent, setHomeContent] = useState(null);
+
+   const [currentText, setCurrentText] = useState(""); 
+  const [animationClass, setAnimationClass] = useState(""); 
+  let index = 0;
  
-   // Fetch the data from the API
    useEffect(() => {
-     const whyChoose = async () => {
-       try {
-         const response = await whyChooseTalspo(); // Assuming this function fetches data
-        //  console.log('Why choose response', response.records);
-         setItems(response.records); // Update state with API data
-         if (response.records.length > 0) {
-           setSelectedImage(response.records[0].image); // Set the first image as selected
-         }
-       } catch (error) {
-         console.log('Error fetching data:', error);
-       }
-     };
- 
-     whyChoose();
-   }, []);
+    const fetchData = async () => {
+      try {
+        // Fetch data from "Why Choose Talspo" API
+        const whyChooseResponse = await whyChooseTalspo();
+        setItems(whyChooseResponse.records);
+
+        if (whyChooseResponse.records.length > 0) {
+          setSelectedImage(whyChooseResponse.records[0].image);
+        }
+
+        // Fetch data from "Home Content" API
+        const homeContentResponse = await homepageContent();
+        const { records } = homeContentResponse;
+  
+        if (records && records.length > 0) {
+          const { title, description, text, media } = records[0];
+          const dynamicTexts = text.split(",").map((t) => t.trim()); // Parse and split the text
+  
+          // Parse media string and fix any URL encoding issues
+          const parsedMedia = JSON.parse(media).map((url) => url.replace(/\\\//g, '/'));
+  
+          setHomeContent({
+            title,
+            description,
+            texts: dynamicTexts,
+            media: parsedMedia, // Now it's a valid array of URLs
+          });
+          setCurrentText(dynamicTexts[0]);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
  
    const handleClick = (imageUrl, index) => {
-     setActiveIndex(index); // Update active index
-     setSelectedImage(imageUrl); // Update selected image
+     setActiveIndex(index);
+     setSelectedImage(imageUrl); 
    };
-// -----------------------------------------------------------
-const texts = [
-  "Empowering Skills Connecting Talent Nearby You By:",
-    "CREATING SUCCESSFUL SKILL SET DEALS NEARBY (REAL-TIME)",
-    "Bridging the Talent Mismatch Gap",
-    "Transforming Talent Development for Tomorrow",
-    "Creating Nearby Talent Discovery Ecosystem",
-    "Human Resources (HR), Talent Acquisition",
-    "Skill Training, Coaching, and Consulting",
-    "Software-as-a-Service (SaaS) platform."
-];
 
-const [currentText, setCurrentText] = useState(texts[0]);
-const [animationClass, setAnimationClass] = useState(""); // For animation toggle
-let index = 0;
+   useEffect(() => {
+  if (homeContent && homeContent.texts) {
+    const interval = setInterval(() => {
+      setAnimationClass("slide-up");
 
-useEffect(() => {
-  const interval = setInterval(() => {
-    setAnimationClass("slide-up");
+      setTimeout(() => {
+        index = (index + 1) % homeContent.texts.length; // Loop through the texts
+        setCurrentText(homeContent.texts[index]); // Update the current text
+        setAnimationClass(""); // Reset animation class
+      }, 500); // Match animation duration
+    }, 2000); // Change text every 2 seconds
 
-    setTimeout(() => {
-      index = (index + 1) % texts.length;
-      setCurrentText(texts[index]);
-      setAnimationClass(""); // Reset animation
-    }, 500);
-  }, 2000); 
-
-  return () => clearInterval(interval); // Cleanup
-}, []);
-
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }
+}, [homeContent]);
 
   // ---------------------techno api --------------------------------------
   const [techStack, setTechStack] = useState([]); 
@@ -119,27 +127,17 @@ useEffect(() => {
     navigate('/about-us')
   };
 
-
   return (
     <div className='Home-main'>
       <div className="Home-page">
         <Navbar />
+
         <div className="Home">
           <div className="left">
-            <h6> Welcome to Talspo(Explore.Spot.Connect.)™</h6>
-            <p style={{fontSize:'1vmax'}}>Where we empower the future of Talent Acquisition and Human Resource solutions through the Transformative Power of Artificial Intelligence (AI) and Blockchain Software as a Service (SaaS) products.</p>
-
-            <p>
-              Be a <small>Learner</small>, <small>Teacher</small>, or <small>Both</small>.
-              Talspo helps to solve skill mismatch globally in both Online and Offline mode.
-            </p>
-
-
+            <h6> {homeContent?.title}</h6>
+            <p style={{ fontSize: '1vmax' }}>{homeContent?.description}</p>
             <div className="text-container">
-              <span className={`text ${animationClass}`}>{currentText}</span>
-            </div>
-
-
+            <span className={`text ${animationClass}`}>{currentText}</span>            </div>
             <div className="home-btns">
               <div className="join-free">
                 <button onClick={joinfree}>JOIN FOR FREE</button>
@@ -149,75 +147,65 @@ useEffect(() => {
           </div>
 
           <div className="right">
-          <Swiper
-  ref={swiperRef} // Set the swiper reference
-  modules={[Autoplay]}
-  spaceBetween={30}
-  slidesPerView={1}
-  loop={true}
-  autoplay={{
-    delay: 10000, // Delay between slide transitions (15 seconds)
-    disableOnInteraction: false,
-  }}
-  speed={2000} // Transition speed (3 seconds)
->
-
-        {/* First Image Slide */}
-        {/* <SwiperSlide>
-          <div className="swiper-image-container">
-            <img src={images[0]} alt="Slide 1" />
-          </div>
-        </SwiperSlide> */}
-
-        {/* Video Slide */}
-        <SwiperSlide>
-          <div className="video-container">
-            <iframe
-              width="100%"
-              height="315"
-              src="https://www.youtube.com/embed/hMjaZKCh3Nc?autoplay=1&mute=1&loop=1&playlist=hMjaZKCh3Nc"
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              title="Talspo Video 1"
-            ></iframe>
-          </div>
-        </SwiperSlide>
-
-        {/* Video Slide 2 */}
-        <SwiperSlide>
-          <div className="video-container">
-            <iframe
-              width="100%"
-              height="315"
-              src="https://www.youtube.com/embed/egavdrxEd8c?autoplay=1&mute=1&loop=1&playlist=egavdrxEd8c"
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              title="Talspo Video 2"
-            ></iframe>
-          </div>
-        </SwiperSlide>
-      </Swiper>
-
-      {/* Navigation Arrows */}
-      <div className="home-arrows">
-        <HiArrowSmallLeft
-          onClick={() => swiperRef.current.swiper.slidePrev()} // Slide to previous
-        />
-        <HiArrowSmallRight
-          onClick={() => swiperRef.current.swiper.slideNext()} // Slide to next
-        />
-      </div>
+            <Swiper
+              ref={swiperRef}
+              modules={[Autoplay]}
+              spaceBetween={30}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{
+                delay: 10000,
+                disableOnInteraction: false,
+              }}
+              speed={2000} 
+            >
+           {homeContent && homeContent.media && homeContent.media.length > 0 && homeContent.media.map((mediaLink, index) => (
+  <SwiperSlide key={index}>
+    <div className="video-container">
+      <iframe
+        width="100%"
+        height="315"
+        src={mediaLink}
+        frameBorder="0"
+        allow="autoplay; encrypted-media"
+        allowFullScreen
+        title={`Media Slide ${index + 1}`}
+      ></iframe>
     </div>
+  </SwiperSlide>
+))}
 
+              {/* <SwiperSlide>
+                <div className="video-container">
+                  <iframe
+                    width="100%"
+                    height="315"
+                    src="https://www.youtube.com/embed/egavdrxEd8c?autoplay=1&mute=1&loop=1&playlist=egavdrxEd8c"
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                    title="Talspo Video 2"
+                  ></iframe>
+                </div>
+              </SwiperSlide> */}
+            </Swiper>
+
+            <div className="home-arrows"> 
+              <HiArrowSmallLeft
+                onClick={() => swiperRef.current.swiper.slidePrev()} // Slide to previous
+              />
+              <HiArrowSmallRight
+                onClick={() => swiperRef.current.swiper.slideNext()} // Slide to next
+              />
+            </div>
+          </div>
 
         </div>
+
         <HomeTwo />
         {/* ---------------------------------------------------------------------------------- */}
 
-
-        <div className="home-two">
+      <div className="home-two">
       <h5>Why Choose Talspo?</h5>
       <p>You can explore, spot, connect talented people nearby (Online).</p>
       <div className="home-two-btm">
@@ -245,7 +233,7 @@ useEffect(() => {
           ))}
         </div>
       </div>
-    </div>
+      </div>
 
         {/* ---------------------------------------------------------------------------------- */}
         <Whowe />
@@ -264,7 +252,7 @@ useEffect(() => {
           )}
         </div>
       </div>
-    </div>
+         </div>
         {/* ---------------------------------------------------------------------------------- */}
         <HomeBlog />
         <HomeBroach />
