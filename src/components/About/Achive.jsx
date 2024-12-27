@@ -1,5 +1,5 @@
 import "./Achive.css";
-import Navbar from "../../pages/Navbar/Navbar";
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer";
 import FooterTop from "../../pages/Footer/FooterTop";
 import { achievement } from "../../apiService"; // Import the API function
@@ -32,7 +32,7 @@ const Achive = () => {
 
   return (
     <>
-      <Navbar />
+      <NavbarContainer />
       <div className="Achive-main">
         <div className="Achive-page">
           <div className="achive-top">

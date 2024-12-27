@@ -1,5 +1,5 @@
 import './Services.css';
-import Navbar from '../../pages/Navbar/Navbar';
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
 import { MdOutlineWork } from 'react-icons/md';
 import { FaGraduationCap } from 'react-icons/fa';
@@ -8,6 +8,9 @@ import { MdMenuBook } from "react-icons/md";
 import { TbWorldSearch } from "react-icons/tb";
 import { useNavigate } from 'react-router-dom';
 import FooterTop from '../../pages/Footer/FooterTop';
+
+import {ourServices} from "../../apiService"
+import { useState, useEffect } from 'react';
 
 const Services = () => {
   const navigate = useNavigate();
@@ -25,9 +28,26 @@ const Services = () => {
     navigate('/corporate-service')
   }
 
+  const [ourService, setOurService] = useState([]);
+
+    useEffect(() => {
+        const fetchServices = async () => {
+            try {
+                const response = await ourServices();
+                console.log("Response services:", response.records);
+                setOurService(response.records); // Assuming response.records is an array
+            } catch (error) {
+                console.error("Error fetching services data:", error.message);
+            }
+        };
+
+        fetchServices();
+    }, []);
+
+
   return (
     <>
-      <Navbar />
+      <NavbarContainer />
       <div className="Services-main">
         <div className="Services-page">
           <div className="service-top">
@@ -43,75 +63,34 @@ const Services = () => {
             ></iframe>
           </div>
 
-          <div className="service-btm">
-            {/* ----------------------------------- */}
-            <div className="service" style={{cursor:"pointer"}} onClick={studentHandler}>
-              <div className="one">
-                <div className="s-left">
-                  <div className="icon">
-                    <TbWorldSearch className="react-icon" />
-                  </div>
+         <div className="service-btm">
+            {ourService.map((service, index) => (
+                <div
+                    key={service.id}
+                    className={`service ${index % 2 === 0 ? "" : "service2"}`}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => console.log(`Clicked: ${service.title}`)}
+                >
+                    <div className="one">
+                        <div className="s-left">
+                            <div className="icon">
+                                <img
+                                    src={service.image}
+                                    alt={service.title}
+                                    style={{ width: "70px", height: "70px", objectFit: "cover", borderRadius: "8px" }}
+                                />
+                            </div>
+                        </div>
+                        <div className="s-right">
+                            <h5>{service.title}</h5>
+                            <p>{service.description}</p>
+                        </div>
+                    </div>
                 </div>
-                <div className="s-right">
-                  <h5>Students/Learner Model Services</h5>
-                  <p>
-                    Our platform provides a powerful job search engine to help you find opportunities that match your skills and interests.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* ----------------------------------- */}
-            <div className="service2" style={{cursor:"pointer"}} onClick={trainersHandler} >
-              <div className="one">
-                <div className="s-left">
-                  <div className="icon">
-                    <FaGraduationCap className="react-icon" />
-                  </div>
-                </div>
-                <div className="s-right">
-                  <h5>Professional/Trainers Model Services</h5>
-                  <p>
-                    Access a variety of online courses designed to help you build skills and enhance your employability.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* ----------------------------------- */}
-            <div className="service" style={{cursor:"pointer"}} onClick={organizeHandler}>
-              <div className="one">
-                <div className="s-left">
-                  <div className="icon">
-                    <ImCreditCard className="react-icon" />
-                  </div>
-                </div>
-                <div className="s-right">
-                  <h5>Corporate/Organization Model Services</h5>
-                  <p>
-                    Get professional help with crafting a compelling resume and cover letter to stand out in your job applications.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* ----------------------------------- */}
-            <div className="service2" style={{cursor:"pointer"}} onClick={coworkingHandler}>
-              <div className="one">
-                <div className="s-left">
-                  <div className="icon">
-                    <MdOutlineWork className="react-icon" />
-                  </div>
-                </div>
-                <div className="s-right">
-                  <h5>Co-Working Spaces/Co-works & Co-live & Events Model Services</h5>
-                  <p>
-                    Join our workshops to hone your interview skills and increase your chances of success in securing a job.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* ----------------------------------- */}
-          
-          </div>
+            ))}
+        </div>
 
+          <h4>Coming Soon.....</h4>
 
         </div>
       </div>

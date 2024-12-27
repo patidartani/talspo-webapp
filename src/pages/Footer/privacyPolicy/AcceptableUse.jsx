@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import Navbar from "../../../pages/Navbar/Navbar";
+import NavBarContainer from "../../NavbarCom/NavBarContainer";
 import Footer from "../../Footer/Footer";
 import "../privacyPolicy/AntiSpamPolicy.css";
 
@@ -10,7 +10,7 @@ const AcceptableUse = () => {
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
   return (
     <>
-      <Navbar />
+      <NavBarContainer />
       <div className="anti-spam-policy">
         <h1>ACCEPTABLE USE POLICY (ABUSE POLICY) & RESPONSIBLE AI POLICY</h1>
       </div>

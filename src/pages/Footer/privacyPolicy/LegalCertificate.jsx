@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../../../pages/Navbar/Navbar";
+import NavBarContainer from "../../NavbarCom/NavBarContainer";
 import Footer from "../../Footer/Footer";
 import { Container, Modal, Button, Form } from "react-bootstrap";
 import "./LegalCertificate.css";
@@ -24,7 +24,7 @@ const LegalCertificate = () => {
 
   return (
     <>
-      <Navbar />
+      <NavBarContainer />
       <div className="legal_heading">
         <h1>Legal Certification</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, dolorem?</p>

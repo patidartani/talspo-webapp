@@ -1,12 +1,13 @@
 import "./TalspoSearchAI.css"
-import Navbar from "../../pages/Navbar/Navbar"
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
+import TalfiaLogo from "../../assets/images/Talfia.png"
 
 
 const Talfia = () => {
   return (
     <>
-      <Navbar />
+      <NavbarContainer />
       <div className='Talfia-page'>
         <h5>Talfia™ (*sub-brand of Talspo)</h5>
         <div className="talfia-video">
@@ -19,6 +20,8 @@ const Talfia = () => {
             allowFullScreen
           ></iframe>
         </div>
+        <img src={TalfiaLogo} alt="" />
+
         <div className="talfia">
           <h6>Talfia - Your Talent Finding Intelligent Assistance™</h6>
           <p>We are currently developing this product that will offer the following services:</p>

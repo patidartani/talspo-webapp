@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Navbar from "../../pages/Navbar/Navbar";
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import { fetchBlogDetail } from '../../apiService';
 import Loading from '../../pages/loading/Loading'; 
 import "./BlogDetail.css";
@@ -52,7 +52,7 @@ const BlogDetail = () => {
 
   return (
     <>
-      <Navbar />
+      <NavbarContainer />
       <div className="BlogDetail-main">
         <div className="blog-detail">
           <div className="details">

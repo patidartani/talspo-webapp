@@ -1,4 +1,4 @@
-.Navbar-main {
+/* .Navbar-main {
   width: 100%;
   height: 105px;
   display: flex;
@@ -255,14 +255,12 @@
   background-color: #00FF00;
 }
 
-/* Container Styles for About Us and Join Us */
 .about-us,
 .join-us ,
 .services{
   position: relative;
 }
 
-/* Responsive Dropdown for smaller screens */
 .about-dropdown-responsive,
 .join-dropdown-responsive,
 .service-dropdown-responsive {
@@ -296,10 +294,10 @@
   color: #333;
   cursor: pointer;
   outline: none;
-}
+} */
 
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
 
   .about-dropdown-responsive,
   .join-dropdown-responsive,
@@ -353,7 +351,6 @@
 
   .Navbar-main .navbar-page .nav-mid {
     width: 45%;
-    /* border: none; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -419,13 +416,10 @@
 
   .Navbar-main .navbar-page .nav-right a {
     color: #000;
-    /* background: #000; */
     padding-top: 0.4vmax;
     text-decoration: none;
     font-size: 1.3rem;
     width: 100%;
-    /* font-weight: 600; */
-    /* text-transform: uppercase; */
   }
 
   .Navbar-main .navbar-page .nav-right .links .link-item {
@@ -474,9 +468,7 @@
 
   .globe-icon {
     font-size: 3vmax;
-    /* Globe icon size */
     color: #003266;
-    /* Adjust color as needed */
   }
 
   .language-selector select {
@@ -489,11 +481,11 @@
   }
 
 
-}
+} */
 
 
 
-@media (min-width: 600px) and (max-width:1150px) {
+/* @media (min-width: 600px) and (max-width:1150px) {
 
   .about-dropdown-responsive,
   .join-dropdown-responsive,
@@ -547,7 +539,6 @@
 
   .Navbar-main .navbar-page .nav-mid {
     width: 45%;
-    /* border: none; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -613,13 +604,11 @@
 
   .Navbar-main .navbar-page .nav-right a {
     color: #000;
-    /* background: #000; */
     padding-top: 3vmax;
     text-decoration: none;
     font-size: 2rem;
     width: 100%;
-    /* font-weight: 600; */
-    /* text-transform: uppercase; */
+ 
   }
 
   .Navbar-main .navbar-page .nav-right .links .link-item {
@@ -674,9 +663,7 @@
 
   .globe-icon {
     font-size: 3.5vmax;
-    /* Globe icon size */
     color: #003266;
-    /* Adjust color as needed */
   }
 
   .language-selector select {
@@ -689,4 +676,4 @@
   }
 
 
-}
+} */

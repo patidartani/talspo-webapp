@@ -250,7 +250,9 @@
        justify-content: flex-start;
        text-align: start;
      }
-   .DoPatnership-main .partner-four .partner-form  form .p-inp input{
+   .DoPatnership-main .partner-four .partner-form  form .p-inp input,
+   .DoPatnership-main .partner-four .partner-form  form .p-inp select{
+
             width: 100%;
           display: flex;
           align-items: center;
@@ -264,7 +266,11 @@
    .DoPatnership-main .partner-four .partner-form  form .p-inp p{
           width: 100%;
           font-size: 1vmax;
+          text-align: start;
  }
+ .DoPatnership-main .partner-four .partner-form  form .p-inp span:hover{
+      text-decoration: underline;
+}
    .DoPatnership-main .partner-four .partner-form  form .p-inp textarea{
             width: 100%;
           display: flex;

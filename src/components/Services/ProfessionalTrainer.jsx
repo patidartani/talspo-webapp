@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from "../../pages/Navbar/Navbar"
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import "./StudentServiceModel.css"
 
 import Footer from "../../pages/Footer/Footer"
@@ -16,7 +16,7 @@ const ProfessionalTrainer = () => {
 
   return (
     <>
-    <Navbar />
+    <NavbarContainer />
     <div className='StudentServiceModel'>
 
 <div className="students-learner">

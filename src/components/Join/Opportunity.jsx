@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { fetchJobPosts } from '../../apiService';
 import "./Opportunity.css";
-import Navbar from "../../pages/Navbar/Navbar";
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer";
 import ReactPaginate from 'react-paginate';
 import { useNavigate } from 'react-router-dom';
@@ -293,7 +293,7 @@ const handleSortJobsByLocation = async () => {
 
   return (
     <>
-      <Navbar />
+      <NavbarContainer />
       <div className="Opportunity-main">
         <div className="opportunity-page">
         <div className="opportunity1">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./HowWeWork.css"
-import Navbar from "../../pages/Navbar/Navbar"
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
 import { howWork } from "../../apiService"
 import FooterTop from '../../pages/Footer/FooterTop'
@@ -26,7 +26,7 @@ const HowWeWork = () => {
 
   return (
     <>
-      <Navbar />
+      <NavbarContainer />
       <div className='HowWeWork-main'>
         {/* ----------------------------- */}
         <div className="how-tp">

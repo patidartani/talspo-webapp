@@ -3,6 +3,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          flex-direction: column;
 }
 /* src/Signup.css */
 
@@ -21,6 +22,11 @@
           flex-direction: column;
           margin-bottom: 2vmax;
 }
+
+.Signup-main .Signup-page h3 {
+  margin-top: 10vmax;
+  color: red;
+}
 .Signup-main .Signup-page .form-page {
           width: 40%;
           display: flex;
@@ -31,7 +37,8 @@
           box-shadow: 0px 1px 2px 1px #001a285c;
           padding: 1vmax;
           background-color: #fff;
-          margin-top: 9vmax;
+          margin-top: 2vmax;
+          /* margin-top: 9vmax; */
 }
 .Signup-main .Signup-page .form-page h5 {
           font-size: 2vmax;

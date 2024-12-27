@@ -106,10 +106,11 @@
           color: #fff;
           transform: rotate(45deg);
 }
-.react-icon {
+.s-left .icon img {
           transform: rotate(-45deg);
-          font-size: 3rem;
+          font-size: 2rem;
           font-weight: lighter;
+          color: #fff;
 }
 .s-right {
           width: 70%;
@@ -124,6 +125,16 @@
           font-weight: 700;
           letter-spacing: 0.5px;
 }
+
+
+.Services-main .Services-page h4 {
+       margin-top: 5vmax;
+       font-size: 2vmax;
+       font-weight: 600;
+       color: red;
+}
+
+
 /* ------------------------------------------ */
 @media (max-width:600px) {
           .Services-main {

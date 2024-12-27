@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import "./Blog.css";
-import Navbar from "../../pages/Navbar/Navbar";
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import BlogImg from "../../assets/images/blogimg.png";
 import BlogMan from "../../assets/images/BlogMan.png";
 import Footer from '../../pages/Footer/Footer';
@@ -101,7 +101,7 @@ const Blog = () => {
 
   return (
     <>
-      <Navbar />
+      <NavbarContainer />
       <div className="Blog-main">
         <div className="blogs">
 

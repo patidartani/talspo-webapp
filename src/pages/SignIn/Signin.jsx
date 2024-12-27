@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux-toolkit/slices/authSlice'; 
 import { LOGIN_URL } from '../../apiService'; 
 import "./Signin.css";
-import Navbar from "../../pages/Navbar/Navbar";
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer";
 
 const Signin = () => {
@@ -81,7 +81,7 @@ const Signin = () => {
 
   return (
     <>
-      <Navbar />
+      <NavbarContainer />
       <div className='Signin-main'>
         <div className="Signin-page">
           <div className="form-signin">

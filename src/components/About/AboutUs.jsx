@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./AboutUs.css";
-import Navbar from "../../pages/Navbar/Navbar";
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import AboutTopImg from "../../assets/images/aboutusTop.webp";
 import Footer from "../../pages/Footer/Footer";
  import { useNavigate } from "react-router-dom";
@@ -125,7 +125,7 @@ const [patentData, setPatentData] = useState([]);
 //  ----------------------------------------------------------------------------------
   return (
     <>
-    <Navbar />
+    <NavbarContainer />
     <div className="AboutUs-container">
       <div className="about-content">
         <div className="about-top">

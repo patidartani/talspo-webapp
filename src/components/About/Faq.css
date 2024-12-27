@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 2vmax;
+    margin-bottom: 1vmax;
   }
 
   .faq_top{
@@ -103,6 +103,53 @@
     color: #333;
     background-color: #ffffff;
   }
+
+/* -----------------------end content-------------------- */
+  .faq-data-content{
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+.FaqEndData-main{
+  width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+ padding: 1vmax;
+ gap: 0.2vmax;
+}
+.FaqEndData-main h5{
+  font-size: 1.4vmax;
+  font-weight: 600;
+  margin-bottom: 1vmax;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.FaqEndData-main p{
+  font-size: 1vmax;
+  letter-spacing: 0.2px;
+}
+.FaqEndData-main h6{
+  font-size: 1.1vmax;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3vmax;
+}
+.FaqEndData-main .cont-btn-faq{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.FaqEndData-main .cont-btn-faq button{
+border: none;
+padding: 0.4vmax 1vmax;
+background-color: #003f80;
+border-radius: 5px;
+color: #fff;
+}
 
  @media (max-width:600px) {
   .faq-con {

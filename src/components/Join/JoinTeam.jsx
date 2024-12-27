@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./JoinTeam.css"
-import Navbar from "../../pages/Navbar/Navbar"
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
 import linkdin from "../../assets/images/linkdin.png"
 import { joinTestimonials } from "../../apiService";
@@ -31,7 +31,7 @@ const JoinTeam = () => {
 
    return (
       <>
-         <Navbar />
+         <NavbarContainer />
          <div className='JoinTeam-main'>
             <div className="join1">
                <div className="join1-left">
@@ -82,7 +82,7 @@ const JoinTeam = () => {
             <div className="join4">
                <small>Want to help us build the next level of talent networking & talent marketplace of the world?</small>
                <small> Do you want to change the way people develop their skills by connecting with NEARBY talents?</small>
-               <p>Then check our open positions to be the next "Talspoer"!</p>
+               <p>Then check our open positions to be the next Talspoer!</p>
                <div className="join4-bx">
                   <h5>Interested ?</h5>
                   <div className="join4-Btm">
@@ -90,18 +90,18 @@ const JoinTeam = () => {
                         <div className="int-img">
                            <img src="https://talspo.com/img/logo-icon.png" alt="" />
                         </div>
-                        <a href="">Direct Apply through Talspo F6s</a>
+                        <a href="/opportunities">Direct Apply through Talspo</a>
                      </div>
                      <div className="interest">
                         <div className="int-img">
                            <img src="https://talspo.com/img/brands/f6s.png" alt="" />
                         </div>
-                        <a href="">Apply through F6S</a>
+                        <a href="https://www.f6s.com/company/talspo">Apply through F6S</a>
                      </div><div className="interest">
                         <div className="int-img2">
                            <img src={linkdin} alt="" />
                         </div>
-                        <a href="">Apply through LinkedIn</a>
+                        <a href="https://www.linkedin.com/company/talspo/">Apply through LinkedIn</a>
                      </div>
                   </div>
                </div>

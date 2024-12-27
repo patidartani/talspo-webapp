@@ -1,0 +1,173 @@
+.responsive-sidebar {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          height: 100%;
+          width: 85%;
+          background-color: yellow;
+          box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+          overflow-y: auto;
+          transition: right 1s ease;
+          z-index: 111111;
+}
+.responsive-sidebar.open {
+          right: 0;
+}
+.res-side {
+          padding: 0.1vmax;
+          padding-left: 2vmax;
+}
+.res-cross-i {
+          display: flex;
+          justify-content: flex-end;
+          padding: 1vmax;
+          cursor: pointer;
+}
+.res-cross-i i{
+         font-size: 3vmax;
+}
+.ResponsiveNav-content {
+          width: 100%;
+          height: 100px;
+          top: 0;
+          display: flex;
+          z-index: 11111111;
+          background-color: #fff;
+          align-items: center;
+          justify-content: center;
+          position: fixed;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          flex-direction: column;
+}
+
+.responsive {
+          width: 98%;
+          height: 90px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+}
+
+.ri-search-line {
+          font-size: 3.5vmax;
+}
+.res-logo img {
+          width: 80%;
+}
+.res-menu-i {
+          font-size: 3.5vmax;
+          cursor: pointer;
+}
+.res-btn button {
+          color: red;
+          font-weight: 600;
+          border-radius: 5px;
+          background: none;
+          padding: 0.8vmax 2.5vmax;
+          border: 2px solid red;
+          box-shadow: 0 2px red;
+}
+.after-search-click {
+          position: absolute;
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #fff;
+          height: 100px;
+          top: 0;
+          right: 0;
+}
+.after-l {
+          width: 90%;
+}
+.after-l .input-containers {
+          position: relative;
+          width: 100%;
+}
+.search-inputs {
+          width: 100%;
+          padding: 0.7vmax 1vmax;
+          border-radius: 50px;
+          border: 0.5px solid #b7b7b7;
+          outline: none;
+          padding-right: 3.5vmax;
+}
+.search-icon-ends {
+          position: absolute;
+          right: 10px;
+          top: 20%;
+          transform: translateY(-50%);
+          height: 3.5vmax;
+          width: auto;
+          pointer-events: none;
+          animation: rotateY 1.5s infinite linear;
+}
+
+.res-search-cros i {
+  font-size: 4vmax;
+}
+
+.submenu-list li{
+list-style: none;
+}
+.submenu-list a{
+text-decoration: none;
+color: #818181;
+}
+
+.res-side span {
+ font-weight: 600;
+ font-size: 2.6vmax;
+}
+
+
+@keyframes rotateY {
+          from {
+                    transform: rotateY(0deg);
+          }
+
+          to {
+                    transform: rotateY(360deg);
+          }
+}
+
+@media (min-width:600px) and (max-width:1150px) {
+          .responsive-sidebar {
+                    width: 65%;
+          }
+          .res-logo img {
+                    width: 100%;
+          }
+          .search-inputs {
+                    padding: 1.5vmax 1vmax;
+                    padding-right: 3.5vmax;
+          }
+          .search-icon-ends {
+                    right: 15px;
+                    top: 20%;
+                    height: 3vmax;
+                    pointer-events: none;
+          }   
+          .res-btn button {
+                    padding: 1.4vmax 3.5vmax;
+                    font-size: 1.5vmax;
+          }    
+}
+
+/* Navbar.css */
+@media (max-width: 1150px) {
+          .Navbar-main {
+            display: none; /* Hide the desktop navbar */
+          }
+        }
+        
+        /* ResponsiveNav.css */
+        @media (min-width: 1151px) {
+          .ResponsiveNav-content {
+            display: none; /* Hide the responsive navbar */
+          }
+        }
+        
