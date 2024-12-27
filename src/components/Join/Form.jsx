@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Form.css";
-import Navbar from "../../pages/Navbar/Navbar";
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer";
 import { useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -97,7 +97,7 @@ const Form = () => {
  
   return (
     <>
-      <Navbar />
+      <NavbarContainer />
       <div className="Form_details">
         <div className="form-content">
           <div className="content-left">

@@ -5,7 +5,7 @@ import 'swiper/css/autoplay';
 import { useState, useEffect } from 'react';
 
 import "./Home.css"
-import Navbar from '../../pages/Navbar/Navbar'
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Whowe from './Whowe'
 import Footer from '../../pages/Footer/Footer'
 import Free from './Free'
@@ -46,6 +46,7 @@ const Home = () => {
         const whyChooseResponse = await whyChooseTalspo();
         setItems(whyChooseResponse.records);
 
+        // console.log("whyChooseResponse",whyChooseResponse)
         if (whyChooseResponse.records.length > 0) {
           setSelectedImage(whyChooseResponse.records[0].image);
         }
@@ -130,7 +131,7 @@ const Home = () => {
   return (
     <div className='Home-main'>
       <div className="Home-page">
-        <Navbar />
+        <NavbarContainer />
 
         <div className="Home">
           <div className="left">
@@ -175,19 +176,6 @@ const Home = () => {
   </SwiperSlide>
 ))}
 
-              {/* <SwiperSlide>
-                <div className="video-container">
-                  <iframe
-                    width="100%"
-                    height="315"
-                    src="https://www.youtube.com/embed/egavdrxEd8c?autoplay=1&mute=1&loop=1&playlist=egavdrxEd8c"
-                    frameBorder="0"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                    title="Talspo Video 2"
-                  ></iframe>
-                </div>
-              </SwiperSlide> */}
             </Swiper>
 
             <div className="home-arrows"> 
@@ -219,11 +207,7 @@ const Home = () => {
               className={`linee ${activeIndex === index ? "active" : ""}`}
               onClick={() => handleClick(item.image, index)}
             >
-              {/* <div className="linee-left">
-                <div className="icon-line">
-                  <i className={item.icon}></i>  
-                </div>
-              </div> */}
+            
               <div className="linee-right">
                 <h6>{item.title}</h6>
                 <p>{item.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>

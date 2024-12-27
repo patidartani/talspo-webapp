@@ -5,7 +5,7 @@ import { SIGNUP_URL } from '../../apiService';
 import { useNavigate } from 'react-router-dom'; // Use useNavigate for navigation
 import Swal from 'sweetalert2'; // Import SweetAlert2
 import './Signup.css';
-import Navbar from '../../pages/Navbar/Navbar';
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from '../../pages/Footer/Footer';
 
 const Signup = () => {
@@ -105,10 +105,15 @@ const Signup = () => {
 
   return (
     <>
-      <Navbar />
+      <NavbarContainer />
+
       <div className='Signup-main'>
+
         <div className='Signup-page'>
+        <h3>Coming soon....</h3>
+                  
           <div className='form-page'>
+
             <h5>Sign Up</h5>
             <p>Create your free Talspo account today!</p>
 

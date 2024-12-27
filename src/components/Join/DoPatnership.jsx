@@ -1,6 +1,6 @@
 import  {useEffect, useState} from 'react'
 import "./DoPartnership.css"
-import Navbar from '../../pages/Navbar/Navbar';
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
 import QrImg from "../../assets/images/patnerQrr.png"
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -26,6 +26,17 @@ const DoPatnership = () => {
   const [formLoading, setFormLoading] = useState(false);
 
 
+  // ------------------drive logic---------------------
+  const [isDriveLink, setIsDriveLink] = useState(false); // State to toggle between file input and Google Drive link input
+  const [driveLink, setDriveLink] = useState(''); // Store the Google Drive link
+
+
+  const handleDriveLinkChange = (e) => {
+    setDriveLink(e.target.value);
+  };
+
+  // ------------------drive logic---------------------
+ 
   const [formData, setFormData] = useState({
     full_name: "",
     email: "",
@@ -132,7 +143,7 @@ const DoPatnership = () => {
       setFormLoading(false); // Set loading to false once submission is complete (whether successful or not)
     }
   };
-  
+
 
   const companySectors = [
     "Abortion Policy/Anti-Abortion",
@@ -181,7 +192,7 @@ const DoPatnership = () => {
 
   return (
    <>
-    <Navbar />
+    <NavbarContainer />
     <div className='DoPatnership-main'>
        <div className="partner-one">
           <div className="p-left">
@@ -303,7 +314,7 @@ const DoPatnership = () => {
 
     <div className="p-inp">
     <select id="issueType">
-        <option value="" disabled>
+        <option value="" >
           Company Sector
         </option>
         {companySectors.map((sector, index) => (
@@ -343,14 +354,36 @@ const DoPatnership = () => {
         {errors.description && <small className="error-p">{errors.description[0]}</small>}
       </div>
       <div className="p-inp">
-        <p>
-          Please attach your company proposal. Click here to submit a Google Drive link instead.
-        </p>
-      </div>
-      <div className="p-inp">
-        <input type="file" name='image' onChange={handleFileChange} />
-        {errors.image && <small className="error-p">{errors.image[0]}</small>}
-      </div>
+      <p>
+        Please attach your company proposal.{' '}
+        <span
+          style={{ color: '#1e90ff', cursor: 'pointer' }}
+          onClick={() => setIsDriveLink(!isDriveLink)} // Toggle between file input and Google Drive link input
+        >
+          {isDriveLink
+            ? 'Click here to attach a file instead.'
+            : 'Click here to submit a Google Drive link instead.'}
+        </span>
+      </p>
+
+      {/* Conditional rendering based on the state */}
+      {isDriveLink ? (
+        <div className="p-inp">
+          <input
+            type="text"
+            name="driveLink"
+            value={driveLink}
+            onChange={handleDriveLinkChange}
+            placeholder="Google Drive Link*"
+          />
+        </div>
+      ) : (
+        <div className="p-inp">
+          <input type="file" name="image" onChange={handleFileChange} />
+          {errors.image && <small className="error-p">{errors.image[0]}</small>}
+        </div>
+      )}
+    </div>
       <div className="p-btn">
       <button type="submit" disabled={formLoading}>
     {formLoading ? (
@@ -364,9 +397,7 @@ const DoPatnership = () => {
   </div>
 </div>
 
-
          {/* ------------------------ */}
-
 
     </div>
     <FooterTop />

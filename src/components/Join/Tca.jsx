@@ -1,6 +1,6 @@
 import React, { useState, useEffect , useRef } from 'react';
 import './Tca.css';
-import Navbar from '../../pages/Navbar/Navbar';
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from '../../pages/Footer/Footer';
 import campusImg from "../../assets/images/faq.webp";
 import axios from 'axios';
@@ -158,7 +158,7 @@ const handleApplyNowClick = () => {
   // -------------------------------------------------------------------------------------------------------------
   return (
     <>
-      <Navbar />
+      <NavbarContainer />
       <div className='Faq-main'>
         <div className="faq-top">
           <div className="fq-left">

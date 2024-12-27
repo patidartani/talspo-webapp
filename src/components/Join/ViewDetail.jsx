@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import "./ViewDetail.css"
-import Navbar from "../../pages/Navbar/Navbar"
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
 import { useNavigate } from 'react-router-dom'
 import {fetchJobDetail} from "../../apiService"
@@ -45,7 +45,7 @@ const ViewDetail = () => {
        
   return (
    <>
-   <Navbar />
+   <NavbarContainer />
     <div className='ViewDetail'>
            <div className="detail-page">
                  <div className="view-left">

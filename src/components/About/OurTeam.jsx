@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './OurTeam.css';
-import Navbar from '../../pages/Navbar/Navbar';
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from '../../pages/Footer/Footer';
 import { ourTeam } from "../../apiService";
 import FooterTop from '../../pages/Footer/FooterTop';
@@ -52,7 +52,7 @@ const OurTeam = () => {
     
   return (
     <>
-      <Navbar />
+      <NavbarContainer />
       <div className="OurTeam-main">
         <div className="ourteam">
           <div className="team-top">

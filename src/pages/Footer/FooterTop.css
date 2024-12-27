@@ -3,6 +3,9 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          padding-top: 2vmax;
+          margin-top: 3vmax;
+          border-top: 1px solid #b2b2b2;
 }
 .FooterTop-main .Footer-Top-page{
           width: 85%;

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../../pages/Navbar/Navbar";
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer";
 import "./Faq.css";
 import Loading from "../../pages/loading/Loading";
 import { faqQuestions } from "../../apiService";
 import FooterTop from "../../pages/Footer/FooterTop";
+import FaqEndData from "./FaqEndData";
 
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -35,7 +36,7 @@ const Faq = () => {
 
   return (
     <>
-      <Navbar />
+      <NavbarContainer />
       <div className="faq-con">
         <div className="faq_top">
           <h5>Frequently Asked Questions</h5>
@@ -57,6 +58,12 @@ const Faq = () => {
             ))}
           </div>
         </div>
+
+
+         <div className="faq-data-content">
+          <FaqEndData />
+         </div>
+
       </div>
 
       <FooterTop />

@@ -35,6 +35,10 @@ export const GDPR_PRIVACY_POLICY_URL = `${BASE_URL}/get-gprcompilance`;
 export const End_User_License_Agreement_URL = `${BASE_URL}/get-eula`;
 export const CREATE_DIRECT_CONNECT_HR_URL = `${BASE_URL}/create-darect-canect-hr-executive`;
 
+export const QR_HANDLER = `${BASE_URL}/view-qr_scanner`
+export const Contact_QR_Api = `${BASE_URL}/view-qr_allscanner`
+export const OUR_SERVICES_URL = `${BASE_URL}/view-service`
+
 // --------------------- GDPR Policy ----------------------
 export const fetchEULAPolicy = async () => {
   try {
@@ -464,3 +468,36 @@ export const homepageContent = async () => {
   }
 };
 
+// --------------------------------------------qr code api-----------------------------------------
+
+export const qrHandler = async () => {
+  try {
+    const response = await axios.get(QR_HANDLER); 
+    return response.data; 
+  } catch (error) {
+    console.error("Error fetching qr:", error);
+    return {}; 
+  }
+};
+// --------------------------------------------contact qr code api-----------------------------------------
+
+export const contactQrApi = async () => {
+  try {
+    const response = await axios.get(Contact_QR_Api); 
+    return response.data; 
+  } catch (error) {
+    console.error("Error fetching contact  qr:", error);
+    return {}; 
+  }
+};
+// --------------------------------------------our services api-----------------------------------------
+
+export const ourServices = async () => {
+  try {
+    const response = await axios.get(OUR_SERVICES_URL); 
+    return response.data; 
+  } catch (error) {
+    console.error("Error fetching ourServices:", error);
+    return {}; 
+  }
+};

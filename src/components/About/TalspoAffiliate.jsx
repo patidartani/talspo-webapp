@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Navbar from "../../pages/Navbar/Navbar";
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer";
 import { Row, Col } from "react-bootstrap";
 import "./TalspoSearchAI.css"
@@ -10,7 +10,7 @@ import "./TalspoSearchAI.css"
 const TalspoAffiliate = () => {
   return (
     <>
-      <Navbar />
+      <NavbarContainer />
       <div className="service_con">
         <div className="service_box">
           <h1>Talspo Affiliate Programe</h1>
