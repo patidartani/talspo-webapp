@@ -1,21 +1,27 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 // import scaner from "../../assets/images/yellowqr.png"
-import {contactQrApi} from "../../apiService"
+import { contactQrApi } from "../../apiService"
 import "./Contact.css";
 import NavBarContainer from "../../pages/NavbarCom/NavBarContainer";
 import Footer from "../../pages/Footer/Footer";
 import FooterTop from '../Footer/FooterTop';
+import ReCAPTCHA from 'react-google-recaptcha'; 
 
 const MESSAGE_URL = "https://dev.talspo.com/admin/api/massage-create";
+const SITE_KEY = "6LfaVpMqAAAAAHN6qdfRZKA7_Fg-aBpOgZsmDYG4";
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
+    issue :' '
   });
+
+  const [captchaToken, setCaptchaToken] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,7 +32,7 @@ const Contact = () => {
     e.preventDefault();
 
     // Check if all fields are filled
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+    if (!formData.name || !formData.email || !formData.subject || !formData.message || !formData.issue) {
       Swal.fire({
         icon: 'error',
         title: 'All Fields Required',
@@ -36,12 +42,13 @@ const Contact = () => {
     }
 
     try {
-      // Adjust formData to use the correct field names
       const dataToSend = {
         name: formData.name,
         email: formData.email,
         subject: formData.subject,
         massage: formData.message,
+        issue: formData.issue,
+        captchaToken,
       };
 
       // console.log("Data being sent:", dataToSend);
@@ -53,7 +60,7 @@ const Contact = () => {
       });
 
       const result = await response.json();
-      console.log(" Contact Response:", result);
+      // console.log(" Contact Response:", result);
 
       // Use result.status instead of result.result to check for success
       if (response.ok && result.status) {
@@ -62,7 +69,8 @@ const Contact = () => {
           title: 'Message Sent!',
           text: result.message || 'Message sent successfully!',
         });
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        setFormData({ name: '', email: '', subject: '', message: '', issue : '' });
+        setCaptchaToken(""); 
       } else {
         Swal.fire({
           icon: 'error',
@@ -81,22 +89,28 @@ const Contact = () => {
     }
   };
 
+
+  const handleCaptchaChange = (token) => {
+    setCaptchaToken(token); 
+  };
+
+
   // -------------------contact qr---api------------------------
   const [contactQr, setContactQr] = useState([]);
 
   useEffect(() => {
-      const contactQrHandler = async () => {
-          try {
-              const response = await contactQrApi();
-              // console.log("Response ContactQr:", response.records[0]?.image);
-              setContactQr(response.records[0]?.image); 
+    const contactQrHandler = async () => {
+      try {
+        const response = await contactQrApi();
+        // console.log("Response ContactQr:", response.records[0]?.image);
+        setContactQr(response.records[0]?.image);
 
-          } catch (error) {
-              console.error("Error fetching services data:", error.message);
-          }
-      };
+      } catch (error) {
+        console.error("Error fetching services data:", error.message);
+      }
+    };
 
-      contactQrHandler();
+    contactQrHandler();
   }, []);
   // -------------------contact qr---api---end---------------------
 
@@ -127,7 +141,6 @@ const Contact = () => {
                 >
                   <i className="ri-map-pin-fill"></i> Ocean Park Township, Indore Bypass Road, near Delhi Public School Indore, Nipania, Indore, Madhya Pradesh 452016
                 </p>
-
                 {/* Map */}
                 <iframe
                   title="Google Map"
@@ -139,8 +152,8 @@ const Contact = () => {
                   loading="lazy"
                 ></iframe>
               </div>
-
             </div>
+
             <div className="form-container">
               <div className="form-side">
                 <h5>Contact Us</h5>
@@ -160,21 +173,46 @@ const Contact = () => {
                     <input type="email" name="email" placeholder="Email*" required value={formData.email} onChange={handleChange} />
                   </div>
                   <div className="ipt">
-                    <select id="issueType">
-                      <option value="" disabled>Type Of Issue</option>
-                      <option value="technical">Technical Issue</option>
-                      <option value="nonTechnical">Non-Technical Issue</option>
-                    </select>
-                  </div>
+  <select
+    name="issue"
+    value={formData.issue}
+    onChange={handleChange}
+    required
+  >
+    <option value="" disabled>
+      Type of Issue*
+    </option>
+    <option value="technical">Technical Issue</option>
+    <option value="nonTechnical">Non-Technical Issue</option>
+  </select>
+</div>
+
+
+
                   <div className="ipt">
                     <input type="text" name="subject" placeholder="Subject*" required value={formData.subject} onChange={handleChange} />
                   </div>
                   <div className="ipt">
                     <textarea name="message" placeholder="Message*" required value={formData.message} onChange={handleChange}></textarea>
                   </div>
+
+                  <div className="captcha">
+      <ReCAPTCHA
+        sitekey={SITE_KEY} 
+        // size="invisible" 
+        onChange={handleCaptchaChange}
+      />
+              </div>
+
+                  <div className="btn-cont">
+                    <button>Send Message</button>
+                  </div>
+
                 </form>
               </div>
             </div>
+
+
           </div>
         </div>
       </div>

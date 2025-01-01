@@ -1,7 +1,7 @@
 import "./TalspoSearchAI.css"
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
-import TalfiaLogo from "../../assets/images/Talfia.png"
+import TalfiaLogo from "/assets/images/Talfia.png"
 
 
 const Talfia = () => {

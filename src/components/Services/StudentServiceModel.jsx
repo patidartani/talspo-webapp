@@ -3,7 +3,7 @@ import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
 import "./StudentServiceModel.css"
 
-import StudentIcon from "../../assets/images/StudentIcon.png"
+import StudentIcon from "/assets/images/studentIcon.png";
 import { useNavigate } from 'react-router-dom'
 
 const StudentServiceModel = () => {

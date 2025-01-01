@@ -2,7 +2,7 @@ import React, { useState, useEffect , useRef } from 'react';
 import './Tca.css';
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from '../../pages/Footer/Footer';
-import campusImg from "../../assets/images/faq.webp";
+import campusImg from "/assets/images/faq.webp";
 import axios from 'axios';
 import Swal from 'sweetalert2'; 
 import {campusFaq} from "../../apiService"

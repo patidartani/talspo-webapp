@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./JoinTeam.css"
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
-import linkdin from "../../assets/images/linkdin.png"
+import linkdin from "/assets/images/linkdin.png"
 import { joinTestimonials } from "../../apiService";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';

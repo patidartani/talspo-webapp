@@ -1,6 +1,6 @@
 import React from 'react'
 import "./TalspoHere.css"
-import LogoImg from "../../assets/images/talspoIcon.png"
+import LogoImg from "/assets/images/talspoIcon.png"
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
 

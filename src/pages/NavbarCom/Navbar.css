@@ -15,29 +15,40 @@
 
 
 /* -----------------suggetion list------------------------ */
-
-.suggestions-list {
+/* Suggestions container */
+.suggestions-container {
   position: absolute;
-  top: 40px; /* Adjust according to your input field's position */
+  top: 100%; /* Position directly below the input */
   left: 0;
-  width: 100%;
-  background-color: white;
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  z-index: 444444;
+  width: calc(100% - 5px); 
+  max-height: 200px; 
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow:2px 2px 5px 2px rgb(196, 196, 196);
+  z-index: 1000;
+  border-radius: 4px;
+  margin-top: 1vmax;
 }
 
+/* Individual suggestion item */
 .suggestion-item {
-  padding: 8px;
+  padding: 5px;
+  padding-left: 15px;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .suggestion-item:hover {
   background-color: #f0f0f0;
 }
+
+/* Responsive adjustment */
+@media (max-width: 600px) {
+  .suggestions-container {
+    width: 100%; /* Ensure it adapts for smaller screens */
+  }
+}
+
 
 
 /* -----------------suggetion list end------------------------ */
@@ -68,6 +79,8 @@
           width: 25%;
           border: 1px solid #b2b2b2;
           border-radius: 50px;
+          display: flex;
+          flex-direction: column;
 }
 .nav-mid-search .search-container {
           display: flex;

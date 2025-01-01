@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { fetchTalspoSkilledView, fetchSearchSuggestions } from "../../apiService";
-import talspoIcon from "../../assets/images/talspoIcon.png";
+import talspoIcon from "/assets/images/talspoIcon.png";
 import FormHr from "./FormHr";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";

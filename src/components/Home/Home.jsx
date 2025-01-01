@@ -32,7 +32,7 @@ const Home = () => {
    // ------------------------why choose talspo----------------------
    const [items, setItems] = useState([]); 
    const [activeIndex, setActiveIndex] = useState(0); 
-   const [selectedImage, setSelectedImage] = useState(""); 
+   const [selectedImage, setSelectedImage] = useState("");  
    const [homeContent, setHomeContent] = useState(null);
 
    const [currentText, setCurrentText] = useState(""); 
@@ -56,8 +56,8 @@ const Home = () => {
         const { records } = homeContentResponse;
   
         if (records && records.length > 0) {
-          const { title, description, text, media } = records[0];
-          const dynamicTexts = text.split(",").map((t) => t.trim()); // Parse and split the text
+          const { title, description, text, media , subtext} = records[0];
+          const dynamicTexts = text.split(",").map((t) => t.trim()); 
   
           // Parse media string and fix any URL encoding issues
           const parsedMedia = JSON.parse(media).map((url) => url.replace(/\\\//g, '/'));
@@ -65,6 +65,7 @@ const Home = () => {
           setHomeContent({
             title,
             description,
+            subtext,
             texts: dynamicTexts,
             media: parsedMedia, // Now it's a valid array of URLs
           });
@@ -95,7 +96,7 @@ const Home = () => {
       }, 500); // Match animation duration
     }, 2000); // Change text every 2 seconds
 
-    return () => clearInterval(interval); // Cleanup interval on unmount
+    return () => clearInterval(interval); 
   }
 }, [homeContent]);
 
@@ -136,7 +137,8 @@ const Home = () => {
         <div className="Home">
           <div className="left">
             <h6> {homeContent?.title}</h6>
-            <p style={{ fontSize: '1vmax' }}>{homeContent?.description}</p>
+            <p style={{ fontSize: '1.1vmax' }}>{homeContent?.description}</p>
+            <p style={{ fontSize: '1.1vmax' }}>{homeContent?.subtext}</p>
             <div className="text-container">
             <span className={`text ${animationClass}`}>{currentText}</span>            </div>
             <div className="home-btns">

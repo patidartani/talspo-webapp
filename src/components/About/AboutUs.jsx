@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./AboutUs.css";
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
-import AboutTopImg from "../../assets/images/aboutusTop.webp";
+import AboutTopImg from "/assets/images/aboutusTop.webp";
 import Footer from "../../pages/Footer/Footer";
  import { useNavigate } from "react-router-dom";
 
@@ -10,15 +10,15 @@ import Footer from "../../pages/Footer/Footer";
 
 
  import Slider from "react-slick";
- import TalspoIcon from "../../assets/images/talspoIcon.png"
- import qr from "../../assets/images/yellowqr.png"
- import linkdin from "../../assets/images/linkdin.png"
-import productHunt from "../../assets/images/ProductHunt.png"
-import YourStory from "../../assets/images/YourStory.png"
-import Crunchbase from "../../assets/images/Crunchbase.png"
-import F6S from "../../assets/images/F6S.png"
-import XIcon from "../../assets/images/XIcon.png"
-import YouTube from "../../assets/images/YouTube.png"
+ import TalspoIcon from "/assets/images/talspoIcon.png"
+ import qr from "/assets/images/yellowqr.png"
+ import linkdin from "/assets/images/linkdin.png"
+import productHunt from "/assets/images/ProductHunt.png"
+import YourStory from "/assets/images/YourStory.png"
+import Crunchbase from "/assets/images/Crunchbase.png"
+import F6S from "/assets/images/F6S.png"
+import XIcon from "/assets/images/XIcon.png"
+import YouTube from "/assets/images/YouTube.png"
 import FooterTop from "../../pages/Footer/FooterTop";
 
 import { getPatentData, getKnowUsData, getJourneyTalspoData, getLogoStoryData, getRecognitionData } from '../../apiService';
@@ -44,6 +44,24 @@ const AboutUs = () => {
                 slidesToScroll: 1,
                 centerMode: false, // Optional: Disable center mode for smaller screens
                 centerPadding: "0px", // No padding for single slide
+            },
+        },
+        {
+            breakpoint: 1024, // Screen width <= 1024px (for tablets or smaller screens)
+            settings: {
+                slidesToShow: 2, // Show two slides
+                slidesToScroll: 1,
+                centerMode: false,
+                centerPadding: "10px", // Slight padding for better visual appeal
+            },
+        },
+        {
+            breakpoint: 1200, // Screen width <= 1200px (for large screens)
+            settings: {
+                slidesToShow: 1, // Show one slide
+                slidesToScroll: 1,
+                centerMode: false,
+                centerPadding: "0px",
             },
         },
     ],

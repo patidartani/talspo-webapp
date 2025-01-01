@@ -1,5 +1,5 @@
 import "./Loading.css"
-import talspoIcon from "../../assets/images/talspoIcon.png"
+import talspoIcon from "/assets/images/talspoIcon.png"
 
 const Loading = () => {
   return (
