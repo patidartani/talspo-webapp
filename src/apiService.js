@@ -30,7 +30,7 @@ export const TERM_OF_USE_URL = `${BASE_URL}/get-termsofuse`;
 export const TERMS_CONDITIONS_URL = `${BASE_URL}/get-termscondition`;
 export const DISCLAIMER_URL = `${BASE_URL}/get-desclaimer`;
 export const ANTY_SPAM_POLICY_URL = `${BASE_URL}/get-antispam_policy`;
-export const DIGITAL_MILLENNIUMll_COPYRIGHT_ACT_URL = `${BASE_URL}/get-legalcertification`;
+export const DIGITAL_MILLENNIUMll_COPYRIGHT_ACT_URL = `${BASE_URL}/get-iprcompilance`;
 export const GDPR_PRIVACY_POLICY_URL = `${BASE_URL}/get-gprcompilance`;
 export const End_User_License_Agreement_URL = `${BASE_URL}/get-eula`;
 export const CREATE_DIRECT_CONNECT_HR_URL = `${BASE_URL}/create-darect-canect-hr-executive`;
@@ -499,5 +499,22 @@ export const ourServices = async () => {
   } catch (error) {
     console.error("Error fetching ourServices:", error);
     return {}; 
+  }
+};
+
+// ---------------------------form certificate api----------------------------
+
+export const certificateForm = async (formData) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/create-legalcertification`, formData, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log("Certificate Form Submission Response:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Career Form API Error:", error.response?.data || error.message);
+    throw error.response?.data || { message: "Something went wrong" };
   }
 };

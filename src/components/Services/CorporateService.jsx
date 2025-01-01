@@ -4,7 +4,7 @@ import Footer from "../../pages/Footer/Footer"
 import "./StudentServiceModel.css"
 
 
-import corporateIcon from "../../assets/images/corporateIcon.png"
+import corporateIcon from "/assets/images/corporateIcon.png"
 import { useNavigate } from 'react-router-dom'
 
 const CorporateService = () => {

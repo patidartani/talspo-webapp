@@ -112,12 +112,12 @@ const Signup = () => {
         <div className='Signup-page'>
         <h3>Coming soon....</h3>
                   
-          <div className='form-page'>
+          {/* <div className='form-page'>
 
             <h5>Sign Up</h5>
             <p>Create your free Talspo account today!</p>
 
-            {fieldErrors.general && <p className="error-message">{fieldErrors.general}</p>} {/* Show general error */}
+            {fieldErrors.general && <p className="error-message">{fieldErrors.general}</p>} 
 
             <form onSubmit={handleSubmit}>
               <div className='ipt'>
@@ -132,7 +132,7 @@ const Signup = () => {
                     required
                   />
                 </div>
-                {fieldErrors.name && <p className="error-message">{fieldErrors.name}</p>} {/* Show name error */}
+                {fieldErrors.name && <p className="error-message">{fieldErrors.name}</p>}
               </div>
 
               <div className='ipt'>
@@ -147,7 +147,7 @@ const Signup = () => {
                     required
                   />
                 </div>
-                {fieldErrors.email && <p className="error-message">{fieldErrors.email}</p>} {/* Show email error */}
+                {fieldErrors.email && <p className="error-message">{fieldErrors.email}</p>}
               </div>
 
               <div className='ipt'>
@@ -162,7 +162,7 @@ const Signup = () => {
                     required
                   />
                 </div>
-                {fieldErrors.password && <p className="error-message">{fieldErrors.password}</p>} {/* Show password error */}
+                {fieldErrors.password && <p className="error-message">{fieldErrors.password}</p>}
               </div>
 
               <div className='ipt'>
@@ -188,7 +188,7 @@ const Signup = () => {
                     />
                   </div>
                 </div>
-                {fieldErrors.number && <p className="error-message">{fieldErrors.number}</p>} {/* Show phone number error */}
+                {fieldErrors.number && <p className="error-message">{fieldErrors.number}</p>} 
               </div>
 
               <div className='ipt'>
@@ -201,7 +201,7 @@ const Signup = () => {
                   <span className='checkmark'></span>
                   I agree to the <a href='/terms'>Terms and Conditions</a> and <a href='/privacy'>Privacy Policy</a>
                 </label>
-                {fieldErrors.agreement && <p className="error-message">{fieldErrors.agreement}</p>} {/* Show agreement error */}
+                {fieldErrors.agreement && <p className="error-message">{fieldErrors.agreement}</p>} 
               </div>
 
               <div className='button-container'>
@@ -210,10 +210,10 @@ const Signup = () => {
                 </button>
               </div>
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

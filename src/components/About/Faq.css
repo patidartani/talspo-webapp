@@ -181,6 +181,24 @@ color: #fff;
   .faq-h p {
     width: 100%;
   }
+
+  
+/* -----------------------end content-------------------- */
+.faq-data-content{
+  width: 95%;
+}
+
+.FaqEndData-main h5{
+font-size: 3vmax;
+
+}
+.FaqEndData-main p{
+font-size: 2vmax;
+}
+.FaqEndData-main .cont-btn-faq button{
+padding: 1.5vmax 2.5vmax;
+
+}
  }
 
  @media (min-width:600px) and (max-width:1150px) {
@@ -194,11 +212,11 @@ color: #fff;
 }
 .faq_top h5{
   width: 95%;
-    font-size:5vmax;
+    font-size:3.4vmax;
 }
 .faq_top p{
   width: 95%;
-  font-size: 2vmax;
+  font-size: 1.6vmax;
 }
   .faq-box {
     width: 95%;
@@ -211,12 +229,33 @@ color: #fff;
   .faq-h h6 {
     padding: 2vmax;
     width: 100%;
-    font-size: 3.5vmax;
+    font-size: 2.5vmax;
   }
+ 
   .faq-h p {
     width: 100%;
     font-size: 2.7vmax;
   }
+  /* -----------------------end content-------------------- */
+.faq-data-content{
+  width: 95%;
+  gap: 2vmax;
+}
+
+.FaqEndData-main h5{
+font-size: 3vmax;
+}
+.FaqEndData-main span{
+  font-size: 2vmax;  
+  }
+.FaqEndData-main p{
+font-size: 2vmax;
+}
+.FaqEndData-main .cont-btn-faq button{
+padding: 1.7vmax 2.5vmax;
+font-size: 2vmax;
+
+}
  }
 
  

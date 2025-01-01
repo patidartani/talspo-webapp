@@ -295,7 +295,7 @@
         .JoinTeam-main .join1 {
                 width: 95%;
                 height: 250px;
-                margin-top: 5vmax;
+                margin-top: 18vmax;
                 background-position: left;
                 background-size: contain;
                 background-image: url(../../assets/images/join1New.jpg);
@@ -415,4 +415,19 @@
         .JoinTeam-main .join4 .join4-bx .join4-Btm .interest a {
                 font-size: 2vmax;
         }
+}
+
+@media (min-width:600px) and (max-width:1150px) {
+        .JoinTeam-main .join3 .join3-slider {
+                width: 95%;
+                height: auto;
+            }
+            .JoinTeam-main .join3 .mySwiper {
+                width: 100%; 
+            }
+            .JoinTeam-main .join4 .join4-bx {
+                width: 95%;
+        }
+        
+                
 }

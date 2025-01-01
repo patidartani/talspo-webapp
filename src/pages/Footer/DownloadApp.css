@@ -1,0 +1,75 @@
+.DownloadApp{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          padding-top: 7vmax
+}
+.DownloadApp .app-download{ 
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+}
+
+.DownloadApp .app-download .app-top{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          background: #003266;
+          color:#fff;
+          padding: 2vmax;
+}
+.DownloadApp .app-download .app-top h5{
+          width: 85%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color:#fff;
+          font-size: 2.3vmax;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+}
+
+.DownloadApp .app-download .app-top p{
+          width: 85%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color:#fff;
+          font-size: 1vmax;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: lighter;
+}
+
+
+.DownloadApp .app-download .app-last{
+          width: 60%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+}
+.DownloadApp .app-download .app-last .app1 {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: row;
+          gap: 1vmax;
+}
+.DownloadApp .app-download .app-last .app1 .app1-left{
+          width: 60%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-direction: column;
+}
+.DownloadApp .app-download .app-last .app1 .app1-left h5{
+         font-size: 1.6vmax ;
+}

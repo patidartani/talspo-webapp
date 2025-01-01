@@ -2,7 +2,7 @@ import  {useEffect, useState} from 'react'
 import "./DoPartnership.css"
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
-import QrImg from "../../assets/images/patnerQrr.png"
+import QrImg from "/assets/images/patnerQrr.png"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { doPartnerhip , submitCareerForm} from "../../apiService"
 import Loading from "../../pages/loading/Loading"

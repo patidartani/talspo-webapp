@@ -58,6 +58,49 @@
  @media (max-width:600px) {
           .HomeTwo_main{
                     width: 100%;
+                    margin-top: 4vmax;
+          }
+          .HomeTwo_main .Home-Two{
+                    width: 95%;
+                    flex-direction: column-reverse;
+          }
+          .HomeTwo_main .Two_left{
+                    width: 100%;
+          }
+          .HomeTwo_main .Two_left img{
+                    width: 100%;
+                    margin-top: 3vmax;
+          }
+          .HomeTwo_main .Two_Right{
+                    width: 100%;
+          }
+          .HomeTwo_main .Two_Right h5{
+                   font-size: 4vmax;
+          }
+          .HomeTwo_main .Two_Right .kn{
+                    color: #003266;
+                    border-radius: 5px;
+                    border: 2px solid #003266;
+                    -webkit-box-shadow: 0 2px #003f80;
+                    -moz-box-shadow: 0 2px #003f80;
+                    box-shadow: 0 2px #003f80;    
+           }
+           .HomeTwo_main .Two_Right .kn button{
+                    padding: 10px 20px;
+                    color: #003f80;
+                    border: none;
+                    cursor: pointer;
+                    background: none;
+                    border-radius: 10px;
+                    font-size: 0.9rem;
+                    background: none;     
+           }      
+ }
+
+ @media (min-width:600px) and (max-width:1150px) {
+          .HomeTwo_main{
+                    width: 100%;
+                    margin-top: 4vmax;
           }
           .HomeTwo_main .Home-Two{
                     width: 95%;

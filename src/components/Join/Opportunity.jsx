@@ -6,10 +6,10 @@ import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer";
 import ReactPaginate from 'react-paginate';
 import { useNavigate } from 'react-router-dom';
-import iconSearch from "../../assets/images/talspoIcon.png";
+import iconSearch from "/assets/images/talspoIcon.png";
 import Loading from "../../pages/loading/Loading";
 import { formatDistanceToNow } from 'date-fns';
-import opt1Img from "../../assets/images/opt1.png";
+import opt1Img from "/assets/images/opt1.png";
 
 import { getDistance } from "geolib";
 

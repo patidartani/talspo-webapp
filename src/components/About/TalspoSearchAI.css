@@ -113,3 +113,112 @@
   color: #1d1d1d;
   }
  
+
+
+  @media (max-width:600px) {
+       .talspo-search-ai{
+              width: 95%;
+    }
+    .talspo-search-ai h5{
+            font-size: 3vmax;
+    }
+    .talspo-search-ai p{
+              font-size: 2vmax;
+      }
+      .talspo-search-ai small{
+             font-size:2vmax;
+      }
+      .talspo-search-ai li{
+              margin-top: 1vmax
+       } 
+
+       /* ---------------------talspo-affiliate-program--------------------------- */
+
+.affiliate-program .aff-prog{
+       width: 95%;
+}
+
+.affiliate-program .aff-prog small,
+.affiliate-program .aff-prog li{
+ font-size: 2vmax;
+ }
+ /* ---------------talfia css----------------- */
+.Talfia-page{
+       padding-top: 15vmax;
+}
+.Talfia-page h5{
+      font-size: 2vmax;
+}
+.Talfia-page .talfia-video iframe{
+       width: 95%;
+       height: auto;
+}
+.Talfia-page .talfia{
+       width: 90%;
+}
+.Talfia-page .talfia h6{
+       font-size: 2.5vmax;
+}
+.Talfia-page .talfia p{
+       font-size: 2vmax;
+}
+.Talfia-page .talfia li{
+       font-size: 2vmax;
+}
+.Talfia-page .talfia small{
+       font-size: 2vmax;
+}
+  }
+  @media (min-width:600px) and (max-width:1150px) {
+       .talspo-search-ai{
+              width: 95%;
+    }
+    .talspo-search-ai h5{
+            font-size: 3vmax;
+    }
+    .talspo-search-ai p{
+              font-size: 2vmax;
+      }
+      .talspo-search-ai small{
+             font-size:2vmax;
+      }
+      .talspo-search-ai li{
+              margin-top: 1vmax
+       } 
+              /* ---------------------talspo-affiliate-program--------------------------- */
+
+.affiliate-program .aff-prog{
+       width: 95%;
+}
+
+.affiliate-program .aff-prog small,
+.affiliate-program .aff-prog li{
+ font-size: 2vmax;
+ }
+  /* ---------------talfia css----------------- */
+.Talfia-page{
+       padding-top: 12vmax;
+}
+.Talfia-page h5{
+      font-size: 2vmax;
+}
+.Talfia-page .talfia-video iframe{
+       width: 95%;
+       height: auto;
+}
+.Talfia-page .talfia{
+       width: 90%;
+}
+.Talfia-page .talfia h6{
+       font-size: 2.5vmax;
+}
+.Talfia-page .talfia p{
+       font-size: 2vmax;
+}
+.Talfia-page .talfia li{
+       font-size: 2vmax;
+}
+.Talfia-page .talfia small{
+       font-size: 2vmax;
+}
+  }

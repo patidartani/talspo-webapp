@@ -1,12 +1,17 @@
 import "./FooterTop.css"
-import linkdin from "../../assets/images/linkdin.png"
-import productHunt from "../../assets/images/ProductHunt.png"
-import YourStory from "../../assets/images/YourStory.png"
-import Crunchbase from "../../assets/images/Crunchbase.png"
-import F6S from "../../assets/images/F6S.png"
-import XIcon from "../../assets/images/XIcon.png"
-import YouTube from "../../assets/images/YouTube.png"
+import linkdin from "/assets/images/linkdin.png"
+import productHunt from "/assets/images/ProductHunt.png"
+import YourStory from "/assets/images/YourStory.png"
+import Crunchbase from "/assets/images/Crunchbase.png"
+import F6S from "/assets/images/F6S.png"
+import XIcon from "/assets/images/XIcon.png"
+import YouTube from "/assets/images/YouTube.png"
+import { useNavigate } from "react-router-dom"
 const FooterTop = () => {
+  const navigate = useNavigate();
+  const appHandler = () => {
+navigate("/app")
+  }
   return (
  <div className='FooterTop-main'>
 <div className="Footer-Top-page">
@@ -26,7 +31,7 @@ const FooterTop = () => {
 
           <h5>ADD TALSPO TO YOUR HOME SCREEN</h5>
              <div className="f_btn">
-                <button>DOWNLOAD APP</button>
+                <button onClick={appHandler}>DOWNLOAD APP</button>
              </div>
      </div>   
      <div className="footer3">

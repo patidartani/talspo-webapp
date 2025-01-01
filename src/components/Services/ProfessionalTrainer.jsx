@@ -4,7 +4,7 @@ import "./StudentServiceModel.css"
 
 import Footer from "../../pages/Footer/Footer"
 
-import ProfessionalIcon from "../../assets/images/ProfessionalIcon.png"
+import ProfessionalIcon from "/assets/images/ProfessionalIcon.png"
 import { useNavigate } from 'react-router-dom'
 
 const ProfessionalTrainer = () => {

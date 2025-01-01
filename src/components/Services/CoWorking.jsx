@@ -3,7 +3,7 @@ import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
 import "./StudentServiceModel.css"
 
-import coworkingImg from "../../assets/images/co-workingIcon.png"
+import coworkingImg from "/assets/images/co-workingIcon.png"
 import { useNavigate } from 'react-router-dom'
 
 const CoWorking = () => {

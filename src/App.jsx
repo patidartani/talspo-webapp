@@ -42,6 +42,7 @@ import TalspoSearchAI from "./components/About/TalspoSearchAI"
 import LegalCertificate from "./pages/Footer/privacyPolicy/LegalCertificate"
 import Talfia from "./components/About/Talfia"
 import TalspoAffiliate from "./components/About/TalspoAffiliate"
+import DownloadApp from "./pages/Footer/DownloadApp"
 
 const App = () => {
   return (
@@ -99,6 +100,7 @@ const App = () => {
         <Route path="/join" element={<JoinTeam/>}/>
         <Route path="/talspo-affiliate" element={<TalspoAffiliate/>}/>
 
+        <Route path="/app" element={<DownloadApp/>}/>
 
 
 

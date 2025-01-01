@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ResponsiveNav.css';
-import talspoIcon from "../../assets/images/logo-icon.png"
+import talspoIcon from "/assets/images/logo-icon.png"
 import { FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import "./Navbar.css";
 import NavHigh from './NavHigh';
 import NavModel from './NavModel';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import mainLogo from "/assets/images/NewMainLogo.png"
+
 
 
 const ResponsiveNav = () => {
   const navigate = useNavigate();
   const homeHandler = () => {
      navigate("/")
+  }
+  const signupHandler = () => {
+    navigate('/signup')
   }
 
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -25,6 +31,42 @@ const ResponsiveNav = () => {
   const closeSearch = () => {
     setIsSearchOpen(false);
   };
+
+
+  const [searchQuery, setSearchQuery] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
+
+  // Fetch suggestions when the search query changes
+  useEffect(() => {
+    console.log("Search Query:", searchQuery);
+
+    if (searchQuery.length > 0) {
+      axios
+        .get(`https://dev.talspo.com/admin/api/home-search?title=${searchQuery}`)
+        .then((response) => {
+          // console.log("new Response:", response.data.data.data);
+
+          if (response.data.data && Array.isArray(response.data.data.data)) {
+            setSuggestions(response.data.data.data); // Update suggestions
+            // console.log("Suggestions:", response.data.data.data); 
+            // console.log("title suggetst:", response.data.data.data?.[0].title); 
+          }
+        })
+        .catch((error) => {
+          console.error('Error fetching search suggestions:', error);
+        });
+    } else {
+      setSuggestions([]); 
+      // console.log("No search query. Suggestions cleared.");
+    }
+  }, [searchQuery]);
+
+  const handleSuggestionClick = (id) => {
+    navigate(`/view-detail/${id}`);  
+  };
+
+
+
 // -----------------------------------------------------------------------
   return (
    <>
@@ -37,7 +79,7 @@ const ResponsiveNav = () => {
           <img src="https://talspo.com/img/logo-beta.png" alt="" />
         </div>
         <div className="res-btn">
-          <button>Sign In</button>
+          <button onClick={signupHandler}>Sign Up</button>
         </div>
         <div className="res-search-icon" onClick={toggleSearch}>
         <i className="ri-search-line"></i>
@@ -51,12 +93,29 @@ const ResponsiveNav = () => {
                 type="text"
                 placeholder="Search Here..."
                 className="search-inputs"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
               <img
                 src={talspoIcon}
                 alt="Talspo Icon"
-                className="search-icon-ends"
+                className="search-icon-ends"   
               />
+
+{suggestions.length > 0 && (
+  <div className="suggestions-container">
+    {suggestions.map((suggestion) => (
+      <div
+        key={suggestion.id}
+        className="suggestion-item"
+        onClick={() => handleSuggestionClick(suggestion.id)} 
+      >
+        <h6>{suggestion.title}</h6>
+      </div>
+    ))}
+  </div>
+)}
+              
             </div>
           </div>
           <div className="res-search-cros" onClick={closeSearch}>
@@ -79,7 +138,6 @@ const ResponsiveNav = () => {
           <Link style={{color:"red"}}  to="/talspo-here" className="nav-link">
              <span>            Talspo Here             </span>
           </Link>
-          {/* About Us with Submenu */}
           <div  className="nav-link submenu">
             <span>About</span>
             <ul className="submenu-list">
@@ -108,7 +166,6 @@ const ResponsiveNav = () => {
               </li>
             </ul>
           </div>
-          {/* Services with Submenu */}
           <div className="nav-link submenu">
             <span>Services</span>
             <ul className="submenu-list">
@@ -128,7 +185,6 @@ const ResponsiveNav = () => {
               </li>
             </ul>
           </div>
-          {/* Join Us with Submenu */}
           <div className="nav-link submenu">
             <span>Join</span>
             <ul className="submenu-list">

@@ -227,7 +227,6 @@
 .AboutUs-container .about-content .about-btm .journey-data .journey-left{
         width: 15%;
         height: auto;
-
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;
@@ -478,11 +477,17 @@ background-color: yellow;
 
 .AboutUs-container .about-content {
         width: 95%;
+        padding-top: 7vmax;
 }
 
 .AboutUs-container .about-content .about-top {
         width: 100%;
-        height: 300px;
+        height: auto;
+        flex-direction: column;
+}
+.AboutUs-container .about-content .about-top .a-left  {
+
+     width: 100%;
 }
 .AboutUs-container .about-content .about-top .a-left h6 {
         font-size: 4vmax;
@@ -491,15 +496,13 @@ background-color: yellow;
         font-size: 2vmax;
 }
 .AboutUs-container .about-content .about-top .a-right {
-        width: 50%;
-}
-
-.AboutUs-container .about-content .about-top .a-right img {
         width: 100%;
 }
-
+.AboutUs-container .about-content .about-top .a-right iframe {
+        width: 100%;
+}
 .AboutUs-container .about-content .about-btm {
-        width: 95%;
+        width: 98%;
         align-items: center;
 }
 .AboutUs-container .about-content .about-btm .tabs-about{
@@ -519,6 +522,26 @@ background-color: yellow;
 .tabs-about button.active {
         background-color: #003266;
         color: #fff !important;
+}
+
+.ipr-tab-content,
+.recognition-tab-content{
+         width: 100%;
+}
+.ipr-tab-content h6,
+.recognition-tab-content h6{
+
+     font-size: 3vmax;
+     text-align: center;
+}
+.ipr-tab-content p,
+.recognition-tab-content p{
+        font-size: 2vmax;
+        text-align: center;
+   }
+.ipr-tab-content img,
+.recognition-tab-content img{
+        width: 100%;
 }
 
 
@@ -568,6 +591,39 @@ background-color: yellow;
        }
 
 
+/* ---------------------------------------------------------------------- */
+
+
+.AboutUs-container .extra-content{
+        width: 90%;
+}
+.AboutUs-container .extra-content h5{
+       font-size: 3vmax;
+}
+.AboutUs-container .extra-content p{
+        font-size: 1.5vmax;
+ }
+ .AboutUs-container .extra-content small{
+        font-size: 1.7vmax;
+ }
+.AboutUs-container .extra-content .extra-two{
+        margin-top: 2.5vmax;
+ }
+ .AboutUs-container .extra-content .extra-two  .two-extra{ 
+        flex-direction: column;
+ }
+ .AboutUs-container .extra-content .extra-two  .two-extra .extraLeft,
+ .AboutUs-container .extra-content .extra-two  .two-extra .extraRight{       
+        width: 100%;
+ }
+ .AboutUs-container .extra-content .extra-two  .two-extra .extraLeft h6,
+ .AboutUs-container .extra-content .extra-two  .two-extra .extraRight h6{      
+      font-size: 2.5vmax;
+ }
+ .AboutUs-container .extra-content  h4{
+      font-size: 1.7vmax;
+ }
+
    
 }
 @media (min-width:600px) and (max-width:1150px) {
@@ -578,11 +634,17 @@ background-color: yellow;
         
         .AboutUs-container .about-content {
                 width: 95%;
+                padding-top: 7vmax;
         }
         
         .AboutUs-container .about-content .about-top {
-                width: 95%;
-                height: 300px;
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+        }
+        .AboutUs-container .about-content .about-top .a-left  {
+        
+             width: 100%;
         }
         .AboutUs-container .about-content .about-top .a-left h6 {
                 font-size: 4vmax;
@@ -591,21 +653,19 @@ background-color: yellow;
                 font-size: 2vmax;
         }
         .AboutUs-container .about-content .about-top .a-right {
-                width: 50%;
-        }
-        
-        .AboutUs-container .about-content .about-top .a-right img {
                 width: 100%;
         }
-        
+        .AboutUs-container .about-content .about-top .a-right iframe {
+                width: 100%;
+        }
         .AboutUs-container .about-content .about-btm {
-                width: 95%;
+                width: 98%;
                 align-items: center;
         }
         .AboutUs-container .about-content .about-btm .tabs-about{
                 width: 100%;
                 align-items: center;
-                gap: 1vmax;
+                gap: 0.5vmax;
         }
         .AboutUs-container .about-content .about-btm .tabs-about   .about-tab,
         .AboutUs-container .about-content .about-btm .tabs-about   .journey-tab,
@@ -613,12 +673,115 @@ background-color: yellow;
         .AboutUs-container .about-content .about-btm .tabs-about .logo-story-tab,
         .AboutUs-container .about-content .about-btm .tabs-about .ipr-tab,
         .AboutUs-container .about-content .about-btm .tabs-about .recognition-tab{
-                font-size: 1.8vmax;
-                letter-spacing: 1px;
-                padding: 1vmax 1.5vmax;
+                font-size: 1.2vmax;
+                letter-spacing: 0px;
         }
-           
+        .tabs-about button.active {
+                background-color: #003266;
+                color: #fff !important;
         }
         
+        .ipr-tab-content,
+        .recognition-tab-content{
+                 width: 100%;
+        }
+        .ipr-tab-content h6,
+        .recognition-tab-content h6{
+        
+             font-size: 3vmax;
+             text-align: center;
+        }
+        .ipr-tab-content p,
+        .recognition-tab-content p{
+                font-size: 2vmax;
+                text-align: center;
+           }
+        .ipr-tab-content img,
+        .recognition-tab-content img{
+                width: 100%;
+        }
+        
+        
+        /* ---------------------------slider about---------------------------- */
+        
+        .AboutUs-container .slider-about{
+                width: 80%
+        } 
+            .AboutUs-container .extra-slide {
+                height: auto;
+            }
+            .AboutUs-container .extra-slide   .extra-slide-image{
+                width: 100%;
+                height: auto;
+                margin-top: 2vmax;
+            }
+            .AboutUs-container .extra-slide a{
+                font-size: 2.5vmax
+             }
+        
+        .AboutUs-container .qr-code-about{
+                width: 80%;
+        }
+        .AboutUs-container .qr-code-about img{
+                width: 90%;
+        }
+        .AboutUs-container .qr-code-about button{
+              padding: 1.4vmax 2vmax;
+              margin-top: 2vmax;
+        }
+        .AboutUs-container .qr-code-about h6{
+                font-size: 3vmax;
+          }
+          .AboutUs-container .qr-code-about h5{
+              width: 100%;
+              overflow: hidden;
+              flex-wrap: wrap;
+          }
+          .AboutUs-container .qr-code-about h5 a{
+             width: 100%;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+            }
+            .AboutUs-container .qr-code-about h5 a img{
+                width: 10%;
+               }
+        
+        
+        /* ---------------------------------------------------------------------- */
+        
+        
+        .AboutUs-container .extra-content{
+                width: 90%;
+        }
+        .AboutUs-container .extra-content h5{
+               font-size: 3vmax;
+        }
+        .AboutUs-container .extra-content p{
+                font-size: 1.5vmax;
+         }
+         .AboutUs-container .extra-content small{
+                font-size: 1.7vmax;
+         }
+        .AboutUs-container .extra-content .extra-two{
+                margin-top: 2.5vmax;
+         }
+         .AboutUs-container .extra-content .extra-two  .two-extra{ 
+                flex-direction: column;
+         }
+         .AboutUs-container .extra-content .extra-two  .two-extra .extraLeft,
+         .AboutUs-container .extra-content .extra-two  .two-extra .extraRight{       
+                width: 100%;
+         }
+         .AboutUs-container .extra-content .extra-two  .two-extra .extraLeft h6,
+         .AboutUs-container .extra-content .extra-two  .two-extra .extraRight h6{      
+              font-size: 2.5vmax;
+         }
+         .AboutUs-container .extra-content  h4{
+              font-size: 1.7vmax;
+         }
+        
+           
+        }
 
 

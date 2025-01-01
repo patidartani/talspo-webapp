@@ -83,8 +83,7 @@ const Services = () => {
                         </div>
                         <div className="s-right">
                             <h5>{service.title}</h5>
-                            <p>{service.description}</p>
-                        </div>
+                            <p dangerouslySetInnerHTML={{ __html: service.description }} />                        </div>
                     </div>
                 </div>
             ))}

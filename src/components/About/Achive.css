@@ -105,36 +105,6 @@
          margin-top: 1vmax;
          gap: 1vmax;
        }
-       .Achive-main .Achive-page .achive-btm .a-left .btuns button{
-          padding: 0.8vmax 2vmax;
-          border: none;
-          font-weight: 600;
-          background-color: #003266;
-           color: #fff;
-           border-radius: 5px;
-           text-transform: uppercase;
-        }
-.Achive-main .Achive-page .achive-btm .a-left .btuns .cont-btn{
-          color: #003266;
-          font-weight: 600;
-          border-radius: 5px;
-          border: 2px solid #003266;
-          -webkit-box-shadow: 0 2px #003f80;
-          -moz-box-shadow: 0 2px #003f80;
-          box-shadow: 0 2px #003f80;
-}
-.Achive-main .Achive-page .achive-btm .a-left .btuns .cont-btn button{
-          padding: 10px 25px;
-          color: #003f80;
-          border: none;
-          cursor: pointer;
-          border-radius: 10px;
-          font-size: 0.9rem;
-          text-transform: uppercase;
-          background: none;
-          font-weight: 600;        
-}
-
 .Achive-main .Achive-page .achive-btm .a-right{
           width: 50%;
           height: 350px;
@@ -151,98 +121,96 @@ overflow: hidden;
 
 
 @media (max-width:600px) {
-          .Achive-main{
-                    width: 100%;
-                    padding-top: 8vmax;
-          }
-          .Achive-main .Achive-page .achive-top h5{
-                    font-size: 3vmax;
-          }
-          .Achive-main .Achive-page .achive-top p{
-                    font-size: 2vmax;
-          }
-          .Achive-main .Achive-page .achive-btm{
-                    width: 95%;
-          height: auto;
-                 
-                    flex-direction: column-reverse;
-          }
-          .Achive-main .Achive-page .achive-btm .a-left{
-                 width: 100%;
-          }
-          .Achive-main .Achive-page .achive-btm .a-left h6{
-                font-size: 3vmax;
-                text-align: center;
-             }
-             .Achive-main .Achive-page .achive-btm .a-left p{
-                    font-size: 1.9vmax;
-                    text-align: center;
-                 }
-                 .Achive-main .Achive-page .achive-btm .a-left .btuns{
-                   align-items:center;
-                   justify-content: center;
-                 }
-                 .Achive-main .Achive-page .achive-btm .a-left .btuns button{
-                    padding: 1.8vmax 3vmax;
-                  }
-          .Achive-main .Achive-page .achive-btm .a-left .btuns .cont-btn button{
-                    padding: 1.7vmax  3vmax;
-          }  
-          .Achive-main .Achive-page .achive-btm .a-right{
-                    width: 90%;
-          }
-          .Achive-main .Achive-page .achive-btm .a-right img{
-                    width: 100%;
-               
-          }       
+       .Achive-main{
+              width: 100%;
+              padding-top: 7vmax;
+              margin-bottom: 0vmax;
+              padding-bottom: 0vmax;
+    
+    }
+    
+    .Achive-main .Achive-page .achive-flex{
+           width: 95%;
+            flex-wrap: nowrap; 
+           gap: 1vmax;
+    }
+    .Achive-main .Achive-page .achive-btm{
+              width: 100%;
+              height: auto;
+              flex-direction: column;
+              gap: 2vmax;
+    }
+         
+    .Achive-main .Achive-page .achive-btm.reverse {
+           flex-direction: column;
+         }
+    .Achive-main .Achive-page .achive-btm .a-left{
+           width: 100%;
+           height: auto; 
+    }
+    .Achive-main .Achive-page .achive-btm .a-left h6{
+          font-size: 3vmax;
+       }
+       .Achive-main .Achive-page .achive-btm .a-left p{
+              font-size: 2.5vmax;
+           }
+    
+    .Achive-main .Achive-page .achive-btm .a-right{
+              width: 100%;
+              height: auto;
+              margin-bottom: 3vmax;
+    }
+    .Achive-main .Achive-page .achive-btm .a-right img{
+              width: 100%;
+         
+    }  
 }
 
 
 @media (min-width:600px) and (max-width:1150px) {
-          .Achive-main{
-                    width: 100%;
-          }
-          .Achive-main .Achive-page .achive-top h5{
-                    font-size: 4vmax;
-          }
-          .Achive-main .Achive-page .achive-top p{
-                    font-size: 2vmax;
-          }
-          .Achive-main .Achive-page .achive-btm{
-                    width: 95%;
-          height: auto;
-          margin-top: 15vmax;
-                 
-                    flex-direction: column-reverse;
-          }
-          .Achive-main .Achive-page .achive-btm .a-left{
-                 width: 100%;
-          }
-          .Achive-main .Achive-page .achive-btm .a-left h6{
-                font-size: 3vmax;
-                text-align: center;
-             }
-             .Achive-main .Achive-page .achive-btm .a-left p{
-                    font-size: 1.9vmax;
-                    text-align: center;
-                 }
-                 .Achive-main .Achive-page .achive-btm .a-left .btuns{
-                   align-items:center;
-                   justify-content: center;
-                 }
-                 .Achive-main .Achive-page .achive-btm .a-left .btuns button{
-                    padding: 1.8vmax 3vmax;
-                  }
-          .Achive-main .Achive-page .achive-btm .a-left .btuns .cont-btn button{
-                    padding: 1.7vmax  3vmax;
-          }
-                .Achive-main .Achive-page .achive-btm .a-right{
-                    width: 90%;
-          }
-          .Achive-main .Achive-page .achive-btm .a-right img{
-                    width: 90%;
-               
-          }       
+       .Achive-main{
+              width: 100%;
+              padding-top: 7vmax;
+              margin-bottom: 0vmax;
+              padding-bottom: 0vmax;
+    
+    }
+    
+    .Achive-main .Achive-page .achive-flex{
+           width: 95%;
+            flex-wrap: nowrap; 
+           gap: 1vmax;
+    }
+    .Achive-main .Achive-page .achive-btm{
+              width: 100%;
+              height: auto;
+              flex-direction: column;
+              gap: 2vmax;
+    }
+         
+    .Achive-main .Achive-page .achive-btm.reverse {
+           flex-direction: column;
+         }
+    .Achive-main .Achive-page .achive-btm .a-left{
+           width: 100%;
+           height: auto; 
+    }
+    .Achive-main .Achive-page .achive-btm .a-left h6{
+          font-size: 3vmax;
+       }
+       .Achive-main .Achive-page .achive-btm .a-left p{
+              font-size: 2.5vmax;
+           }
+    
+    .Achive-main .Achive-page .achive-btm .a-right{
+              width: 100%;
+              height: auto;
+              margin-bottom: 3vmax;
+    }
+    .Achive-main .Achive-page .achive-btm .a-right img{
+              width: 100%;
+         
+    }  
 }
 
 

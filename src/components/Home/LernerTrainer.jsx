@@ -1,6 +1,6 @@
 import React from 'react'
 import "./LernerTrainer.css"
-import LearnerImg from "../../assets/images/learner.mp4"
+import LearnerImg from "/assets/images/learner.mp4"
 
 const LernerTrainer = () => {
   return (
