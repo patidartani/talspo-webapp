@@ -80,6 +80,12 @@
           font-size: 0.9rem;
           background: none;
 }
+.FooterTop-main .Footer-Top-page .footer2 .f_btn:hover{
+      background-color: #003266;
+}
+.FooterTop-main .Footer-Top-page .footer2 button:hover{
+       color: #fff;
+}
 .FooterTop-main .Footer-Top-page .footer2 h5{
         font-weight: 600;
         text-align: center;

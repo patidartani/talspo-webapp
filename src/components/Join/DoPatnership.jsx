@@ -7,8 +7,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { doPartnerhip , submitCareerForm} from "../../apiService"
 import Loading from "../../pages/loading/Loading"
 import Swal from "sweetalert2"; // Importing SweetAlert
-
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -206,36 +204,44 @@ const DoPatnership = () => {
        </div>
          {/* ------------------------ */}
          <div className="partner-two">
-      <h6>Our Partners</h6>
-      <div className="slider-partner">
-        <Swiper
-          navigation={true}
-          pagination={{ clickable: true }}
-          modules={[Navigation, Pagination]} 
-          className="mySwiper"
-        >
-          {partners.map((partner, index) => (
-            <SwiperSlide key={index}>
-              <div className="our-partner">
-                <div className="p-img">
-                  <img src={partner.image} alt={`Partner ${partner.title}`} />
-                </div>
-                <h5>  {partner.title}</h5>
-                <div className="p-text">
-                  <p>{partner.description}</p>
-                  <p>
-                    To Know More Visit:{" "}
-                    <a href={partner.link} target="_blank" rel="noopener noreferrer">
-                      {partner.link}
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </div>
+   <h6>Our Partners</h6>
+   <div className="slider-partner">
+      {/* Check if partners data is available */}
+      {partners.length === 0 ? (
+         <div style={{ color: 'red', textAlign: 'center', margin: '20px 0' }}>
+            No partners available at the moment.
+         </div>
+      ) : (
+         <Swiper
+            navigation={true}
+            pagination={{ clickable: true }}
+            modules={[Navigation, Pagination]} 
+            className="mySwiper"
+         >
+            {partners.map((partner, index) => (
+               <SwiperSlide key={index}>
+                  <div className="our-partner">
+                     <div className="p-img">
+                        <img src={partner.image} alt={`Partner ${partner.title}`} />
+                     </div>
+                     <h5>{partner.title}</h5>
+                     <div className="p-text">
+                        <p>{partner.description}</p>
+                        <p>
+                           To Know More Visit:{" "}
+                           <a href={partner.link} target="_blank" rel="noopener noreferrer">
+                              {partner.link}
+                           </a>
+                        </p>
+                     </div>
+                  </div>
+               </SwiperSlide>
+            ))}
+         </Swiper>
+      )}
+   </div>
+</div>
+
          {/* ------------------------ */}
               <div className="partner-three">
                     <div className="pt-left">

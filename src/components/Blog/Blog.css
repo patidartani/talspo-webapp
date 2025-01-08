@@ -103,7 +103,7 @@
     
     .Blog-main .blogs .Blog-searchs .ipt-blgs {
       width: 40%;
-      padding: 0.6vmax 1vmax;
+      padding: 0.5vmax 1vmax;
       border: 1px solid #9f9f9f;
       border-radius: 50px;
       position: relative; 
@@ -124,23 +124,21 @@
       top: 20%;
       right: 10px;
       transform: translateY(-50%);
-      width: 20px;
-      height: 23px;
+      width: 22px;
+      height: 25px;
       pointer-events: none;
-      animation: rotateIcon 1.5s infinite linear;
-    }
+      animation: rotateY 1.5s infinite linear;
+}
     
-    @keyframes rotateIcon {
+    @keyframes rotateY {
       from {
-            transform: rotateY(0deg);
-        }
-        to {
-            transform: rotateY(180deg);
-        }
-    }
+                transform: rotateY(0deg);
+      }
     
-
-     
+      to {
+                transform: rotateY(360deg);
+      }
+    }
     .Blog-main .blogs     .blog-container{
           width: 100%;
           display: flex;
@@ -193,21 +191,18 @@
       border-radius: 10px;
       overflow: hidden;
     }
-    
     .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 10px;
     }
-    
     /* Title Styling */
     .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text h5 {
       font-weight: 600;
       color: #003266;
       font-size: 1.5vmax;
     }
-    
     /* Date and Subtitle Styling */
     .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text .num {
       display: flex;
@@ -221,20 +216,16 @@
       color: #fff;
       font-size: 1vmax;
     }
-    
     .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text .num h1 {
       font-size: 1vmax;
       color: #7a7a7a;
     }
-    
     .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text p {
       font-size: 1vmax;
       color: #333;
       margin: 0;
       padding-bottom: 1vmax;
     }
-    
-
     .Blog-main .blogs     .blog-container     .Blogs_img{
           width: 20%;
           display: flex;
@@ -254,9 +245,6 @@ align-items: center;
 justify-content: center;
 flex-direction: column
 }
-
-
-
 
 @media (max-width : 600px) {
       .Blog-main{
@@ -378,8 +366,6 @@ flex-direction: column
       }
     
 }
-
-
 @media (min-width : 600px)  and (max-width:1150px){
       .Blog-main{
             width: 100%;

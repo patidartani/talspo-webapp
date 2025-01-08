@@ -495,13 +495,29 @@
       align-items: center;
       justify-content: center;
    }
-   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box  .last-items .i-right button{
-       background-color: #003266;
-       color: #fff;
-       border: none;
-       border-radius: 5px;
-       padding: 0.5vmax 1vmax;
-  }
+   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .last-items .i-right button {
+     background-color: #003266;
+     color: #fff;
+     border: none;
+     border-radius: 5px;
+     padding: 0.5vmax 1vmax;
+     display: flex; 
+     align-items: center; 
+     gap: 0.5vmax; 
+     transition: background-color 0.3s ease;
+   }
+   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .last-items .i-right button:hover {
+     background-color: #003467de; 
+   }
+   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .last-items .i-right button i {
+     display: inline-block; 
+     transition: transform 0.3s ease;
+   }
+   .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .jobs-page .job-box .last-items .i-right button:hover i {
+     transform: translateX(3px); 
+   }
+   
+   
 
   .pagination {
      display: flex;

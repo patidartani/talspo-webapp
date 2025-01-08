@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
-// import scaner from "../../assets/images/yellowqr.png"
+import Select from 'react-select';
 import { contactQrApi } from "../../apiService"
 import "./Contact.css";
 import NavBarContainer from "../../pages/NavbarCom/NavBarContainer";
 import Footer from "../../pages/Footer/Footer";
 import FooterTop from '../Footer/FooterTop';
-import ReCAPTCHA from 'react-google-recaptcha'; 
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const MESSAGE_URL = "https://dev.talspo.com/admin/api/massage-create";
 const SITE_KEY = "6LfaVpMqAAAAAHN6qdfRZKA7_Fg-aBpOgZsmDYG4";
 
-
 const Contact = () => {
+  const options = [
+    { value: 'technical', label: 'Technical Issue' },
+    { value: 'nonTechnical', label: 'Non-Technical Issue' },
+  ];
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
-    issue :' '
+    issue: ' '
   });
 
   const [captchaToken, setCaptchaToken] = useState("");
@@ -31,7 +35,6 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if all fields are filled
     if (!formData.name || !formData.email || !formData.subject || !formData.message || !formData.issue) {
       Swal.fire({
         icon: 'error',
@@ -51,26 +54,23 @@ const Contact = () => {
         captchaToken,
       };
 
-      // console.log("Data being sent:", dataToSend);
-
       const response = await fetch(MESSAGE_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(dataToSend),
       });
 
       const result = await response.json();
       // console.log(" Contact Response:", result);
 
-      // Use result.status instead of result.result to check for success
       if (response.ok && result.status) {
         Swal.fire({
           icon: 'success',
           title: 'Message Sent!',
           text: result.message || 'Message sent successfully!',
         });
-        setFormData({ name: '', email: '', subject: '', message: '', issue : '' });
-        setCaptchaToken(""); 
+        setFormData({ name: '', email: '', subject: '', message: '', issue: '' });
+        setCaptchaToken("");
       } else {
         Swal.fire({
           icon: 'error',
@@ -89,11 +89,9 @@ const Contact = () => {
     }
   };
 
-
   const handleCaptchaChange = (token) => {
-    setCaptchaToken(token); 
+    setCaptchaToken(token);
   };
-
 
   // -------------------contact qr---api------------------------
   const [contactQr, setContactQr] = useState([]);
@@ -172,21 +170,35 @@ const Contact = () => {
                   <div className="ipt">
                     <input type="email" name="email" placeholder="Email*" required value={formData.email} onChange={handleChange} />
                   </div>
-                  <div className="ipt">
-  <select
-    name="issue"
-    value={formData.issue}
-    onChange={handleChange}
-    required
-  >
-    <option value="" disabled>
-      Type of Issue*
-    </option>
-    <option value="technical">Technical Issue</option>
-    <option value="nonTechnical">Non-Technical Issue</option>
-  </select>
-</div>
+                  {/* <div className="ipt">
+                    <select
+                      name="issue"
+                      value={formData.issue}
+                      onChange={handleChange}
+                      required
+                    >
+                      
+                      <option value="" disabled>
+                        Type of Issue*
+                      </option>
+                      <option value="technical">Technical Issue</option>
+                      <option value="nonTechnical">Non-Technical Issue</option>
+                    </select>
+                  </div> */}
 
+<div className="ipt">
+<Select
+  name="issue"
+  options={options}
+  value={options.find(option => option.value === formData.issue)} 
+  placeholder="Type of Issue*"
+  onChange={(selectedOption) =>
+    setFormData({ ...formData, issue: selectedOption ? selectedOption.value : '' })
+  } 
+  isClearable 
+/>
+
+</div>
 
 
                   <div className="ipt">
@@ -197,12 +209,12 @@ const Contact = () => {
                   </div>
 
                   <div className="captcha">
-      <ReCAPTCHA
-        sitekey={SITE_KEY} 
-        // size="invisible" 
-        onChange={handleCaptchaChange}
-      />
-              </div>
+                    <ReCAPTCHA
+                      sitekey={SITE_KEY}
+                      // size="invisible" 
+                      onChange={handleCaptchaChange}
+                    />
+                  </div>
 
                   <div className="btn-cont">
                     <button>Send Message</button>

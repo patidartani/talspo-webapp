@@ -262,7 +262,9 @@
   padding: 0.7vmax 1.5vmax;
   border-radius: 10px;
 }
-
+.submit-form:hover {
+  background-color: #004085;
+}
 /* ------------------------------------------------------------------------------------------------------------- */
 
 @media (max-width:600px) {
@@ -363,7 +365,6 @@
   }
 }
 
- 
 @media (min-width:600px) and (max-width:1150px) {
   .Faq-main .tca-forms-content .tca-form .formm {
     width: 95%;

@@ -1,49 +1,38 @@
 import './Services.css';
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
-import { MdOutlineWork } from 'react-icons/md';
-import { FaGraduationCap } from 'react-icons/fa';
-import { ImCreditCard } from "react-icons/im";
-import { MdMenuBook } from "react-icons/md";
-import { TbWorldSearch } from "react-icons/tb";
-import { useNavigate } from 'react-router-dom';
 import FooterTop from '../../pages/Footer/FooterTop';
-
-import {ourServices} from "../../apiService"
+import { ourServices } from "../../apiService"
 import { useState, useEffect } from 'react';
+import Loading from "../../pages/loading/Loading" // Import Loading component
 
 const Services = () => {
-  const navigate = useNavigate();
-
-  const studentHandler = () => {
-    navigate('/student-service')
-  }
-  const coworkingHandler = () => {
-    navigate('/co-working')
-  }
-  const trainersHandler = () => {
-    navigate('/professional-service')
-  }
-  const organizeHandler = () => {
-    navigate('/corporate-service')
-  }
 
   const [ourService, setOurService] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null); // State for error message
+  const [loading, setLoading] = useState(true); // State for loading
 
-    useEffect(() => {
-        const fetchServices = async () => {
-            try {
-                const response = await ourServices();
-                console.log("Response services:", response.records);
-                setOurService(response.records); // Assuming response.records is an array
-            } catch (error) {
-                console.error("Error fetching services data:", error.message);
-            }
-        };
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await ourServices();
+        console.log("Response services:", response.records);
 
-        fetchServices();
-    }, []);
+        if (response.records.length === 0) {
+          setErrorMessage("No data found for services."); // Set error message if no services are returned
+        } else {
+          setOurService(response.records); 
+        }
+      } catch (error) {
+        console.error("Error fetching services data:", error.message);
+        setErrorMessage("Error fetching data. Please try again later."); // Set general error message on failure
+      } finally {
+        setLoading(false); // Set loading to false when data fetching is complete
+      }
+    };
 
+    fetchServices();
+  }, []);
 
   return (
     <>
@@ -55,42 +44,51 @@ const Services = () => {
             <p>Explore Our Job Portal Services</p>
           </div>
 
+          {/* Display error message */}
+          {errorMessage && (
+            <div style={{ color: 'red', textAlign: 'center', marginBottom: '20px' }}>
+              {errorMessage}
+            </div>
+          )}
+
+          {/* Display Loading component if data is being fetched */}
+          {loading && <Loading />}
+
           <div className="services-mid">
             <iframe
               src="https://www.youtube.com/embed/0KDVwYZFvt0?autoplay=1&mute=1&loop=1&playlist=0KDVwYZFvt0"
               allow="autoplay; encrypted-media"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
 
-         <div className="service-btm">
+          <div className="service-btm">
             {ourService.map((service, index) => (
-                <div
-                    key={service.id}
-                    className={`service ${index % 2 === 0 ? "" : "service2"}`}
-                    style={{ cursor: "pointer" }}
-                    onClick={() => console.log(`Clicked: ${service.title}`)}
-                >
-                    <div className="one">
-                        <div className="s-left">
-                            <div className="icon">
-                                <img
-                                    src={service.image}
-                                    alt={service.title}
-                                    style={{ width: "70px", height: "70px", objectFit: "cover", borderRadius: "8px" }}
-                                />
-                            </div>
-                        </div>
-                        <div className="s-right">
-                            <h5>{service.title}</h5>
-                            <p dangerouslySetInnerHTML={{ __html: service.description }} />                        </div>
+              <div
+                key={service.id}
+                className={`service ${index % 2 === 0 ? "" : "service2"}`}
+                style={{ cursor: "pointer" }}
+                onClick={() => console.log(`Clicked: ${service.title}`)}
+              >
+                <div className="one">
+                  <div className="s-left">
+                    <div className="icon">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        style={{ width: "70px", height: "70px", objectFit: "cover", borderRadius: "8px" }}
+                      />
                     </div>
+                  </div>
+                  <div className="s-right">
+                    <h5>{service.title}</h5>
+                    <p dangerouslySetInnerHTML={{ __html: service.description }} />
+                  </div>
                 </div>
+              </div>
             ))}
-        </div>
-
+          </div>
           <h4>Coming Soon.....</h4>
-
         </div>
       </div>
       <FooterTop />

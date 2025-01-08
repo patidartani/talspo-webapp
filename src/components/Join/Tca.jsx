@@ -13,8 +13,6 @@ const Tca = () => {
 const [faqs, setFaqs] = useState([]); // Initialize as an empty array
 const [activeIndex, setActiveIndex] = useState(null);
 
-
-
 useEffect(() => {
   const fetchFaqs = async () => {
     try {

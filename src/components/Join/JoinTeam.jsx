@@ -6,10 +6,8 @@ import linkdin from "/assets/images/linkdin.png"
 import { joinTestimonials } from "../../apiService";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
-
 
 const JoinTeam = () => {
 
@@ -49,35 +47,43 @@ const JoinTeam = () => {
             </div>
             {/* --------------------------------------- */}
             <div className="join3">
-               <h5>Testimonials</h5>
-               <div className="join3-slider">
-                  <Swiper
-                     slidesPerView={3} // Default view for larger screens
-                     spaceBetween={20}
-                     navigation={false}
-                     modules={[Navigation]}
-                     className="mySwiper"
-                  >
-                     {testimonials.map((testimonial) => (
-                        <SwiperSlide key={testimonial.id}>
-                           <div className="join3-box">
-                              <img src={testimonial.icon} alt={testimonial.title} />
-                              <p>{testimonial.description || "No description available"}</p>
-                              <div className="box-text">
-                                 <div className="circle">
-                                    <img src={testimonial.image} alt={testimonial.title} />
-                                 </div>
-                                 <div className="text-name">
-                                    <span>{testimonial.title}</span>
-                                    <h6>{testimonial.subtitle}</h6>
-                                 </div>
-                              </div>
-                           </div>
-                        </SwiperSlide>
-                     ))}
-                  </Swiper>
-               </div>
-            </div>
+   <h5>Testimonials</h5>
+   <div className="join3-slider">
+      {/* Check if testimonials data is available */}
+      {testimonials.length === 0 ? (
+         <div style={{ color: 'red', textAlign: 'center', margin: '20px 0' }}>
+            No testimonials available at the moment.
+         </div>
+      ) : (
+         <Swiper
+            slidesPerView={3} // Default view for larger screens
+            spaceBetween={20}
+            navigation={false}
+            modules={[Navigation]}
+            className="mySwiper"
+         >
+            {testimonials.map((testimonial) => (
+               <SwiperSlide key={testimonial.id}>
+                  <div className="join3-box">
+                     <img src={testimonial.icon} alt={testimonial.title} />
+                     <p>{testimonial.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
+                     <div className="box-text">
+                        <div className="circle">
+                           <img src={testimonial.image} alt={testimonial.title} />
+                        </div>
+                        <div className="text-name">
+                           <span>{testimonial.title}</span>
+                           <h6>{testimonial.subtitle}</h6>
+                        </div>
+                     </div>
+                  </div>
+               </SwiperSlide>
+            ))}
+         </Swiper>
+      )}
+   </div>
+</div>
+
             {/* --------------------------------------- */}
             <div className="join4">
                <small>Want to help us build the next level of talent networking & talent marketplace of the world?</small>

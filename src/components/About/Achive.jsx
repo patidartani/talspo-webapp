@@ -9,6 +9,7 @@ import Loading from "../../pages/loading/Loading";
 const Achive = () => {
   const [achievements, setAchievements] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null); // New state for error message
 
   useEffect(() => {
     const fetchAchievements = async () => {
@@ -18,6 +19,7 @@ const Achive = () => {
         setAchievements(response.records); // Adjust according to the structure of your API response
       } catch (error) {
         console.error("Error fetching achievements:", error);
+        setErrorMessage("Failed to load achievements. Please try again later."); // Set the error message
       } finally {
         setLoading(false);
       }
@@ -40,6 +42,8 @@ const Achive = () => {
             <p>The Story So far</p>
           </div>
 
+          {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message */}
+
           <div className="achive-flex">
             {achievements.map((achieve, index) => (
               <div
@@ -49,8 +53,7 @@ const Achive = () => {
                 <div className="a-left">
                   <h6>{achieve.title}</h6>
                   {/* <p>{achieve.description}</p> */}
-                <p>{achieve.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
-
+                  <p>{achieve.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
                 </div>
                 <div className="a-right">
                   <img src={achieve.image} alt={achieve.title} />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ResponsiveNav.css';
-import talspoIcon from "/assets/images/logo-icon.png"
+import talspoIcons from "/assets/images/logo-icon.png"
 import { FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import "./Navbar.css";
@@ -9,8 +9,6 @@ import NavModel from './NavModel';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import mainLogo from "/assets/images/NewMainLogo.png"
-
-
 
 const ResponsiveNav = () => {
   const navigate = useNavigate();
@@ -31,7 +29,6 @@ const ResponsiveNav = () => {
   const closeSearch = () => {
     setIsSearchOpen(false);
   };
-
 
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
@@ -64,9 +61,6 @@ const ResponsiveNav = () => {
   const handleSuggestionClick = (id) => {
     navigate(`/view-detail/${id}`);  
   };
-
-
-
 // -----------------------------------------------------------------------
   return (
    <>
@@ -76,7 +70,7 @@ const ResponsiveNav = () => {
       </div>
       <div className="responsive">
         <div className="res-logo"  onClick={homeHandler}>
-          <img src="https://talspo.com/img/logo-beta.png" alt="" />
+          <img src={mainLogo} alt="" />
         </div>
         <div className="res-btn">
           <button onClick={signupHandler}>Sign Up</button>
@@ -97,7 +91,7 @@ const ResponsiveNav = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
               <img
-                src={talspoIcon}
+                src={talspoIcons}
                 alt="Talspo Icon"
                 className="search-icon-ends"   
               />

@@ -67,8 +67,7 @@ color: red;
 }
 .Home .left p{
   font-size: 1.1vmax
-}
-.Home .left .home-btns{
+}.Home .left .home-btns{
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -112,6 +111,12 @@ color: red;
   font-size: 0.9rem;
   background: none;
 }
+.Home .left .home-btns .more:hover {
+  background-color: #003f80;
+  color: #fff;
+  border-color: #003f80;
+}
+
 .Home .right {
   width: 50%;
   height: 500px;
@@ -121,7 +126,6 @@ color: red;
   padding-right: 3vmax;
   position: relative; /* Added this */
 }
-
 .home-arrows {
   position: absolute;
   bottom: -10px; /* Adjust the value as per your design */
@@ -131,13 +135,11 @@ color: red;
   gap: 10px;
   z-index: 10; /* Ensures arrows are on top */
 }
-
 .home-arrows svg {
   font-size: 2rem;
   color: #003266;
   cursor: pointer;
 }
-
 .Home .right iframe{
   width: 100%;
   height: 400px;
@@ -145,7 +147,6 @@ color: red;
 .swiper-image-container {
   width: 100%;
   height: 400px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,7 +154,6 @@ color: red;
 .video-container {
   width: 100%;
   height: 400px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,10 +168,7 @@ color: red;
 width: 90%; 
   object-fit: contain;
 }
-
-
 /* ----------------------------------------------- */
-
 .home-two{
   width: 100%;
   display: flex;
