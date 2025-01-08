@@ -3,43 +3,39 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import { useState, useEffect } from 'react';
-
 import "./Home.css"
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Whowe from './Whowe'
 import Footer from '../../pages/Footer/Footer'
 import Free from './Free'
-// import LernerTrainer from './LernerTrainer'
 import HomeTwo from './HomeTwo';
 import HomeBlog from '../Blog/HomeBlog';
 import { useNavigate } from 'react-router-dom';
 import HomeBroach from './HomeBroach';
 import FooterTop from '../../pages/Footer/FooterTop';
-import {technologyApi, whyChooseTalspo, homepageContent} from "../../apiService"
+import { technologyApi, whyChooseTalspo, homepageContent } from "../../apiService"
 import Loading from "../../pages/loading/Loading"
-
-import { useRef } from "react"; 
-
- import { HiArrowSmallLeft } from "react-icons/hi2";
+import { useRef } from "react";
+import { HiArrowSmallLeft } from "react-icons/hi2";
 import { HiArrowSmallRight } from "react-icons/hi2";
 
 const Home = () => {
 
   const swiperRef = useRef(null);
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
 
-   // ------------------------why choose talspo----------------------
-   const [items, setItems] = useState([]); 
-   const [activeIndex, setActiveIndex] = useState(0); 
-   const [selectedImage, setSelectedImage] = useState("");  
-   const [homeContent, setHomeContent] = useState(null);
+  // ------------------------why choose talspo----------------------
+  const [items, setItems] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState("");
+  const [homeContent, setHomeContent] = useState(null);
 
-   const [currentText, setCurrentText] = useState(""); 
-  const [animationClass, setAnimationClass] = useState(""); 
+  const [currentText, setCurrentText] = useState("");
+  const [animationClass, setAnimationClass] = useState("");
   let index = 0;
- 
-   useEffect(() => {
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
         // Fetch data from "Why Choose Talspo" API
@@ -54,14 +50,14 @@ const Home = () => {
         // Fetch data from "Home Content" API
         const homeContentResponse = await homepageContent();
         const { records } = homeContentResponse;
-  
+
         if (records && records.length > 0) {
-          const { title, description, text, media , subtext} = records[0];
-          const dynamicTexts = text.split(",").map((t) => t.trim()); 
-  
+          const { title, description, text, media, subtext } = records[0];
+          const dynamicTexts = text.split(",").map((t) => t.trim());
+
           // Parse media string and fix any URL encoding issues
           const parsedMedia = JSON.parse(media).map((url) => url.replace(/\\\//g, '/'));
-  
+
           setHomeContent({
             title,
             description,
@@ -78,37 +74,37 @@ const Home = () => {
 
     fetchData();
   }, []);
- 
-   const handleClick = (imageUrl, index) => {
-     setActiveIndex(index);
-     setSelectedImage(imageUrl); 
-   };
 
-   useEffect(() => {
-  if (homeContent && homeContent.texts) {
-    const interval = setInterval(() => {
-      setAnimationClass("slide-up");
+  const handleClick = (imageUrl, index) => {
+    setActiveIndex(index);
+    setSelectedImage(imageUrl);
+  };
 
-      setTimeout(() => {
-        index = (index + 1) % homeContent.texts.length; // Loop through the texts
-        setCurrentText(homeContent.texts[index]); // Update the current text
-        setAnimationClass(""); // Reset animation class
-      }, 500); // Match animation duration
-    }, 2000); // Change text every 2 seconds
+  useEffect(() => {
+    if (homeContent && homeContent.texts) {
+      const interval = setInterval(() => {
+        setAnimationClass("slide-up");
 
-    return () => clearInterval(interval); 
-  }
-}, [homeContent]);
+        setTimeout(() => {
+          index = (index + 1) % homeContent.texts.length;
+          setCurrentText(homeContent.texts[index]);
+          setAnimationClass(""); // Reset animation class
+        }, 500);
+      }, 2000);
+
+      return () => clearInterval(interval);
+    }
+  }, [homeContent]);
 
   // ---------------------techno api --------------------------------------
-  const [techStack, setTechStack] = useState([]); 
+  const [techStack, setTechStack] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await technologyApi(); 
+        const response = await technologyApi();
         // console.log("Techno api Response:", response.records); 
-        setTechStack(response.records); 
+        setTechStack(response.records);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching technology stack:", error);
@@ -136,17 +132,24 @@ const Home = () => {
 
         <div className="Home">
           <div className="left">
-            <h6> {homeContent?.title}</h6>
-            <p style={{ fontSize: '1.1vmax' }}>{homeContent?.description}</p>
-            <p style={{ fontSize: '1.1vmax' }}>{homeContent?.subtext}</p>
-            <div className="text-container">
-            <span className={`text ${animationClass}`}>{currentText}</span>            </div>
-            <div className="home-btns">
-              <div className="join-free">
-                <button onClick={joinfree}>JOIN FOR FREE</button>
-              </div>
-              <button onClick={learnmore} className="more">LEARN MORE</button>
-            </div>
+            {homeContent ? (
+              <>
+                <h6>{homeContent?.title || "Title not available"}</h6>
+                <p style={{ fontSize: '1.1vmax' }}>{homeContent?.description || "Description not available"}</p>
+                <p style={{ fontSize: '1.1vmax' }}>{homeContent?.subtext || "Subtext not available"}</p>
+                <div className="text-container">
+                  <span className={`text ${animationClass}`}>{currentText || "No animation text available"}</span>
+                </div>
+                <div className="home-btns">
+                  <div className="join-free">
+                    <button onClick={joinfree}>JOIN FOR FREE</button>
+                  </div>
+                  <button onClick={learnmore} className="more">LEARN MORE</button>
+                </div>
+              </>
+            ) : (
+              <p style={{ color: 'red', fontSize: '1.2vmax' }}>No Results Found</p>
+            )}
           </div>
 
           <div className="right">
@@ -160,27 +163,27 @@ const Home = () => {
                 delay: 10000,
                 disableOnInteraction: false,
               }}
-              speed={2000} 
+              speed={2000}
             >
-           {homeContent && homeContent.media && homeContent.media.length > 0 && homeContent.media.map((mediaLink, index) => (
-  <SwiperSlide key={index}>
-    <div className="video-container">
-      <iframe
-        width="100%"
-        height="315"
-        src={mediaLink}
-        frameBorder="0"
-        allow="autoplay; encrypted-media"
-        allowFullScreen
-        title={`Media Slide ${index + 1}`}
-      ></iframe>
-    </div>
-  </SwiperSlide>
-))}
+              {homeContent && homeContent.media && homeContent.media.length > 0 && homeContent.media.map((mediaLink, index) => (
+                <SwiperSlide key={index}>
+                  <div className="video-container">
+                    <iframe
+                      width="100%"
+                      height="315"
+                      src={mediaLink}
+                      frameBorder="0"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen
+                      title={`Media Slide ${index + 1}`}
+                    ></iframe>
+                  </div>
+                </SwiperSlide>
+              ))}
 
             </Swiper>
 
-            <div className="home-arrows"> 
+            <div className="home-arrows">
               <HiArrowSmallLeft
                 onClick={() => swiperRef.current.swiper.slidePrev()} // Slide to previous
               />
@@ -195,50 +198,58 @@ const Home = () => {
         <HomeTwo />
         {/* ---------------------------------------------------------------------------------- */}
 
-      <div className="home-two">
-      <h5>Why Choose Talspo?</h5>
-      <p>You can explore, spot, connect talented people nearby (Online).</p>
-      <div className="home-two-btm">
-        <div className="home2-left">
-          <img src={selectedImage || "defaultImage.jpg"} alt="Selected" />
-        </div>
-        <div className="home2-right">
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className={`linee ${activeIndex === index ? "active" : ""}`}
-              onClick={() => handleClick(item.image, index)}
-            >
-            
-              <div className="linee-right">
-                <h6>{item.title}</h6>
-                <p>{item.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
-
-              </div>
+        <div className="home-two">
+  <h5>Why Choose Talspo?</h5>
+  <p>You can explore, spot, connect talented people nearby (Online).</p>
+  <div className="home-two-btm">
+    <div className="home2-left">
+      <img src={selectedImage || "defaultImage.jpg"} alt="Selected" />
+    </div>
+    <div className="home2-right">
+      {/* Check if items array is empty or undefined */}
+      {items && items.length > 0 ? (
+        items.map((item, index) => (
+          <div
+            key={index}
+            className={`linee ${activeIndex === index ? "active" : ""}`}
+            onClick={() => handleClick(item.image, index)}
+          >
+            <div className="linee-right">
+              <h6>{item.title || "Title not available"}</h6>
+              <p>{item.description.replace(/<\/?[^>]+(>|$)/g, "") || "Description not available"}</p>
             </div>
-          ))}
+          </div>
+        ))
+      ) : (
+        <p style={{ color: "red", textAlign: "center" }}>
+         No Results Found
+        </p>
+      )}
+    </div>
+  </div>
         </div>
-      </div>
-      </div>
 
         {/* ---------------------------------------------------------------------------------- */}
         <Whowe />
         <div className="home-three">
-      <h5>Our Advance Technology Stack Includes</h5>
+      <h5>Our Advanced Technology Stack Includes</h5>
       <div className="h3-tbm">
-        <div className="h3-top">
-          {techStack.length > 0 ? (
-            techStack.map((tech, index) => (
-              <div className="line" key={index}>
-                <img src={tech.image} alt={`Tech ${tech.id}`} />
-              </div>
-            ))
-          ) : (
-            <p>Loading technologies...</p>
-          )}
-        </div>
-      </div>
-         </div>
+    <div className="h3-top">
+      {techStack && techStack.length > 0 ? (
+        techStack.map((tech, index) => (
+          <div className="line" key={index}>
+            <img src={tech.image} alt={`Tech ${tech.id}`} />
+          </div>
+        ))
+      ) : (
+        <p style={{ color: "red", textAlign: "center" }}>
+         No Results Found
+        </p>
+      )}
+    </div>
+  </div>
+</div>
+
         {/* ---------------------------------------------------------------------------------- */}
         <HomeBlog />
         <HomeBroach />

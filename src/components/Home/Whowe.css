@@ -292,14 +292,16 @@
   transform: translateY(-50%);
   width: 1.5vmax; /* Adjust size */
   height: auto;
-  animation: skill 1.5s infinite linear;
+  animation: rotateY 1.5s infinite linear;
+
 }
-@keyframes skill {
+@keyframes rotateY {
   from {
-      transform: rotateY(0deg);
+            transform: rotateY(0deg);
   }
+
   to {
-      transform: rotateY(180deg);
+            transform: rotateY(360deg);
   }
 }
 
@@ -354,7 +356,6 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 /* Highlight suggestion on hover */
 .suggestions-list li:hover {
   background-color: #f0f0f0;
@@ -371,11 +372,13 @@
 
 .who-slide {
     width: 100%;
+    height: 500px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     margin-top: 1vmax;
     gap: 1vmax;
+    overflow: hidden;
 }
 
 .who-slide .home-map{
@@ -415,9 +418,6 @@
 .map-arrow-icon:hover {
   transform: translateX(-50%) scale(1.1); /* Enlarge slightly on hover */
 }
-
-/* Overlay styles */
-
 /* In Test.css */
 .map-overlay-box {
   position: fixed; /* Fix the full map to the screen */
@@ -430,7 +430,6 @@
   align-items: center;
   margin-top: 5vmax;
 }
-
 .map-overlay-content-box {
   position: relative;
   background-color: white;
@@ -449,8 +448,6 @@
   font-size: 24px;
   color: #333;
 }
-
-
 .home-map {
   position: relative;
 }
@@ -467,8 +464,6 @@
   text-align: center;
   z-index: 10;
 }
-
-
 .toggle-map-icon {
   position: absolute;
   top: 10px;
@@ -486,9 +481,6 @@
   cursor: pointer;
   z-index: 10; /* Ensures it appears above the map */
 }
-
-
-
 .map-overlay-close {
   position: absolute;
   top: 10px;
@@ -498,9 +490,6 @@
   color: #000;
   z-index: 10;
 }
-
-
-
 /* Style for the iframe */
 .map-overlay iframe {
   border-radius: 5px;
@@ -604,12 +593,14 @@
 .slick-slide .w-box .text-panel  .get {
    width: 100%;
    margin-top:1vmax;
-   /* padding: 0.5vmax 1vmax; */
    background-color: green; 
    color: #fff; 
-   padding: 0.5vmax 1vmax;
+   padding: 0.7vmax 1vmax;
    border: none;
    border-radius: 5px;
+}
+.slick-slide .w-box .text-panel .get:hover {
+  background-color: #219a00; 
 }
 
 @media (max-width:600px) {

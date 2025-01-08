@@ -10,6 +10,7 @@ import Loading from "../../pages/loading/Loading"
 const OurTeam = () => {
   const [teamData, setTeamData] = useState([]);
   const [isLoading, setIsLoading] = useState(true); 
+  const [error, setError] = useState(null); 
   
   const [activeTabs, setActiveTabs] = useState({
     leadership: "founder",
@@ -25,6 +26,7 @@ const OurTeam = () => {
         setIsLoading(false); 
       } catch (error) {
         console.error('Error fetching team data:', error);
+        setError("Error fetching team data: " + error.message);
         setIsLoading(false); 
       }
     };
@@ -47,8 +49,11 @@ const OurTeam = () => {
 
   if (isLoading) {
     return <Loading />;
-    }
+  }
 
+  if (error) {
+    return <div className="error-message">{error}</div>;
+  }
     
   return (
     <>

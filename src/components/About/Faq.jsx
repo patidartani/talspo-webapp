@@ -44,20 +44,35 @@ const Faq = () => {
         </div>
 
         <div className="faq-box">
-          <div className="faq-ques">
-            {faqs.map((faq, index) => (
-              <div className="faq-h" key={index}>
-                <h6 onClick={() => handleToggle(index)}>
-                  {faq.title}
-                  <span className={activeIndex === index ? "arrow open" : "arrow"}>&#9662;</span>
-                </h6>
-                {activeIndex === index && (
-                  <p><div style={{ fontSize: "1.2vmax" }} dangerouslySetInnerHTML={{ __html: faq.description }} /></p>
-                )}
-              </div>
-            ))}
-          </div>
+  <div className="faq-ques">
+    {faqs.length > 0 ? (
+      faqs.map((faq, index) => (
+        <div className="faq-h" key={index}>
+          <h6 onClick={() => handleToggle(index)}>
+            {faq.title}
+            <span className={activeIndex === index ? "arrow open" : "arrow"}>
+              &#9662;
+            </span>
+          </h6>
+          {activeIndex === index && (
+            <p>
+              <div
+                style={{ fontSize: "1.2vmax" }}
+                dangerouslySetInnerHTML={{ __html: faq.description }}
+              />
+            </p>
+          )}
         </div>
+      ))
+    ) : (
+      // Display fallback message if the faqs array is empty
+      <p style={{ color: "red", textAlign: "center", fontSize: "1.2vmax" }}>
+        No FAQs Found
+      </p>
+    )}
+  </div>
+</div>
+
 
 
          <div className="faq-data-content">

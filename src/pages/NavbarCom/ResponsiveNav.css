@@ -52,6 +52,9 @@
 .ri-search-line {
           font-size: 3.5vmax;
 }
+.res-logo  {
+  width: 50%;
+}
 .res-logo img {
           width: 80%;
 }
@@ -134,12 +137,17 @@ color: #818181;
           }
 }
 
+
+
 @media (min-width:600px) and (max-width:1150px) {
           .responsive-sidebar {
                     width: 65%;
           }
+          .res-logo  {
+            width: 50%;
+          }
           .res-logo img {
-                    width: 100%;
+                    width: 30%;
           }
           .search-inputs {
                     padding: 1.5vmax 1vmax;

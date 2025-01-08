@@ -8,6 +8,13 @@
           padding-bottom: 2vmax;
 
 }
+.error-message {
+       color: red;
+       font-size: 16px;
+       margin-top: 20px;
+       text-align: center;
+     }
+     
 .Achive-main .Achive-page{
           width: 100%;
           display: flex;

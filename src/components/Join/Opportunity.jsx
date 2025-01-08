@@ -10,7 +10,6 @@ import iconSearch from "/assets/images/talspoIcon.png";
 import Loading from "../../pages/loading/Loading";
 import { formatDistanceToNow } from 'date-fns';
 import opt1Img from "/assets/images/opt1.png";
-
 import { getDistance } from "geolib";
 
 const Opportunity = () => {
@@ -20,7 +19,7 @@ const Opportunity = () => {
     job_type: [],
     work_from: [],
     duration: [],
-    key_skills : [],
+    key_skills: [],
     title: []
   });
 
@@ -32,7 +31,7 @@ const Opportunity = () => {
 
   const [selectedTitle, setSelectedTitle] = useState('');
   const [searchInput, setSearchInput] = useState('');
-    const [filteredTitles, setFilteredTitles] = useState([]);
+  const [filteredTitles, setFilteredTitles] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [jobs, setJobs] = useState([]);
@@ -40,87 +39,84 @@ const Opportunity = () => {
   const ITEMS_PER_PAGE = 5;
   const [currentPage, setCurrentPage] = useState(0);
 
-
-  
   useEffect(() => {
-          const loadJobs = async () => {
-            const fetchedJobs = await fetchJobPosts();
-            console.log('fetchedJobs',fetchedJobs)
-            setJobs(fetchedJobs);
-            setLoading(false);
-          };
-      
-          loadJobs();
-          fetchFilters();
-        }, []);
-      
+    const loadJobs = async () => {
+      const fetchedJobs = await fetchJobPosts();
+      console.log('fetchedJobs', fetchedJobs)
+      setJobs(fetchedJobs);
+      setLoading(false);
+    };
 
-//   --------------------------------------sorting functionality----------------------------------------------------------
-const [selectedSkills, setSelectedSkills] = useState([]);
-
-const getUserLocation = () => {
-  return new Promise((resolve, reject) => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          resolve({ latitude, longitude });
-        },
-        (error) => {
-          reject("Error fetching location: " + error.message);
-        }
-      );
-    } else {
-      reject("Geolocation is not supported by this browser.");
-    }
-  });
-};
+    loadJobs();
+    fetchFilters();
+  }, []);
 
 
-const haversineDistance = (lat1, lon1, lat2, lon2) => {
-  const R = 6371; // Radius of Earth in kilometers
-  const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  const dLon = ((lon2 - lon1) * Math.PI) / 180;
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos((lat1 * Math.PI) / 180) *
+  //   --------------------------------------sorting functionality----------------------------------------------------------
+  const [selectedSkills, setSelectedSkills] = useState([]);
+
+  const getUserLocation = () => {
+    return new Promise((resolve, reject) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            resolve({ latitude, longitude });
+          },
+          (error) => {
+            reject("Error fetching location: " + error.message);
+          }
+        );
+      } else {
+        reject("Geolocation is not supported by this browser.");
+      }
+    });
+  };
+
+  const haversineDistance = (lat1, lon1, lat2, lon2) => {
+    const R = 6371; // Radius of Earth in kilometers
+    const dLat = ((lat2 - lat1) * Math.PI) / 180;
+    const dLon = ((lon2 - lon1) * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos((lat1 * Math.PI) / 180) *
       Math.cos((lat2 * Math.PI) / 180) *
       Math.sin(dLon / 2) *
       Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c; // Distance in kilometers
-};
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c; // Distance in kilometers
+  };
 
-const handleSortJobsByLocation = async () => {
-  try {
-    // Get user's current location
-    const { latitude, longitude } = await getUserLocation();
+  const handleSortJobsByLocation = async () => {
+    try {
+      // Get user's current location
+      const { latitude, longitude } = await getUserLocation();
 
-    // Sort jobs by distance from user's location
-    const sortedJobs = [...jobs].map((job) => {
-      const jobLatitude = parseFloat(job.latitude);
-      const jobLongitude = parseFloat(job.longitude);
+      // Sort jobs by distance from user's location
+      const sortedJobs = [...jobs].map((job) => {
+        const jobLatitude = parseFloat(job.latitude);
+        const jobLongitude = parseFloat(job.longitude);
 
-      if (!isNaN(jobLatitude) && !isNaN(jobLongitude)) {
-        const distance = haversineDistance(latitude, longitude, jobLatitude, jobLongitude);
-        return { ...job, distance };
-      } else {
-        return { ...job, distance: Infinity };
-      }
-    }).sort((a, b) => a.distance - b.distance); // Sort jobs based on the distance
+        if (!isNaN(jobLatitude) && !isNaN(jobLongitude)) {
+          const distance = haversineDistance(latitude, longitude, jobLatitude, jobLongitude);
+          return { ...job, distance };
+        } else {
+          return { ...job, distance: Infinity };
+        }
+      }).sort((a, b) => a.distance - b.distance); // Sort jobs based on the distance
 
-    setJobs(sortedJobs); // Update the job list with sorted jobs
-  } catch (error) {
-    console.error("Error fetching location or sorting jobs:", error);
-  }
-};
+      setJobs(sortedJobs); // Update the job list with sorted jobs
+    } catch (error) {
+      console.error("Error fetching location or sorting jobs:", error);
+    }
+  };
 
 
-// ------------------------------------------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------------------------------------------------------------
 
   const fetchFilters = async (location = "", experience = "", job_type = "", work_from = "", duration = "", key_skills = "", title = "") => {
     try {
-      setLoading(true);
+      // setLoading(true);
       const queryParam = [
         location ? `location=${encodeURIComponent(location)}` : '',
         experience ? `experience=${encodeURIComponent(experience)}` : '',
@@ -130,8 +126,8 @@ const handleSortJobsByLocation = async () => {
         key_skills ? `key_skills=${encodeURIComponent(key_skills)}` : '',
         title ? `title=${encodeURIComponent(title)}` : '',
       ]
-      .filter(Boolean)
-      .join('&');
+        .filter(Boolean)
+        .join('&');
 
       const response = await fetch(`https://dev.talspo.com/admin/api/showcase/search?${queryParam}`);
       if (!response.ok) {
@@ -167,19 +163,19 @@ const handleSortJobsByLocation = async () => {
           (experience ? job.experience === experience : true) &&
           (job_type ? job.job_type === job_type : true) &&
           (work_from ? job.work_from === work_from : true) &&
-          (duration ? job.duration === duration : true) && 
-          (key_skills ? job.key_skills?.includes(key_skills) : true)  &&
+          (duration ? job.duration === duration : true) &&
+          (key_skills ? job.key_skills?.includes(key_skills) : true) &&
           (title ? job.title.toLowerCase().trim() === title.toLowerCase().trim() : true)
         );
       });
 
       setJobs(filteredJobs);
-      console.log("Filtering by title:", title);
-      console.log("Jobs after title filter:", filteredJobs);
-            setLoading(false);
+      // console.log("Filtering by title:", title);
+      // console.log("Jobs after title filter:", filteredJobs);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching filter data:", error);
-      setLoading(false);
+      // setLoading(false);
     }
   };
 
@@ -214,16 +210,16 @@ const handleSortJobsByLocation = async () => {
   };
 
   const handleSkillChange = (e) => {
-          const key_skills = e.target.value;
-          fetchFilters(
-            selectedLocation,
-            selectedExperience,
-            selectedJobtype,
-            selectedWorkEnvironment,
-            selectedDuration,
-            key_skills
-          );
-        }; 
+    const key_skills = e.target.value;
+    fetchFilters(
+      selectedLocation,
+      selectedExperience,
+      selectedJobtype,
+      selectedWorkEnvironment,
+      selectedDuration,
+      key_skills
+    );
+  };
 
   const handleClearAll = async () => {
     setSelectedLocation("");
@@ -239,6 +235,15 @@ const handleSortJobsByLocation = async () => {
     setLoading(false);
   };
 
+  const clearAllSorts = async () => {
+
+
+    await fetchFilters();
+    const allJobs = await fetchJobPosts();
+    setJobs(allJobs);
+    setLoading(false);
+  }
+
   const handleLatestJobs = () => {
     const sortedJobs = [...jobs].sort((a, b) => {
       const dateA = new Date(a.updated_at || a.created_at);
@@ -252,32 +257,32 @@ const handleSortJobsByLocation = async () => {
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearchInput(value);
-  
+
     const filtered = filterData.title.filter((title) =>
       title.toLowerCase().includes(value.toLowerCase())
     );
-    console.log("Filtered Titles:", filtered); 
+    console.log("Filtered Titles:", filtered);
     setFilteredTitles(filtered);
   };
-  
+
   const handleTitleSelect = (title) => {
     setSearchInput(title); // Set the search input to the selected title
-    setFilteredTitles([]); 
+    setFilteredTitles([]);
     setSelectedTitle(title); // Set the selected title
     // Apply the filter based on the selected title
     fetchFilters(
-      selectedLocation, 
-      selectedExperience, 
-      selectedJobtype, 
-      selectedWorkEnvironment, 
-      selectedDuration, 
+      selectedLocation,
+      selectedExperience,
+      selectedJobtype,
+      selectedWorkEnvironment,
+      selectedDuration,
       selectedSkills, // Ensure skills are passed as needed
       title // Pass the title as the last parameter
     );
-    
-    
+
+
   };
-  
+
   const viewDetailHandler = (id) => {
     navigate(`/view-detail/${id}`);
   };
@@ -296,7 +301,7 @@ const handleSortJobsByLocation = async () => {
       <NavbarContainer />
       <div className="Opportunity-main">
         <div className="opportunity-page">
-        <div className="opportunity1">
+          <div className="opportunity1">
             <div className="opt-left">
               <h5>Talspo Jobs</h5>
               <p>Get a job at Talspo and contribute to building the "Next Level Of Talent Networking Platform and Talent Marketplace" of the World!</p>
@@ -354,27 +359,27 @@ const handleSortJobsByLocation = async () => {
                       </div>
                     </div>
 
-                      {/* Job Type */}
-                      <div className="job-type">
-                    <h4>Job Type</h4>
-                <div className="job-type-search">
-                       <select value={selectedJobtype} onChange={handleJobtypeChange}>
-                <option value="" disabled>Select Job Type</option>
-                 {filterData.job_type.length > 0 ? (
-                  filterData.job_type.map((type, index) => (
-                 <option key={index} value={type}>
-                 {type}
-                </option>
-                 ))
-              ) : (
-             <option value="" disabled>No Job Type Available</option>
-             )}
-            </select>
-            </div>
-           </div>
+                    {/* Job Type */}
+                    <div className="job-type">
+                      <h4>Job Type</h4>
+                      <div className="job-type-search">
+                        <select value={selectedJobtype} onChange={handleJobtypeChange}>
+                          <option value="" disabled>Select Job Type</option>
+                          {filterData.job_type.length > 0 ? (
+                            filterData.job_type.map((type, index) => (
+                              <option key={index} value={type}>
+                                {type}
+                              </option>
+                            ))
+                          ) : (
+                            <option value="" disabled>No Job Type Available</option>
+                          )}
+                        </select>
+                      </div>
+                    </div>
 
 
-           <div className="work-from-home">
+                    <div className="work-from-home">
                       <h4>Working Environment</h4>
                       <div className="work-search">
                         <select value={selectedWorkEnvironment} onChange={handleWorkEnvironmentChange}>
@@ -390,26 +395,26 @@ const handleSortJobsByLocation = async () => {
                       </div>
                     </div>
 
-            
-                    <div className="duration">
-            <h4>Maximum Duration</h4>
-            <div className="duration-search">
-              <select value={selectedDuration} onChange={handleDurationChange} >
-                <option value="" disabled>Select Duration</option>
-                {filterData.duration.length > 0 ? (
-                  filterData.duration.map((dur, index) => (
-                    <option key={index} value={dur}>
-                      {dur}
-                    </option>
-                  ))
-                ) : (
-                  <option value="" disabled>No Duration Available</option>
-                )}
-              </select>
-            </div>
-          </div>
 
-                  {/* Clear All */}
+                    <div className="duration">
+                      <h4>Maximum Duration</h4>
+                      <div className="duration-search">
+                        <select value={selectedDuration} onChange={handleDurationChange} >
+                          <option value="" disabled>Select Duration</option>
+                          {filterData.duration.length > 0 ? (
+                            filterData.duration.map((dur, index) => (
+                              <option key={index} value={dur}>
+                                {dur}
+                              </option>
+                            ))
+                          ) : (
+                            <option value="" disabled>No Duration Available</option>
+                          )}
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Clear All */}
                     <div className="clear-all">
                       <a href="#" onClick={handleClearAll}>
                         Clear all
@@ -419,55 +424,55 @@ const handleSortJobsByLocation = async () => {
                 </div>
 
                 <div className="filter-sorting">
-                     <h6>Sort Jobs</h6>
-                     <p>Sort Jobs based on the options given below</p>
-                     <div className="sort-btm">
+                  <h6>Sort Jobs</h6>
+                  <p>Sort Jobs based on the options given below</p>
+                  <div className="sort-btm">
 
-                     <div className="closest">
-  <h4>Find Jobs closest to your location</h4>
-  <div className="location-btn">
-    <button onClick={handleSortJobsByLocation}>Sort Jobs</button>
-  </div>
-</div>
+                    <div className="closest">
+                      <h4>Find Jobs closest to your location</h4>
+                      <div className="location-btn">
+                        <button onClick={handleSortJobsByLocation}>Sort Jobs</button>
+                      </div>
+                    </div>
 
+                    <div className="latest">
+                      <h4>Latest Jobs Available</h4>
+                      <div className="latest-btn">
+                        <button onClick={handleLatestJobs}>Get Latest jobs</button>
+                      </div>
+                    </div>
 
-            <div className="latest">
-            <h4>Latest Jobs Available</h4>
-            <div className="latest-btn">
-              <button onClick={handleLatestJobs}>Get Latest jobs</button>
-            </div>
-          </div>
                     <div className="skills">
-  <h4>Skills</h4>
-  <div className="skills-search">
-    <select value={selectedSkills} onChange={handleSkillChange} > 
-      <option value="" disabled>
-        Select Skill
-      </option>
-      {Array.isArray(filterData.key_skills) && filterData.key_skills.length > 0 ? (
-        filterData.key_skills.map((skill, index) => (
-          <option key={index} value={skill}>
-            {skill}
-          </option>
-        ))
-      ) : (
-        <option value="" disabled>
-          No key skills Available
-        </option>
-      )}
-    </select>
-  </div>
- 
-                  </div>
-
+                      <h4>Skills</h4>
+                      <div className="skills-search">
+                        <select value={selectedSkills} onChange={handleSkillChange} >
+                          <option value="" disabled>
+                            Select Skill
+                          </option>
+                          {Array.isArray(filterData.key_skills) && filterData.key_skills.length > 0 ? (
+                            filterData.key_skills.map((skill, index) => (
+                              <option key={index} value={skill}>
+                                {skill}
+                              </option>
+                            ))
+                          ) : (
+                            <option value="" disabled>
+                              No key skills Available
+                            </option>
+                          )}
+                        </select>
+                      </div>
+                    </div>
 
                     <div className="clear-all-sort">
-                      <a href="#">
+                      <a href="#" onClick={clearAllSorts}>
                         Clear all
                       </a>
                     </div>
-                     </div>
-                   </div>              
+                  </div>
+                </div>
+
+
               </div>
 
               {/* Job Listings */}
@@ -482,22 +487,22 @@ const handleSortJobsByLocation = async () => {
                     />
                     <img src={iconSearch} alt="Search Icon" />
                   </div>
-                 
-                 <div className="job-selection-list">
-                 {searchInput && filteredTitles.length > 0 && (
-                    <div className="suggestions-list">
-                      {filteredTitles.map((title, index) => (
-                        <div
-                          key={index}
-                          className="suggestion-item"
-                          onClick={() => handleTitleSelect(title)}
-                        >
-                          {title}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                 </div>
+
+                  <div className="job-selection-list">
+                    {searchInput && filteredTitles.length > 0 && (
+                      <div className="suggestions-list">
+                        {filteredTitles.map((title, index) => (
+                          <div
+                            key={index}
+                            className="suggestion-item"
+                            onClick={() => handleTitleSelect(title)}
+                          >
+                            {title}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
 
                 </div>
                 {currentJobs.length === 0 ? (
@@ -534,13 +539,13 @@ const handleSortJobsByLocation = async () => {
                           <h3>{job.job_type}</h3>
                         </div>
                         <div className="i-right">
-                          <button onClick={() => viewDetailHandler(job.id)}>View Details</button>
+                          <button onClick={() => viewDetailHandler(job.id)}>View Details <i className="ri-arrow-right-line"></i></button>
                         </div>
                       </div>
 
                       <div className="job-active">
-                      <h6> Active {formatDistanceToNow(new Date(job.updated_at), { addSuffix: true })}  </h6>    
-                    </div>
+                        <h6> Active {formatDistanceToNow(new Date(job.updated_at), { addSuffix: true })}  </h6>
+                      </div>
 
                     </div>
                   ))

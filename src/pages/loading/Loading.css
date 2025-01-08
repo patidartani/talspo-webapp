@@ -15,7 +15,6 @@
     left: 0;
     padding: 2rem; 
 }
-
 .loading h5 {
     color: #003f80; 
     margin-top: 1rem;
@@ -35,8 +34,8 @@
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    animation: iconY 0.9s infinite linear; 
     z-index: 2; 
+    animation: rotateY 1.5s infinite linear;
 }
 
 .loading .loading-logo img {
@@ -46,12 +45,22 @@
     max-width: 100px;
 }
 
-/* Rotate Animation */
-@keyframes iconY {
+@keyframes rotateY {
     from {
-        transform: rotateY(0deg);
+              transform: rotateY(0deg);
     }
+  
     to {
-        transform: rotateY(180deg); 
+              transform: rotateY(360deg);
     }
-}
+  }
+
+
+  @media (max-width:600px) {
+    .loading h5 {
+        font-size: 2.5vw; 
+    }
+    .loading .loading-logo img {
+        width: 12vw;
+    }
+  }

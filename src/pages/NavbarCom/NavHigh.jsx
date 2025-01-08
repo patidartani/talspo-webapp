@@ -1,6 +1,5 @@
 import "./Navbar.css";
 
-
 const NavHigh = () => {
   return (
           <>

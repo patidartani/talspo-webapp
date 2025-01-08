@@ -7,7 +7,7 @@ import Footer from '../../pages/Footer/Footer';
 import { recentBlogPosts, featuredBlogPosts, searchBlog } from '../../apiService'; // Add searchBlog API here
 import Loading from '../../pages/loading/Loading'; // Import the Loading component
 import { Link } from 'react-router-dom';
-import IconBlog from "/assets/images/talspoIcon.png";
+import IconBlog from "/assets/images/logo-icon.png";
 import ReactPaginate from "react-paginate";
 import BlogText from "../../components/Blog/BlogText"
 

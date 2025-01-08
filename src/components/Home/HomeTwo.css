@@ -53,7 +53,14 @@
           font-size: 0.9rem;
           background: none;     
  }
-
+ .HomeTwo_main .Two_Right  .kn:hover {
+          background-color: #003f80;
+          color: #fff;
+          border-color: #003f80;
+        }
+        .HomeTwo_main .Two_Right .kn button:hover{
+        color: #fff;    
+ }
 
  @media (max-width:600px) {
           .HomeTwo_main{

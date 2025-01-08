@@ -138,6 +138,7 @@
           justify-content: space-between;
           flex-direction: row;
 }
+/* -------------language------------------------------------ */
 .language-selector {
           display: flex;
           align-items: center;
@@ -170,6 +171,8 @@
           outline: none;
           border-color: #007bff;
 }
+/* -------------language---end--------------------------------- */
+
 .sign-in-btn-nav {
           color: red;
           font-weight: 600;
