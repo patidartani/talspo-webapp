@@ -10,7 +10,7 @@ import store, { persistor } from './redux-toolkit/store/store.js';
 
 // --------------------pwa code-------------------------------
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
+  navigator.serviceWorker.register('/talspo/sw.js')
     .then(registration => {
       console.log('Service Worker registered with scope:', registration.scope);
     })
@@ -22,7 +22,7 @@ if ('serviceWorker' in navigator) {
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <BrowserRouter  >
+      <BrowserRouter basename='/talspo/' >
         <App />
       </BrowserRouter>
     </PersistGate>

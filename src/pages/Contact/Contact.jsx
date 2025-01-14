@@ -170,22 +170,6 @@ const Contact = () => {
                   <div className="ipt">
                     <input type="email" name="email" placeholder="Email*" required value={formData.email} onChange={handleChange} />
                   </div>
-                  {/* <div className="ipt">
-                    <select
-                      name="issue"
-                      value={formData.issue}
-                      onChange={handleChange}
-                      required
-                    >
-                      
-                      <option value="" disabled>
-                        Type of Issue*
-                      </option>
-                      <option value="technical">Technical Issue</option>
-                      <option value="nonTechnical">Non-Technical Issue</option>
-                    </select>
-                  </div> */}
-
 <div className="ipt">
 <Select
   name="issue"
@@ -199,8 +183,6 @@ const Contact = () => {
 />
 
 </div>
-
-
                   <div className="ipt">
                     <input type="text" name="subject" placeholder="Subject*" required value={formData.subject} onChange={handleChange} />
                   </div>
@@ -223,7 +205,6 @@ const Contact = () => {
                 </form>
               </div>
             </div>
-
 
           </div>
         </div>
