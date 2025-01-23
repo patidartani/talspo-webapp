@@ -34,7 +34,7 @@
 }
 .HomeBlog-main .home-blog .home-blog-right .h-blg-right {
         width: 24%;
-        height: 450px;
+        height: 380px;
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
@@ -46,13 +46,14 @@
 }
 .HomeBlog-main .home-blog .home-blog-right .h-blg-right img {
         width: 100%;
-        height: 250px;
+        height: 200px;
         border-radius: 5px;
 }
 
 .HomeBlog-main .home-blog .home-blog-right .h-blg-right h5 {
         font-size: 1.3vmax;
-        margin-top: 0.5vmax;
+        margin-top: 0.3vmax;
+        padding-left: 0.5vmax;
 }
 .HomeBlog-main .home-blog .home-blog-right .h-blg-right h6 {
         font-weight: 600;
@@ -61,27 +62,30 @@
         border-radius: 50px;
         font-size: 0.8vmax;
         letter-spacing: 1px;
+        padding-left: 0.5vmax;
+
 }
 .HomeBlog-main .home-blog .home-blog-right .h-blg-right span {
         font-size: 0.9vmax;
         font-family: Arial, Helvetica, sans-serif;
         color: rgb(59, 59, 59);
-        margin-bottom: 0.7vmax;
-        /* padding-left: 0.5vmax; */
+        margin-bottom: 0.6vmax;
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 4; 
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: normal;
-
-}
+        padding-left: 0.5vmax;
+      }
+      
 .view-blog-btn {
         width: 45%;
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;
         margin-bottom: 0.1vmax;
+        padding-left: 0.5vmax;
 
 }.view-blog-btn button {
         width: 100%;
@@ -123,6 +127,7 @@
 
         .HomeBlog-main .home-blog .home-blog-right {
                 width: 100%;
+                gap: 2vmax;
         }
         .HomeBlog-main .home-blog .home-blog-right .h-blg-right {
                 width: 100%;
@@ -130,10 +135,12 @@
         }
         .HomeBlog-main .home-blog .home-blog-right .h-blg-right h5 {
                 font-size: 3vmax;
+                margin-top: 0.7vmax;
+                font-weight: 600;
         }
         .HomeBlog-main .home-blog .home-blog-right .h-blg-right h6 {
-                padding: 0.5vmax 0.5vmax;
                 font-size: 1.8vmax;
+                margin-top: 0.3vmax;
         }
         .HomeBlog-main .home-blog .home-blog-right .h-blg-right span {
                 font-size: 2vmax;
@@ -145,6 +152,10 @@
         .view-blog-btn button {
                 width: 98%;
                 padding: 2vmax 1vmax;
+                font-size: 2vmax;
+                margin-top: 2vmax;
+                margin-bottom: 1vmax;
+
         }
 
 }

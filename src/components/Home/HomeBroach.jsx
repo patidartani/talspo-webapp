@@ -38,7 +38,7 @@ const HomeBroach = () => {
         ) : (
           <>
             <div className="broch1">
-              <h6>Check Our Company's Latest E-Brochure</h6>
+              <h6>Check Our Company Latest E-Brochure</h6>
               <img
                 src={image1 || "default-placeholder.jpg"}
                 alt="E-Brochure QR Code"

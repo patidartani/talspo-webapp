@@ -5,9 +5,6 @@
           justify-content: center;
           flex-direction: column;
 }
-
-     
-
 .DoPatnership-main .partner-one {
           width: 80%;
           display: flex;
@@ -17,7 +14,6 @@
           margin-top: 7vmax
 
 }
-
 .DoPatnership-main .partner-one .p-left {
           width: 50%;
           display: flex;
@@ -25,34 +21,28 @@
           justify-content: center;
           flex-direction: column;
 }
-
 .DoPatnership-main .partner-one .p-left h5 {
           font-size: 2.8vmax;
           font-weight: 800;
           letter-spacing: 0.6px;
           font-family: Arial, Helvetica, sans-serif;
 }
-
 .DoPatnership-main .partner-one .p-left p {
           font-size: 1.2vmax;
           letter-spacing: 0.6px;
           font-family: Arial, Helvetica, sans-serif;
 }
-
 .DoPatnership-main .partner-one .p-right {
           width: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
 }
-
 .DoPatnership-main .partner-one .p-right img {
           width: 80%;
 }
 
 /* ---------------------------------- */
-
-
 /* Container styling for 'Our Partners' section */
 .DoPatnership-main .partner-two {
           width: 100%;
@@ -68,7 +58,6 @@
           font-weight: 700;
           margin-bottom: 20px;
 }
-
 /* Swiper main container */
 .slider-partner .mySwiper {
           width: 100%;
@@ -78,8 +67,6 @@
           overflow: hidden;
           /* Hide overflow */
 }
-
-/* Slide styling */
 .mySwiper .swiper-slide {
           display: flex;
           align-items: center;
@@ -90,7 +77,6 @@
           overflow: hidden;
           /* Ensure content doesn't overflow */
 }
-
 .our-partner {
           width: 80%;
           padding-top: 2vmax;
@@ -103,12 +89,10 @@
           gap: 2vmax;
           text-align: center;
 }
-
 .our-partner h5 {
           font-size: 1.5vmax;
           letter-spacing: 1px;
 }
-
 .our-partner .p-text {
           width: 100%;
           background: #005bb5;
@@ -119,9 +103,6 @@
           color: #a9a9a9;
 
 }
-
-
-
 /* Pagination styling */
 .mySwiper .swiper-pagination-bullet {
           background-color: #333;
@@ -324,7 +305,6 @@
        100% { transform: rotate(360deg); }
      }
      
-
  @media (max-width:600px) {
        .DoPatnership-main {
               width: 100%;

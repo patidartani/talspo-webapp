@@ -11,17 +11,16 @@ const HomeBlog = () => {
       const fetchBlogs = async () => {
          try {
             const posts = await featuredBlogPosts(); // Fetch the blog posts
-            setBlogs(posts || []); // Set blogs, default to an empty array if undefined
+            setBlogs(posts || []); 
          } catch (error) {
             console.error("Failed to fetch blog posts:", error);
-            setBlogs([]); // Handle error by setting blogs to an empty array
+            setBlogs([]); 
          }
       };
 
       fetchBlogs();
    }, []);
 
-   // Function to navigate to the blog detail page
    const handleReadMore = (id) => {
       navigate(`/blog-detail/${id}`);
    };
@@ -40,13 +39,16 @@ const HomeBlog = () => {
                         <h5>{blog.title || "Untitled Blog"}</h5>
                         <h6>{blog.category || "Uncategorized"}</h6>
                         <span>
-                           {blog.description
-                              ? blog.description
-                                 .replace(/<\/?[^>]+(>|$)/g, "")
-                                 .slice(0, 100)
-                                 .concat(blog.description.replace(/<\/?[^>]+(>|$)/g, "").length > 100 ? "..." : "")
-                              : "No description available"}
-                        </span>
+  {blog.description
+    ? blog.description
+        .replace(/<\/?[^>]+(>|$)/g, "") 
+        .slice(0, 100) 
+        .concat(
+          blog.description.replace(/<\/?[^>]+(>|$)/g, "").length > 100 ? "..." : ""
+        ) 
+    : "No description available"}
+</span>
+
                         <div className="view-blog-btn">
                            <button onClick={() => handleReadMore(blog.id)}>Read More <i className="ri-arrow-right-line"></i></button>
                         </div>

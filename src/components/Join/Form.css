@@ -4,9 +4,11 @@
           align-items: center;
           justify-content: center;
 }
-.error-message{
+.error-form{
         color: red;
-        font-weight: lighter
+        font-weight: lighter;
+        text-align: start;
+        margin-top: 0.2vmax;
 }
 .Form_details .form-content{
           width: 100%;

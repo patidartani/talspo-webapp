@@ -4,6 +4,13 @@
           align-items: center;
           justify-content: center;
 }
+.captcha {
+       position: relative;
+       bottom: 0;
+       left: 0 !important; /* Ensure it stays on the left */
+       top: 100% !important; /* Align it to the top */
+       z-index: 3333 !important; 
+    }
 .Contact-main .contact-page{
           width: 100%;
           display: flex;
@@ -12,7 +19,6 @@
           flex-direction: column;
           margin-bottom: 2vmax;
           margin-top: 7vmax;
-
 }
 .Contact-main .contact-page .contact-top{
           width: 100%;
@@ -63,7 +69,7 @@
        background-repeat: no-repeat;
        padding: 1vmax;
        justify-content: center;
-       background-image: url("/src/assets/images/contactback.png.avif");
+       background-image: url("/assets/images/contactback.png.avif");
 }
 .Contact-main .contact-page .contact-btm .left-gif .map-box-content{
        width: 40%;
@@ -120,6 +126,17 @@
        width: 50%;
 
 }
+ .schedule-btn{
+       background-color: green;
+       width: 50%;
+       border: none;
+      color: #fff;
+      border-radius: 10px;
+      padding: 0.6vmax 1vmax;
+ }
+ .schedule-btn:hover{
+       background-color: rgb(58, 172, 58);
+ }
 .Contact-main .contact-page .contact-btm .form-side h5{
      font-size: 1.5vmax;
 }

@@ -37,7 +37,7 @@ useEffect(() => {
               {navbarData.length > 0 ? (
                 navbarData.map((item, index) => (
                   <div key={index}>
-                    <img src={item.image} alt={item.title} style={{ width: '100%' }} />
+                    <img src={item.image} alt={item.title} style={{ width: '70%' }} />
                     <small>
                       <div dangerouslySetInnerHTML={{ __html: item?.title }} />
   

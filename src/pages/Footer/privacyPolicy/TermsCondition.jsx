@@ -3,8 +3,8 @@ import "../privacyPolicy/TermsCondition.css";
 import { Container } from "react-bootstrap";
 import NavBarContainer from "../../NavbarCom/NavBarContainer";
 import Footer from "../../Footer/Footer";
-import {fetchTermsCondition} from "../../../apiService"
-import  { useEffect, useState } from "react";
+import { fetchTermsCondition } from "../../../apiService"
+import { useEffect, useState } from "react";
 
 const TermsCondition = () => {
 
@@ -28,30 +28,30 @@ const TermsCondition = () => {
   return (
     <>
       <NavBarContainer />
-     
 
-{termCondition ? (
-  <div>
-    <div className="policy_heading">
-      <h2>{termCondition.title}</h2>
-    </div>
-    <Container>
-      <div  className="policy_con">
-   
-          <p>Last updated: {formattedDate}</p>
-    
-      <div
+
+      {termCondition ? (
+        <div>
+          <div className="policy_heading">
+            <h2>{termCondition.title}</h2>
+          </div>
+          <Container>
+            <div className="policy_con">
+
+              <p>Last updated: {formattedDate}</p>
+
+              <div
                 dangerouslySetInnerHTML={{
                   __html: termCondition.termscondition,
                 }}
               ></div>
-      </div>
-    
-    </Container>
-  </div>
-) : (
-  <p>Loading...</p>
-)}
+            </div>
+
+          </Container>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
 
 
       <Footer />

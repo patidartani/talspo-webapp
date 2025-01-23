@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import { fetchBlogDetail } from '../../apiService';
-import Loading from '../../pages/loading/Loading'; 
+import Loading from '../../pages/loading/Loading';
 import "./BlogDetail.css";
 import Footer from "../../pages/Footer/Footer";
 
@@ -45,7 +45,7 @@ const BlogDetail = () => {
     getBlogDetail();
   }, [id]);
 
-  if (loading) return <Loading />;  
+  if (loading) return <Loading />;
   if (error) return <p>There was an error loading the blog details. Please try again later.</p>;
 
   const { cleanTextWithImages, images } = parseDescription(blogDetail?.description || '');
@@ -62,8 +62,8 @@ const BlogDetail = () => {
               <small>{blogDetail?.category}</small> <span>{blogDetail?.subtitle}</span>
             </div>
             <h6>{blogDetail?.contant}</h6>
-            
-            <div className="description-text" dangerouslySetInnerHTML={{ __html: cleanTextWithImages }} />       
+
+            <div className="description-text" dangerouslySetInnerHTML={{ __html: cleanTextWithImages }} />
           </div>
         </div>
       </div>

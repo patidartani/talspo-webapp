@@ -3,8 +3,8 @@ import { Container } from 'react-bootstrap'
 import NavBarContainer from "../../NavbarCom/NavBarContainer";
 import Footer from "../../Footer/Footer";
 import "../privacyPolicy/EULA.css"
-import {fetchEULAPolicy} from "../../../apiService"
-import  { useEffect, useState } from "react";
+import { fetchEULAPolicy } from "../../../apiService"
+import { useEffect, useState } from "react";
 
 const EULA = () => {
   const currentDate = new Date();
@@ -29,30 +29,30 @@ const EULA = () => {
       <NavBarContainer />
 
       {eulaPolicy ? (
-  <div>
-    <div className="policy_heading">
-      <h2>{eulaPolicy.title}</h2>
-    </div>
-    <Container>
-      <div  className="policy_con">
-   
-          <p>Last updated: {formattedDate}</p>
-    
-      <div
+        <div>
+          <div className="policy_heading">
+            <h2>{eulaPolicy.title}</h2>
+          </div>
+          <Container>
+            <div className="policy_con">
+
+              <p>Last updated: {formattedDate}</p>
+
+              <div
                 dangerouslySetInnerHTML={{
                   __html: eulaPolicy.description,
                 }}
               ></div>
-      </div>
-    
-    </Container>
-  </div>
-) : (
-  <p>Loading...</p>
-)}
+            </div>
 
-      
-     <Footer />
+          </Container>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
+
+
+      <Footer />
     </>
   )
 }

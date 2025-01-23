@@ -1,4 +1,3 @@
-
 .AboutUs-container {
         width: 100%;
         height: auto;
@@ -46,19 +45,16 @@
         font-size: 1.6vmax;
         letter-spacing: 0.3px;
 }
-
 .AboutUs-container .about-content .about-top .a-right {
         width: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
 }
-
 .AboutUs-container .about-content .about-top .a-right iframe {
         width: 85%;
         height: 300px;
 }
-
 .AboutUs-container .about-content .about-btm {
         width: 100%;
         display: flex;
@@ -70,7 +66,7 @@
         border-bottom: 1px solid #bfbfbf;
 
 }
-.AboutUs-container .about-content .about-btm .tabs-about{
+.AboutUs-container .about-content .about-btm .tabs-about {
         width: 100%;
         display: flex;
         align-items: center;
@@ -79,12 +75,13 @@
         gap: 0.3vmax;
         margin-top: 3.5vmax;
 }
-.AboutUs-container .about-content .about-btm .tabs-about   .about-tab,
-.AboutUs-container .about-content .about-btm .tabs-about   .journey-tab,
-.AboutUs-container .about-content .about-btm .tabs-about   .values-tab,
+
+.AboutUs-container .about-content .about-btm .tabs-about .about-tab,
+.AboutUs-container .about-content .about-btm .tabs-about .journey-tab,
+.AboutUs-container .about-content .about-btm .tabs-about .values-tab,
 .AboutUs-container .about-content .about-btm .tabs-about .logo-story-tab,
 .AboutUs-container .about-content .about-btm .tabs-about .ipr-tab,
-.AboutUs-container .about-content .about-btm .tabs-about .recognition-tab{
+.AboutUs-container .about-content .about-btm .tabs-about .recognition-tab {
         border: none;
         font-size: 1.3vmax;
         color: #393939;
@@ -92,13 +89,11 @@
         border-radius: 50px;
         padding: 0.3vmax 1.2vmax;
 }
-
 .tabs-about button.active {
         background-color: #003266;
         color: #fff !important;
 }
-
-.AboutUs-container .about-content .about-btm .tabs-content{
+.AboutUs-container .about-content .about-btm .tabs-content {
         width: 100%;
         display: flex;
         align-items: flex-start;
@@ -109,28 +104,30 @@
         background-color: #fff;
         padding: 1vmax;
         margin-bottom: 7vmax;
-        
+
 }
-.journey-tab-content h5{
-   font-size: 1.3vmax;
-   font-weight: 600;
-   letter-spacing: 0.3px;
+.journey-tab-content h5 {
+        font-size: 1.3vmax;
+        font-weight: 600;
+        letter-spacing: 0.3px;
 }
+
 .recognition-tab-content h6,
 .ipr-tab-content h6,
-.logo-story-tab-content h6{
+.logo-story-tab-content h6 {
         font-size: 1.4vmax;
         font-weight: 600;
 }
+
 /* -----------------------logo story slider------------------------------------------------- */
-.logo-story-tab-content{
+.logo-story-tab-content {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
 }
-/* Parent container styling */
+
 .logo-story-slider {
         width: 100%;
         display: flex;
@@ -138,90 +135,97 @@
         justify-content: center;
         margin-top: 1vmax;
         margin-bottom: 1vmax;
-      }
-  .carousel{
+}
+.carousel {
         width: 100%;
-  } 
- /* Adjust the image size and center it */
+}
 .carousel-item img {
-        width: auto; /* Ensure the image's aspect ratio is maintained */
-        max-width: 80%; /* Set a maximum width to make the image smaller */
-        height: 400px; /* Allow the height to scale with the width */
-        margin: 0 auto; /* Center the image horizontally */
-        display: block; /* Ensure the image behaves as a block-level element */
-        transition: none; 
-        transform: none; 
-        
-      }
-      
-      /* Optionally, adjust the height of the carousel-item to fit the new image size */
-      .carousel-item {
+        width: auto;
+        max-width: 80%;
+        height: 400px;
+        margin: 0 auto;
+        display: block;
+        transition: none;
+        transform: none;
+
+}
+.carousel-item {
         width: 80%;
-        height: auto; /* Allow the height to adjust based on the image's aspect ratio */
+        height: auto;
         display: flex;
-        justify-content: center; /* Ensure the content inside is centered */
-        align-items: center; /* Align the image vertically in the center */
+        justify-content: center;
+        align-items: center;
         padding: 10px;
-      }
-      
-     .carousel-control-prev, .carousel-control-next {
-        color: #fff !important; 
-        background: #000 !important; 
+}
+.carousel-control-prev,
+.carousel-control-next {
+        color: #fff !important;
+        background: #000 !important;
         width: 40px !important;
-        height: 40px; 
-        border-radius: 50px; 
+        height: 40px;
+        border-radius: 50px;
         padding: 0.1vmax 1vmax;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
         top: 40% !important;
-      }    
-      .carousel-control-prev:hover, .carousel-control-next:hover {
+}
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
         color: #000;
-      }    
-      .carousel-control-prev-icon, .carousel-control-next-icon {
-        filter: invert(1); 
-      }
-      .carousel-control-prev {
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+        filter: invert(1);
+}
+
+.carousel-control-prev {
         left: -50px;
-      }     
-      .carousel-control-next {
+}
+
+.carousel-control-next {
         right: -50px;
-      }
-      .carousel-item {
+}
+
+.carousel-item {
         padding: 10px;
-      }   
+}
+
 /* ----------------------------------------------------------------------------- */
-.AboutUs-container .about-content .about-btm .journey-data{
+.AboutUs-container .about-content .about-btm .journey-data {
         width: 100%;
         height: auto;
         display: flex;
         align-items: flex-start;
-        justify-content:space-between;
+        justify-content: space-between;
         flex-direction: row;
         gap: 1vmax;
         margin-top: 2vmax;
         position: relative;
 }
+
 .AboutUs-container .about-content .about-btm .journey-data .scroll-line {
         width: 1%;
-        height: auto; /* Adjust height as needed */
+        height: auto;
+        /* Adjust height as needed */
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-      }
-      
-      .AboutUs-container .about-content .about-btm .journey-data .scroll-line .scroll-indicator {
-        width: 20%; 
+}
+
+.AboutUs-container .about-content .about-btm .journey-data .scroll-line .scroll-indicator {
+        width: 20%;
         height: 30px;
         background: #393939;
         position: absolute;
-        transition: top 0.3s ease; /* Smooth animation when changing position */
-      }
-      
-.AboutUs-container .about-content .about-btm .journey-data .journey-left{
+        transition: top 0.3s ease;
+        /* Smooth animation when changing position */
+}
+
+.AboutUs-container .about-content .about-btm .journey-data .journey-left {
         width: 15%;
         height: auto;
         display: flex;
@@ -230,19 +234,21 @@
         flex-direction: column;
         gap: 1vmax;
 }
-.AboutUs-container .about-content .about-btm .journey-data .journey-left h6{
-       cursor: pointer;
-       background-color: #003266;
-       padding: 0.5vmax 1vmax;
-       border-radius: 50px;
-       color: #fff;
+
+.AboutUs-container .about-content .about-btm .journey-data .journey-left h6 {
+        cursor: pointer;
+        background-color: #003266;
+        padding: 0.5vmax 1vmax;
+        border-radius: 50px;
+        color: #fff;
 }
+
 .AboutUs-container .about-content .about-btm .journey-data .journey-left h6.active-year {
-      background-color: #393939;
-      color: #bfbfbf;
-      }
-      
-.AboutUs-container .about-content .about-btm .journey-data .journey-right{
+        background-color: #393939;
+        color: #bfbfbf;
+}
+
+.AboutUs-container .about-content .about-btm .journey-data .journey-right {
         width: 80%;
         height: auto;
         display: flex;
@@ -251,7 +257,8 @@
         flex-direction: column;
         /* overflow: hidden; */
 }
-.AboutUs-container .about-content .about-btm .journey-data .journey-right .journey-scroll{
+
+.AboutUs-container .about-content .about-btm .journey-data .journey-right .journey-scroll {
         width: 100%;
         height: auto;
         /* overflow-y: auto; */
@@ -260,7 +267,7 @@
         justify-content: flex-start;
         flex-direction: column;
 }
-.AboutUs-container .about-content .about-btm .journey-data .journey-right .j-one{
+.AboutUs-container .about-content .about-btm .journey-data .journey-right .j-one {
         width: 100%;
         display: flex;
         align-items: flex-start;
@@ -269,33 +276,33 @@
         border-bottom: 1px solid #b1b1b1;
         padding-bottom: 1vmax;
 }
-.AboutUs-container .about-content .about-btm .journey-data .journey-right .j-one img{
-       width: 90%;
+.AboutUs-container .about-content .about-btm .journey-data .journey-right .j-one img {
+        width: 90%;
 }
-
 /* ---------------------------------------------------------------------- */
-
-
-.AboutUs-container .extra-content{
+.AboutUs-container .extra-content {
         width: 70%;
         gap: 2vmax;
 }
-.AboutUs-container .extra-content h5{
-       font-size: 1.7vmax;
-       font-weight: 600;
+.AboutUs-container .extra-content h5 {
+        font-size: 1.7vmax;
+        font-weight: 600;
 }
-.AboutUs-container .extra-content p{
+
+.AboutUs-container .extra-content p {
         font-size: 1.3vmax;
         font-weight: 600;
- }
- .AboutUs-container .extra-content small{
+}
+
+.AboutUs-container .extra-content small {
         font-size: 1vmax;
         letter-spacing: 0.5px;
- }
-.AboutUs-container .extra-content .extra-two{
+}
+
+.AboutUs-container .extra-content .extra-two {
         margin-top: 2.5vmax;
- }
- .AboutUs-container .extra-content .extra-two  .two-extra{
+}
+.AboutUs-container .extra-content .extra-two .two-extra {
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -305,42 +312,40 @@
         background: #fff;
         padding: 2vmax;
         margin-top: 1vmax;
- }
- .AboutUs-container .extra-content .extra-two  .two-extra .extraLeft,
- .AboutUs-container .extra-content .extra-two  .two-extra .extraRight{       
+}
+.AboutUs-container .extra-content .extra-two .two-extra .extraLeft,
+.AboutUs-container .extra-content .extra-two .two-extra .extraRight {
         width: 50%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
- }
- .AboutUs-container .extra-content .extra-two  .two-extra .extraLeft h6,
- .AboutUs-container .extra-content .extra-two  .two-extra .extraRight h6{      
-      font-size: 1.5vmax;
- }
- .AboutUs-container .extra-content  h4{
-      font-size: 1.1vmax;
-      margin-top: 2vmax;
-      color: #535353;
- }
+}
 
- .AboutUs-container .extra-content .know-team-btn{
+.AboutUs-container .extra-content .extra-two .two-extra .extraLeft h6,
+.AboutUs-container .extra-content .extra-two .two-extra .extraRight h6 {
+        font-size: 1.5vmax;
+}
+.AboutUs-container .extra-content h4 {
+        font-size: 1.1vmax;
+        margin-top: 2vmax;
+        color: #535353;
+}
+.AboutUs-container .extra-content .know-team-btn {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
- }
- .AboutUs-container .extra-content .know-team-btn button{
-      border: none;
-      background-color: #003266;
-      color: #fff;
-      padding: 0.7vmax 2vmax;
-      border-radius: 10px;
- }
-
+}
+.AboutUs-container .extra-content .know-team-btn button {
+        border: none;
+        background-color: #003266;
+        color: #fff;
+        padding: 0.7vmax 2vmax;
+        border-radius: 10px;
+}
 /* ---------------------------slider about---------------------------- */
-
-.AboutUs-container .slider-about{
+.AboutUs-container .slider-about {
         width: 50%;
         display: flex;
         align-items: center;
@@ -352,41 +357,39 @@
 .AboutUs-container .slider-container {
         width: 100%;
         overflow: visible;
-        position: relative; 
-    }
-    
-    .AboutUs-container .slick-slider {
-        margin: 0 auto; 
-    }
-    
-    .AboutUs-container .slick-slide {
-        padding: 0 13px; 
+        position: relative;
+}
+.AboutUs-container .slick-slider {
+        margin: 0 auto;
+}
+.AboutUs-container .slick-slide {
+        padding: 0 13px;
         box-sizing: border-box;
-    }
-    
-    .AboutUs-container .extra-slide {
+}
+
+.AboutUs-container .extra-slide {
         border: 4px solid red;
-        width: 100%; 
-background-color: yellow;
+        width: 100%;
+        background-color: yellow;
         height: 200px;
         border-radius: 20px;
         display: flex;
         align-items: center !important;
-        justify-content: center !important; 
+        justify-content: center !important;
         flex-direction: column;
         cursor: pointer;
-    }
-    .AboutUs-container .extra-slide   .extra-slide-image{
+}
+.AboutUs-container .extra-slide .extra-slide-image {
         width: 100%;
         height: 120px;
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    .AboutUs-container .extra-slide img{
-       width: 30%;
-    }
-    .AboutUs-container .extra-slide a{
+}
+.AboutUs-container .extra-slide img {
+        width: 30%;
+}
+.AboutUs-container .extra-slide a {
         width: 100%;
         height: auto;
         overflow: hidden;
@@ -394,34 +397,30 @@ background-color: yellow;
         font-weight: 600;
         text-decoration: none;
         color: #000;
-     }
-    
-/* Container for arrows */
+}
 .AboutUs-container .slick-prev,
 .AboutUs-container .slick-next {
-    width: 30px; /* Adjust size */
-    height: 30px;
-    color: #000; /* Icon color */
-    border-radius: 50%; /* Make it circular */
-    border: 2px solid black; /* Add a border */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1; /* Ensure they are above other elements */
+        width: 30px;
+        height: 30px;
+        color: #000;
+        border-radius: 50%;
+        border: 2px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
 }
 .AboutUs-container .slick-prev {
-    left: -50px; /* Adjust positioning */
+        left: -50px;
 }
 .AboutUs-container .slick-next {
-    right: -50px; /* Adjust positioning */
+        right: -50px;
 }
 .AboutUs-container .slick-prev::before,
 .AboutUs-container .slick-next::before {
-    content: ''; /* Removes the default arrow content */
+        content: '';
 }
-
-
-.AboutUs-container .qr-code-about{
+.AboutUs-container .qr-code-about {
         margin-top: 2vmax;
         width: 80%;
         display: flex;
@@ -430,355 +429,410 @@ background-color: yellow;
         flex-direction: column;
         gap: 1vmax;
 }
-.AboutUs-container .qr-code-about img{
+.AboutUs-container .qr-code-about img {
         width: 20%;
 }
-.AboutUs-container .qr-code-about button{
-      border: none;
-      background-color: #003266;
-      color: #fff;
-      padding: 0.6vmax 1vmax;
-      border-radius: 10px;
+.AboutUs-container .qr-code-about button {
+        border: none;
+        background-color: #003266;
+        color: #fff;
+        padding: 0.6vmax 1vmax;
+        border-radius: 10px;
 }
-.AboutUs-container .qr-code-about h6{
+.AboutUs-container .qr-code-about h6 {
         font-weight: 600;
         font-size: 1.5vmax;
         margin-top: 1vmax;
-  }
-  .AboutUs-container .qr-code-about h5{
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: row;
-      margin-top: 2vmax;
-      gap: 1vmax;
-   border-bottom: 1px solid rgb(118, 118, 118);
-      margin-bottom: 2vmax;
-  }
-  .AboutUs-container .qr-code-about h5 a{
-     width: 100%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-    }
-    .AboutUs-container .qr-code-about h5 a img{
-        width: 30%;
-       }
-
-@media (max-width:600px) {
-    
-.AboutUs-container {
-        width: 100%
 }
-
-.AboutUs-container .about-content {
-        width: 95%;
-        padding-top: 7vmax;
-}
-
-.AboutUs-container .about-content .about-top {
+.AboutUs-container .qr-code-about h5 {
         width: 100%;
-        height: auto;
-        flex-direction: column;
-}
-.AboutUs-container .about-content .about-top .a-left  {
-
-     width: 100%;
-}
-.AboutUs-container .about-content .about-top .a-left h6 {
-        font-size: 4vmax;
-}
-.AboutUs-container .about-content .about-top .a-left p {
-        font-size: 2vmax;
-}
-.AboutUs-container .about-content .about-top .a-right {
-        width: 100%;
-}
-.AboutUs-container .about-content .about-top .a-right iframe {
-        width: 100%;
-}
-.AboutUs-container .about-content .about-btm {
-        width: 98%;
+        display: flex;
         align-items: center;
-}
-.AboutUs-container .about-content .about-btm .tabs-about{
-        width: 100%;
-        align-items: center;
-        gap: 0.5vmax;
-}
-.AboutUs-container .about-content .about-btm .tabs-about   .about-tab,
-.AboutUs-container .about-content .about-btm .tabs-about   .journey-tab,
-.AboutUs-container .about-content .about-btm .tabs-about   .values-tab,
-.AboutUs-container .about-content .about-btm .tabs-about .logo-story-tab,
-.AboutUs-container .about-content .about-btm .tabs-about .ipr-tab,
-.AboutUs-container .about-content .about-btm .tabs-about .recognition-tab{
-        font-size: 1.2vmax;
-        letter-spacing: 0px;
-}
-.tabs-about button.active {
-        background-color: #003266;
-        color: #fff !important;
-}
-
-.ipr-tab-content,
-.recognition-tab-content{
-         width: 100%;
-}
-.ipr-tab-content h6,
-.recognition-tab-content h6{
-
-     font-size: 3vmax;
-     text-align: center;
-}
-.ipr-tab-content p,
-.recognition-tab-content p{
-        font-size: 2vmax;
-        text-align: center;
-   }
-.ipr-tab-content img,
-.recognition-tab-content img{
-        width: 100%;
-}
-
-
-/* ---------------------------slider about---------------------------- */
-
-.AboutUs-container .slider-about{
-        width: 70%
-} 
-    .AboutUs-container .extra-slide {
-        height: auto;
-    }
-    .AboutUs-container .extra-slide   .extra-slide-image{
-        width: 100%;
-        height: auto;
+        justify-content: center;
+        flex-direction: row;
         margin-top: 2vmax;
-    }
-    .AboutUs-container .extra-slide a{
-        font-size: 2.5vmax
-     }
-
-.AboutUs-container .qr-code-about{
-        width: 80%;
+        gap: 1vmax;
+        border-bottom: 1px solid rgb(118, 118, 118);
+        margin-bottom: 2vmax;
 }
-.AboutUs-container .qr-code-about img{
-        width: 90%;
-}
-.AboutUs-container .qr-code-about button{
-      padding: 1.4vmax 2vmax;
-      margin-top: 2vmax;
-}
-.AboutUs-container .qr-code-about h6{
-        font-size: 3vmax;
-  }
-  .AboutUs-container .qr-code-about h5{
-      width: 100%;
-      overflow: hidden;
-      flex-wrap: wrap;
-  }
-  .AboutUs-container .qr-code-about h5 a{
-     width: 100%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-    }
-    .AboutUs-container .qr-code-about h5 a img{
-        width: 10%;
-       }
-
-
-/* ---------------------------------------------------------------------- */
-
-
-.AboutUs-container .extra-content{
-        width: 90%;
-}
-.AboutUs-container .extra-content h5{
-       font-size: 3vmax;
-}
-.AboutUs-container .extra-content p{
-        font-size: 1.5vmax;
- }
- .AboutUs-container .extra-content small{
-        font-size: 1.7vmax;
- }
-.AboutUs-container .extra-content .extra-two{
-        margin-top: 2.5vmax;
- }
- .AboutUs-container .extra-content .extra-two  .two-extra{ 
-        flex-direction: column;
- }
- .AboutUs-container .extra-content .extra-two  .two-extra .extraLeft,
- .AboutUs-container .extra-content .extra-two  .two-extra .extraRight{       
+.AboutUs-container .qr-code-about h5 a {
         width: 100%;
- }
- .AboutUs-container .extra-content .extra-two  .two-extra .extraLeft h6,
- .AboutUs-container .extra-content .extra-two  .two-extra .extraRight h6{      
-      font-size: 2.5vmax;
- }
- .AboutUs-container .extra-content  h4{
-      font-size: 1.7vmax;
- }
-
-   
+        display: flex;
+        align-items: center;
+        justify-content: center;
 }
-@media (min-width:600px) and (max-width:1150px) {
-    
+.AboutUs-container .qr-code-about h5 a img {
+        width: 30%;
+}
+@media (max-width:600px) {
+
         .AboutUs-container {
                 width: 100%
         }
-        
+
         .AboutUs-container .about-content {
                 width: 95%;
                 padding-top: 7vmax;
         }
-        
+
         .AboutUs-container .about-content .about-top {
                 width: 100%;
                 height: auto;
                 flex-direction: column;
         }
-        .AboutUs-container .about-content .about-top .a-left  {
-        
-             width: 100%;
+
+        .AboutUs-container .about-content .about-top .a-left {
+
+                width: 100%;
         }
+
         .AboutUs-container .about-content .about-top .a-left h6 {
                 font-size: 4vmax;
         }
+
         .AboutUs-container .about-content .about-top .a-left p {
                 font-size: 2vmax;
         }
+
         .AboutUs-container .about-content .about-top .a-right {
                 width: 100%;
         }
+
         .AboutUs-container .about-content .about-top .a-right iframe {
                 width: 100%;
         }
+
         .AboutUs-container .about-content .about-btm {
                 width: 98%;
                 align-items: center;
         }
-        .AboutUs-container .about-content .about-btm .tabs-about{
+
+        .AboutUs-container .about-content .about-btm .tabs-about {
                 width: 100%;
                 align-items: center;
                 gap: 0.5vmax;
         }
-        .AboutUs-container .about-content .about-btm .tabs-about   .about-tab,
-        .AboutUs-container .about-content .about-btm .tabs-about   .journey-tab,
-        .AboutUs-container .about-content .about-btm .tabs-about   .values-tab,
+
+        .AboutUs-container .about-content .about-btm .tabs-about .about-tab,
+        .AboutUs-container .about-content .about-btm .tabs-about .journey-tab,
+        .AboutUs-container .about-content .about-btm .tabs-about .values-tab,
         .AboutUs-container .about-content .about-btm .tabs-about .logo-story-tab,
         .AboutUs-container .about-content .about-btm .tabs-about .ipr-tab,
-        .AboutUs-container .about-content .about-btm .tabs-about .recognition-tab{
+        .AboutUs-container .about-content .about-btm .tabs-about .recognition-tab {
                 font-size: 1.2vmax;
                 letter-spacing: 0px;
         }
+
         .tabs-about button.active {
                 background-color: #003266;
                 color: #fff !important;
         }
-        
+
         .ipr-tab-content,
-        .recognition-tab-content{
-                 width: 100%;
-        }
-        .ipr-tab-content h6,
-        .recognition-tab-content h6{
-        
-             font-size: 3vmax;
-             text-align: center;
-        }
-        .ipr-tab-content p,
-        .recognition-tab-content p{
-                font-size: 2vmax;
-                text-align: center;
-           }
-        .ipr-tab-content img,
-        .recognition-tab-content img{
+        .recognition-tab-content {
                 width: 100%;
         }
-        
-        
+
+        .ipr-tab-content h6,
+        .recognition-tab-content h6 {
+
+                font-size: 3vmax;
+                text-align: center;
+        }
+
+        .ipr-tab-content p,
+        .recognition-tab-content p {
+                font-size: 2vmax;
+                text-align: center;
+        }
+
+        .ipr-tab-content img,
+        .recognition-tab-content img {
+                width: 100%;
+        }
+
+
         /* ---------------------------slider about---------------------------- */
-        
-        .AboutUs-container .slider-about{
-                width: 80%
-        } 
-            .AboutUs-container .extra-slide {
+
+        .AboutUs-container .slider-about {
+                width: 70%
+        }
+
+        .AboutUs-container .extra-slide {
                 height: auto;
-            }
-            .AboutUs-container .extra-slide   .extra-slide-image{
+        }
+
+        .AboutUs-container .extra-slide .extra-slide-image {
                 width: 100%;
                 height: auto;
                 margin-top: 2vmax;
-            }
-            .AboutUs-container .extra-slide a{
+        }
+
+        .AboutUs-container .extra-slide a {
                 font-size: 2.5vmax
-             }
-        
-        .AboutUs-container .qr-code-about{
+        }
+
+        .AboutUs-container .qr-code-about {
                 width: 80%;
         }
-        .AboutUs-container .qr-code-about img{
+
+        .AboutUs-container .qr-code-about img {
                 width: 90%;
         }
-        .AboutUs-container .qr-code-about button{
-              padding: 1.4vmax 2vmax;
-              margin-top: 2vmax;
+
+        .AboutUs-container .qr-code-about button {
+                padding: 1.4vmax 2vmax;
+                margin-top: 2vmax;
         }
-        .AboutUs-container .qr-code-about h6{
+
+        .AboutUs-container .qr-code-about h6 {
                 font-size: 3vmax;
-          }
-          .AboutUs-container .qr-code-about h5{
-              width: 100%;
-              overflow: hidden;
-              flex-wrap: wrap;
-          }
-          .AboutUs-container .qr-code-about h5 a{
-             width: 100%;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-            }
-            .AboutUs-container .qr-code-about h5 a img{
+        }
+
+        .AboutUs-container .qr-code-about h5 {
+                width: 100%;
+                overflow: hidden;
+                flex-wrap: wrap;
+        }
+
+        .AboutUs-container .qr-code-about h5 a {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+        }
+
+        .AboutUs-container .qr-code-about h5 a img {
                 width: 10%;
-               }
-        
-        
+        }
+
+
         /* ---------------------------------------------------------------------- */
-        
-        
-        .AboutUs-container .extra-content{
+
+
+        .AboutUs-container .extra-content {
                 width: 90%;
         }
-        .AboutUs-container .extra-content h5{
-               font-size: 3vmax;
+
+        .AboutUs-container .extra-content h5 {
+                font-size: 3vmax;
         }
-        .AboutUs-container .extra-content p{
+
+        .AboutUs-container .extra-content p {
                 font-size: 1.5vmax;
-         }
-         .AboutUs-container .extra-content small{
+        }
+
+        .AboutUs-container .extra-content small {
                 font-size: 1.7vmax;
-         }
-        .AboutUs-container .extra-content .extra-two{
+        }
+
+        .AboutUs-container .extra-content .extra-two {
                 margin-top: 2.5vmax;
-         }
-         .AboutUs-container .extra-content .extra-two  .two-extra{ 
+        }
+
+        .AboutUs-container .extra-content .extra-two .two-extra {
                 flex-direction: column;
-         }
-         .AboutUs-container .extra-content .extra-two  .two-extra .extraLeft,
-         .AboutUs-container .extra-content .extra-two  .two-extra .extraRight{       
+        }
+
+        .AboutUs-container .extra-content .extra-two .two-extra .extraLeft,
+        .AboutUs-container .extra-content .extra-two .two-extra .extraRight {
                 width: 100%;
-         }
-         .AboutUs-container .extra-content .extra-two  .two-extra .extraLeft h6,
-         .AboutUs-container .extra-content .extra-two  .two-extra .extraRight h6{      
-              font-size: 2.5vmax;
-         }
-         .AboutUs-container .extra-content  h4{
-              font-size: 1.7vmax;
-         }
-        
-           
+        }
+
+        .AboutUs-container .extra-content .extra-two .two-extra .extraLeft h6,
+        .AboutUs-container .extra-content .extra-two .two-extra .extraRight h6 {
+                font-size: 2.5vmax;
+        }
+
+        .AboutUs-container .extra-content h4 {
+                font-size: 1.7vmax;
         }
 
 
+}
+@media (min-width:600px) and (max-width:1150px) {
+
+        .AboutUs-container {
+                width: 100%
+        }
+
+        .AboutUs-container .about-content {
+                width: 95%;
+                padding-top: 7vmax;
+        }
+
+        .AboutUs-container .about-content .about-top {
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+        }
+
+        .AboutUs-container .about-content .about-top .a-left {
+
+                width: 100%;
+        }
+
+        .AboutUs-container .about-content .about-top .a-left h6 {
+                font-size: 4vmax;
+        }
+
+        .AboutUs-container .about-content .about-top .a-left p {
+                font-size: 2vmax;
+        }
+
+        .AboutUs-container .about-content .about-top .a-right {
+                width: 100%;
+        }
+
+        .AboutUs-container .about-content .about-top .a-right iframe {
+                width: 100%;
+        }
+
+        .AboutUs-container .about-content .about-btm {
+                width: 98%;
+                align-items: center;
+        }
+
+        .AboutUs-container .about-content .about-btm .tabs-about {
+                width: 100%;
+                align-items: center;
+                gap: 0.5vmax;
+        }
+
+        .AboutUs-container .about-content .about-btm .tabs-about .about-tab,
+        .AboutUs-container .about-content .about-btm .tabs-about .journey-tab,
+        .AboutUs-container .about-content .about-btm .tabs-about .values-tab,
+        .AboutUs-container .about-content .about-btm .tabs-about .logo-story-tab,
+        .AboutUs-container .about-content .about-btm .tabs-about .ipr-tab,
+        .AboutUs-container .about-content .about-btm .tabs-about .recognition-tab {
+                font-size: 1.2vmax;
+                letter-spacing: 0px;
+        }
+
+        .tabs-about button.active {
+                background-color: #003266;
+                color: #fff !important;
+        }
+
+        .ipr-tab-content,
+        .recognition-tab-content {
+                width: 100%;
+        }
+
+        .ipr-tab-content h6,
+        .recognition-tab-content h6 {
+
+                font-size: 3vmax;
+                text-align: center;
+        }
+
+        .ipr-tab-content p,
+        .recognition-tab-content p {
+                font-size: 2vmax;
+                text-align: center;
+        }
+
+        .ipr-tab-content img,
+        .recognition-tab-content img {
+                width: 100%;
+        }
+
+
+        /* ---------------------------slider about---------------------------- */
+
+        .AboutUs-container .slider-about {
+                width: 80%
+        }
+
+        .AboutUs-container .extra-slide {
+                height: auto;
+        }
+
+        .AboutUs-container .extra-slide .extra-slide-image {
+                width: 100%;
+                height: auto;
+                margin-top: 2vmax;
+        }
+
+        .AboutUs-container .extra-slide a {
+                font-size: 2.5vmax
+        }
+
+        .AboutUs-container .qr-code-about {
+                width: 80%;
+        }
+
+        .AboutUs-container .qr-code-about img {
+                width: 90%;
+        }
+
+        .AboutUs-container .qr-code-about button {
+                padding: 1.4vmax 2vmax;
+                margin-top: 2vmax;
+        }
+
+        .AboutUs-container .qr-code-about h6 {
+                font-size: 3vmax;
+        }
+
+        .AboutUs-container .qr-code-about h5 {
+                width: 100%;
+                overflow: hidden;
+                flex-wrap: wrap;
+        }
+
+        .AboutUs-container .qr-code-about h5 a {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+        }
+
+        .AboutUs-container .qr-code-about h5 a img {
+                width: 10%;
+        }
+
+
+        /* ---------------------------------------------------------------------- */
+
+
+        .AboutUs-container .extra-content {
+                width: 90%;
+        }
+
+        .AboutUs-container .extra-content h5 {
+                font-size: 3vmax;
+        }
+
+        .AboutUs-container .extra-content p {
+                font-size: 1.5vmax;
+        }
+
+        .AboutUs-container .extra-content small {
+                font-size: 1.7vmax;
+        }
+
+        .AboutUs-container .extra-content .extra-two {
+                margin-top: 2.5vmax;
+        }
+
+        .AboutUs-container .extra-content .extra-two .two-extra {
+                flex-direction: column;
+        }
+
+        .AboutUs-container .extra-content .extra-two .two-extra .extraLeft,
+        .AboutUs-container .extra-content .extra-two .two-extra .extraRight {
+                width: 100%;
+        }
+
+        .AboutUs-container .extra-content .extra-two .two-extra .extraLeft h6,
+        .AboutUs-container .extra-content .extra-two .two-extra .extraRight h6 {
+                font-size: 2.5vmax;
+        }
+
+        .AboutUs-container .extra-content h4 {
+                font-size: 1.7vmax;
+        }
+
+
+}

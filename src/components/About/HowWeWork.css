@@ -37,6 +37,11 @@
 .HowWeWork-main .how-tp .how-right img{
           width: 100%;
 }
+.HowWeWork-main .media{
+    margin-top: 2vmax;
+    margin-bottom: 1vmax;
+    width: 80%;
+}
 .HowWeWork-main .how-btm{
           width: 80%;
           display: flex;

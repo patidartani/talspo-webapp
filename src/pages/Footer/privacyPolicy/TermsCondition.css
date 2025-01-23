@@ -10,7 +10,6 @@
     background: #003266;
     color:#fff;
 }
-
 .condition_heading h1{
     width: 85%;
     display: flex;
@@ -23,14 +22,13 @@
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
   .terms-container {
     padding: 20px;
     margin-left: 15rem;
     margin-right: 15rem;
     color: #444;
   }
-  
+
   .terms-container h2 {
     margin-top: 20px;
     font-size: 1.5rem;

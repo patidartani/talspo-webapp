@@ -8,7 +8,6 @@ import Signup from './pages/SignUp/Signup'
 import Signin from './pages/SignIn/Signin'
 import Achive from './components/About/Achive'
 import Services from "./components/Services/Services"
-import LanguageTranslate from "./pages/LanguageTranslate"
 import DoPatnership from "./components/Join/DoPatnership"
 import JoinTeam from "./components/Join/JoinTeam"
 import Opportunity from "./components/Join/Opportunity"
@@ -61,7 +60,6 @@ const App = () => {
         <Route path="/talspo-here" element={<TalspoHere />} />
         <Route path="/tca" element={<Tca />} />
         <Route path="/blog-detail/:id" element={<BlogDetail />} />
-        <Route path='/language' element={<LanguageTranslate />} />
         <Route path='/loading' element={<Loading />} />
         <Route path="/opportunities" element={<Opportunity />} />
         <Route path="/view-detail/:id" element={<ViewDetail />} />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './HomeTwo.css';
 import { useNavigate } from 'react-router-dom';
 import { whoWeTwo } from '../../apiService';
@@ -6,7 +6,7 @@ import { whoWeTwo } from '../../apiService';
 const HomeTwo = () => {
   const navigate = useNavigate();
   const [whoWeData, setWhoWeData] = useState(null);
-  const [error, setError] = useState(null); // State for error handling
+  const [error, setError] = useState(null);
 
   const abouMove = () => {
     navigate('/about-us');
@@ -17,31 +17,28 @@ const HomeTwo = () => {
       try {
         const response = await whoWeTwo();
         if (response && response.records && response.records.length > 0) {
-          setWhoWeData(response.records[0]); // Set the first record
-          setError(null); // Clear any previous errors
+          setWhoWeData(response.records[0]);
+          setError(null); 
         } else {
-          throw new Error('No data available'); // Handle case when records array is empty
+          throw new Error('No data available');
         }
       } catch (error) {
         console.error('API Error:', error.message);
-        setError('Failed to load data. Please try again later.'); // Set error message
+        setError('Failed to load data. Please try again later.'); 
       }
     };
 
     whoweHandler();
   }, []);
 
-  // Show loading message while data is being fetched
   if (!whoWeData && !error) {
     return <p>Loading...</p>;
   }
 
-  // Show error message if there is an error
   if (error) {
     return <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>;
   }
 
-  // Render the component when data is successfully fetched
   return (
     <div className="HomeTwo_main">
       <div className="Home-Two">

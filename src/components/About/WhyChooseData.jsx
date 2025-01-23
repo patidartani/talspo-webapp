@@ -28,7 +28,6 @@ const WhyChooseData = () => {
                <h6>{item.title}</h6>
                <small>{item.points}</small>
           {/* <div dangerouslySetInnerHTML={{ __html: item?.points }} /> */}
-
             </div>
           ))
         ) : (

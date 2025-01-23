@@ -16,7 +16,7 @@ const Services = () => {
     const fetchServices = async () => {
       try {
         const response = await ourServices();
-        console.log("Response services:", response.records);
+        // console.log("Response services:", response.records);
 
         if (response.records.length === 0) {
           setErrorMessage("No data found for services."); // Set error message if no services are returned

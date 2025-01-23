@@ -19,8 +19,8 @@ const ViewDetail = () => {
                 const getJobDetail = async () => {
                   try {
                     const data = await fetchJobDetail(id);
-                    console.log('Fetched Job Data:', data); 
-                    console.log('postId', data.id )
+                    // console.log('Fetched Job Datail:', data); 
+
                     if (!data) throw new Error('No job details found.');
                     setJobDetail(data); 
                   } catch (err) {
@@ -38,11 +38,20 @@ const ViewDetail = () => {
         if (error) return <p className="error-message">Failed to load job details: {error.message}</p>;
       
         const FormHandler = () => {
-          navigate('/form', { state: { postId: jobDetail.id } });
+          navigate('/form', { state: { 
+             postId: jobDetail.id,
+            subtitle: jobDetail.subtitle,
+            title: jobDetail.title,
+            question_one: jobDetail.question_one,
+            question_two: jobDetail.question_two,
+            question_three: jobDetail.question_three,
+            question_four: jobDetail.question_four,
+            question_five: jobDetail.question_five,
+            question_six: jobDetail.question_six,
+
+           } });
         };
         
-
-       
   return (
    <>
    <NavbarContainer />
@@ -53,7 +62,7 @@ const ViewDetail = () => {
                          <h5>{jobDetail?.title}</h5>
                           <div className="overview">
                               <h6>Overview</h6>
-                              <p>We are seeking a passionate and skilled ReactJS Developer to join our team. This role involves building scalable and efficient web applications using cutting-edge technologies. You will collaborate with a dynamic team of developers, designers, and project managers to deliver impactful user experiences.</p>
+                              <p>{jobDetail.subtitle}</p>
                           </div>
                           
                           <div className="key-skills">
@@ -91,9 +100,6 @@ const ViewDetail = () => {
                              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas eum incidunt odio laborum, quam eos accusantium at? Incidunt totam sint eligendi, veniam, amet magnam fugit unde error possimus doloribus nostrum?</p>
                              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio aut quibusdam in provident cum officia dicta, animi veritatis explicabo est.</p>
                           </div>
-
-                         
-
                      </div>
                 </div> 
                 <div className="view-right">

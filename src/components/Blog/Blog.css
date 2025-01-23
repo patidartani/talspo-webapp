@@ -166,7 +166,7 @@
       border-bottom: 1px solid #b7b7b7;
       width: 100%;
       display: flex; /* Flex container for image and text */
-      align-items: center;
+      align-items: flex-start;
       justify-content: flex-start;
       gap: 2vmax;
       padding: 1vmax 0;
@@ -177,16 +177,17 @@
     /* Link Text Block */
     .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text {
       display: flex;
+      align-items: flex-start;
       flex-direction: column;
       justify-content: space-between;
       width: 70%; /* Adjust width as necessary */
-      gap: 1vmax;
+      gap: 0.1vmax;
     }
     
     /* Image Block */
     .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-img {
       width: 30%;
-      height: 150px;
+      height: 200px;
       background: #b9b9b9;
       border-radius: 10px;
       overflow: hidden;
@@ -206,18 +207,25 @@
     /* Date and Subtitle Styling */
     .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text .num {
       display: flex;
-      gap: 2vmax;
+      flex-direction: column;
+      margin-top: 0.5vmax;
+      gap: 0.4vmax;
     }
     
     .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text .num span {
-      background-color: #003266;
-      padding: 0.2vmax 1.5vmax;
       border-radius: 50px;
       color: #fff;
       font-size: 1vmax;
+      width: 100%;
+    }
+    .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text .num span small {
+      border-radius: 50px;
+      font-size: 0.9vmax;
+      background-color: #003266;
+      padding: 0.3vmax 0.5vmax;
     }
     .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text .num h1 {
-      font-size: 1vmax;
+      font-size: 0.9vmax;
       color: #7a7a7a;
     }
     .Blog-main .blogs .blog-container .blog-content .blog_list .list-blg .bl-text p {
@@ -236,7 +244,6 @@
           width: 100%;
           margin-top: 10vmax;
     }
-
 /* ---------------------------------------------------------------------------- */
 .extra-blog{
 width: 100%;
