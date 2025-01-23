@@ -42,7 +42,6 @@ const Opportunity = () => {
   useEffect(() => {
     const loadJobs = async () => {
       const fetchedJobs = await fetchJobPosts();
-      console.log('fetchedJobs', fetchedJobs)
       setJobs(fetchedJobs);
       setLoading(false);
     };
@@ -84,7 +83,7 @@ const Opportunity = () => {
       Math.sin(dLon / 2) *
       Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c; // Distance in kilometers
+    return R * c;
   };
 
   const handleSortJobsByLocation = async () => {
@@ -129,7 +128,7 @@ const Opportunity = () => {
         .filter(Boolean)
         .join('&');
 
-      const response = await fetch(`https://dev.talspo.com/admin/api/showcase/search?${queryParam}`);
+      const response = await fetch(`https://srninfotech.com/talspo/admin/api/showcase/search?${queryParam}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -236,12 +235,9 @@ const Opportunity = () => {
   };
 
   const clearAllSorts = async () => {
-
-
     await fetchFilters();
     const allJobs = await fetchJobPosts();
     setJobs(allJobs);
-    setLoading(false);
   }
 
   const handleLatestJobs = () => {
@@ -266,18 +262,17 @@ const Opportunity = () => {
   };
 
   const handleTitleSelect = (title) => {
-    setSearchInput(title); // Set the search input to the selected title
+    setSearchInput(title);
     setFilteredTitles([]);
-    setSelectedTitle(title); // Set the selected title
-    // Apply the filter based on the selected title
+    setSelectedTitle(title);
     fetchFilters(
       selectedLocation,
       selectedExperience,
       selectedJobtype,
       selectedWorkEnvironment,
       selectedDuration,
-      selectedSkills, // Ensure skills are passed as needed
-      title // Pass the title as the last parameter
+      selectedSkills,
+      title
     );
 
 
@@ -304,7 +299,17 @@ const Opportunity = () => {
           <div className="opportunity1">
             <div className="opt-left">
               <h5>Talspo Jobs</h5>
-              <p>Get a job at Talspo and contribute to building the "Next Level Of Talent Networking Platform and Talent Marketplace" of the World!</p>
+              <p>
+                We&apos;re excited to see your interest in helping Talspo build a &quot;Talent Collaboration-Based Marketplace Online (Real-Time)&quot;.
+                Our goal is to develop the Talent Connectivity NEARBY software application using the latest technologies, such as Artificial
+                Intelligence (AI), Machine Learning (ML), Deep Learning (DL), and Blockchain.
+                <strong>*Our technology is protected by Intellectual Property Rights (IPR), with a Patent Granted.</strong>
+              </p>
+              <p>
+                If you believe you possess any of the skills listed below, you could play a valuable role in helping us create
+                the &quot;Talent Discovery NEARBY (Real-Time)&quot; platform. Our team will get back to you as soon as you submit your
+                application for any open job positions or vacancies mentioned below.
+              </p>
             </div>
             <div className="opt-right">
               <img src={opt1Img} alt="" />

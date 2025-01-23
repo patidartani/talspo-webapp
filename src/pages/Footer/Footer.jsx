@@ -1,6 +1,7 @@
 import "./Footer.css";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <div className="Footer-main">
       <div className="top_add">
@@ -32,8 +33,8 @@ const Footer = () => {
             <a href="/term-of-use">Terms Of Use</a>
             <a href="/cookie-policy">Cookie Policy</a>
           </div>
-          <small> Talspo Private Limited © 2024 (All rights reserved) </small>
-        </div>
+          <small> Talspo Private Limited © {currentYear} (All rights reserved) </small>
+          </div>
         <div className="f-three">
           <h6>Developing In India(Bharat),</h6>
           <h6>Providing NEARBY Talent Connectivity Globally</h6>

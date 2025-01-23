@@ -3,6 +3,8 @@ import "./JoinTeam.css"
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
 import linkdin from "/assets/images/linkdin.png"
+import iconLogo from "/assets/images/logo-icon.png"
+
 import { joinTestimonials } from "../../apiService";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -12,6 +14,7 @@ import 'swiper/css/navigation';
 const JoinTeam = () => {
 
    // ---------------------testimonials api--------------------------------------------
+   
    const [testimonials, setTestimonials] = useState([]);
    useEffect(() => {
       const testimonialsApi = async () => {
@@ -25,7 +28,7 @@ const JoinTeam = () => {
       testimonialsApi();
    }, []);
 
-   // -----------------------------------------------------------------
+   // --------------------------------------------------------------------------------
 
    return (
       <>
@@ -47,42 +50,42 @@ const JoinTeam = () => {
             </div>
             {/* --------------------------------------- */}
             <div className="join3">
-   <h5>Testimonials</h5>
-   <div className="join3-slider">
-      {/* Check if testimonials data is available */}
-      {testimonials.length === 0 ? (
-         <div style={{ color: 'red', textAlign: 'center', margin: '20px 0' }}>
-            No testimonials available at the moment.
-         </div>
-      ) : (
-         <Swiper
-            slidesPerView={3} // Default view for larger screens
-            spaceBetween={20}
-            navigation={false}
-            modules={[Navigation]}
-            className="mySwiper"
-         >
-            {testimonials.map((testimonial) => (
-               <SwiperSlide key={testimonial.id}>
-                  <div className="join3-box">
-                     <img src={testimonial.icon} alt={testimonial.title} />
-                     <p>{testimonial.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
-                     <div className="box-text">
-                        <div className="circle">
-                           <img src={testimonial.image} alt={testimonial.title} />
-                        </div>
-                        <div className="text-name">
-                           <span>{testimonial.title}</span>
-                           <h6>{testimonial.subtitle}</h6>
-                        </div>
+               <h5>Testimonials</h5>
+               <div className="join3-slider">
+                  {/* Check if testimonials data is available */}
+                  {testimonials.length === 0 ? (
+                     <div style={{ color: 'red', textAlign: 'center', margin: '20px 0' }}>
+                        No testimonials available at the moment.
                      </div>
-                  </div>
-               </SwiperSlide>
-            ))}
-         </Swiper>
-      )}
-   </div>
-</div>
+                  ) : (
+                     <Swiper
+                        slidesPerView={3} 
+                        spaceBetween={20}
+                        navigation={false}
+                        modules={[Navigation]}
+                        className="mySwiper"
+                     >
+                        {testimonials.map((testimonial) => (
+                           <SwiperSlide key={testimonial.id}>
+                              <div className="join3-box">
+                                 <img src={testimonial.icon} alt={testimonial.title} />
+                                 <p>{testimonial.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
+                                 <div className="box-text">
+                                    <div className="circle">
+                                       <img src={testimonial.image} alt={testimonial.title} />
+                                    </div>
+                                    <div className="text-name">
+                                       <span>{testimonial.title}</span>
+                                       <h6>{testimonial.subtitle}</h6>
+                                    </div>
+                                 </div>
+                              </div>
+                           </SwiperSlide>
+                        ))}
+                     </Swiper>
+                  )}
+               </div>
+            </div>
 
             {/* --------------------------------------- */}
             <div className="join4">
@@ -94,16 +97,17 @@ const JoinTeam = () => {
                   <div className="join4-Btm">
                      <div className="interest">
                         <div className="int-img">
-                           <img src="https://talspo.com/img/logo-icon.png" alt="" />
+                           <img src={iconLogo} alt="" />
                         </div>
                         <a href="/opportunities">Direct Apply through Talspo</a>
                      </div>
                      <div className="interest">
                         <div className="int-img">
-                           <img src="https://talspo.com/img/brands/f6s.png" alt="" />
+                           <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/fs_logo_icon_168169.png" alt="" />
                         </div>
                         <a href="https://www.f6s.com/company/talspo">Apply through F6S</a>
-                     </div><div className="interest">
+                     </div>
+                     <div className="interest">
                         <div className="int-img2">
                            <img src={linkdin} alt="" />
                         </div>

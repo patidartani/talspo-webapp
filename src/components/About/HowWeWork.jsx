@@ -7,17 +7,17 @@ import FooterTop from '../../pages/Footer/FooterTop';
 
 const HowWeWork = () => {
   const [howWeWorkData, setHowWeWorkData] = useState(null);
-  const [errorMessage, setErrorMessage] = useState(null); // State for error message
+  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     const fetchHowWeWork = async () => {
       try {
         const response = await howWork();
-        console.log('How work response', response.records);
+        // console.log('How work response', response.records);
         setHowWeWorkData(response.records);
       } catch (error) {
         console.log('error', error);
-        setErrorMessage('Failed to load data. Please try again later.'); // Set error message on error
+        setErrorMessage('Failed to load data. Please try again later.'); 
       }
     };
     fetchHowWeWork();
@@ -45,6 +45,30 @@ const HowWeWork = () => {
             )}
           </div>
         </div>
+
+        <div className="media">
+  {howWeWorkData && howWeWorkData[0] && howWeWorkData[0].media && (
+    (() => {
+      // Parse the media string (array) and extract the video URL
+      const mediaUrl = JSON.parse(howWeWorkData[0].media)[0]; // Get the first item in the array
+      const videoId = mediaUrl.split('v=')[1]; // Extract video ID from the URL
+
+      return (
+        <iframe 
+          width="100%" 
+          height="400" 
+          src={`https://www.youtube.com/embed/${videoId}`} 
+          frameBorder="0" 
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+          allowFullScreen
+        ></iframe>
+      );
+    })()
+  )}
+</div>
+
+
+
 
         <div className="how-btm">
           <div className="work-box">

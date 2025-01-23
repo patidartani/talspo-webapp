@@ -3,8 +3,8 @@ import "../privacyPolicy/PrivacyPolicy.css";
 import { Container } from "react-bootstrap";
 import NavBarContainer from "../../NavbarCom/NavBarContainer";
 import Footer from "../../Footer/Footer";
-import {fetchPrivacyPolicy} from "../../../apiService";
-import  { useEffect, useState } from "react";
+import { fetchPrivacyPolicy } from "../../../apiService";
+import { useEffect, useState } from "react";
 
 const PrivacyPolicy = () => {
   const currentDate = new Date();
@@ -25,28 +25,28 @@ const PrivacyPolicy = () => {
   return (
     <>
       <NavBarContainer />
-      
+
       {policy ? (
-  <div>
-    <div className="policy_heading">
-      <h2>{policy.title}</h2>
-    </div>
-    <Container>
-      <div  className="policy_con">
-   
-          <p>Last updated: {formattedDate}</p>
-      {/* Safely render HTML content */}
-      <div
-       
-        dangerouslySetInnerHTML={{ __html: policy.description }}
-      ></div>
-      </div>
-    
-    </Container>
-  </div>
-) : (
-  <p>Loading...</p>
-)}
+        <div>
+          <div className="policy_heading">
+            <h2>{policy.title}</h2>
+          </div>
+          <Container>
+            <div className="policy_con">
+
+              <p>Last updated: {formattedDate}</p>
+              {/* Safely render HTML content */}
+              <div
+
+                dangerouslySetInnerHTML={{ __html: policy.description }}
+              ></div>
+            </div>
+
+          </Container>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
 
       <Footer />
     </>

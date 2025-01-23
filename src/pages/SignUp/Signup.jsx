@@ -25,13 +25,13 @@ const Signup = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const dispatch = useDispatch(); // Initialize dispatch
-  const navigate = useNavigate(); // Initialize useNavigate for navigation
+  const dispatch = useDispatch(); 
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
-    setFieldErrors((prevErrors) => ({ ...prevErrors, [name]: '' })); // Clear error when user types
+    setFieldErrors((prevErrors) => ({ ...prevErrors, [name]: '' }));
   };
 
   const handleAgreementChange = () => {
@@ -55,7 +55,7 @@ const Signup = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(SIGNUP_URL, { // Fixed the missing comma
+      const response = await fetch(SIGNUP_URL, { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const Signup = () => {
       const data = await response.json();
 
       if (!response.ok) {
-        // Set individual errors based on the API response
+       
         const errorMessages = data.status || [];
         errorMessages.forEach((message) => {
           if (message.includes("password")) {
@@ -82,17 +82,14 @@ const Signup = () => {
         return;
       }
 
-      // Dispatch action to save user data in Redux store
-      dispatch(setUser(data));  // Here, data will be saved to the Redux state
+      dispatch(setUser(data));  
 
-      // Show success message using SweetAlert
       Swal.fire({
         icon: 'success',
         title: 'Sign Up Successful!',
         text: 'You have successfully signed up.',
         confirmButtonText: 'Go to Sign In',
       }).then(() => {
-        // Navigate to Sign In page after successful sign up
         navigate('/signin');
       });
 

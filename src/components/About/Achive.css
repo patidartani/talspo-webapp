@@ -1,11 +1,11 @@
-.Achive-main{
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-bottom: 1px solid #acacac;
-          margin-bottom: 3vmax;
-          padding-bottom: 2vmax;
+.Achive-main {
+       width: 100%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       border-bottom: 1px solid #acacac;
+       margin-bottom: 3vmax;
+       padding-bottom: 2vmax;
 
 }
 .error-message {
@@ -13,52 +13,51 @@
        font-size: 16px;
        margin-top: 20px;
        text-align: center;
-     }
-     
-.Achive-main .Achive-page{
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: column;
-          margin-bottom: 2vmax;
-          margin-top: 7vmax
-
 }
-.Achive-main .Achive-page .achive-top{
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          background: #003266;
-          color:#fff;
-          /* padding: 4vmax; */
+.Achive-main .Achive-page {
+       width: 100%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       flex-direction: column;
+       margin-bottom: 2vmax;
+       margin-top: 7vmax
 }
-.Achive-main .Achive-page .achive-top h5{
-          width: 85%;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          color:#fff;
-          margin-top: 2vmax;
-          font-size: 2.3vmax;
-          text-transform: uppercase;
-          letter-spacing: 1px;
+.Achive-main .Achive-page .achive-top {
+       width: 100%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       background: #003266;
+       color: #fff;
+       /* padding: 4vmax; */
 }
 
-.Achive-main .Achive-page .achive-top p{
-          width: 85%;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          color:#fff;
-          font-size: 1.2vmax;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          font-weight: lighter;
+.Achive-main .Achive-page .achive-top h5 {
+       width: 85%;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       color: #fff;
+       margin-top: 2vmax;
+       font-size: 2.3vmax;
+       text-transform: uppercase;
+       letter-spacing: 1px;
 }
-.Achive-main .Achive-page .achive-flex{
+
+.Achive-main .Achive-page .achive-top p {
+       width: 85%;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       color: #fff;
+       font-size: 1.2vmax;
+       text-transform: uppercase;
+       letter-spacing: 1px;
+       font-weight: lighter;
+}
+.Achive-main .Achive-page .achive-flex {
        width: 85%;
        height: auto;
        display: flex;
@@ -66,165 +65,159 @@
        align-items: center;
        flex-direction: column;
        margin-top: 1vmax;
-        flex-wrap: wrap; 
+       flex-wrap: wrap;
        gap: 2vmax;
 }
-.Achive-main .Achive-page .achive-btm{
-          width: 100%;
-          height: 350px;
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          flex-direction: row;
-          gap: 2vmax;
+.Achive-main .Achive-page .achive-btm {
+       width: 100%;
+       height: 350px;
+       display: flex;
+       justify-content: space-between;
+       align-items: flex-start;
+       flex-direction: row;
+       gap: 2vmax;
 }
-
-     
 .Achive-main .Achive-page .achive-btm.reverse {
        flex-direction: row-reverse;
-     }
-.Achive-main .Achive-page .achive-btm .a-left{
+}
+.Achive-main .Achive-page .achive-btm .a-left {
        width: 50%;
        height: 350px;
        display: flex;
        align-items: center;
-       justify-content: center;   
-       flex-direction: column;   
+       justify-content: center;
+       flex-direction: column;
 }
-.Achive-main .Achive-page .achive-btm .a-left h6{
-      font-weight: 700;
-      font-size: 2vmax;
-      letter-spacing: 0.2px;
-      /* text-align: center; */
-   }
-   .Achive-main .Achive-page .achive-btm .a-left p{
-          font-size: 1.1vmax;
-          letter-spacing: 0.2px;
-          margin-top: 1vmax;
-          
-          /* text-align: center; */
-       }
-       .Achive-main .Achive-page .achive-btm .a-left .btuns{
-         width: 100%;
-         display: flex;
-         align-items: flex-start;
-         justify-content: flex-start;
-         margin-top: 1vmax;
-         gap: 1vmax;
-       }
-.Achive-main .Achive-page .achive-btm .a-right{
-          width: 50%;
-          height: 350px;
-overflow: hidden;
+.Achive-main .Achive-page .achive-btm .a-left h6 {
+       font-weight: 700;
+       font-size: 2vmax;
+       letter-spacing: 0.2px;
+}
+
+.Achive-main .Achive-page .achive-btm .a-left p {
+       font-size: 1.1vmax;
+       letter-spacing: 0.2px;
+       margin-top: 1vmax;
+}
+.Achive-main .Achive-page .achive-btm .a-left .btuns {
+       width: 100%;
+       display: flex;
+       align-items: flex-start;
+       justify-content: flex-start;
+       margin-top: 1vmax;
+       gap: 1vmax;
+}
+.Achive-main .Achive-page .achive-btm .a-right {
+       width: 50%;
+       height: 350px;
+       overflow: hidden;
        display: flex;
        align-items: center;
-       justify-content: center;   
-       flex-direction: column;      
+       justify-content: center;
+       flex-direction: column;
 }
-.Achive-main .Achive-page .achive-btm .a-right img{
-          width: 90%;
-     
+.Achive-main .Achive-page .achive-btm .a-right img {
+       width: 90%;
+
 }
-
-
 @media (max-width:600px) {
-       .Achive-main{
+       .Achive-main {
               width: 100%;
               padding-top: 7vmax;
               margin-bottom: 0vmax;
               padding-bottom: 0vmax;
-    
-    }
-    
-    .Achive-main .Achive-page .achive-flex{
-           width: 95%;
-            flex-wrap: nowrap; 
-           gap: 1vmax;
-    }
-    .Achive-main .Achive-page .achive-btm{
+
+       }
+
+       .Achive-main .Achive-page .achive-flex {
+              width: 95%;
+              flex-wrap: nowrap;
+              gap: 1vmax;
+       }
+
+       .Achive-main .Achive-page .achive-btm {
               width: 100%;
               height: auto;
               flex-direction: column;
               gap: 2vmax;
-    }
-         
-    .Achive-main .Achive-page .achive-btm.reverse {
-           flex-direction: column;
-         }
-    .Achive-main .Achive-page .achive-btm .a-left{
-           width: 100%;
-           height: auto; 
-    }
-    .Achive-main .Achive-page .achive-btm .a-left h6{
-          font-size: 3vmax;
        }
-       .Achive-main .Achive-page .achive-btm .a-left p{
+
+       .Achive-main .Achive-page .achive-btm.reverse {
+              flex-direction: column;
+       }
+
+       .Achive-main .Achive-page .achive-btm .a-left {
+              width: 100%;
+              height: auto;
+       }
+
+       .Achive-main .Achive-page .achive-btm .a-left h6 {
+              font-size: 3vmax;
+       }
+
+       .Achive-main .Achive-page .achive-btm .a-left p {
               font-size: 2.5vmax;
-           }
-    
-    .Achive-main .Achive-page .achive-btm .a-right{
+       }
+
+       .Achive-main .Achive-page .achive-btm .a-right {
               width: 100%;
               height: auto;
               margin-bottom: 3vmax;
-    }
-    .Achive-main .Achive-page .achive-btm .a-right img{
-              width: 100%;
-         
-    }  
-}
+       }
 
+       .Achive-main .Achive-page .achive-btm .a-right img {
+              width: 100%;
+
+       }
+}
 
 @media (min-width:600px) and (max-width:1150px) {
-       .Achive-main{
+       .Achive-main {
               width: 100%;
               padding-top: 7vmax;
               margin-bottom: 0vmax;
               padding-bottom: 0vmax;
-    
-    }
-    
-    .Achive-main .Achive-page .achive-flex{
-           width: 95%;
-            flex-wrap: nowrap; 
-           gap: 1vmax;
-    }
-    .Achive-main .Achive-page .achive-btm{
+
+       }
+
+       .Achive-main .Achive-page .achive-flex {
+              width: 95%;
+              flex-wrap: nowrap;
+              gap: 1vmax;
+       }
+
+       .Achive-main .Achive-page .achive-btm {
               width: 100%;
               height: auto;
               flex-direction: column;
               gap: 2vmax;
-    }
-         
-    .Achive-main .Achive-page .achive-btm.reverse {
-           flex-direction: column;
-         }
-    .Achive-main .Achive-page .achive-btm .a-left{
-           width: 100%;
-           height: auto; 
-    }
-    .Achive-main .Achive-page .achive-btm .a-left h6{
-          font-size: 3vmax;
        }
-       .Achive-main .Achive-page .achive-btm .a-left p{
+
+       .Achive-main .Achive-page .achive-btm.reverse {
+              flex-direction: column;
+       }
+
+       .Achive-main .Achive-page .achive-btm .a-left {
+              width: 100%;
+              height: auto;
+       }
+
+       .Achive-main .Achive-page .achive-btm .a-left h6 {
+              font-size: 3vmax;
+       }
+
+       .Achive-main .Achive-page .achive-btm .a-left p {
               font-size: 2.5vmax;
-           }
-    
-    .Achive-main .Achive-page .achive-btm .a-right{
+       }
+
+       .Achive-main .Achive-page .achive-btm .a-right {
               width: 100%;
               height: auto;
               margin-bottom: 3vmax;
-    }
-    .Achive-main .Achive-page .achive-btm .a-right img{
+       }
+
+       .Achive-main .Achive-page .achive-btm .a-right img {
               width: 100%;
-         
-    }  
+
+       }
 }
-
-
-
-
-
-
-
-
-

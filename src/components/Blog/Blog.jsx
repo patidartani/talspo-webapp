@@ -14,7 +14,7 @@ import BlogText from "../../components/Blog/BlogText"
 const Blog = () => {
   const blogsPerPage = 4; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(0);
-  const [searchTerm, setSearchTerm] = useState(""); 
+  const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("");
   const [blogPosts, setBlogPosts] = useState([]);
   const [featuredBlogs, setFeaturedBlogs] = useState([]);
@@ -23,12 +23,10 @@ const Blog = () => {
   const [showAllPosts, setShowAllPosts] = useState(false);
 
 
-  // Handle page click
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
   };
 
-  // Fetch featured blogs and recent posts
   useEffect(() => {
     const loadRecentBlogs = async () => {
       try {
@@ -43,7 +41,7 @@ const Blog = () => {
       try {
         const featuredPosts = await featuredBlogPosts();
         setFeaturedBlogs(featuredPosts);
-        setCurrentBlogs(featuredPosts); // Initially show all featured blogs
+        setCurrentBlogs(featuredPosts);
       } catch (error) {
         console.error('Error loading featured blog posts:', error);
       }
@@ -61,17 +59,17 @@ const Blog = () => {
   const handleSearch = async (event) => {
     const searchQuery = event.target.value;
     setSearchTerm(searchQuery);
-    
+
     const [titleQuery, categoryQuery] = searchQuery.split(" ").filter(Boolean);
-    
-    setCategory(categoryQuery || ""); 
-    
+
+    setCategory(categoryQuery || "");
+
     if (searchQuery.trim() === "") {
       setCurrentBlogs(featuredBlogs);
     } else {
       try {
-        const response = await searchBlog(titleQuery, categoryQuery); 
-      
+        const response = await searchBlog(titleQuery, categoryQuery);
+
         if (response && response.length > 0) {
           setCurrentBlogs(response);
         } else {
@@ -79,14 +77,10 @@ const Blog = () => {
         }
       } catch (error) {
         console.error("Error searching blogs:", error);
-        setCurrentBlogs(featuredBlogs); 
+        setCurrentBlogs(featuredBlogs);
       }
     }
   };
-  
-  
-
-
   const toggleShowAll = () => {
     setShowAllPosts(!showAllPosts);
   };
@@ -141,78 +135,74 @@ const Blog = () => {
 
           <div className="Blog-searchs">
             <div className="ipt-blgs">
-            <input
-      type="text"
-      placeholder="Search Blogs by Title and Category"
-      value={searchTerm}
-      onChange={handleSearch} // Trigger search on input change
-    />
+              <input
+                type="text"
+                placeholder="Search Blogs by Title and Category"
+                value={searchTerm}
+                onChange={handleSearch}
+              />
               <img src={IconBlog} alt="Search Icon" />
             </div>
           </div>
 
           {/* ----------------- Featured Posts Section ----------------- */}
           <div className="blog-container">
-      <h6>Featured Blogs</h6>
-      <div className="blog-content">
-      <div className="blog_list">
-            {Array.isArray(displayedBlogs) && displayedBlogs.length > 0 ? (
-              displayedBlogs.map((blog, index) => (
-                <Link to={`/blog-detail/${blog.id}`} key={index} className="list-blg">
-                  <div className="bl-img">
-                    <img src={blog.image} alt={blog.title} />
-                  </div>
-                  <div className="bl-text">
-                    <h5>{blog.title}</h5>
-                    <div className="num">
-                      <span>{blog.category}</span>
-                      <h1>{blog.subtitle}</h1>
-                    </div>
-                    <div
-                      style={{
-                        display: "-webkit-box",
-                        WebkitLineClamp: 3,
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                      }}
-                      dangerouslySetInnerHTML={{ __html: blog.contant }}
-                    ></div>
-                  </div>
-                </Link>
-              ))
-            ) : (
-              <p>No featured blog posts available</p>
-            )}
+            <h6>Featured Blogs</h6>
+            <div className="blog-content">
+              <div className="blog_list">
+                {Array.isArray(displayedBlogs) && displayedBlogs.length > 0 ? (
+                  displayedBlogs.map((blog, index) => (
+                    <Link to={`/blog-detail/${blog.id}`} key={index} className="list-blg">
+                      <div className="bl-img">
+                        <img src={blog.image} alt={blog.title} />
+                      </div>
+                      <div className="bl-text">
+                        <h5>{blog.title}</h5>
+                        <div className="num">
+                          <span> <small>{blog.category}</small></span>
+                          <h1>{blog.subtitle}</h1>
+                        </div>
+                        <div
+                          style={{
+                            display: "-webkit-box",
+                            WebkitLineClamp: 3,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
+                          dangerouslySetInnerHTML={{ __html: blog.contant }}
+                        ></div>
+                      </div>
+                    </Link>
+                  ))
+                ) : (
+                  <p>No featured blog posts available</p>
+                )}
+              </div>
+              <div className="Blogs_img">
+                <img src={BlogMan} alt="BlogMan" />
+              </div>
+            </div>
+
+            <ReactPaginate
+              previousLabel={"<"}
+              nextLabel={">"}
+              breakLabel={"..."}
+              pageCount={pageCount}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              activeClassName={"active"}
+              pageClassName={"page-item"}
+              pageLinkClassName={"page-link"}
+              previousClassName={"previous-item"}
+              previousLinkClassName={"previous-link"}
+              nextClassName={"next-item"}
+              nextLinkClassName={"next-link"}
+              disabledClassName={"disabled"}
+            />
           </div>
-        <div className="Blogs_img">
-          <img src={BlogMan} alt="BlogMan" />
-        </div>
-      </div>
-
-      {/* ReactPaginate */}
-      <ReactPaginate
-        previousLabel={"<"}
-        nextLabel={">"}
-        breakLabel={"..."}
-        pageCount={pageCount}
-        onPageChange={handlePageClick}
-        containerClassName={"pagination"}
-        activeClassName={"active"}
-        pageClassName={"page-item"}
-        pageLinkClassName={"page-link"}
-        previousClassName={"previous-item"}
-        previousLinkClassName={"previous-link"}
-        nextClassName={"next-item"}
-        nextLinkClassName={"next-link"}
-        disabledClassName={"disabled"}
-      />
-           </div>
           {/* --------------------------------------------------------------- */}
-
-          
-
-        <BlogText />   
+          <BlogText />
 
         </div>
       </div>

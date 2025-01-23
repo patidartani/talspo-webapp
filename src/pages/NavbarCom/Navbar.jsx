@@ -34,7 +34,7 @@ const Navbar = () => {
 
     if (searchQuery.length > 0) {
       axios
-        .get(`https://dev.talspo.com/admin/api/home-search?title=${searchQuery}`)
+        .get(`https://srninfotech.com/talspo/admin/api/home-search?title=${searchQuery}`)
         .then((response) => {
           console.log("new Response:", response.data.data.data);
 

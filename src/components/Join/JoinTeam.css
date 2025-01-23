@@ -17,7 +17,7 @@
         background-repeat: no-repeat;
         background-position: right;
         background-size: contain;
-        background-image: url(../../assets/images/join1New.jpg);
+        background-image: url("/public/assets/images/join1New.jpg");
 }
 
 .JoinTeam-main .join1 .join1-left {
@@ -39,7 +39,6 @@
         font-size: 1.5vmax;
 }
 
-
 .JoinTeam-main .join2 {
         width: 80%;
         height: 400px;
@@ -49,15 +48,12 @@
         flex-direction: column;
         margin-top: 5vmax;
         background-repeat: no-repeat;
-
-        background-size: 50% 100%;
-        /* Cover the full width */
+        background-size: 50% 100%; /* Cover the full width */
         background-position: left;
         background-origin: content-box;
-        background-image: url(https://www.objectgears.eu/content20/img/cloud.svg);
-}
-
-
+        background-image: url("https://www.objectgears.eu/content20/img/cloud.svg");
+      }
+      
 .JoinTeam-main .join2 .join2-text {
         width: 45%;
         display: flex;
@@ -95,7 +91,6 @@
         font-weight: 700;
         font-family: Arial, Helvetica, sans-serif;
     }
-    
     .JoinTeam-main .join3 .join3-slider {
         width: 80%;
         height: 350px;
@@ -106,24 +101,27 @@
         margin-bottom: 2vmax;
         position: relative;
     }
-    
     .JoinTeam-main .join3 .join3-slider .swiper-button-next {
         color: #000;
         font-size: 18px;
     }
-    
     .JoinTeam-main .join3 .join3-slider .swiper-button-prev {
         color: #000;
         font-size: 18px;
     }
-    
     .JoinTeam-main .join3 .mySwiper {
         width: 85%; 
         height: auto;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+        cursor: grab; /* Default cursor for grabbing */
     }
+    
+    .JoinTeam-main .join3 .mySwiper:active {
+        cursor: grabbing; /* Cursor when dragging */
+    }
+    
     
     .JoinTeam-main .join3 .swiper-slide {
         height: 350px;
@@ -135,7 +133,6 @@
         justify-content: center;
         align-items: center;
     }
-    
     .JoinTeam-main .join3 .join3-box {
         width: 100%;
         height: 350px;
@@ -145,11 +142,9 @@
         flex-direction: column;
         padding-top: 1.2vmax;
     }
-    
     .JoinTeam-main .join3 .join3-box img {
         width: 20%;
     }
-    
     .JoinTeam-main .join3 .join3-box p {
         font-size: 1.2vmax;
         text-align: start;
@@ -157,7 +152,6 @@
         padding-left: 1vmax;
         padding-right: 0.7vmax;
     }
-    
     .JoinTeam-main .join3 .join3-box .box-text {
         width: 100%;
         display: flex;
@@ -167,7 +161,6 @@
         flex-direction: row;
         padding: 0.5vmax;
     }
-    
     .JoinTeam-main .join3 .join3-box .box-text .circle {
         width: 22%;
         height: 70px;
@@ -175,7 +168,6 @@
         object-fit: cover;
         border: 3px solid #e1e1e1;
     }
-    
     .JoinTeam-main .join3 .join3-box .box-text .circle img {
         width: 100%;
         height: 70px;
@@ -206,7 +198,6 @@
         flex-direction: column;
         margin-top: 3vmax;
 }
-
 .JoinTeam-main .join4 small {
         font-size: 1.1vmax;
         font-weight: 400;
@@ -219,7 +210,6 @@
         font-family: Arial, Helvetica, sans-serif;
         margin-top: 2vmax;
 }
-
 .JoinTeam-main .join4 .join4-bx {
         width: 70%;
         box-shadow: 0px 1px 2px 1px #001a285c;
@@ -228,7 +218,6 @@
         margin-top: 1vmax;
         margin-bottom: 2vmax;
 }
-
 .JoinTeam-main .join4 .join4-bx h5 {
         font-size: 2vmax;
         font-family: Arial, Helvetica, sans-serif;
@@ -243,7 +232,6 @@
         justify-content: space-evenly;
         flex-direction: row;
 }
-
 .JoinTeam-main .join4 .join4-bx .join4-Btm .interest {
         width: 30%;
         display: flex;
@@ -252,7 +240,6 @@
         flex-direction: column;
         margin-top: 1vmax;
 }
-
 .JoinTeam-main .join4 .join4-bx .join4-Btm .interest .int-img {
         width: 35%;
         height: 100px;
@@ -263,7 +250,6 @@
         object-fit: cover;
         border-radius: 50px;
 }
-
 .JoinTeam-main .join4 .join4-bx .join4-Btm .interest .int-img2 {
         width: 35%;
         height: 100px;
@@ -273,24 +259,19 @@
         object-fit: cover;
         border-radius: 50px;
 }
-
 .JoinTeam-main .join4 .join4-bx .join4-Btm .interest .int-img2 img {
         width: 100%;
         height: 100px;
 }
-
 .JoinTeam-main .join4 .join4-bx .join4-Btm .interest .int-img img {
         width: 90%;
         height: 90px;
 }
-
 .JoinTeam-main .join4 .join4-bx .join4-Btm .interest a {
         margin-top: 1vmax;
         text-decoration: none;
         font-size: 1.2vmax;
 }
-
-
 @media (max-width:600px) {
         .JoinTeam-main .join1 {
                 width: 95%;

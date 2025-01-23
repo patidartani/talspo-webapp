@@ -1,10 +1,12 @@
 import axios from "axios";
 
-export const BASE_URL = "https://dev.talspo.com/admin/api";
+export const BASE_URL = "https://srninfotech.com/talspo/admin/api";
+
+export const LOADING_DATA = `${BASE_URL}/loading-view`
 
 export const SIGNUP_URL = `${BASE_URL}/register`;
 export const LOGIN_URL = `${BASE_URL}/login-view`;
-export const NAVBAR_MODEL_DYNAMIC = 'https://dev.talspo.com/admin/api/view-model_service';
+export const NAVBAR_MODEL_DYNAMIC = 'https://srninfotech.com/talspo/admin/api/view-model_service';
 export const SKILL_FILTER_URL = `${BASE_URL}/search-filter`
 export const TESTIMONIALS = `${BASE_URL}/testimonial-view`;
 export const HOME_CONTENT = `${BASE_URL}/home_page_details-view`
@@ -36,6 +38,7 @@ export const End_User_License_Agreement_URL = `${BASE_URL}/get-eula`;
 export const CREATE_DIRECT_CONNECT_HR_URL = `${BASE_URL}/create-darect-canect-hr-executive`;
 
 export const QR_HANDLER = `${BASE_URL}/view-qr_scanner`
+export const PARTNERSHIP_SCANER = `${BASE_URL}/view-partnersscaneer`
 export const Contact_QR_Api = `${BASE_URL}/view-qr_allscanner`
 export const OUR_SERVICES_URL = `${BASE_URL}/view-service`
 
@@ -261,7 +264,7 @@ export const fetchBlogDetail = async (id) => {
 
 export const searchBlog = async (query, category) => {
   try {
-    const response = await axios.get('https://dev.talspo.com/admin/api/search_blog', {
+    const response = await axios.get('https://srninfotech.com/talspo/admin/api/search_blog', {
       params: {
         title: query,
         category: category,  // Include category as parameter
@@ -283,7 +286,7 @@ export const createDirectConnectHR = async (formData) => {
         "Content-Type": "multipart/form-data",
       },
     });
-    console.log("Connect Hr Form Response:", response.data);
+    // console.log("Connect Hr Form Response:", response.data);
     return response.data;
   } catch (error) {
     console.error("API Error:", error.response?.data || error.message);
@@ -323,7 +326,7 @@ export const technologyApi = async () => {
 export const doPartnerhip = async () => {
   try {
     const response = await axios.get(DO_PARTNERSHIP_URL);
-    console.log('response data', response)
+    // console.log('response data', response)
     return response.data;
   } catch (error) {
     console.log('error fetching partnership data', error);
@@ -338,7 +341,7 @@ export const submitCareerForm = async (formData) => {
         "Content-Type": "multipart/form-data",
       },
     });
-    console.log("Career Form Submission Response:", response.data);
+    // console.log("Career Form Submission Response:", response.data);
     return response.data;
   } catch (error) {
     console.error("Career Form API Error:", error.response?.data || error.message);
@@ -448,11 +451,11 @@ export const getRecognitionData = () => apiInstance.get('/view-recognition');
 
 export const joinTestimonials = async () => {
   try {
-    const response = await axios.get(TESTIMONIALS); 
-    return response.data; 
+    const response = await axios.get(TESTIMONIALS);
+    return response.data;
   } catch (error) {
     console.error("Error fetching testimonials:", error);
-    return {}; 
+    return {};
   }
 };
 
@@ -460,11 +463,11 @@ export const joinTestimonials = async () => {
 
 export const homepageContent = async () => {
   try {
-    const response = await axios.get(HOME_CONTENT); 
-    return response.data; 
+    const response = await axios.get(HOME_CONTENT);
+    return response.data;
   } catch (error) {
     console.error("Error fetching testimonials:", error);
-    return {}; 
+    return {};
   }
 };
 
@@ -472,33 +475,33 @@ export const homepageContent = async () => {
 
 export const qrHandler = async () => {
   try {
-    const response = await axios.get(QR_HANDLER); 
-    return response.data; 
+    const response = await axios.get(QR_HANDLER);
+    return response.data;
   } catch (error) {
     console.error("Error fetching qr:", error);
-    return {}; 
+    return {};
   }
 };
 // --------------------------------------------contact qr code api-----------------------------------------
 
 export const contactQrApi = async () => {
   try {
-    const response = await axios.get(Contact_QR_Api); 
-    return response.data; 
+    const response = await axios.get(Contact_QR_Api);
+    return response.data;
   } catch (error) {
     console.error("Error fetching contact  qr:", error);
-    return {}; 
+    return {};
   }
 };
 // --------------------------------------------our services api-----------------------------------------
 
 export const ourServices = async () => {
   try {
-    const response = await axios.get(OUR_SERVICES_URL); 
-    return response.data; 
+    const response = await axios.get(OUR_SERVICES_URL);
+    return response.data;
   } catch (error) {
     console.error("Error fetching ourServices:", error);
-    return {}; 
+    return {};
   }
 };
 
@@ -511,10 +514,35 @@ export const certificateForm = async (formData) => {
         "Content-Type": "application/json",
       },
     });
-    console.log("Certificate Form Submission Response:", response.data);
+    // console.log("Certificate Form Submission Response:", response.data);
     return response.data;
   } catch (error) {
     console.error("Career Form API Error:", error.response?.data || error.message);
     throw error.response?.data || { message: "Something went wrong" };
+  }
+};
+
+// ---------------------------do partnership scaner----------------------------
+
+
+export const partnersScaner = async () => {
+  try {
+    const response = await axios.get(PARTNERSHIP_SCANER);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching partnersScaner:", error);
+    return {};
+  }
+};
+
+// -------------------------loading--------------------------------------------
+
+export const loadingData = async () => {
+  try {
+    const response = await axios.get(LOADING_DATA);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching Loading data:", error);
+    return {};
   }
 };

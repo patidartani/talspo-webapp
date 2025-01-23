@@ -8,7 +8,7 @@ const FormHr = ({ closeModal }) => {
   //   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [countryCode, setCountryCode] = useState("+91");
-  const [fieldErrors, setFieldErrors] = useState({}); 
+  const [fieldErrors, setFieldErrors] = useState({});
   const [meetingComfort, setMeetingComfort] = useState({
     yes: false,
     no: false,
@@ -40,7 +40,7 @@ const FormHr = ({ closeModal }) => {
   };
 
   const handleMeetingComfortChange = (e) => {
-    setMeetingComfort(e.target.value); 
+    setMeetingComfort(e.target.value);
   };
 
   const handleJobOptionCheckboxChange = (e) => {

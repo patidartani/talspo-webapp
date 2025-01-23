@@ -4,15 +4,60 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(../../assets/images/MapYellow.png);
-    /* Talspo page ke background-color ke saath match ho gaya */
-    color: #ffff;
+    position: relative; /* Ensure the pseudo-element is positioned relative to this element */
+    background-image: url("/assets/images/MapYellow.png");
+    color: #fff;
     padding: 1vmax;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    margin-top: 3vmax;
+    /* margin-top: 3vmax; */
+    z-index: 1; /* Ensures content remains above the overlay */
+    overflow: hidden;
 }
+.talspo-p{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.talspo-p p{
+    width: 90%;
+}
+.talspo-here-last{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1vmax;
+    margin-bottom: 3vmax;
+    flex-direction: column;
+}
+.talspo-here-last h6{
+   color: red;
+   font-size: 1.8vmax;
+
+}
+.talspo-here-last button{
+   border: none;
+   background-color: #033f80;
+   color: #fff;
+  border-radius: 10px;
+  padding: 0.5vmax 2vmax;
+  margin-top: 1vmax;
+ }
+
+.TalspoHere-main::before {
+    content: ""; /* Necessary to create a pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.63); /* Adjust the opacity for desired darkness */
+    z-index: -1; /* Places the overlay behind the content */
+}
+
 
 .TalspoHere-main .Talspo-page {
     width: 70%;
@@ -56,32 +101,30 @@
     width: 100%;
     border-radius: 50px;
     outline: none;
+    border: none;
+    background-color: #fff;
     padding: 0.5vmax 3vmax 0.5vmax 1vmax;
 }
 
-@keyframes oscillate {
-    0% {
-        transform: translateY(-50%) rotate(-15deg);
-    }
-
-    50% {
-        transform: translateY(-50%) rotate(15deg);
-    }
-
-    100% {
-        transform: translateY(-50%) rotate(-15deg);
-    }
-}
 
 .search {
     position: absolute;
     right: 1vmax;
-    top: 50%;
+    top: 15%;
     width: 1.5vmax;
     height: 1.8vmax;
-    animation: oscillate 1.5s ease-in-out infinite;
+    animation: rotateHereY 1.5s infinite linear;
 }
 
+@keyframes rotateHereY {
+    from {
+              transform: rotateY(0deg);
+    }
+
+    to {
+              transform: rotateY(360deg);
+    }
+}
 
 .TalspoHere-main .Talspo-page .talspo-text .talspo-search input {
     width: 100%;
@@ -111,6 +154,7 @@
     border-radius: 5px;
     flex-direction: column;
     display: flex;
+    background-color: #f1f1f1;
     box-shadow: 0px 1px 2px 1px #001a285c;
 }
 
@@ -126,6 +170,12 @@
     .TalspoHere-main {
         width: 100%;
         height: 300px;
+    }
+    .talspo-p {
+        width: 95%;
+        margin-top: 7vmax;
+        letter-spacing: 0.3px;
+        text-align: center;
     }
     .TalspoHere-main .Talspo-page {
         width: 100%;

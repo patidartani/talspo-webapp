@@ -1,38 +1,38 @@
-import React, { useState, useEffect , useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Tca.css';
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from '../../pages/Footer/Footer';
 import campusImg from "/assets/images/faq.webp";
 import axios from 'axios';
-import Swal from 'sweetalert2'; 
-import {campusFaq} from "../../apiService"
+import Swal from 'sweetalert2';
+import { campusFaq } from "../../apiService"
 
 const Tca = () => {
 
-// ----------------------------------------------faq campus-----------------------------------------------
-const [faqs, setFaqs] = useState([]); // Initialize as an empty array
-const [activeIndex, setActiveIndex] = useState(null);
+  // ----------------------------------------------faq campus-----------------------------------------------
+  const [faqs, setFaqs] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(null);
 
-useEffect(() => {
-  const fetchFaqs = async () => {
-    try {
-      const response = await campusFaq();
-      if (response && response.records && Array.isArray(response.records)) {
-        setFaqs(response.records); // Use 'records' instead of 'faqs'
-      } else {
-        console.error('Invalid data format:', response);
+  useEffect(() => {
+    const fetchFaqs = async () => {
+      try {
+        const response = await campusFaq();
+        if (response && response.records && Array.isArray(response.records)) {
+          setFaqs(response.records);
+        } else {
+          console.error('Invalid data format:', response);
+        }
+      } catch (error) {
+        console.error('Error fetching FAQs:', error);
       }
-    } catch (error) {
-      console.error('Error fetching FAQs:', error);
-    }
+    };
+
+    fetchFaqs();
+  }, []);
+
+  const handleToggle = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
   };
-
-  fetchFaqs();
-}, []);
-
-const handleToggle = (index) => {
-  setActiveIndex(activeIndex === index ? null : index);
-};
 
 
   // ------------------------------------------------form-------------------------------------------------------------
@@ -67,7 +67,7 @@ const handleToggle = (index) => {
     organization_name: '',
     organization_type: '',
     organization_size: '',
-    organization_email :'',
+    organization_email: '',
     answer_one: '',
     answer_two: '',
     answer_three: '',
@@ -75,18 +75,18 @@ const handleToggle = (index) => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-  
+
     setFormData((prevFormData) => {
       const updatedFormData = {
         ...prevFormData,
         [name]: value,
       };
-  
+
       return updatedFormData;
     });
   };
-  
-  
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -140,18 +140,18 @@ const handleToggle = (index) => {
     } catch (error) {
       console.error('Error submitting form:', error.response.data);
       const apiErrors = error.response.data.errors || {};
-      setErrors(apiErrors);  
+      setErrors(apiErrors);
     }
   };
 
 
   const tcaFormsContentRef = useRef(null);
-const handleApplyNowClick = () => {
-  tcaFormsContentRef.current.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
-  });
-};
+  const handleApplyNowClick = () => {
+    tcaFormsContentRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
 
   // -------------------------------------------------------------------------------------------------------------
   return (
@@ -172,34 +172,34 @@ const handleApplyNowClick = () => {
         </div>
 
         <div className="faq-video">
-  <iframe 
-    src="https://www.youtube.com/embed/EwvHiZD0No8?autoplay=1&mute=1&loop=1&playlist=EwvHiZD0No8" 
-   
-    allow="autoplay; encrypted-media" 
-    allowfullscreen
-  ></iframe>
-</div>
+          <iframe
+            src="https://www.youtube.com/embed/EwvHiZD0No8?autoplay=1&mute=1&loop=1&playlist=EwvHiZD0No8"
+
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+          ></iframe>
+        </div>
 
 
         <div className="faq-btm">
-      <h5>FAQs for Talspo Campus Ambassador Program</h5>
-      <div className="questions">
-        {Array.isArray(faqs) && faqs.length > 0 ? (
-          faqs.map((faq, index) => (
-            <div className="qees" key={faq.id}> {/* Use faq.id for unique key */}
-              <h6 onClick={() => handleToggle(index)}>
-                {faq.title}
-                <span className={activeIndex === index ? 'arrow open' : 'arrow'}>&#9662;</span>
-              </h6>
-              {activeIndex === index && <p>{faq.description}</p>}
-            </div>
-          ))
-        ) : (
-          <p>No FAQs available.</p>
-        )}
-      </div>
-    </div>
-  
+          <h5>FAQs for Talspo Campus Ambassador Program</h5>
+          <div className="questions">
+            {Array.isArray(faqs) && faqs.length > 0 ? (
+              faqs.map((faq, index) => (
+                <div className="qees" key={faq.id}>
+                  <h6 onClick={() => handleToggle(index)}>
+                    {faq.title}
+                    <span className={activeIndex === index ? 'arrow open' : 'arrow'}>&#9662;</span>
+                  </h6>
+                  {activeIndex === index && <p>{faq.description}</p>}
+                </div>
+              ))
+            ) : (
+              <p>No FAQs available.</p>
+            )}
+          </div>
+        </div>
+
         {/* ------------------------------------------------------------------------------------------------------------- */}
         <div className="tca-forms-content" id="tca-forms-content" ref={tcaFormsContentRef}>
           <div className="tca-form">
@@ -219,7 +219,7 @@ const handleApplyNowClick = () => {
                     onChange={handleChange}
                     placeholder="First Name"
                   />
-                  {errors.first_name && <p style={{color:"red"}}>{errors.first_name[0]}</p>}
+                  {errors.first_name && <p style={{ color: "red" }}>{errors.first_name[0]}</p>}
 
                 </div>
                 <div className="campus-ipt">
@@ -231,7 +231,7 @@ const handleApplyNowClick = () => {
                     onChange={handleChange}
                     placeholder="Middle Name"
                   />
-                  {errors.middle_name && <p style={{color:"red"}}>{errors.middle_name[0]}</p>}
+                  {errors.middle_name && <p style={{ color: "red" }}>{errors.middle_name[0]}</p>}
 
                 </div>
                 <div className="campus-ipt">
@@ -243,7 +243,7 @@ const handleApplyNowClick = () => {
                     onChange={handleChange}
                     placeholder="Last Name"
                   />
-                  {errors.last_name && <p style={{color:"red"}}>{errors.last_name[0]}</p>}
+                  {errors.last_name && <p style={{ color: "red" }}>{errors.last_name[0]}</p>}
 
                 </div>
                 <div className="campus-ipt">
@@ -255,40 +255,53 @@ const handleApplyNowClick = () => {
                     onChange={handleChange}
                     placeholder="Email Id"
                   />
-                  {errors.email && <p style={{color:"red"}}>{errors.email[0]}</p>}
+                  {errors.email && <p style={{ color: "red" }}>{errors.email[0]}</p>}
 
                 </div>
 
                 <div className="campus-ipt">
                   <label>Country Code</label>
                   <input
-                    type="text"
+                    type="tel" // Ensures the input is intended for phone numbers
                     name="country_code"
                     value={formData.country_code}
                     placeholder="Country Code"
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      const numericValue = e.target.value.replace(/[^0-9]/g, '');
+                      setFormData({ ...formData, country_code: numericValue });
+                    }}
                   />
-                  {errors.country_code && <p style={{color:"red"}}>{errors.country_code[0]}</p>}
-
+                  {errors.country_code && <p style={{ color: "red" }}>{errors.country_code[0]}</p>}
                 </div>
+
+
                 <div className="campus-ipt">
                   <label>Phone Number</label>
                   <input
-                    type="text"
+                    type="tel"
                     name="phone_number"
                     placeholder="Phone Number"
                     value={formData.phone_number}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/\D/g, '');
+                      if (value.length <= 10) {
+                        setFormData({
+                          ...formData,
+                          phone_number: value
+                        });
+                      }
+                    }}
+                    maxLength="10"
                   />
-                  {errors.phone_number && <p style={{color:"red"}}>{errors.phone_number[0]}</p>}
-
+                  {errors.phone_number && <p style={{ color: "red" }}>{errors.phone_number[0]}</p>}
                 </div>
+
 
                 {/* Date of Birth */}
                 <div className="campus-ipt">
                   <label>Date of Birth (Must be 13 years or older)</label>
                   <input type="date" name='dob' value={formData.dob} onChange={handleChange} />
-                  {errors.dob && <p style={{color:"red"}}>{errors.dob[0]}</p>}
+                  {errors.dob && <p style={{ color: "red" }}>{errors.dob[0]}</p>}
 
                 </div>
 
@@ -307,10 +320,8 @@ const handleApplyNowClick = () => {
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                   </select>
-                  {errors.gender && <p style={{color:"red"}}>{errors.gender[0]}</p>}
-
+                  {errors.gender && <p style={{ color: "red" }}>{errors.gender[0]}</p>}
                 </div>
-
 
                 <div className="campus-ipt">
                   <label>Campus Type</label>
@@ -327,7 +338,7 @@ const handleApplyNowClick = () => {
                     <option value="Company">Company</option>
                     <option value="Organization">Organization</option>
                   </select>
-                  {errors.select_campus && <p style={{color:"red"}}>{errors.select_campus[0]}</p>}
+                  {errors.select_campus && <p style={{ color: "red" }}>{errors.select_campus[0]}</p>}
 
                 </div>
 
@@ -346,7 +357,7 @@ const handleApplyNowClick = () => {
                           placeholder="School Name"
                           onChange={handleChange}
                         />
-                       {errors.school_name && <p style={{color:"red"}}>{errors.school_name[0]}</p>}
+                        {errors.school_name && <p style={{ color: "red" }}>{errors.school_name[0]}</p>}
 
                       </div>
 
@@ -360,8 +371,7 @@ const handleApplyNowClick = () => {
                           placeholder="Class/Grade"
                           onChange={handleChange}
                         />
-                       {errors.class && <p style={{color:"red"}}>{errors.class[0]}</p>}
-
+                        {errors.class && <p style={{ color: "red" }}>{errors.class[0]}</p>}
                       </div>
 
                       {/* Address Fields */}
@@ -374,8 +384,8 @@ const handleApplyNowClick = () => {
                           value={formData.address}
                           onChange={handleChange}
                         />
-                       {errors.address && <p style={{color:"red"}}>{errors.address[0]}</p>}
-                        
+                        {errors.address && <p style={{ color: "red" }}>{errors.address[0]}</p>}
+
                       </div>
 
                       <div className="campus-ipt">
@@ -387,8 +397,7 @@ const handleApplyNowClick = () => {
                           value={formData.country}
                           onChange={handleChange}
                         />
-                       {errors.country && <p style={{color:"red"}}>{errors.country[0]}</p>}
-
+                        {errors.country && <p style={{ color: "red" }}>{errors.country[0]}</p>}
                       </div>
 
                       <div className="campus-ipt">
@@ -400,7 +409,7 @@ const handleApplyNowClick = () => {
                           onChange={handleChange}
                           placeholder="State"
                         />
-                       {errors.state && <p style={{color:"red"}}>{errors.state[0]}</p>}
+                        {errors.state && <p style={{ color: "red" }}>{errors.state[0]}</p>}
 
                       </div>
 
@@ -413,7 +422,7 @@ const handleApplyNowClick = () => {
                           value={formData.city}
                           onChange={handleChange}
                         />
-                        {errors.city && <p style={{color:"red"}}>{errors.city[0]}</p>}
+                        {errors.city && <p style={{ color: "red" }}>{errors.city[0]}</p>}
 
                       </div>
 
@@ -424,11 +433,14 @@ const handleApplyNowClick = () => {
                           name="pin_code"
                           placeholder="Pin Code"
                           value={formData.pin_code}
-                          onChange={handleChange}
+                          onChange={(e) => {
+                            const numericValue = e.target.value.replace(/[^0-9]/g, ''); // Only allow numeric input
+                            setFormData({ ...formData, pin_code: numericValue });
+                          }}
                         />
-                        {errors.pin_code && <p style={{color:"red"}}>{errors.pin_code[0]}</p>}
-
+                        {errors.pin_code && <p style={{ color: "red" }}>{errors.pin_code[0]}</p>}
                       </div>
+
                     </div>
                   )}
 
@@ -445,7 +457,7 @@ const handleApplyNowClick = () => {
                           placeholder="University/College Name"
                           onChange={handleChange}
                         />
-                           {errors.college_name && <p style={{color:"red"}}>{errors.college_name[0]}</p>}
+                        {errors.college_name && <p style={{ color: "red" }}>{errors.college_name[0]}</p>}
                       </div>
 
                       <div className="campus-ipt">
@@ -457,7 +469,7 @@ const handleApplyNowClick = () => {
                           placeholder="Stream/Area of Study"
                           onChange={handleChange}
                         />
-                           {errors.stream_area_of_study && <p style={{color:"red"}}>{errors.stream_area_of_study[0]}</p>}
+                        {errors.stream_area_of_study && <p style={{ color: "red" }}>{errors.stream_area_of_study[0]}</p>}
 
                       </div>
 
@@ -470,7 +482,7 @@ const handleApplyNowClick = () => {
                           placeholder="Year Started"
                           onChange={handleChange}
                         />
-                           {errors.year_started && <p style={{color:"red"}}>{errors.year_started[0]}</p>}
+                        {errors.year_started && <p style={{ color: "red" }}>{errors.year_started[0]}</p>}
 
                       </div>
 
@@ -483,7 +495,7 @@ const handleApplyNowClick = () => {
                           placeholder="Year of Completion"
                           onChange={handleChange}
                         />
-                           {errors.year_completion && <p style={{color:"red"}}>{errors.year_completion[0]}</p>}
+                        {errors.year_completion && <p style={{ color: "red" }}>{errors.year_completion[0]}</p>}
 
                       </div>
 
@@ -496,9 +508,9 @@ const handleApplyNowClick = () => {
                           value={formData.address}
                           onChange={handleChange}
                         />
-                        {errors.address && <p style={{color:"red"}}>{errors.address[0]}</p>}
+                        {errors.address && <p style={{ color: "red" }}>{errors.address[0]}</p>}
 
-                            </div>
+                      </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">Country</label>
@@ -509,8 +521,7 @@ const handleApplyNowClick = () => {
                           value={formData.country}
                           onChange={handleChange}
                         />
-                        {errors.country && <p style={{color:"red"}}>{errors.country[0]}</p>}
-
+                        {errors.country && <p style={{ color: "red" }}>{errors.country[0]}</p>}
                       </div>
 
                       <div className="campus-ipt">
@@ -522,8 +533,7 @@ const handleApplyNowClick = () => {
                           onChange={handleChange}
                           placeholder="State"
                         />
-                                                {errors.state && <p style={{color:"red"}}>{errors.state[0]}</p>}
-
+                        {errors.state && <p style={{ color: "red" }}>{errors.state[0]}</p>}
                       </div>
 
                       <div className="campus-ipt">
@@ -535,8 +545,7 @@ const handleApplyNowClick = () => {
                           value={formData.city}
                           onChange={handleChange}
                         />
-                        {errors.city && <p style={{color:"red"}}>{errors.city[0]}</p>}
-
+                        {errors.city && <p style={{ color: "red" }}>{errors.city[0]}</p>}
                       </div>
 
                       <div className="campus-ipt">
@@ -546,11 +555,14 @@ const handleApplyNowClick = () => {
                           name="pin_code"
                           placeholder="Pin Code"
                           value={formData.pin_code}
-                          onChange={handleChange}
+                          onChange={(e) => {
+                            const numericValue = e.target.value.replace(/[^0-9]/g, ''); 
+                            setFormData({ ...formData, pin_code: numericValue }); 
+                          }}
                         />
-                        {errors.pin_code && <p style={{color:"red"}}>{errors.pin_code[0]}</p>}
-
+                        {errors.pin_code && <p style={{ color: "red" }}>{errors.pin_code[0]}</p>}
                       </div>
+
                     </div>
                   )}
 
@@ -562,7 +574,7 @@ const handleApplyNowClick = () => {
                       <div className="campus-ipt">
                         <label htmlFor="">Company Name</label>
                         <input type="text" placeholder='Company Name' name='company_name' value={formData.company_name} onChange={handleChange} />
-                        {errors.company_name && <p style={{color:"red"}}>{errors.company_name[0]}</p>}
+                        {errors.company_name && <p style={{ color: "red" }}>{errors.company_name[0]}</p>}
 
                       </div>
 
@@ -570,7 +582,7 @@ const handleApplyNowClick = () => {
                       <div className="campus-ipt">
                         <label htmlFor="">Industry Type</label>
                         <input type="text" placeholder='Industry Type' name='industry_type' value={formData.industry_type} onChange={handleChange} />
-                        {errors.industry_type && <p style={{color:"red"}}>{errors.industry_type[0]}</p>}
+                        {errors.industry_type && <p style={{ color: "red" }}>{errors.industry_type[0]}</p>}
 
                       </div>
 
@@ -578,15 +590,15 @@ const handleApplyNowClick = () => {
                       <div className="campus-ipt">
                         <label htmlFor="">You Work As</label>
                         <input type="text" placeholder='You Work As' name='you_work_as' value={formData.you_work_as} onChange={handleChange} />
-                        {errors.you_work_as && <p style={{color:"red"}}>{errors.you_work_as[0]}</p>}
-                            
+                        {errors.you_work_as && <p style={{ color: "red" }}>{errors.you_work_as[0]}</p>}
+
                       </div>
 
                       {/* Company Size */}
                       <div className="campus-ipt">
                         <label htmlFor="">Company Size</label>
                         <input type="text" placeholder='Company Size' name='company_size' value={formData.company_size} onChange={handleChange} />
-                        {errors.company_size && <p style={{color:"red"}}>{errors.company_size[0]}</p>}
+                        {errors.company_size && <p style={{ color: "red" }}>{errors.company_size[0]}</p>}
 
                       </div>
 
@@ -594,7 +606,7 @@ const handleApplyNowClick = () => {
                       <div className="campus-ipt">
                         <label htmlFor="">Company/Professional Email Id</label>
                         <input type="email" placeholder='Company/Professional Email Id' name='company_email' value={formData.company_email} onChange={handleChange} />
-                        {errors.company_email && <p style={{color:"red"}}>{errors.company_email[0]}</p>}
+                        {errors.company_email && <p style={{ color: "red" }}>{errors.company_email[0]}</p>}
 
                       </div>
 
@@ -608,7 +620,7 @@ const handleApplyNowClick = () => {
                           value={formData.address}
                           onChange={handleChange}
                         />
-                        {errors.address && <p style={{color:"red"}}>{errors.address[0]}</p>}
+                        {errors.address && <p style={{ color: "red" }}>{errors.address[0]}</p>}
 
                       </div>
 
@@ -620,10 +632,10 @@ const handleApplyNowClick = () => {
                           placeholder="Country"
                           value={formData.country}
                           onChange={handleChange}
-                        />  
-                        {errors.country && <p style={{color:"red"}}>{errors.country[0]}</p>}
+                        />
+                        {errors.country && <p style={{ color: "red" }}>{errors.country[0]}</p>}
 
-                          </div>
+                      </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">State</label>
@@ -633,10 +645,10 @@ const handleApplyNowClick = () => {
                           value={formData.state}
                           onChange={handleChange}
                           placeholder="State"
-                        />  
-                        {errors.state && <p style={{color:"red"}}>{errors.state[0]}</p>}
+                        />
+                        {errors.state && <p style={{ color: "red" }}>{errors.state[0]}</p>}
 
-                            </div>
+                      </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">City</label>
@@ -646,10 +658,10 @@ const handleApplyNowClick = () => {
                           placeholder="City"
                           value={formData.city}
                           onChange={handleChange}
-                        />   
-                        {errors.city && <p style={{color:"red"}}>{errors.city[0]}</p>}
-                         
-                         </div>
+                        />
+                        {errors.city && <p style={{ color: "red" }}>{errors.city[0]}</p>}
+
+                      </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">Pin Code</label>
@@ -658,10 +670,14 @@ const handleApplyNowClick = () => {
                           name="pin_code"
                           placeholder="Pin Code"
                           value={formData.pin_code}
-                          onChange={handleChange}
-                        />  
-                        {errors.pin_code && <p style={{color:"red"}}>{errors.pin_code[0]}</p>}
-                          </div>
+                          onChange={(e) => {
+                            const numericValue = e.target.value.replace(/[^0-9]/g, ''); // Only allow numeric input
+                            setFormData({ ...formData, pin_code: numericValue }); // Update state with numeric value
+                          }}
+                        />
+                        {errors.pin_code && <p style={{ color: "red" }}>{errors.pin_code[0]}</p>}
+                      </div>
+
                     </div>
                   )}
 
@@ -673,31 +689,31 @@ const handleApplyNowClick = () => {
                       <div className="campus-ipt">
                         <label htmlFor="">Organization Name</label>
                         <input type="text" placeholder='Organization Name' name='organization_name' value={formData.organization_name} onChange={handleChange} />
-                        {errors.organization_name && <p style={{color:"red"}}>{errors.organization_name[0]}</p>}
-                          
+                        {errors.organization_name && <p style={{ color: "red" }}>{errors.organization_name[0]}</p>}
+
                       </div>
 
                       {/* Organization Type */}
                       <div className="campus-ipt">
                         <label htmlFor="">Organization Type</label>
                         <input type="text" placeholder='Organization Type' name='organization_type' value={formData.organization_type} onChange={handleChange} />
-                        {errors.organization_type && <p style={{color:"red"}}>{errors.organization_type[0]}</p>}
-                        
+                        {errors.organization_type && <p style={{ color: "red" }}>{errors.organization_type[0]}</p>}
+
                       </div>
 
                       {/* Organization Size */}
                       <div className="campus-ipt">
                         <label htmlFor="">Organization Size</label>
                         <input type="text" placeholder='Organization Size' name='organization_size' value={formData.organization_size} onChange={handleChange} />
-                        {errors.organization_size && <p style={{color:"red"}}>{errors.organization_size[0]}</p>}
-                          
+                        {errors.organization_size && <p style={{ color: "red" }}>{errors.organization_size[0]}</p>}
+
                       </div>
 
                       {/* Organization Email Id */}
                       <div className="campus-ipt">
                         <label htmlFor="">Organization Email Id</label>
                         <input type="email" placeholder='Organization Email Id' name='organization_email' value={formData.organization_email} onChange={handleChange} />
-                        {errors.organization_email && <p style={{color:"red"}}>{errors.organization_email[0]}</p>}
+                        {errors.organization_email && <p style={{ color: "red" }}>{errors.organization_email[0]}</p>}
 
                       </div>
 
@@ -710,10 +726,10 @@ const handleApplyNowClick = () => {
                           placeholder="Street Address"
                           value={formData.address}
                           onChange={handleChange}
-                        />   
-                        {errors.address && <p style={{color:"red"}}>{errors.address[0]}</p>}
-                         
-                         </div>
+                        />
+                        {errors.address && <p style={{ color: "red" }}>{errors.address[0]}</p>}
+
+                      </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">Country</label>
@@ -723,10 +739,10 @@ const handleApplyNowClick = () => {
                           placeholder="Country"
                           value={formData.country}
                           onChange={handleChange}
-                        />   
-                        {errors.country && <p style={{color:"red"}}>{errors.country[0]}</p>}
-                         
-                           </div>
+                        />
+                        {errors.country && <p style={{ color: "red" }}>{errors.country[0]}</p>}
+
+                      </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">State</label>
@@ -736,10 +752,10 @@ const handleApplyNowClick = () => {
                           value={formData.state}
                           onChange={handleChange}
                           placeholder="State"
-                        />     
-                        {errors.state && <p style={{color:"red"}}>{errors.state[0]}</p>}
-                          
-                         </div>
+                        />
+                        {errors.state && <p style={{ color: "red" }}>{errors.state[0]}</p>}
+
+                      </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">City</label>
@@ -749,10 +765,10 @@ const handleApplyNowClick = () => {
                           placeholder="City"
                           value={formData.city}
                           onChange={handleChange}
-                        /> 
-                        {errors.city && <p style={{color:"red"}}>{errors.city[0]}</p>}
-                         
-                           </div>
+                        />
+                        {errors.city && <p style={{ color: "red" }}>{errors.city[0]}</p>}
+
+                      </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">Pin Code</label>
@@ -761,52 +777,55 @@ const handleApplyNowClick = () => {
                           name="pin_code"
                           placeholder="Pin Code"
                           value={formData.pin_code}
-                          onChange={handleChange}
-                        />   
-                        {errors.pin_code && <p style={{color:"red"}}>{errors.pin_code[0]}</p>}
-                         
-                         </div>
+                          onChange={(e) => {
+                            const numericValue = e.target.value.replace(/[^0-9]/g, ''); // Only allow numeric input
+                            setFormData({ ...formData, pin_code: numericValue }); // Update the state with the numeric value
+                          }}
+                        />
+                        {errors.pin_code && <p style={{ color: "red" }}>{errors.pin_code[0]}</p>}
+                      </div>
+
                     </div>
                   )}
 
 
                 </div>
 
-<div className="campus-ipt mt-4">
-  <label htmlFor="">Why do you want to be a part of the Talspo Campus Ambassador Program?</label>
-  <textarea
-    name="answer_one" // Match the name with the key in formData
-    id=""
-    value={formData.answer_one} // Bind to formData
-    onChange={handleChange} // Update formData on change
-  ></textarea>
-                        {errors.answer_one && <p style={{color:"red"}}>{errors.answer_one[0]}</p>}
+                <div className="campus-ipt mt-4">
+                  <label htmlFor="">Why do you want to be a part of the Talspo Campus Ambassador Program?</label>
+                  <textarea
+                    name="answer_one" // Match the name with the key in formData
+                    id=""
+                    value={formData.answer_one} // Bind to formData
+                    onChange={handleChange} // Update formData on change
+                  ></textarea>
+                  {errors.answer_one && <p style={{ color: "red" }}>{errors.answer_one[0]}</p>}
 
-</div>
+                </div>
 
-<div className="campus-ipt">
-  <label htmlFor="">Why are you the best fit for this program?</label>
-  <textarea
-    name="answer_two" // Match the name with the key in formData
-    id=""
-    value={formData.answer_two} // Bind to formData
-    onChange={handleChange} // Update formData on change
-  ></textarea>
-                        {errors.answer_two && <p style={{color:"red"}}>{errors.answer_two[0]}</p>}
+                <div className="campus-ipt">
+                  <label htmlFor="">Why are you the best fit for this program?</label>
+                  <textarea
+                    name="answer_two" // Match the name with the key in formData
+                    id=""
+                    value={formData.answer_two} // Bind to formData
+                    onChange={handleChange} // Update formData on change
+                  ></textarea>
+                  {errors.answer_two && <p style={{ color: "red" }}>{errors.answer_two[0]}</p>}
 
-</div>
+                </div>
 
-<div className="campus-ipt">
-  <label htmlFor="">How many programs have you conducted before, and what challenges did you overcome?</label>
-  <textarea
-    name="answer_three" // Match the name with the key in formData
-    id=""
-    value={formData.answer_three} // Bind to formData
-    onChange={handleChange} // Update formData on change
-  ></textarea>
-                        {errors.answer_three && <p style={{color:"red"}}>{errors.answer_three[0]}</p>}
+                <div className="campus-ipt">
+                  <label htmlFor="">How many programs have you conducted before, and what challenges did you overcome?</label>
+                  <textarea
+                    name="answer_three" // Match the name with the key in formData
+                    id=""
+                    value={formData.answer_three} // Bind to formData
+                    onChange={handleChange} // Update formData on change
+                  ></textarea>
+                  {errors.answer_three && <p style={{ color: "red" }}>{errors.answer_three[0]}</p>}
 
-</div>
+                </div>
 
 
                 <button className='submit-form'>Submit Form</button>

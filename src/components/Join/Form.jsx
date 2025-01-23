@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Form.css";
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer";
@@ -8,7 +8,15 @@ import { submitJobApplication } from '../../apiService';
 
 const Form = () => {
   const location = useLocation();
-  const { postId } = location.state || {};
+  const {  postId,
+    subtitle,
+    title,
+    question_one,
+    question_two,
+    question_three,
+    question_four,
+    question_five, 
+    question_six, } = location.state || {};
   const [errors, setErrors] = useState({});
 
 
@@ -26,11 +34,12 @@ const Form = () => {
     zip_code: '',
     image: '',
     gender: '',
-    why_talspo: '',
-    why_should_we_hire: '',
-    what_are_your_strengths: '',
-    what_are_your_career: '',
-    Why_do_you_think_good_fit: '',
+    question_one: '',
+    question_two: '',
+    question_three: '',
+    question_four: '',
+    question_five: '',
+    question_six: '',
     post_id: String(postId),
   });
 
@@ -50,7 +59,6 @@ const Form = () => {
   
     try {
       const response = await submitJobApplication(formData);
-      console.log("Form submitted:", response);
   
       if (response.error === false && response.message) {
         Swal.fire({
@@ -75,11 +83,12 @@ const Form = () => {
         zip_code: '',
         image: '',
         gender: '',
-        why_talspo: '',
-        why_should_we_hire: '',
-        what_are_your_strengths: '',
-        what_are_your_career: '',
-        Why_do_you_think_good_fit: '',
+        question_one: '',
+        question_two: '',
+        question_three: '',
+        question_four: '',
+        question_five: '',
+        question_six: '',
         post_id: String(postId),
       });
     } catch (error) {
@@ -88,7 +97,7 @@ const Form = () => {
       if (error.response?.data) {
         const errorData = error.response.data.error;
         setErrors(errorData);
-        console.log("Validation errors:", errorData);
+        // console.log("Validation errors:", errorData);
       }
     }
   };
@@ -101,10 +110,8 @@ const Form = () => {
       <div className="Form_details">
         <div className="form-content">
           <div className="content-left">
-            <h5>Welcome</h5>
-            <p>We are happy that you want to work as{" "}
-              <span>"Co-Founder and Chief Financial Officer (CFO)"</span> for
-              Talspo!
+            <h5>{title}</h5>
+            <p>{subtitle}
             </p>
           </div>
           <div className="content-right">
@@ -122,7 +129,7 @@ const Form = () => {
                       value={formData.first_name}
                       onChange={handleChange}
                     />
-                     {errors.first_name && <p className="error-message">{errors.first_name[0]}</p>}
+                     {errors.first_name && <p className="error-form">{errors.first_name[0]}</p>}
 
                      </div>
                     <div className="error-div">
@@ -133,7 +140,7 @@ const Form = () => {
                       value={formData.middle_name}
                       onChange={handleChange}
                     />
-                    {errors.middle_name && <p className="error-message">{errors.middle_name[0]}</p>}
+                    {errors.middle_name && <p className="error-form">{errors.middle_name[0]}</p>}
 
                     </div>
                   </div>
@@ -146,7 +153,7 @@ const Form = () => {
                       value={formData.last_name}
                       onChange={handleChange}
                     />
-                    {errors.last_name && <p className="error-message">{errors.last_name[0]}</p>}
+                    {errors.last_name && <p className="error-form">{errors.last_name[0]}</p>}
                     </div>
 
                      <div className="error-div">
@@ -167,7 +174,7 @@ const Form = () => {
   maxLength="10"
 />
 
-                    {errors.phone_number && <p className="error-message">{errors.phone_number[0]}</p>}
+                    {errors.phone_number && <p className="error-form">{errors.phone_number[0]}</p>}
 
                      </div>
                   </div>
@@ -180,7 +187,7 @@ const Form = () => {
                       value={formData.email}
                       onChange={handleChange}
                     />
-                    {errors.email && <p className="error-message">{errors.email[0]}</p>}
+                    {errors.email && <p className="error-form">{errors.email[0]}</p>}
                     </div>
 
                   <div className="error-div">
@@ -191,7 +198,7 @@ const Form = () => {
                       value={formData.address}
                       onChange={handleChange}
                     />
-                    {errors.address && <p className="error-message">{errors.address[0]}</p>}
+                    {errors.address && <p className="error-form">{errors.address[0]}</p>}
                   </div>
                   </div>
                   <div className="form-ipt">
@@ -203,7 +210,7 @@ const Form = () => {
                       value={formData.country}
                       onChange={handleChange}
                     />
-                    {errors.country && <p className="error-message">{errors.country[0]}</p>}
+                    {errors.country && <p className="error-form">{errors.country[0]}</p>}
                     </div>
 
                      <div className="error-div">
@@ -214,7 +221,7 @@ const Form = () => {
                       value={formData.state}
                       onChange={handleChange}
                     />
-                    {errors.state && <p className="error-message">{errors.state[0]}</p>}
+                    {errors.state && <p className="error-form">{errors.state[0]}</p>}
                      </div>
 
                   </div>
@@ -227,7 +234,7 @@ const Form = () => {
                       value={formData.city}
                       onChange={handleChange}
                     />
-                    {errors.city && <p className="error-message">{errors.city[0]}</p>}
+                    {errors.city && <p className="error-form">{errors.city[0]}</p>}
                     </div>
 
                    <div className="error-div">
@@ -238,7 +245,7 @@ const Form = () => {
                       value={formData.linkdin_profile}
                       onChange={handleChange}
                     />
-                    {errors.linkdin_profile && <p className="error-message">{errors.linkdin_profile[0]}</p>}
+                    {errors.linkdin_profile && <p className="error-form">{errors.linkdin_profile[0]}</p>}
 
                   </div>
                    </div>
@@ -251,7 +258,7 @@ const Form = () => {
                       value={formData.zip_code}
                       onChange={handleChange}
                     />
-                    {errors.zip_code && <p className="error-message">{errors.zip_code[0]}</p>}
+                    {errors.zip_code && <p className="error-form">{errors.zip_code[0]}</p>}
                     </div>
 
                     <div className="error-div">
@@ -260,7 +267,7 @@ const Form = () => {
                       name="image"
                       onChange={handleChange}
                     />
-                    {errors.image && <p className="error-message">{errors.image[0]}</p>}
+                    {errors.image && <p className="error-form">{errors.image[0]}</p>}
                     </div>
 
                   </div>
@@ -320,59 +327,71 @@ const Form = () => {
                   <div className="section-b">
                     <h4>Answer All The Questions</h4>
                     <div className="text-ipt">
-                      <span>Q1. Why Talspo?</span>
+                      <span>Q1. {question_one}</span>
                       <textarea
                         rows="3"
-                        name="why_talspo"
-                        value={formData.why_talspo}
+                        name="question_one"
+                        value={formData.question_one}
                         onChange={handleChange}
                       />
-                    {errors.why_talspo && <p className="error-message">{errors.why_talspo[0]}</p>}
+                    {errors.question_one && <p className="error-form">{errors.question_one[0]}</p>}
 
                     </div>
                     <div className="text-ipt">
-                      <span>Q2. Why should we hire you?</span>
+                      <span>Q2. {question_two}</span>
                       <textarea
                         rows="3"
-                        name="why_should_we_hire"
-                        value={formData.why_should_we_hire}
+                        name="question_two"
+                        value={formData.question_two}
                         onChange={handleChange}
                       />
-                    {errors.why_should_we_hire && <p className="error-message">{errors.why_should_we_hire[0]}</p>}
+                    {errors.question_two && <p className="error-form">{errors.question_two[0]}</p>}
 
                     </div>
                     <div className="text-ipt">
-                      <span>Q3. What are your strengths?</span>
+                      <span>Q3. {question_three}</span>
                       <textarea
                         rows="3"
-                        name="what_are_your_strengths"
-                        value={formData.what_are_your_strengths}
+                        name="question_three"
+                        value={formData.question_three}
                         onChange={handleChange}
                       />
-                     {errors.what_are_your_strengths && <p className="error-message">{errors.what_are_your_strengths[0]}</p>}
+                     {errors.question_three && <p className="error-form">{errors.question_three[0]}</p>}
 
                     </div>
                     <div className="text-ipt">
-                      <span>Q4. What are your career goals?</span>
+                      <span>Q4. {question_four}</span>
                       <textarea
                         rows="3"
-                        name="what_are_your_career"
-                        value={formData.what_are_your_career}
+                        name="question_four"
+                        value={formData.question_four}
                         onChange={handleChange}
                       />
-                        {errors.what_are_your_career && <p className="error-message">{errors.what_are_your_career[0]}</p>}
+                        {errors.question_four && <p className="error-form">{errors.question_four[0]}</p>}
 
                     </div>
                     <div className="text-ipt">
-                      <span>Q5. Why_do_you_think_good_fit?</span>
+                      <span>Q5. {question_five}</span>
                       <textarea
                         rows="3"
-                        name="Why_do_you_think_good_fit"
-                        value={formData.Why_do_you_think_good_fit}
+                        name="question_five"
+                        value={formData.question_five}
                         onChange={handleChange}
                       />
-                      {errors.Why_do_you_think_good_fit && <p className="error-message">{errors.Why_do_you_think_good_fit[0]}</p>}
+                      {errors.question_five && <p className="error-form">{errors.question_five[0]}</p>}
 
+                    </div>
+
+                    <div className="text-ipt">
+                      <span>Q6. {question_six}</span>
+                      <textarea
+                        rows="3"
+                        name="question_six"
+                        value={formData.question_six}
+                        onChange={handleChange}
+                      />
+                      {errors.question_six && <p className="error-form">{errors.question_six[0]}</p>}
+                      
                     </div>
                    
                   </div>

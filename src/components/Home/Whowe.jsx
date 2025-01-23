@@ -43,7 +43,6 @@ const Whowe = () => {
   const [currencyRates, setCurrencyRates] = useState({});
   const [error, setError] = useState(null);
 
-  // Fetch the currency rates
   useEffect(() => {
     fetch(
       "https://api.currencyapi.com/v3/latest?apikey=cur_live_xz60droFw3MXDi34MEDxoivOeOlY20iDQIXKbJyq&currencies=INR%2CAED%2CEUR%2CUSD%2CSGD%2CGBP&base_currency=INR"
@@ -51,7 +50,7 @@ const Whowe = () => {
       .then((response) => {
         if (!response.ok) {
           return response.json().then((errorData) => {
-            throw new Error(errorData.message); // Extract the error message from the response
+            throw new Error(errorData.message); 
           });
         }
         return response.json();
@@ -90,7 +89,7 @@ const Whowe = () => {
       Math.cos(lat2 * (Math.PI / 180)) *
       Math.sin(dLon / 2) * Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const distance = R * c; // Distance in km
+    const distance = R * c; 
     return distance;
   };
 
@@ -141,15 +140,11 @@ const Whowe = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       const skillsData = await fetchTalspoSkilledView();
-      // console.log("Skills Before Removing Duplicates:", skillsData);
-
       const uniqueSkills = removeDuplicates(skillsData);
-      // console.log("Unique Skills:", uniqueSkills);
 
       setSkills(uniqueSkills);
       setFilteredSkills(uniqueSkills);
 
-      // Continue processing for coordinates if needed
       const updatedSkills = await Promise.all(
         uniqueSkills.map(async (skill) => {
           const coordinates = await getCoordinates(skill.location);
@@ -161,7 +156,6 @@ const Whowe = () => {
         })
       );
 
-      // console.log("Updated Skills with Coordinates:", updatedSkills);
       setFilteredSkills(updatedSkills);
     };
 
@@ -177,8 +171,7 @@ const Whowe = () => {
     const fetchSuggestions = async () => {
       try {
         const data = await fetchSearchSuggestions(searchTerm, location);
-        // console.log("Fetched Suggestions:", data);
-        setSuggestions(data.data.data); // Set the correct response data here
+        setSuggestions(data.data.data); 
       } catch (error) {
         console.error("Error fetching suggestions:", error);
       }
@@ -206,7 +199,7 @@ const Whowe = () => {
   const handleSearch = async () => {
     setSuggestions([]);
     try {
-      const apiUrl = `https://dev.talspo.com/admin/api/search-filter?title=${encodeURIComponent(selectedTitle || "")}&location=${encodeURIComponent(selectedLocation || "")}`;
+      const apiUrl = `https://srninfotech.com/talspo/admin/api/search-filter?title=${encodeURIComponent(selectedTitle || "")}&location=${encodeURIComponent(selectedLocation || "")}`;
       // console.log("API URL:", apiUrl);
 
       const response = await fetch(apiUrl, {
@@ -240,22 +233,19 @@ const Whowe = () => {
         return { ...skill, distance };
       });
 
-      // Sort the skills by distance if "NEARBY" is selected
       const sortedSkills = skillsWithDistance.sort((a, b) => a.distance - b.distance);
 
-      // Apply additional filtering
       const filteredSkills = sortedSkills.filter((skill) => {
         return (
           (selectedTitle ? skill.title.includes(selectedTitle) : true) &&
           (selectedLocation ? skill.location.includes(selectedLocation) : true)
         );
       });
-      // console.log('filteredSkills',filteredSkills)
 
       setFilteredSkills(filteredSkills);
-      setSearchTerm("");  // Reset search term
-      setLocation("");    // Reset location
-      setSelectedTitle("");  // Reset selected title
+      setSearchTerm("");  
+      setLocation("");    
+      setSelectedTitle(""); 
       setSelectedLocation("");
     } catch (error) {
       console.error("Error fetching filtered skills:", error);
@@ -284,23 +274,13 @@ const Whowe = () => {
       });
 
       map.on("style.load", () => {
-        // console.log("Filtered Skills map wali:", filteredSkills);
 
         filteredSkills.forEach((skill, index) => {
-          // console.log("Filtered Skill:", skill);
-
-          // Check coordinates and use fallback if missing
           if (!skill.longitude || !skill.latitude) {
-            // console.log(`No coordinates for ${skill.title}, using default coordinates.`);
-            skill.longitude = 78.9629;  // Fallback longitude
-            skill.latitude = 20.5937;   // Fallback latitude
+            skill.longitude = 78.9629;  
+            skill.latitude = 20.5937;   
           }
-
-          // console.log("Longitude:", skill.longitude, "Latitude:", skill.latitude);
-
           if (skill.longitude && skill.latitude) {
-            // console.log("Adding marker for:", skill.title);
-
             const marker = new mapboxgl.Marker({
               element: createSalaryMarker(skill.title),
             })
@@ -325,7 +305,6 @@ const Whowe = () => {
               const markerDiv = document.createElement("div");
               markerDiv.className = "salary-marker";
               markerDiv.innerHTML = `<span class="salary-label">${title}</span>`;
-              // console.log("Created marker with title:", title);
               return markerDiv;
             }
 
@@ -416,14 +395,12 @@ const Whowe = () => {
                 <ul className="suggestions-list">
                   {suggestions.map((item, index) => (
                     <li key={index} onClick={() => handleLocationSelect(item.location)}>
-                      {item.location} {/* Display location suggestions */}
+                      {item.location} 
                     </li>
                   ))}
                 </ul>
               )}
-
             </div>
-
 
             <div className="sort-dropdown">
               <div className="dropdown-wrapper">
@@ -485,80 +462,84 @@ const Whowe = () => {
           </div>
           {/* -------------------------------------------- */}
           <div className="who-slide">
-            <div className="slider-container">
-              {filteredSkills.length > 0 ? (
-                <Slider {...settings}>
-                  {filteredSkills.map((skill, index) => {
-                    const supportedCurrencies = JSON.parse(skill.supportedcurrencies);
+          <div className="slider-container">
+  {filteredSkills.length > 0 ? (
+    <Slider {...settings}>
+      {filteredSkills.map((skill, index) => {
+        let supportedCurrencies = [];
 
-                    // Get the selected currency for the current skill or use default if not selected
-                    const selectedCurrency = selectedCurrencies[skill.id] || skill.basecurrency;
+        try {
+          supportedCurrencies = JSON.parse(skill.supportedcurrencies);
+        } catch (error) {
+          if (typeof skill.supportedcurrencies === 'string') {
+            supportedCurrencies = skill.supportedcurrencies.split(','); // Split the string into an array
+          } else {
+            console.error(`Error parsing supported currencies for skill ID ${skill.id}:`, error);
+          }
+        }
 
-                    // Get the conversion rate for the selected currency
-                    const rate = currencyRates[selectedCurrency] ? currencyRates[selectedCurrency].value : 1;
-                    const convertedSalary = skill.salary * rate;
+        const selectedCurrency = selectedCurrencies[skill.id] || skill.basecurrency;
 
-                    return (
-                      <div key={`${skill.id}-${index}`}>
-                        <div className="w-box">
-                          <img src={skill.image} alt={skill.name} />
-                          {skill.verified === "true" && (
-                            <div className="verified-icon">
-                              ✅
-                            </div>
-                          )}
-                          <div className="text-panel">
-                            <h5>{skill.title}</h5>
-                            <div className="ss">
-                              <small>Location: {skill.location}</small>
-                              <small>Status: {skill.status}</small>
-                            </div>
-                            <span>Experience: {skill.experience}</span>
-                            <span>Actively Looking: {skill.actively_looking}</span>
+        const rate = currencyRates[selectedCurrency] ? currencyRates[selectedCurrency].value : 1;
+        const convertedSalary = skill.salary * rate;
 
-                            <div className="hh">
-                              {/* Display salary with selected currency */}
-                              <small>
-                                Salary: {convertedSalary.toFixed(2)} {selectedCurrency}
-                              </small>
-                            </div>
-
-                            {/* Currency selection dropdown */}
-                            <select
-                              style={{ outline: "none" }}
-                              className="custom-select mt-1 w-100"
-                              value={selectedCurrency}
-                              onChange={(e) => handleCurrencyChange(skill.id, e.target.value)}
-                            >
-                              {supportedCurrencies.map((currency, idx) => (
-                                <option key={idx} value={currency}>
-                                  {currency}
-                                </option>
-                              ))}
-                            </select>
-
-                            <button className="get" onClick={openModal}>
-                              Connect
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </Slider>
-              ) : (
-                <div className="error-message">
-                  <p>No Results Found</p>
-
-                </div>
+        return (
+          <div key={`${skill.id}-${index}`}>
+            <div className="w-box">
+              <img src={skill.image} alt={skill.name} />
+              {skill.verified === "true" && (
+                <div className="verified-icon">✅</div>
               )}
-
-              {error && (
-                <div className="error-message">
-                  {/* <p>{error}</p> */}
+              <div className="text-panel">
+                <h5>{skill.title}</h5>
+                <div className="ss">
+                  <small>Location: {skill.location}</small>
+                  <small>Status: {skill.status}</small>
                 </div>
-              )}
+                <span>Experience: {skill.experience}</span>
+                <span>Actively Looking: {skill.actively_looking}</span>
+
+                <div className="hh">
+                  <small>
+                    Salary: {convertedSalary.toFixed(2)} {selectedCurrency}
+                  </small>
+                </div>
+
+                <select
+                  style={{ outline: "none" }}
+                  className="custom-select mt-1 w-100"
+                  value={selectedCurrency}
+                  onChange={(e) => handleCurrencyChange(skill.id, e.target.value)}
+                >
+                  {supportedCurrencies.map((currency, idx) => (
+                    <option key={idx} value={currency}>
+                      {currency}
+                    </option>
+                  ))}
+                </select>
+
+                <button className="get" onClick={openModal}>
+                  Connect
+                </button>
+              </div>
             </div>
+          </div>
+        );
+      })}
+    </Slider>
+  ) : (
+    <div className="error-message">
+      <p>No Results Found</p>
+    </div>
+  )}
+
+  {error && (
+    <div className="error-message">
+      {/* <p>{error}</p> */}
+    </div>
+  )}
+</div>
+
 
             <div className="home-map">
               <div
@@ -570,7 +551,6 @@ const Whowe = () => {
                   position: "relative",
                 }}
               >
-                {/* Button to toggle full map */}
                 <div className="toggle-map-icon" onClick={toggleMapView}>
                   {showFullMap ? (
                     <>

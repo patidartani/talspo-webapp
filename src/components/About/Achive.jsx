@@ -9,17 +9,17 @@ import Loading from "../../pages/loading/Loading";
 const Achive = () => {
   const [achievements, setAchievements] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [errorMessage, setErrorMessage] = useState(null); // New state for error message
+  const [errorMessage, setErrorMessage] = useState(null); 
 
   useEffect(() => {
     const fetchAchievements = async () => {
       try {
-        const response = await achievement(); // Call the API to get achievements data
-        console.log('response achievement', response);
-        setAchievements(response.records); // Adjust according to the structure of your API response
+        const response = await achievement(); 
+        // console.log('response achievement', response);
+        setAchievements(response.records); 
       } catch (error) {
         console.error("Error fetching achievements:", error);
-        setErrorMessage("Failed to load achievements. Please try again later."); // Set the error message
+        setErrorMessage("Failed to load achievements. Please try again later."); 
       } finally {
         setLoading(false);
       }

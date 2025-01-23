@@ -1,11 +1,7 @@
-
-import React from 'react';
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer";
 import { Row, Col } from "react-bootstrap";
 import "./TalspoSearchAI.css"
-
-
 
 const TalspoAffiliate = () => {
   return (

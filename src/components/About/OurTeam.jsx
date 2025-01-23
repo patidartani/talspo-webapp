@@ -4,30 +4,30 @@ import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from '../../pages/Footer/Footer';
 import { ourTeam } from "../../apiService";
 import FooterTop from '../../pages/Footer/FooterTop';
-
 import Loading from "../../pages/loading/Loading"
 
 const OurTeam = () => {
   const [teamData, setTeamData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); 
-  const [error, setError] = useState(null); 
-  
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const [activeTabs, setActiveTabs] = useState({
     leadership: "founder",
     developers: "Current",
-    interns: "Current",  });
+    interns: "Current",
+  });
 
   useEffect(() => {
     const fetchTeamData = async () => {
       try {
         const response = await ourTeam();
-        console.log('response tea,' , response)
+        // console.log('response tea,', response)
         setTeamData(response.records || []);
-        setIsLoading(false); 
+        setIsLoading(false);
       } catch (error) {
         console.error('Error fetching team data:', error);
         setError("Error fetching team data: " + error.message);
-        setIsLoading(false); 
+        setIsLoading(false);
       }
     };
     fetchTeamData();
@@ -41,7 +41,7 @@ const OurTeam = () => {
         (item.category || "").toLowerCase() === tab.toLowerCase()
     );
   };
-  
+
 
   const handleTabChange = (category, tab) => {
     setActiveTabs((prevState) => ({ ...prevState, [category]: tab }));
@@ -54,7 +54,7 @@ const OurTeam = () => {
   if (error) {
     return <div className="error-message">{error}</div>;
   }
-    
+
   return (
     <>
       <NavbarContainer />
@@ -67,7 +67,7 @@ const OurTeam = () => {
           <div className="team-btm">
             <div className="one">
               <p>
-                 Your friends will believe in your potential, your enemies will make you live up to it.
+                Your friends will believe in your potential, your enemies will make you live up to it.
               </p>
               <h5>Tim Fargo </h5>
             </div>
@@ -87,19 +87,19 @@ const OurTeam = () => {
                   ))}
                 </div>
                 <div className="leadership-tab-content">
-                   <div className="leader">
-                   {getFilteredData(teamData, "Leadership", activeTabs.leadership).map((person) => (
-                    <div key={person.id} className="tab-box">
-                      <div className="img">
-                        <img src={person.image} alt={person.title} />
+                  <div className="leader">
+                    {getFilteredData(teamData, "Leadership", activeTabs.leadership).map((person) => (
+                      <div key={person.id} className="tab-box">
+                        <div className="img">
+                          <img src={person.image} alt={person.title} />
+                        </div>
+                        <div className="text-tab">
+                          <h6>{person.title}</h6>
+                          <span>{person.subtitle}</span>
+                        </div>
                       </div>
-                      <div className="text-tab">
-                        <h6>{person.title}</h6>
-                        <span>{person.subtitle}</span>
-                      </div>
-                    </div>
-                  ))}
-                   </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -119,17 +119,17 @@ const OurTeam = () => {
                 </div>
                 <div className="developers-tab-content">
                   <div className="leader">
-                  {getFilteredData(teamData, "Management and Technology Developer", activeTabs.developers).map((person) => (
-                    <div key={person.id} className="tab-box">
-                      <div className="img">
-                        <img src={person.image} alt={person.title} />
+                    {getFilteredData(teamData, "Management and Technology Developer", activeTabs.developers).map((person) => (
+                      <div key={person.id} className="tab-box">
+                        <div className="img">
+                          <img src={person.image} alt={person.title} />
+                        </div>
+                        <div className="text-tab">
+                          <h6>{person.title}</h6>
+                          <span>{person.subtitle}</span>
+                        </div>
                       </div>
-                      <div className="text-tab">
-                        <h6>{person.title}</h6>
-                        <span>{person.subtitle}</span>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
                   </div>
                 </div>
               </div>
@@ -138,57 +138,54 @@ const OurTeam = () => {
               <div className="teamThree">
                 <h5>Interns</h5>
                 <div className="btns-tab">
-  {["Previous", "Current"].map((tab) => (
-    <button
-      key={tab}
-      className={`${tab} ${activeTabs.interns === tab ? "active" : ""}`}
-      onClick={() => handleTabChange("interns", tab)}
-    >
-      {tab}
-    </button>
-  ))}
-</div>
+                  {["Previous", "Current"].map((tab) => (
+                    <button
+                      key={tab}
+                      className={`${tab} ${activeTabs.interns === tab ? "active" : ""}`}
+                      onClick={() => handleTabChange("interns", tab)}
+                    >
+                      {tab}
+                    </button>
+                  ))}
+                </div>
 
                 <div className="Interns-tab-content">
-                 <div className="leader">
-                 {getFilteredData(teamData, "Interns", activeTabs.interns).map((person) => (
-                    <div key={person.id} className="tab-box">
-                      <div className="img">
-                        <img src={person.image} alt={person.title} />
+                  <div className="leader">
+                    {getFilteredData(teamData, "Interns", activeTabs.interns).map((person) => (
+                      <div key={person.id} className="tab-box">
+                        <div className="img">
+                          <img src={person.image} alt={person.title} />
+                        </div>
+                        <div className="text-tab">
+                          <h6>{person.title}</h6>
+                          <span>{person.subtitle}</span>
+                        </div>
                       </div>
-                      <div className="text-tab">
-                        <h6>{person.title}</h6>
-                        <span>{person.subtitle}</span>
-                      </div>
-                    </div>
-                  ))}
-                 </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="team-last-videos">
-  <iframe
-    src="https://www.youtube.com/embed/mkOWfKR84sE"
-    width="100%"
-    height="315"
-    style={{ border: "none" }}
-    allow="autoplay; encrypted-media"
-    allowFullScreen
-  ></iframe>
-  <iframe
-    src="https://www.youtube.com/embed/wSW4QcFvlgA"
-    width="100%"
-    height="315"
-    style={{ border: "none" }}
-    allow="autoplay; encrypted-media"
-    allowFullScreen
-  ></iframe>
-</div>
-
-
-
+            <iframe
+              src="https://www.youtube.com/embed/mkOWfKR84sE"
+              width="100%"
+              height="315"
+              style={{ border: "none" }}
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+            ></iframe>
+            <iframe
+              src="https://www.youtube.com/embed/wSW4QcFvlgA"
+              width="100%"
+              height="315"
+              style={{ border: "none" }}
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
       </div>
       <FooterTop />
