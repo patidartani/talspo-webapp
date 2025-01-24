@@ -63,3 +63,23 @@
          color: #fff;
          background-color: #003266;
    }
+
+
+   @media (max-width:600px) {
+       .BlogText-container h6{
+              width: 100%;
+              font-size: 3vmax;
+    }
+    .BlogText-container .blog-text{
+              width: 95%;
+       
+    }  
+    .BlogText-container .blog-text  span{
+       font-size:3vmax;
+}
+.BlogText-container .blog-text .key-frames small{
+        font-size: 1.9vmax;
+        font-weight: 600;
+  }
+
+   }

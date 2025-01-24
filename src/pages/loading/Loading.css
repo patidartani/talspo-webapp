@@ -38,7 +38,7 @@
     animation: rotateY 1.5s infinite linear;
 }
 .loading .loading-logo img {
-    width: 5vw;
+    width: 7vw;
     height: auto;
     margin-top: 1rem;
     max-width: 100px;

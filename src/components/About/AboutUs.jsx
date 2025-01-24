@@ -25,32 +25,32 @@ const AboutUs = () => {
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 3, 
+    slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: "20px",
     arrows: true,
     responsive: [
       {
-        breakpoint: 600, 
+        breakpoint: 600,
         settings: {
-          slidesToShow: 1, 
-          slidesToScroll: 1,
-          centerMode: false, 
-          centerPadding: "0px", 
-        },
-      },
-      {
-        breakpoint: 1024, 
-        settings: {
-          slidesToShow: 2, 
+          slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: false,
-          centerPadding: "10px", 
+          centerPadding: "0px",
         },
       },
       {
-        breakpoint: 1200, 
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          centerMode: false,
+          centerPadding: "10px",
+        },
+      },
+      {
+        breakpoint: 1200,
         settings: {
           slidesToShow: 1, // Show one slide
           slidesToScroll: 1,
@@ -236,7 +236,8 @@ const AboutUs = () => {
                         <div className="journey-scroll">
                           <div className="j-one">
                             <h5>{activeRecord.title}</h5>
-                            <div dangerouslySetInnerHTML={{ __html: activeRecord?.description }} />                            <img src={activeRecord.image} alt={activeRecord.year} />
+                            <div className="mb-3" dangerouslySetInnerHTML={{ __html: activeRecord?.description }} />
+                            <img src={activeRecord.image} alt={activeRecord.year} />
                           </div>
                         </div>
                       )}
@@ -249,8 +250,7 @@ const AboutUs = () => {
                 <div className="logo-story-tab-content">
                   <h6>The Logo Story</h6>
                   <p>
-                    Talspo's logo represents our vision of collaboration and growth, embodying the
-                    unity of learners and trainers.
+                  The Talspo logo reflects the ambition to create a Talent Discovery Ecosystem (NEARBY) that ensures authenticity, security, and faster talent connections through modern technology.
                   </p>
 
                   <div className="logo-story-slider">
@@ -291,14 +291,13 @@ const AboutUs = () => {
           </div>
 
 
-          {/* -------------------------------------------------------------------------------------------------- */}
         </div>
         {/* -------------------------------------------------------------------------------------------------- */}
 
         <div className="extra-content">
           <h5>Company Purpose Section</h5>
-          <p>To solve the "Talent mismatch and a huge gap in the talent
-            education marketplace all over the world".</p>
+          <p>To solve the Talent mismatch and a huge gap in the talent
+            education marketplace all over the world.</p>
 
           <small>Creating Talent Collaboration-Based Marketplace Online (Real-Time) to revolutionize
             the education system globally by developing the Talent Connectivity NEARBY
@@ -378,19 +377,11 @@ const AboutUs = () => {
             and self-experience(s), it’s like “Fire in the Belly Situation” for us. We are all team
             members are continuous learners with having prior startup experience(s).
           </span>
-
-
-
           <WhyChooseData />
-
-
 
           <div className="know-team-btn mt-5">
             <button onClick={ourTeamHandler}>Know Team</button>
           </div>
-
-
-
 
         </div>
 
@@ -433,7 +424,7 @@ const AboutUs = () => {
                 <div className="extra-slide-image">
                   <img src={TalspoIcon} alt="" />
                 </div>
-                <a href="/talspo-api">Talspo AI</a>
+                <a href="/talspo-api">Talspo API</a>
               </div>
 
               <div onClick={faqHandler} className="extra-slide">

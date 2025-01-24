@@ -2,6 +2,7 @@ import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import "./StudentServiceModel.css"
 import Footer from "../../pages/Footer/Footer"
 import ProfessionalIcon from "/assets/images/ProfessionalIcon.png"
+import FooterTop from "../../pages/Footer/FooterTop"
 import { useNavigate } from 'react-router-dom'
 
 const ProfessionalTrainer = () => {
@@ -63,6 +64,7 @@ const ProfessionalTrainer = () => {
         </div>
 
       </div>
+      <FooterTop />
       <Footer />
     </>
   )

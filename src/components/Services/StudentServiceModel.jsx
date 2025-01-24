@@ -1,6 +1,7 @@
 import React from 'react'
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
+import FooterTop from "../../pages/Footer/FooterTop"
 import "./StudentServiceModel.css"
 
 import StudentIcon from "/assets/images/studentIcon.png";
@@ -61,6 +62,8 @@ const StudentServiceModel = () => {
         </div>
 
       </div>
+
+      <FooterTop />
       <Footer />
     </>
   )

@@ -115,9 +115,9 @@ const Navbar = () => {
                 <Link to="/faq">FAQs</Link>
                 <Link to="/our-team">Our Team</Link>
                 <Link to="/achievements">Achievements</Link>
-                <Link to="/how-we-work">How We Work</Link>
+                <Link to="/how-we-work">How It Work?</Link>
                 <Link to="/talspo-search">Talspo Search AI</Link>
-                <Link to="/talspo-api">Talspo AI</Link>
+                <Link to="/talspo-api">Talspo API</Link>
                 <Link to="/talspo-affiliate">Talspo Affiliate Program</Link>           
                 <Link to="/talfia">Talfia (*sub-brand of Talspo)</Link>
               </div>
@@ -127,7 +127,7 @@ const Navbar = () => {
               <Link to="" className="nav-link">Services</Link>
               <div className="dropdown-content">
                 <Link to="/services">Our Services</Link>
-                <Link to="/student-service">Students/Learner   Service</Link>
+                <Link to="/student-service">Students + Learner Model Service</Link>
                 <Link to="/professional-service">Professional + Trainers Model Service</Link>
                 <Link to="/corporate-service">Corporate + Organizations Model Services</Link>
                 <Link to="/co-working">Co-Working Spaces and Events Model Services</Link>
@@ -148,21 +148,7 @@ const Navbar = () => {
             <Link to="/contact-us" className="nav-link">Contact</Link>
           </div>
 
-          <div className="language-selector">
-            <div className="language-dropdown">
-              <FaGlobe className="language-icon" />
-              <select
-                value={selectedLanguage}
-                onChange={handleLanguageChange}
-                className="language-select"
-              >
-                <option value="en">English</option>
-                <option value="fr">French</option>
-                <option value="hi">Hindi</option>
-                <option value="es">Spanish</option>
-              </select>
-            </div>
-          </div>
+          
           <div className="nav-btns">
             <button onClick={signUpHandler} className="sign-in-btn-nav">Sign Up</button>
           </div>

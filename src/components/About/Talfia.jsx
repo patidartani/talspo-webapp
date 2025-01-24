@@ -39,6 +39,7 @@ const Talfia = () => {
         </small>
         </div>
 
+        <h6 style={{fontSize:"2vmax", color:"red", marginTop:"2vmax"}}>Coming Soon...</h6>
         
       </div>
       <Footer />

@@ -203,13 +203,25 @@
 .OurTeam-main .ourteam .team-last-videos {
   width: 85%;
   display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: #fff;
+  flex-direction: column;
+  margin-top: 3vmax;
+}
+.OurTeam-main .ourteam .team-last-videos  h5{
+  font-weight: 600;
+  font-size: 1.7vmax;
+}
+ .OurTeam-main .ourteam .team-last-videos .team-v{
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;
   flex-direction: row;
-  margin-top: 2vmax;
+  width: 100%;
   gap: 2vmax;
-}
+ }
+
 @media (max-width:600px) {
   .OurTeam-main {
     width: 100%;

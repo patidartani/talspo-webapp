@@ -212,6 +212,12 @@
   letter-spacing: 0.3px;
 }
 
+.campus-ipt-end{
+  width: 100%;
+}
+.campus-ipt-end h6{
+ font-weight: 600;
+}
 .campus-ipts {
   width: 100%;
   display: flex;

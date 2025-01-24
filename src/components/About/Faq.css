@@ -85,6 +85,7 @@
     padding: 1vmax;
     width: 80%;
     font-size: 1.3vmax;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: #f9f9f9;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .5);
     border-radius: 10px;
@@ -145,7 +146,7 @@
 .FaqEndData-main .cont-btn-faq button{
 border: none;
 padding: 0.4vmax 1vmax;
-background-color: #003f80;
+background-color: green;
 border-radius: 5px;
 color: #fff;
 }

@@ -215,6 +215,23 @@ const LegalCertificate = () => {
                 {errorMessage.reason_for_enquiry && <div style={{ color: "red", fontSize: "12px" }}>{errorMessage.reason_for_enquiry}</div>}
               </Form.Group>
 
+              <div className="">
+              <Form.Label clas> Consent <span style={{ color: "red" }}>*</span>:</Form.Label>
+                    <label>
+                      <input  style={{marginRight:"0.3vmax"}} className="mt-2" type="checkbox" name="consent" required />
+                      Agree to be contacted by Talspo via WhatsApp, SMS, or email.
+                    </label>  
+                  </div>
+
+                  <div className="">
+                  <Form.Label>Subscribe:</Form.Label>
+          <label>
+            <input style={{marginRight:"0.3vmax"}} type="checkbox" name="subscription" />
+            Agree to receive the latest news regarding the latest Talspo software services like recruitment, talent acquisition, human resources transformation, latest technologies(artificial intelligence, machine learning, deep learning, blockchain, etc.) services in Human Resources (HR), skill training and development services, events, etc.
+          </label>
+                  </div>
+
+
               <Button style={{ backgroundColor: "#003f80", fontWeight: "600" }} type="submit" className="mt-4">
                 Submit
               </Button>

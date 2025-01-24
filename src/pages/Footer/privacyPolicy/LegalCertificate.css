@@ -123,6 +123,7 @@
 
 .modal-body .form-label {
   font-weight: bold;
+  margin-top: 0.5vmax;
   color: #003266;
 }
 

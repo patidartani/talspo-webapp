@@ -40,7 +40,12 @@
 .HowWeWork-main .media{
     margin-top: 2vmax;
     margin-bottom: 1vmax;
-    width: 80%;
+    width: 50%;
+    height: 500px;
+}
+.HowWeWork-main .media iframe{
+    width: 100%;
+    height: 100%;
 }
 .HowWeWork-main .how-btm{
           width: 80%;

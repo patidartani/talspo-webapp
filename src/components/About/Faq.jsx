@@ -40,7 +40,7 @@ const Faq = () => {
       <div className="faq-con">
         <div className="faq_top">
           <h5>Frequently Asked Questions</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, illo!</p>
+          <p>Get quicker answers to your questions about Talspo(Explore.Spot.Connect)®</p>
         </div>
 
         <div className="faq-box">

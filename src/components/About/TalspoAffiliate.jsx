@@ -146,6 +146,8 @@ const TalspoAffiliate = () => {
 
           </div>
         </div>
+
+           <h6 style={{fontSize:"2vmax", color:"red"}}>Coming Soon...</h6>
       </div>
       <Footer />
     </>
