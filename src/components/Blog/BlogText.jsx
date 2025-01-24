@@ -4,9 +4,7 @@ import "./BlogText.css"
 const BlogText = () => {
   return (
     <div className='BlogText-container'>
-      <h6>Registration Form Page-- Become A Talspo Blogger: User
-        Blogger Registration (*Your blogs are read in offline network
-        connection: PWA Functionality):</h6>
+      <h6>Become A Talspo Blogger</h6>
       <div className="blog-text">
         <p>Becoming a Talspo Blogger offers numerous benefits, particularly for those
           passionate about career development, HR trends, and job market insights. As a Talspo

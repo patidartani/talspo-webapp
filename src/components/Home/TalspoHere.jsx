@@ -17,8 +17,8 @@ const TalspoHere = () => {
       <p  style={{marginTop:"8vmax"}}>Let’s YOU experience the power of our advance technology enabled Talent Discovery Tool, with 
 letting you not even registration on our platform, TRUST us and we let you decide to register on our 
 platform with your valuable personal data that we do respect it to be protected with data 
-protection legal terms (*read our user data protection compliance, user policy agreement and 
-international reorganization user data protection certification here).</p>
+protection legal terms <a href="/gdbr-policy">(*read our user data protection compliance, user policy agreement and 
+  international reorganization user data protection certification here)</a>.</p>
       </div>
      
       <div className='TalspoHere-main'>

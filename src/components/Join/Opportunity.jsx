@@ -11,6 +11,7 @@ import Loading from "../../pages/loading/Loading";
 import { formatDistanceToNow } from 'date-fns';
 import opt1Img from "/assets/images/opt1.png";
 import { getDistance } from "geolib";
+import FooterTop from "../../pages/Footer/FooterTop"
 
 const Opportunity = () => {
   const [filterData, setFilterData] = useState({
@@ -576,6 +577,8 @@ const Opportunity = () => {
           </div>
         </div>
       </div>
+
+      <FooterTop />
       <Footer />
     </>
   );

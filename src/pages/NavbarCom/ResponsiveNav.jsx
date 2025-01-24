@@ -147,12 +147,12 @@ const ResponsiveNav = () => {
                 <li>
                   <Link to="/achievements">Achievements</Link>
                 </li> <li>
-                  <Link to="/how-we-work">How We Work</Link>
+                  <Link to="/how-we-work">How It Work?</Link>
                 </li> <li>
                   <Link to="/talspo-search">Talspo Search AI</Link>
                 </li>
                 <li>
-                  <Link to="/talspo-api">Talspo AI</Link>
+                  <Link to="/talspo-api">Talspo API</Link>
                 </li><li>
                   <Link to="/talspo-affiliate">Talspo Affiliate Program</Link>
                 </li><li>
@@ -167,7 +167,7 @@ const ResponsiveNav = () => {
                   <Link to="/services">Our Services</Link>
                 </li>
                 <li>
-                  <Link to="/student-service">Students/Learner Model Service</Link>
+                  <Link to="/student-service">Students + Learner Model Service</Link>
                 </li>
                 <li>
                   <Link to="/professional-service">Professional + Trainers Model Service</Link>

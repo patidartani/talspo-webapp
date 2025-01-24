@@ -6,6 +6,9 @@ import campusImg from "/assets/images/faq.webp";
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { campusFaq } from "../../apiService"
+import FooterTop from "../../pages/Footer/FooterTop"
+import TcaContent from './TcaContent';
+
 
 const Tca = () => {
 
@@ -161,7 +164,7 @@ const Tca = () => {
         <div className="faq-top">
           <div className="fq-left">
             <h4>Talspo Campus <br /> Ambassador</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nisi voluptatibus cumque sunt quas delectus officia odio possimus, illum repellat!</p>
+            <p>We are thrilled that you want to join the Talspo Campus Ambassador (TCA) program, which connects individuals with valuable experiential professional outcomes.</p>
             <div className="fq-btn">
               <button onClick={handleApplyNowClick}>Apply Now</button>
             </div>
@@ -180,7 +183,7 @@ const Tca = () => {
           ></iframe>
         </div>
 
-
+             <TcaContent />
         <div className="faq-btm">
           <h5>FAQs for Talspo Campus Ambassador Program</h5>
           <div className="questions">
@@ -828,6 +831,25 @@ const Tca = () => {
                 </div>
 
 
+                <div className="campus-ipt-end">
+                    <h6>
+                      Consent <span style={{ color: "red" }}>*</span>:
+                    </h6>
+                    <label>
+                      <input  style={{marginRight:"0.3vmax"}} className="mt-2" type="checkbox" name="consent" required />
+                      Agree to be contacted by Talspo via WhatsApp, SMS, or email.
+                    </label>  
+                  </div>
+
+                  <div className="campus-ipt-end">
+                  <h6>Subscribe:</h6>
+          <label>
+            <input style={{marginRight:"0.3vmax"}} type="checkbox" name="subscription" />
+            Agree to receive the latest news regarding the latest Talspo software services like recruitment, talent acquisition, human resources transformation, latest technologies(artificial intelligence, machine learning, deep learning, blockchain, etc.) services in Human Resources (HR), skill training and development services, events, etc.
+          </label>
+                  </div>
+
+
                 <button className='submit-form'>Submit Form</button>
 
               </form>
@@ -837,6 +859,8 @@ const Tca = () => {
         {/* ------------------------------------------------------------------------------------------------------------- */}
 
       </div>
+
+      <FooterTop />
       <Footer />
     </>
   )

@@ -12,6 +12,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 import FooterTop from '../../pages/Footer/FooterTop';
+import DoPartnershipContent from './DoPartnershipContent'
 
 const DoPatnership = () => {
 
@@ -247,9 +248,10 @@ const DoPatnership = () => {
           <div className="pt-right">
             <h4>Talspo</h4>
             <h4>E-Brochure</h4>
-            <span>Scan the QR Code to download the Talspo's e-Brochure</span>
-            <span> Talspo e-Brochure Link:</span>
-            <a href="">https://talspo.com/talspo_brochure_2019.pdf</a>
+            <span>Scan the QR Code to View the Latest Talspo E-Brochure </span>
+            <span style={{fontWeight:"600", color:"#4f4f4f"}} className='mt-2' >Talspo E-Brochure Link: </span>
+            <span>To View the Latest Talspo E-Brochure: Click or Tap Here!: </span>
+            <a href="https://tinyurl.com/talspo-ebrochure" target="_blank">https://tinyurl.com/talspo-ebrochure</a>
           </div>
         </div>
         {/* ------------------------ */}
@@ -314,7 +316,6 @@ const DoPatnership = () => {
                 {errors.company_name && <small className="error-p">{errors.company_name[0]}</small>}
               </div>
 
-
               <div className="p-inp">
                 <select id="issueType">
                   <option value="" >
@@ -361,11 +362,11 @@ const DoPatnership = () => {
                   Please attach your company proposal.{' '}
                   <span
                     style={{ color: '#1e90ff', cursor: 'pointer' }}
-                    onClick={() => setIsDriveLink(!isDriveLink)} // Toggle between file input and Google Drive link input
+                    onClick={() => setIsDriveLink(!isDriveLink)}
                   >
                     {isDriveLink
                       ? 'Click here to attach a file instead.'
-                      : 'Click here to submit a Google Drive link instead.'}
+                      : 'Click here to submit a Cloud Drive link instead.'}
                   </span>
                 </p>
 
@@ -387,6 +388,23 @@ const DoPatnership = () => {
                   </div>
                 )}
               </div>
+              <div className="p-inp-end">
+                    <h6>
+                      Consent <span style={{ color: "red" }}>*</span>:
+                    </h6>
+                    <label>
+                      <input  style={{marginRight:"0.3vmax"}} className="mt-2" type="checkbox" name="consent" required />
+                      Agree to be contacted by Talspo via WhatsApp, SMS, or email.
+                    </label>  
+                  </div>
+
+                  <div className="p-inp-end">
+                  <h6>Subscribe:</h6>
+          <label>
+            <input style={{marginRight:"0.3vmax"}} type="checkbox" name="subscription" />
+            Agree to receive the latest news regarding the latest Talspo software services like recruitment, talent acquisition, human resources transformation, latest technologies(artificial intelligence, machine learning, deep learning, blockchain, etc.) services in Human Resources (HR), skill training and development services, events, etc.
+          </label>
+                  </div>
               <div className="p-btn">
                 <button type="submit" disabled={formLoading}>
                   {formLoading ? (
@@ -403,6 +421,8 @@ const DoPatnership = () => {
         {/* ------------------------ */}
 
       </div>
+
+      <DoPartnershipContent />
       <FooterTop />
       <Footer />
     </>

@@ -62,7 +62,7 @@ const OurTeam = () => {
         <div className="ourteam">
           <div className="team-top">
             <h5>Meet The Team</h5>
-            <p> The awesome people behind Talspo</p>
+            <p>Meet the highly motivated core team behind Talspo that believes in the potential of transforming Human Resources (HR) in an age of highly innovative technologies like Artificial Intelligence (AI).</p>
           </div>
           <div className="team-btm">
             <div className="one">
@@ -168,8 +168,12 @@ const OurTeam = () => {
             </div>
           </div>
 
+
           <div className="team-last-videos">
-            <iframe
+           <h5>Our Team Videos</h5>
+
+           <div  className='team-v'>
+           <iframe
               src="https://www.youtube.com/embed/mkOWfKR84sE"
               width="100%"
               height="315"
@@ -185,6 +189,7 @@ const OurTeam = () => {
               allow="autoplay; encrypted-media"
               allowFullScreen
             ></iframe>
+           </div>
           </div>
         </div>
       </div>

@@ -11,6 +11,8 @@ import IconBlog from "/assets/images/logo-icon.png";
 import ReactPaginate from "react-paginate";
 import BlogText from "../../components/Blog/BlogText"
 
+import FooterTop from '../../pages/Footer/FooterTop';
+
 const Blog = () => {
   const blogsPerPage = 4; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(0);
@@ -31,6 +33,7 @@ const Blog = () => {
     const loadRecentBlogs = async () => {
       try {
         const recentPosts = await recentBlogPosts();
+        console.log("recentBlogPosts",recentPosts)
         setBlogPosts(recentPosts);
       } catch (error) {
         console.error('Error loading recent blog posts:', error);
@@ -102,8 +105,8 @@ const Blog = () => {
           <div className="blog-top">
             <div className="blog-left">
               <h5>Talspo Blog</h5>
-              <h5>Section <i style={{ color: "#ccc" }} className="ri-book-3-fill"></i></h5>
-              <p>Get a coffee and start <br /> reading!</p>
+              <small>Explore Artificial Intelligence (AI) Insights in HR & Talent Acquisition, Stay ahead of the curve with our blog and resources that cover everything from the latest technologies, such as Blockchain Recruitment Solutions, to the impact of AI on recruitment.               </small>
+              <small className='mt-3'>Discover the future of employee coaching and the latest trends in skill and talent development events. Gain AI-driven insights that will empower you to make smarter, faster decisions, whether you are recruiting, seeking a desired job, or planning to attend related events. Explore AI Insights in HR & Talent Acquisition today!</small>
             </div>
             <div className="blog-right">
               <img src={BlogImg} alt="Blog" />
@@ -163,14 +166,17 @@ const Blog = () => {
                           <h1>{blog.subtitle}</h1>
                         </div>
                         <div
+                         className='tttt'
                           style={{
                             display: "-webkit-box",
                             WebkitLineClamp: 3,
                             WebkitBoxOrient: "vertical",
                             overflow: "hidden",
                             textOverflow: "ellipsis",
+                            marginBottom:"1vmax",
+                            paddingBottom:"0.5vmax"
                           }}
-                          dangerouslySetInnerHTML={{ __html: blog.contant }}
+                          dangerouslySetInnerHTML={{ __html: blog.description }}
                         ></div>
                       </div>
                     </Link>
@@ -206,6 +212,7 @@ const Blog = () => {
 
         </div>
       </div>
+      <FooterTop />
       <Footer />
     </>
   );

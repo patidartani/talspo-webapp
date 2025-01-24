@@ -3,6 +3,8 @@ import Footer from "../../pages/Footer/Footer"
 import "./StudentServiceModel.css"
 import coworkingImg from "/assets/images/co-workingIcon.png"
 import { useNavigate } from 'react-router-dom'
+import FooterTop from "../../pages/Footer/FooterTop"
+
 
 const CoWorking = () => {
   const navigate = useNavigate();
@@ -58,6 +60,8 @@ const CoWorking = () => {
         </div>
 
       </div>
+
+      <FooterTop />
       <Footer />
     </>
   )

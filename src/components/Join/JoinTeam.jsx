@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import FooterTop from '../../pages/Footer/FooterTop'
 
 const JoinTeam = () => {
 
@@ -120,6 +121,7 @@ const JoinTeam = () => {
 
          </div>
 
+<FooterTop />
          <Footer />
 
       </>

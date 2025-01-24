@@ -3,6 +3,8 @@ import Footer from "../../pages/Footer/Footer"
 import "./StudentServiceModel.css"
 import corporateIcon from "/assets/images/corporateIcon.png"
 import { useNavigate } from 'react-router-dom'
+import FooterTop from "../../pages/Footer/FooterTop"
+
 
 const CorporateService = () => {
   const navigate = useNavigate();
@@ -50,6 +52,8 @@ const CorporateService = () => {
         </div>
 
       </div>
+
+      <FooterTop />
       <Footer />
     </>
   )

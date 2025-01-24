@@ -167,9 +167,6 @@
 }
 .DoPatnership-main .partner-three .pt-right a {
           font-size: 1.2vmax;
-          color: #000;
-          margin-top: 1vmax;
-          text-decoration: none;
 }
 /* ---------------------------------------------- */
 .DoPatnership-main .partner-four{
@@ -222,6 +219,13 @@
           align-items: flex-start;
           justify-content: flex-start;
           flex-direction: column;
+   }
+   .DoPatnership-main .partner-four .partner-form form .p-inp-end{
+       width: 100%;
+       margin-top: 1vmax;
+   }
+   .DoPatnership-main .partner-four .partner-form form .p-inp-end h6{
+      font-size: 1.1vmax;
    }
    .DoPatnership-main .partner-four .partner-form  form .p-inp  .error-p{
        color: red;
@@ -586,3 +590,42 @@
             }
             
  }
+
+ /* --------------------------- do partnershi content css--------------------------------------------------- */
+
+ .DoPartnershipContent-main {
+       width: 100%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       flex-direction: column;
+       margin-bottom: 2vmax;
+       margin-top: 1vmax;
+     }
+     
+     .DoPartnershipContent-main .partner-textData {
+       width: 80%;
+       display: flex;
+       align-items: flex-start;
+       justify-content: center;
+       flex-direction: column;
+     }
+     
+     .DoPartnershipContent-main .partner-textData    .text-partner h5 {
+       color: #333;
+       margin-bottom: 0.5rem;
+     }
+     
+     .DoPartnershipContent-main .partner-textData     .text-partner span {
+       color: #555;
+       line-height: 1.6;
+     }
+     
+     .DoPartnershipContent-main .partner-textData     .mt-3 {
+       margin-top: 1.5rem;
+     }
+     
+     .DoPartnershipContent-main .partner-textData    .mt-2 {
+       margin-top: 0.8rem;
+     }
+     

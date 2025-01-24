@@ -40,18 +40,15 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Ensure reCAPTCHA is executed and token is available
     if (!captchaToken) {
       if (window.grecaptcha) {
         console.log("Executing reCAPTCHA...");
         try {
-          // Ensure that token is generated before form submission
           const token = await window.grecaptcha.execute(SITE_KEY, { action: 'submit' });
           setCaptchaToken(token); // Set the token in state
           console.log("Captcha Token:", token);
   
-          // Now submit the form after setting the token
-          submitForm(token); // Call a new function to submit the form
+          submitForm(token);
         } catch (error) {
           console.error("reCAPTCHA execution failed:", error);
           Swal.fire({
@@ -97,7 +94,7 @@ const Contact = () => {
           text: result.message || 'Your message has been sent successfully!',
         });
         setFormData({ name: '', email: '', subject: '', message: '', issue: '' });
-        setCaptchaToken("");  // Clear token after submission
+        setCaptchaToken("");  
       } else {
         Swal.fire({
           icon: 'error',
@@ -202,7 +199,23 @@ const Contact = () => {
                     <textarea name="message" placeholder="Message*" required value={formData.message} onChange={handleChange}></textarea>
                   </div>
 
-                  {/* Removed reCAPTCHA component as it’s not needed for v3 */}
+                  <div className="ipt-end">
+                    <h6>
+                      Consent <span style={{ color: "red" }}>*</span>:
+                    </h6>
+                    <label>
+                      <input  style={{marginRight:"0.3vmax"}} className="mt-2" type="checkbox" name="consent" required />
+                      Agree to be contacted by Talspo via WhatsApp, SMS, or email.
+                    </label>  
+                  </div>
+
+                  <div className="ipt-end">
+                  <h6>Subscribe:</h6>
+          <label>
+            <input style={{marginRight:"0.3vmax"}} type="checkbox" name="subscription" />
+            Agree to receive the latest news regarding the latest Talspo software services like recruitment, talent acquisition, human resources transformation, latest technologies(artificial intelligence, machine learning, deep learning, blockchain, etc.) services in Human Resources (HR), skill training and development services, events, etc.
+          </label>
+                  </div>
 
                   <div className="btn-cont">
                     <button type="submit">Send Message</button>

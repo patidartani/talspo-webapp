@@ -57,12 +57,12 @@ const Whowe = () => {
       })
       .then((data) => setCurrencyRates(data.data))
       .catch((error) => {
-        console.error("API Error:", error.message); // Log the exact error message
+        console.error("API Error:", error.message); 
 
         if (error.message === "You used all your monthly requests. Please upgrade your plan at https://app.currencyapi.com/subscription") {
-          setError("Sorry, we have reached the request limit. Please try again later."); // Friendly error message
+          setError("Sorry, we have reached the request limit. Please try again later."); 
         } else {
-          setError("Something went wrong. Please try again."); // Generic error message
+          setError("Something went wrong. Please try again."); 
         }
       });
   }, []);

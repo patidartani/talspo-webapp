@@ -182,6 +182,7 @@
       justify-content: space-between;
       width: 70%; /* Adjust width as necessary */
       gap: 0.1vmax;
+     height: auto;
     }
     
     /* Image Block */
@@ -323,48 +324,59 @@ flex-direction: column
       .Blog-main .blogs     .blog-container   .blog-content{
             width: 100%;
             flex-direction: column-reverse;
+            gap: 2vmax;
       }
       .Blog-main .blogs     .blog-container   .blog-content   .blog_list{
             width: 100%;
-            gap: 4vmax;
+            gap: 1vmax;
       }
       .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg{
             width: 100%;
             flex-direction: column;
             height: auto;
+            gap: 1vmax;
       }
       .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg .bl-img{
             width: 100%;
-            height: auto;
+            height: 200px;
       }
       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text{
             width: 100%;
             height: auto;
       }
       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text h5{
-           font-size: 3vmax;
+           font-size: 3.3vmax;
       }
       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text p{
             font-size: 1.8vmax;
        }
       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num{
-           gap: 2vmax;
+           gap: 1vmax;
            width: 100%;
            flex-direction: column;
+           background-color: #fff;
        }
        .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num span{
-          padding: 0.8vmax 0.5vmax;
-          font-size: 2.5vmax;
-          width: 70%;
+          padding: 0vmax;
+          width: 100%;
           display: flex;
-          align-items: center;
-          justify-content: center;
+          align-items: flex-start;
+          justify-content: flex-start;
         }
+        .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num span small{
+            font-size: 2.2vmax;
+            padding: 0.2vmax 1vmax;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+          }
        .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num h1{
-           font-size: 3vmax;
+           font-size: 2.5vmax;
         }
-   
-  
+        .tttt{
+            padding-bottom: 2vmax !important;
+            margin-bottom: 3vmax !important;
+        }
       .Blog-main .blogs     .blog-container   .blog-content   .Blogs_img{
             width: 100%;
       }
@@ -459,7 +471,7 @@ flex-direction: column
       }
       .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg .bl-img{
             width: 100%;
-            height: auto;
+            height: 400px;
       }
       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text{
             width: 100%;
@@ -474,15 +486,21 @@ flex-direction: column
            flex-direction: column;
        }
        .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num span{
-          padding: 1vmax 1.5vmax;
-          font-size: 2.5vmax;
-          width: 50%;
+          padding: 0vmax;
+          width: 100%;
           display: flex;
-          align-items: center;
-          justify-content: center;
+          align-items: flex-start;
+          justify-content: flex-start;
         }
+        .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num span small{
+           padding: 0.3vmax 1vmax;
+           font-size: 2vmax;
+          }
        .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num h1{
            font-size: 3vmax;
+        }
+        .tttt{
+            padding-bottom: 15vmax !important;
         }
    
         .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text p{
