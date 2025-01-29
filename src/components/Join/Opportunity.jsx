@@ -156,9 +156,8 @@ const Opportunity = () => {
         title: uniqueTitle
       }));
 
-      // Apply filter if location, experience, job_type, work_from, and duration are selected
       const filteredJobs = data.data.data.filter((job) => {
-        return (
+        return ( 
           (location ? job.location === location : true) &&
           (experience ? job.experience === experience : true) &&
           (job_type ? job.job_type === job_type : true) &&

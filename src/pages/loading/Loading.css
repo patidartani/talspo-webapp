@@ -9,12 +9,26 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url('/public/assets/images/MapYellow.png');
+    background-image: url('/assets/images/MapYellow.png');
     position: fixed;
     top: 0;
     left: 0;
     padding: 2rem;
+    position: relative; 
 }
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(212, 212, 46, 0.171);
+    filter: blur(10px); 
+    z-index: -1;
+}
+
 .loading h5 {
     color: #003f80;
     margin-top: 1rem;

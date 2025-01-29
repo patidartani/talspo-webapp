@@ -1,28 +1,73 @@
-.talspo-search-ai{
-          width: 80%;
-          display: flex;
-          align-items: flex-start;
-          justify-content: flex-start;
-          flex-direction: column;
-}
-.talspo-search-ai h5{
-        font-size: 1.7vmax;
-        font-weight: 700;
-}
-.talspo-search-ai p{
-          font-size: 1.2vmax;
-          margin-top: 0.5vmax;
-  }
-  .talspo-search-ai small{
-         width: 100%;
-         text-align: center;
-         font-weight: 600;
-         font-size: 1.4vmax;
-         margin-top: 3vmax;
-  }
-  .talspo-search-ai li{
-          margin-top: 1vmax
-   }
+.service_con {
+       padding-top: 10vmax;
+       display: flex;
+       align-items: center;
+       flex-direction: column;
+       padding-bottom: 3vmax;
+     }
+     
+     .service_box {
+       width: 80%;
+       padding: 2vmax;
+     }
+     
+     .service_text {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       text-align: left;
+       color: white;
+     }
+     .service_text h1 {
+       font-size: 2.5vmax;
+       font-weight: bold;
+     }
+     
+     .service_text h2 {
+       font-size: 2vmax;
+       font-weight: bold;
+       margin-top: 1vmax;
+     }
+     
+     .service_video {
+       display: flex;
+       justify-content: center;
+     }
+     
+     .talspo-search-ai {
+       width: 80%;
+       display: flex;
+       flex-direction: column;
+     }
+     
+     .talspo-search-ai h5 {
+       font-size: 1.7vmax;
+       font-weight: 700;
+     }
+     
+     .talspo-search-ai p {
+       font-size: 1.2vmax;
+       margin-top: 0.5vmax;
+     }
+     
+     .talspo-search-ai small {
+       width: 100%;
+       text-align: center;
+       font-weight: 600;
+       font-size: 1.4vmax;
+       margin-top: 3vmax;
+     }
+     
+     .talspo-search-ai li {
+       margin-top: 1vmax;
+     }
+     
+     .underline {
+       text-decoration: underline;
+       margin-top: 2vmax;
+       font-size: 1.2vmax;
+     }
+     
 
 /* ---------------talfia css----------------- */
 .Talfia-page{

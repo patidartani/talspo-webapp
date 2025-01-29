@@ -10,10 +10,7 @@ import NavHigh from '../NavbarCom/NavHigh';
 import axios from 'axios';
 
 const Navbar = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState('en');
-  const handleLanguageChange = (e) => {
-    setSelectedLanguage(e.target.value);
-  };
+  
   const navigate = useNavigate();
   const homeHandler = () => {
     navigate("/")
@@ -115,7 +112,7 @@ const Navbar = () => {
                 <Link to="/faq">FAQs</Link>
                 <Link to="/our-team">Our Team</Link>
                 <Link to="/achievements">Achievements</Link>
-                <Link to="/how-we-work">How It Work?</Link>
+                <Link to="/how-it-works?">How It Work?</Link>
                 <Link to="/talspo-search">Talspo Search AI</Link>
                 <Link to="/talspo-api">Talspo API</Link>
                 <Link to="/talspo-affiliate">Talspo Affiliate Program</Link>           
@@ -127,10 +124,10 @@ const Navbar = () => {
               <Link to="" className="nav-link">Services</Link>
               <div className="dropdown-content">
                 <Link to="/services">Our Services</Link>
-                <Link to="/student-service">Students + Learner Model Service</Link>
-                <Link to="/professional-service">Professional + Trainers Model Service</Link>
-                <Link to="/corporate-service">Corporate + Organizations Model Services</Link>
-                <Link to="/co-working">Co-Working Spaces and Events Model Services</Link>
+                <Link to="/service-detail/1">Students + Learner Model Service</Link>
+                <Link to="/service-detail/2">Professional + Trainers Model Service</Link>
+                <Link to="/service-detail/3">Corporate + Organizations Model Services</Link>
+                <Link to="/service-detail/4">Co-Working Spaces and Events Model Services</Link>
               </div>
             </div>
 

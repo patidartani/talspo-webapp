@@ -5,23 +5,29 @@ import Footer from '../../pages/Footer/Footer';
 import { ourTeam } from "../../apiService";
 import FooterTop from '../../pages/Footer/FooterTop';
 import Loading from "../../pages/loading/Loading"
+import { useNavigate } from 'react-router-dom';
 
 const OurTeam = () => {
   const [teamData, setTeamData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const [activeTabs, setActiveTabs] = useState({
-    leadership: "founder",
+    leadership: "Founder",
     developers: "Current",
     interns: "Current",
   });
+
+  const joinTeamHandler = () => {
+    navigate("/join")
+  }
 
   useEffect(() => {
     const fetchTeamData = async () => {
       try {
         const response = await ourTeam();
-        // console.log('response tea,', response)
+        console.log('response tea,', response)
         setTeamData(response.records || []);
         setIsLoading(false);
       } catch (error) {
@@ -76,7 +82,7 @@ const OurTeam = () => {
               <div className="teamOne">
                 <h5>Leadership</h5>
                 <div className="btns-tab">
-                  {["founder", "co-founder", "advisors", "investors"].map((tab) => (
+                  {["Founder", "Co-Founder", "Advisors", "Investors"].map((tab) => (
                     <button
                       key={tab}
                       className={`${tab} ${activeTabs.leadership === tab ? "active" : ""}`}
@@ -168,9 +174,13 @@ const OurTeam = () => {
             </div>
           </div>
 
-
+          <div className="join-btn-team">
+           <button onClick={joinTeamHandler}>Join Our Team</button>
+            </div>
           <div className="team-last-videos">
+            <div className="team-video-heading">
            <h5>Our Team Videos</h5>
+            </div>
 
            <div  className='team-v'>
            <iframe

@@ -1,22 +1,23 @@
 import './Services.css';
-import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
-import Footer from "../../pages/Footer/Footer"
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer';
+import Footer from "../../pages/Footer/Footer";
 import FooterTop from '../../pages/Footer/FooterTop';
-import { ourServices } from "../../apiService"
+import { ourServices } from "../../apiService";
 import { useState, useEffect } from 'react';
-import Loading from "../../pages/loading/Loading" // Import Loading component
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import Loading from "../../pages/loading/Loading"; // Import Loading component
 
 const Services = () => {
-
   const [ourService, setOurService] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null); // State for error message
   const [loading, setLoading] = useState(true); // State for loading
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const fetchServices = async () => {
       try {
         const response = await ourServices();
-        // console.log("Response services:", response.records);
+        console.log("Response services:", response.records);
 
         if (response.records.length === 0) {
           setErrorMessage("No data found for services."); // Set error message if no services are returned
@@ -25,7 +26,7 @@ const Services = () => {
         }
       } catch (error) {
         console.error("Error fetching services data:", error.message);
-        setErrorMessage("Error fetching data. Please try again later."); // Set general error message on failure
+        setErrorMessage("Error fetching data. Please try again later."); 
       } finally {
         setLoading(false); // Set loading to false when data fetching is complete
       }
@@ -68,7 +69,7 @@ const Services = () => {
                 key={service.id}
                 className={`service ${index % 2 === 0 ? "" : "service2"}`}
                 style={{ cursor: "pointer" }}
-                onClick={() => console.log(`Clicked: ${service.title}`)}
+                onClick={() => navigate(`/service-detail/${service.id}`)} 
               >
                 <div className="one">
                   <div className="s-left">
@@ -76,7 +77,7 @@ const Services = () => {
                       <img
                         src={service.image}
                         alt={service.title}
-                        style={{ width: "70px", height: "70px", objectFit: "cover", borderRadius: "8px" }}
+                        style={{width:"95%", height:"100%"}}
                       />
                     </div>
                   </div>

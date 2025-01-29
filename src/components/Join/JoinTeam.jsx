@@ -104,7 +104,7 @@ const JoinTeam = () => {
                      </div>
                      <div className="interest">
                         <div className="int-img">
-                           <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/fs_logo_icon_168169.png" alt="" />
+                           <img src="https://www.doola.com/wp-content/uploads/2024/01/F6S-Logo.png" alt="" />
                         </div>
                         <a href="https://www.f6s.com/company/talspo">Apply through F6S</a>
                      </div>
@@ -117,12 +117,10 @@ const JoinTeam = () => {
                   </div>
                </div>
             </div>
-
-
          </div>
 
 <FooterTop />
-         <Footer />
+ <Footer />
 
       </>
    )

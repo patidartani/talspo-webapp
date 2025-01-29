@@ -10,15 +10,15 @@ const TalspoSearchAI = () => {
       <NavbarContainer />
       <div className="service_con">
         <div className="service_box">
-          <h1>Talspo Search AI</h1>
           <Row>
             <Col md={6} sm={12}>
               <div className="service_head">
-                <h1>Coming Soon.....</h1>
+          <h1>Talspo Search AI</h1>
+                <h4 className='mt-4 text-danger'>Coming Soon.....</h4>
               </div>
             </Col>
             <Col md={6} sm={12}>
-              <div className="service_video" style={{ position: 'relative', height: '0', paddingBottom: '56.25%' }}>
+              <div className="service_video" style={{ position: 'relative', height: '0', paddingBottom: '60%' }}>
                 <iframe
                   src="https://www.youtube.com/embed/o7QuAauyzP4?autoplay=1&mute=1&loop=1&playlist=o7QuAauyzP4"
                   frameBorder="0"
