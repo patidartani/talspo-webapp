@@ -124,10 +124,10 @@
   border-bottom: 1px solid #a2a2a2;
   padding-bottom: 1vmax;
 }
-.OurTeam-main .ourteam .team-btm .two .btns-tab .founder,
-.OurTeam-main .ourteam .team-btm .two .btns-tab .co-founder,
-.OurTeam-main .ourteam .team-btm .two .btns-tab .advisors,
-.OurTeam-main .ourteam .team-btm .two .btns-tab .investors,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Founder,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Co-Founder,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Advisors,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Investors,
 
 .OurTeam-main .ourteam .team-btm .two .btns-tab .Previous,
 .OurTeam-main .ourteam .team-btm .two .btns-tab .Current,
@@ -200,6 +200,23 @@
 .OurTeam-main .ourteam .team-btm .two .leader .tab-box .text-tab span {
   font-size: 1vmax;
 }
+ .OurTeam-main .join-btn-team{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3vmax;
+ }
+ .OurTeam-main .join-btn-team button{
+  border: none;
+  background-color: #003266;
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.6vmax 1vmax;
+ }
+ .OurTeam-main .join-btn-team button:hover{
+  background-color: #1c4c80;
+ }
 .OurTeam-main .ourteam .team-last-videos {
   width: 85%;
   display: flex;
@@ -207,11 +224,18 @@
   justify-content: flex-start;
   background-color: #fff;
   flex-direction: column;
-  margin-top: 3vmax;
+  margin-top: 2vmax;
 }
-.OurTeam-main .ourteam .team-last-videos  h5{
+.OurTeam-main .ourteam .team-last-videos  .team-video-heading{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2vmax;
+}
+.OurTeam-main .ourteam .team-last-videos .team-video-heading  h5{
   font-weight: 600;
-  font-size: 1.7vmax;
+  font-size: 36px;
 }
  .OurTeam-main .ourteam .team-last-videos .team-v{
   display: flex;
@@ -281,11 +305,11 @@
 
   }
 
-  .OurTeam-main .ourteam .team-btm .two .btns-tab .founder,
-  .OurTeam-main .ourteam .team-btm .two .btns-tab .co-founder,
-  .OurTeam-main .ourteam .team-btm .two .btns-tab .advisors,
-  .OurTeam-main .ourteam .team-btm .two .btns-tab .investors,
-  .OurTeam-main .ourteam .team-btm .two .btns-tab .Previous,
+  .OurTeam-main .ourteam .team-btm .two .btns-tab .Founder,
+  .OurTeam-main .ourteam .team-btm .two .btns-tab .Co-Founder,
+  .OurTeam-main .ourteam .team-btm .two .btns-tab .Advisors,
+  .OurTeam-main .ourteam .team-btm .two .btns-tab .Investors,
+  .OurTeam-main .ourteam .team-btm .two .btns-tab .previous,
   .OurTeam-main .ourteam .team-btm .two .btns-tab .Current,
   .OurTeam-main .ourteam .team-btm .two .btns-tab .Previous-int,
   .OurTeam-main .ourteam .team-btm .two .btns-tab .Current-int {

@@ -13,6 +13,7 @@ import { FaCheck } from 'react-icons/fa';
 import {
   faChevronRight,
   faChevronLeft,
+  faClosedCaptioning,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Whowe = () => {
@@ -109,7 +110,11 @@ const Whowe = () => {
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1500,
+       pauseOnHover: false,  // Prevents stopping on hover
+    pauseOnFocus: false, 
+    centerMode: false, 
+    initialSlide: 0,
     responsive: [
       {
         breakpoint: 1150,
@@ -462,7 +467,7 @@ const Whowe = () => {
           </div>
           {/* -------------------------------------------- */}
           <div className="who-slide">
-          <div className="slider-container">
+          <div  className="slider-container">
   {filteredSkills.length > 0 ? (
     <Slider {...settings}>
       {filteredSkills.map((skill, index) => {
@@ -538,7 +543,7 @@ const Whowe = () => {
       {/* <p>{error}</p> */}
     </div>
   )}
-</div>
+          </div>
 
 
             <div className="home-map">

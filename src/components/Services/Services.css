@@ -106,12 +106,14 @@
           /* background-color: #003266; */
           color: #fff;
           transform: rotate(45deg);
+          padding: 0.7vmax;
 }
 .s-left .icon img {
           transform: rotate(-45deg);
           font-size: 2rem;
           font-weight: lighter;
           color: #fff;
+          object-fit: contain;
 }
 .s-right {
           width: 70%;

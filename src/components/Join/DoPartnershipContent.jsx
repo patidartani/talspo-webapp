@@ -79,8 +79,11 @@ const partnershipPoints = [
   {
     heading: "13. Strengthened Campus Connections",
     details: [
-      "Educational institutions can work with Talspo to enhance career services by offering students access to real-time job opportunities, recruitment drives, and internship placements through the platform’s Campus Ambassador Program.",
+      "Educational institutions can work with Talspo to enhance career services by offering students access to real-time job opportunities, recruitment drives, and internship placements through the platform’s Campus Ambassador Program .  By partnering with Talspo, your organization can tap into the power of AI, improve recruitment outcomes, enhance visibility in the HR community, and contribute to workforce development"
+
+       
     ],
+   
   },
 ];
 
@@ -100,8 +103,9 @@ const DoPartnershipContent = () => {
                 <br />
               </span>
             ))}
+            
           </div>
-        ))}
+        ))} 
       </div>
     </div>
   );

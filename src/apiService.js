@@ -505,6 +505,19 @@ export const ourServices = async () => {
   }
 };
 
+
+export const getServiceDetail = async (id) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/service-single-record/${id}`);
+    return response.data; 
+  } catch (error) {
+    console.error(`Error fetching service detail for ID ${id}:`, error);
+    throw new Error("Unable to fetch service details.");
+  }
+};
+
+
+
 // ---------------------------form certificate api----------------------------
 
 export const certificateForm = async (formData) => {

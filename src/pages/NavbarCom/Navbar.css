@@ -230,7 +230,7 @@
 }
 
  .nav-highlight span a {
-  text-decoration: none;
+  /* text-decoration: none; */
   color: red;
 }
 /* -----------------------------------------------nav highlight end-------- ------------------------------------  */

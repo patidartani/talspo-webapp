@@ -1,48 +1,36 @@
 import { useEffect, useState } from 'react';
 import "./Blog.css";
-import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer';
 import BlogImg from "/assets/images/blogimg.png";
 import BlogMan from "/assets/images/BlogMan.png";
 import Footer from '../../pages/Footer/Footer';
-import { recentBlogPosts, featuredBlogPosts, searchBlog } from '../../apiService'; // Add searchBlog API here
-import Loading from '../../pages/loading/Loading'; // Import the Loading component
+import { featuredBlogPosts, searchBlog } from '../../apiService'; // Remove recentBlogPosts import
+import Loading from '../../pages/loading/Loading';
 import { Link } from 'react-router-dom';
 import IconBlog from "/assets/images/logo-icon.png";
 import ReactPaginate from "react-paginate";
-import BlogText from "../../components/Blog/BlogText"
-
+import BlogText from "../../components/Blog/BlogText";
 import FooterTop from '../../pages/Footer/FooterTop';
 
 const Blog = () => {
-  const blogsPerPage = 4; // Number of blogs per page
+  const blogsPerPage = 4;
   const [currentPage, setCurrentPage] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("");
-  const [blogPosts, setBlogPosts] = useState([]);
   const [featuredBlogs, setFeaturedBlogs] = useState([]);
   const [currentBlogs, setCurrentBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showAllPosts, setShowAllPosts] = useState(false);
-
 
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
   };
 
   useEffect(() => {
-    const loadRecentBlogs = async () => {
-      try {
-        const recentPosts = await recentBlogPosts();
-        console.log("recentBlogPosts",recentPosts)
-        setBlogPosts(recentPosts);
-      } catch (error) {
-        console.error('Error loading recent blog posts:', error);
-      }
-    };
-
     const loadFeaturedBlogs = async () => {
       try {
         const featuredPosts = await featuredBlogPosts();
+        console.log("fghj", featuredBlogs)
         setFeaturedBlogs(featuredPosts);
         setCurrentBlogs(featuredPosts);
       } catch (error) {
@@ -51,13 +39,12 @@ const Blog = () => {
     };
 
     const fetchData = async () => {
-      await Promise.all([loadRecentBlogs(), loadFeaturedBlogs()]);
+      await loadFeaturedBlogs();
       setLoading(false);
     };
 
     fetchData();
   }, []);
-
 
   const handleSearch = async (event) => {
     const searchQuery = event.target.value;
@@ -84,6 +71,7 @@ const Blog = () => {
       }
     }
   };
+
   const toggleShowAll = () => {
     setShowAllPosts(!showAllPosts);
   };
@@ -105,7 +93,7 @@ const Blog = () => {
           <div className="blog-top">
             <div className="blog-left">
               <h5>Talspo Blog</h5>
-              <small>Explore Artificial Intelligence (AI) Insights in HR & Talent Acquisition, Stay ahead of the curve with our blog and resources that cover everything from the latest technologies, such as Blockchain Recruitment Solutions, to the impact of AI on recruitment.               </small>
+              <small>Explore Artificial Intelligence (AI) Insights in HR & Talent Acquisition, Stay ahead of the curve with our blog and resources that cover everything from the latest technologies, such as Blockchain Recruitment Solutions, to the impact of AI on recruitment. </small>
               <small className='mt-3'>Discover the future of employee coaching and the latest trends in skill and talent development events. Gain AI-driven insights that will empower you to make smarter, faster decisions, whether you are recruiting, seeking a desired job, or planning to attend related events. Explore AI Insights in HR & Talent Acquisition today!</small>
             </div>
             <div className="blog-right">
@@ -113,28 +101,49 @@ const Blog = () => {
             </div>
           </div>
 
-          {/* ----------------- Recent Posts Section ----------------- */}
-          <div className="blog2">
-            <div className="b-one">
-              <h5>Recent Posts</h5>
-              <a href="#" onClick={toggleShowAll}>
-                {showAllPosts ? 'Hide Posts' : 'View all Posts'}
-              </a>
-            </div>
-            <div className="b-two">
-              {Array.isArray(blogPosts) && blogPosts.length > 0 ? (
-                blogPosts.slice(0, showAllPosts ? blogPosts.length : 2).map((post, index) => (
-                  <div className="blog-box" key={index}>
-                    <h6>{post.title}</h6>
-                    <span>{post.subtitle}</span>
-                    <p>{post.description}</p>
-                  </div>
-                ))
-              ) : (
-                <p>No blog posts available</p>
-              )}
-            </div>
-          </div>
+         {/* ----------------- Recent Posts Section ----------------- */}
+<div className="blog2">
+  <div className="b-one">
+    <h5>Recent Posts</h5>
+    <a href="#" onClick={toggleShowAll}>
+      {showAllPosts ? 'Hide Posts' : 'View all Posts'}
+    </a>
+  </div>
+  <div className="b-two">
+    {Array.isArray(featuredBlogs) && featuredBlogs.length > 0 ? (
+      featuredBlogs
+        .slice(0, showAllPosts ? featuredBlogs.length : 2)
+        .map((post, index) => (
+          <Link style={{textDecoration:"none", color:"#000"}} to={`/blog-detail/${post.id}`} key={index} className="blog-box">
+            <h6>{post.title}</h6>
+            <span>
+              {new Date(post.updated_at).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}{" "}
+              | {post.subtitle}
+            </span>
+            <div
+              className="tpp"
+              style={{
+                display: "-webkit-box",
+                WebkitLineClamp: 4,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                marginBottom: "1vmax",
+                paddingBottom: "1vmax",
+              }}
+              dangerouslySetInnerHTML={{ __html: post.description }}
+            ></div>
+          </Link>
+        ))
+    ) : (
+      <p>No blog posts available</p>
+    )}
+  </div>
+</div>
 
           <div className="Blog-searchs">
             <div className="ipt-blgs">
@@ -162,19 +171,25 @@ const Blog = () => {
                       <div className="bl-text">
                         <h5>{blog.title}</h5>
                         <div className="num">
-                          <span> <small>{blog.category}</small></span>
-                          <h1>{blog.subtitle}</h1>
+                          <h1>{blog.subtitle} |  {new Date(blog.updated_at).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}{" "}</h1>
+
+<span> <small>{blog.category}</small></span>
+
                         </div>
                         <div
-                         className='tttt'
+                          className='tttt'
                           style={{
                             display: "-webkit-box",
                             WebkitLineClamp: 3,
                             WebkitBoxOrient: "vertical",
                             overflow: "hidden",
                             textOverflow: "ellipsis",
-                            marginBottom:"1vmax",
-                            paddingBottom:"0.5vmax"
+                            marginBottom: "1vmax",
+                            paddingBottom: "0.5vmax"
                           }}
                           dangerouslySetInnerHTML={{ __html: blog.description }}
                         ></div>

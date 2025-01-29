@@ -18,8 +18,8 @@ const Contact = () => {
   const [captchaToken, setCaptchaToken] = useState('');
 
   const options = [
-    { value: 'technical', label: 'Technical Issue' },
-    { value: 'nonTechnical', label: 'Non-Technical Issue' },
+    { value: 'Technical Issue', label: 'Technical Issue' },
+    { value: 'Non-Technical Issue', label: 'Non-Technical Issue' },
   ];
 
   const [formData, setFormData] = useState({
@@ -46,7 +46,7 @@ const Contact = () => {
         try {
           const token = await window.grecaptcha.execute(SITE_KEY, { action: 'submit' });
           setCaptchaToken(token); // Set the token in state
-          console.log("Captcha Token:", token);
+          // console.log("Captcha Token:", token);
   
           submitForm(token);
         } catch (error) {
@@ -75,7 +75,7 @@ const Contact = () => {
   const submitForm = async (token) => {
     const formDataWithToken = { ...formData, captchaToken: token }; 
     
-    console.log('Form Data to send: ', formDataWithToken);
+    // console.log('Form Data to send: ', formDataWithToken);
   
     try {
       const response = await fetch(MESSAGE_URL, {
@@ -85,7 +85,8 @@ const Contact = () => {
       });
   
       const result = await response.json();
-      console.log("API Response:", result);
+      // console.log("API Response:", result);
+      
   
       if (response.ok) {
         Swal.fire({

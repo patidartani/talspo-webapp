@@ -27,7 +27,7 @@ const Loading = () => {
         <img src={talspoIcon} alt="Loading..." className="loading-gif" />
       </div>
       <h5>Loading...</h5>
-      <div style={{fontWeight:"600"}} dangerouslySetInnerHTML={{ __html: description}} />
+      <div style={{fontWeight:"600",color:"red", fontSize:"1.5vmax"}} dangerouslySetInnerHTML={{ __html: description}} />
     </div>
   );
 };

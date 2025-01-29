@@ -1,72 +1,87 @@
-import React from 'react'
-import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
-import Footer from "../../pages/Footer/Footer"
-import FooterTop from "../../pages/Footer/FooterTop"
-import "./StudentServiceModel.css"
-
-import StudentIcon from "/assets/images/studentIcon.png";
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import NavbarContainer from '../../pages/NavbarCom/NavBarContainer';
+import Footer from "../../pages/Footer/Footer";
+import FooterTop from "../../pages/Footer/FooterTop";
+import "./StudentServiceModel.css";
+import { useParams, useNavigate } from 'react-router-dom';
+import { getServiceDetail } from "../../apiService";
+import Loading from '../../pages/loading/Loading';
 
 const StudentServiceModel = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
+  const [serviceDetail, setServiceDetail] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  useEffect(() => {
+    const fetchServiceDetail = async () => {
+      try {
+        const data = await getServiceDetail(id);
+        setServiceDetail(data.records);
+      } catch (error) {
+        console.error("Error fetching service details:", error.message);
+        setErrorMessage("Error fetching details. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServiceDetail();
+  }, [id]);
 
   const howHandler = () => {
-    navigate("/how-we-work")
+    navigate("/how-it-works?");
+  };
+
+  if (loading) {
+    return <div><Loading /></div>;
+  }
+
+  if (errorMessage) {
+    return <div style={{ color: 'red', textAlign: 'center', margin: '20px' }}>{errorMessage}</div>;
   }
 
   return (
     <>
       <NavbarContainer />
       <div className='StudentServiceModel'>
-
         <div className="students-learner">
-          <h5>Students/ Learner Model Services Page</h5>
+          {/* Title from backend */}
+          <h5>{serviceDetail?.title || "Default Title"}</h5>
+
+          {/* Image from backend */}
           <div className="student-icon">
-            <img src={StudentIcon} alt="" />
+            <img
+              src={serviceDetail?.image || "/assets/images/defaultImage.png"} // Fallback image
+              alt={serviceDetail?.title || "Student Service"}
+            />
           </div>
+
           <div className="student-btm">
-            <b>For Whom?</b>
-            <p>This platform benefits secondary/high school students, under-graduates, graduates and people willing
-              to learn from any other Massive Online Open Courses providers.</p>
-            <b>Why to choose us?</b>
-            <p>You will be able to Network, Learn New Skill Sets, Teach Skills you are best in teaching (Exchange
-              & Enhance Your Knowledge at the Same Time) and all these with more Innovative Way of
-              Connecting with Everyone NEAR YOU.</p>
-
-
-            <b>As a learner:</b>
-            <p>You can choose the skills you want to learn from our approved list of trainers which
-              will help you to simplify, conclude and connect with any trainer with ease. You will be showcased
-              with the ratings and the genuine reviews of our trainers. This will help you get the best possible
-              skilled trainer from our platform.</p>
-
-            <b>As a Teacher: </b>
             <p>
-              You can post your skilled areas and can upload your profile on our platform and can directly
-              connect to the learner requiring the desired skill set. This will help in ease processing and the both
-              (leaner and teacher) will be benefited with less efforts in searching their recipients.
-            </p>
-
-            <small>Follow Your Passion, Develop the skills you missed due to some reasons.</small>
-            <h3>So, don’t wait, Follow Your Passion and Make Your Dream Come True by Start executing and
-              Stop Thinking!</h3>
-
-
+              {serviceDetail?.content ? (
+                <div
+                  dangerouslySetInnerHTML={{ __html: serviceDetail.content }}
+                />
+              ) : (
+                "Default Content"
+              )}           </p>
           </div>
 
+          {/* Button text from backend */}
           <div className="how-services">
-            <button onClick={howHandler}>How It Works?</button>
+            <button onClick={howHandler}>
+              {serviceDetail?.button}
+            </button>
           </div>
-
-
         </div>
-
       </div>
 
       <FooterTop />
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default StudentServiceModel
+export default StudentServiceModel;

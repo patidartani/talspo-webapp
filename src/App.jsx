@@ -29,9 +29,6 @@ import GdbrPolicy from "./pages/Footer/privacyPolicy/GdbrPolicy"
 import AntiSpamPolicy from "./pages/Footer/privacyPolicy/AntiSpamPolicy"
 import ViewDetail from "./components/Join/ViewDetail"
 import StudentServiceModel from "./components/Services/StudentServiceModel"
-import ProfessionalTrainer from "./components/Services/ProfessionalTrainer"
-import CorporateService from "./components/Services/CorporateService"
-import CoWorking from "./components/Services/CoWorking"
 import Form from "./components/Join/Form"
 import SiteMap from "./components/Home/SiteMap"
 import TalspoAPI from "./components/About/TalspoAPI"
@@ -56,7 +53,7 @@ const App = () => {
         <Route path='/partners' element={<DoPatnership />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/how-we-work" element={<HowWeWork />} />
+        <Route path="/how-it-works?" element={<HowWeWork />} />
         <Route path="/talspo-here" element={<TalspoHere />} />
         <Route path="/tca" element={<Tca />} />
         <Route path="/blog-detail/:id" element={<BlogDetail />} />
@@ -76,10 +73,8 @@ const App = () => {
         <Route path="/gdbr-policy" element={<GdbrPolicy />} />
         <Route path="/anti-spam-policy" element={<AntiSpamPolicy />} />
         <Route path="/legal-certificate" element={<LegalCertificate />} />
-        <Route path="/student-service" element={<StudentServiceModel />} />
-        <Route path="/professional-service" element={<ProfessionalTrainer />} />
-        <Route path="/corporate-service" element={<CorporateService />} />
-        <Route path="/co-working" element={<CoWorking />} />
+        <Route path="/service-detail/:id" element={<StudentServiceModel />} />
+      
         <Route path="/talspo-search" element={<TalspoSearchAI />} />
         <Route path="/talspo-api" element={<TalspoAPI />} />
         <Route path="/join" element={<JoinTeam />} />

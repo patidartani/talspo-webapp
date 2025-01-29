@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import React from "react";
 import "./AboutUs.css";
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import AboutTopImg from "/assets/images/aboutusTop.webp";
@@ -17,31 +18,29 @@ import XIcon from "/assets/images/XIcon.png"
 import YouTube from "/assets/images/YouTube.png"
 import FooterTop from "../../pages/Footer/FooterTop";
 
+
 import { getPatentData, getKnowUsData, getJourneyTalspoData, getLogoStoryData, getRecognitionData, contactQrApi } from '../../apiService';
 import WhyChooseData from "./WhyChooseData";
 
 const AboutUs = () => {
 
+  const sliderRef = React.useRef(null); // Create a reference for the slider
+
+  const handleClick = (url) => {
+    window.location.href = url; // Redirect to the given URL
+  };
+
   const settings = {
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    centerMode: true,
+    centerMode: false,
     centerPadding: "20px",
-    arrows: true,
+    arrows: false, // Disable default arrows
     responsive: [
       {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerMode: false,
-          centerPadding: "0px",
-        },
-      },
-      {
-        breakpoint: 1024,
+        breakpoint: 1200,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -50,32 +49,34 @@ const AboutUs = () => {
         },
       },
       {
-        breakpoint: 1200,
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 1, // Show one slide
+          slidesToShow: 3,
           slidesToScroll: 1,
           centerMode: false,
-          centerPadding: "0px",
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: false,
         },
       },
     ],
   };
 
-
-  const howHandler = () => {
-    navigate('/how-we-work')
-  }
-  const achiveHandler = () => {
-    navigate('/achievements')
-  }
-  const faqHandler = () => {
-    navigate('/faq')
-  }
-
+  
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("about");
   const ourTeamHandler = () => {
     navigate('/our-team')
+  }
+
+
+  const signupHandler = () => {
+    navigate('/signup')
   }
 
   // -----------------------------all-apis-------------------------------------------
@@ -200,7 +201,6 @@ const AboutUs = () => {
                     {knowUsData.length > 0 && knowUsData[0].title}
                   </h6>
                   <p>{knowUsData.length > 0 && knowUsData[0].description}</p>
-                  {/* <h5>"TALENT AGGREGATOR"</h5> */}
                 </div>
               )}
               {activeTab === "journey" && (
@@ -250,7 +250,7 @@ const AboutUs = () => {
                 <div className="logo-story-tab-content">
                   <h6>The Logo Story</h6>
                   <p>
-                  The Talspo logo reflects the ambition to create a Talent Discovery Ecosystem (NEARBY) that ensures authenticity, security, and faster talent connections through modern technology.
+                    The Talspo logo reflects the ambition to create a Talent Discovery Ecosystem (NEARBY) that ensures authenticity, security, and faster talent connections through modern technology.
                   </p>
 
                   <div className="logo-story-slider">
@@ -275,8 +275,13 @@ const AboutUs = () => {
               {activeTab === "ipr" && (
                 <div className="ipr-tab-content">
                   <h6>{patentData.length > 0 && patentData[0].title}</h6>
-                  <p>{patentData.length > 0 && patentData[0].description}</p>
-                  {/* <p>Patent Certificate Legal Status: Inforce</p> */}
+                  <p> {patentData?.length > 0 && patentData[0].description && (
+                    <div
+                      className="rendered-content"
+                      dangerouslySetInnerHTML={{ __html: patentData[0].description }}
+                    />
+                  )}</p>
+
                   <img src={patentData.length > 0 ? patentData[0].image : ""} alt="Patent" />
                 </div>
               )}
@@ -295,7 +300,7 @@ const AboutUs = () => {
         {/* -------------------------------------------------------------------------------------------------- */}
 
         <div className="extra-content">
-          <h5>Company Purpose Section</h5>
+          <h5>Company Purpose</h5>
           <p>To solve the Talent mismatch and a huge gap in the talent
             education marketplace all over the world.</p>
 
@@ -305,7 +310,7 @@ const AboutUs = () => {
             Machine Learning (ML), Deep Learning (DL) & Blockchain</small>
 
           <div className="extra-two">
-            <h5>Mission and Vision Section</h5>
+            <h5>Mission and Vision</h5>
             <div className="two-extra">
               <div className="extraLeft">
                 <h6>Mission:</h6>
@@ -322,7 +327,7 @@ const AboutUs = () => {
             </div>
           </div>
 
-          <h5 className="mt-4">Problem Section</h5>
+          <h5 className="mt-4">Problem</h5>
           <small>In today’s fast-paced world, individuals and organizations grapple with a significant
             talent mismatch, where skills learned often fail to meet market demands. This gap not
             only hinders personal growth but also stifles economic progress. With rapid
@@ -339,7 +344,7 @@ const AboutUs = () => {
           <h4>5. Finding 360-degree Talent or Skill Development NEARBY YOU is very
             difficult, that too in Real-Time</h4>
 
-          <h5 className="mt-5">Solution Section</h5>
+          <h5 className="mt-5">Solution</h5>
           <small>By leading with our values, we will create a product that brings value and confidence
             back in people’s lives.</small> <br />
           <small>We are working on 360-degree skill(s) connectivity & networking ONLINE (RealTime) to solve the skill(s) mismatch globally by developing software application(s)
@@ -355,7 +360,8 @@ const AboutUs = () => {
           <h4>5. Get 360-degree Talent or Skill Development NEARBY YOU, that
             too in Real-Time</h4>
 
-          <h5 className="mt-5">Why Talspo? Section</h5>
+          <h5 className="mt-5">Why Talspo? </h5>
+            <h6 style={{fontWeight:"600"}}>Transforming Talent Development for Tomorrow</h6>
           <span>Our innovative platform leverages advanced technologies like Artificial Intelligence
             (AI) and Machine Learning (Deep Learning) including Blockchain to facilitate realtime connections between learners and local trainers, addressing the critical skills gap.
             By providing a geo-location-based marketplace, users can access tailored learning
@@ -385,70 +391,56 @@ const AboutUs = () => {
 
         </div>
 
+        {/* ---------------------------------------------------------------------------------------- */}
+
         <div className="slider-about">
-          <div className="slider-container">
-            <Slider {...settings}>
-              <div onClick={howHandler} className="extra-slide">
-                <div className="extra-slide-image">
-                  <img src={TalspoIcon} alt="" />
-                </div>
-                <a href="/how-we-work">How We Work?</a>
+      <div className="slider-container">
+        <Slider ref={sliderRef} {...settings}>
+          {[
+            { label: "How We Work?", url: "/how-we-work" },
+            { label: "Achievements So Far", url: "/achievements" },
+            { label: "FAQs", url: "/faq" },
+            { label: "Our Team", url: "/our-team" },
+            { label: "Talspo Search AI", url: "/talspo-search" },
+            { label: "Talspo API", url: "/talspo-api" },
+            { label: "Talspo Affiliate Program", url: "/talspo-affiliate" },
+            { label: "Talfia™ (*sub-brand of Talspo)", url: "/talfia" },
+          ].map((item, index) => (
+            <div
+              key={index}
+              onClick={() => handleClick(item.url)}
+              className="extra-slide"
+            >
+              <div className="extra-slide-image">
+                <img src={TalspoIcon} alt={item.label} />
               </div>
-              <div onClick={achiveHandler} className="extra-slide">
-                <div className="extra-slide-image">
-                  <img src={TalspoIcon} alt="" />
-                </div>
-                <a href="/achievements">Achievements So Far</a>
-              </div>
-              <div onClick={faqHandler} className="extra-slide">
-                <div className="extra-slide-image">
-                  <img src={TalspoIcon} alt="" />
-                </div>
-                <a href="/faq">FAQs</a>
-              </div>
-
-              <div onClick={faqHandler} className="extra-slide">
-                <div className="extra-slide-image">
-                  <img src={TalspoIcon} alt="" />
-                </div>
-                <a href="/our-team">Our Team</a>
-              </div>
-
-              <div onClick={faqHandler} className="extra-slide">
-                <div className="extra-slide-image">
-                  <img src={TalspoIcon} alt="" />
-                </div>
-                <a href="/talspo-search">Talspo Search AI</a>
-              </div>
-              <div onClick={faqHandler} className="extra-slide">
-                <div className="extra-slide-image">
-                  <img src={TalspoIcon} alt="" />
-                </div>
-                <a href="/talspo-api">Talspo API</a>
-              </div>
-
-              <div onClick={faqHandler} className="extra-slide">
-                <div className="extra-slide-image">
-                  <img src={TalspoIcon} alt="" />
-                </div>
-                <a href="/talspo-affiliate">Talspo Affiliate Programe</a>
-              </div>
-
-              <div onClick={faqHandler} className="extra-slide">
-                <div className="extra-slide-image">
-                  <img src={TalspoIcon} alt="" />
-                </div>
-                <a href="/talfia">Talfia™ (*sub-brand of Talspo)
-                </a>
-              </div>
-
-            </Slider>
-          </div>
+              <a>{item.label}</a>
+            </div>
+          ))}
+        </Slider>
+      </div>
+      {/* Static Buttons */}
+      <div className="about-slider-btns">
+        <div
+          className="left-btn-about"
+          onClick={() => sliderRef.current.slickPrev()} // Trigger previous slide
+        >
+          <i className="ri-arrow-left-line"></i>
         </div>
+        <div
+          className="right-btn-about"
+          onClick={() => sliderRef.current.slickNext()} // Trigger next slide
+        >
+          <i className="ri-arrow-right-line"></i>
+        </div>
+      </div>
+    </div>
+        {/* ---------------------------------------------------------------------------------------- */}
+
 
         <div className="qr-code-about">
           <img src={qr} alt="" />
-          <button>Call to action</button>
+          <button onClick={signupHandler} className="about-signUp">Sign Up</button>
 
           <div className="connected">
             <h6>Stay Connected:
