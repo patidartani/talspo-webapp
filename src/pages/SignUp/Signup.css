@@ -295,6 +295,12 @@
           .Signup-main {
                     width: 100%;
           }
+          /* -------------------- */
+          .Signup-main .Signup-page h3{
+            margin-top: 20vmax;
+          }
+          /* -------------------- */
+
           .Signup-main .Signup-page .form-page {
                     width: 90%;
                     margin-top: 15vmax;

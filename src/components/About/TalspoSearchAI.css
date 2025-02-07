@@ -187,11 +187,14 @@
  }
  /* ---------------talfia css----------------- */
 .Talfia-page{
-       padding-top: 15vmax;
+       padding-top: 17vmax;
 }
 .Talfia-page h5{
       font-size: 2vmax;
 }
+.Talfia-page img{
+       width: 80%;
+  }
 .Talfia-page .talfia-video iframe{
        width: 95%;
        height: auto;
@@ -210,6 +213,20 @@
 }
 .Talfia-page .talfia small{
        font-size: 2vmax;
+}
+
+/* ------------------------- */
+.service_con{
+       margin-top: 5vmax;
+}
+.service_img{
+       width: 100%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+}
+.service_img img{
+       width: 100%;
 }
   }
   @media (min-width:600px) and (max-width:1150px) {
@@ -228,6 +245,20 @@
       .talspo-search-ai li{
               margin-top: 1vmax
        } 
+
+/* ----------------------- */
+       .service_con{
+              margin-top: 5vmax;
+       }
+       .service_img{
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+       }
+       .service_img img{
+              width: 100%;
+       }
               /* ---------------------talspo-affiliate-program--------------------------- */
 
 .affiliate-program .aff-prog{
@@ -240,20 +271,21 @@
  }
   /* ---------------talfia css----------------- */
 .Talfia-page{
-       padding-top: 12vmax;
+       padding-top: 13vmax;
 }
 .Talfia-page h5{
-      font-size: 2vmax;
+      font-size: 2.7vmax;
 }
 .Talfia-page .talfia-video iframe{
        width: 95%;
        height: auto;
+       margin-top: 1vmax;
 }
 .Talfia-page .talfia{
        width: 90%;
 }
 .Talfia-page .talfia h6{
-       font-size: 2.5vmax;
+       font-size: 3vmax;
 }
 .Talfia-page .talfia p{
        font-size: 2vmax;
@@ -264,4 +296,12 @@
 .Talfia-page .talfia small{
        font-size: 2vmax;
 }
+
+.Talfia-page img{
+       width: 80%;
+  }
+  .Talfia-page .talfia-video iframe{
+          width: 90%;
+          height: 500px;
+  }
   }

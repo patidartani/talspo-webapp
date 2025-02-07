@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import "./DoPartnership.css"
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
-import QrImg from "/assets/images/patnerQrr.png"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { doPartnerhip, submitCareerForm, partnersScaner } from "../../apiService"
 import Loading from "../../pages/loading/Loading"
@@ -13,6 +12,8 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 import FooterTop from '../../pages/Footer/FooterTop';
 import DoPartnershipContent from './DoPartnershipContent'
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 const DoPatnership = () => {
 
@@ -250,8 +251,8 @@ const DoPatnership = () => {
             <h4>E-Brochure</h4>
             <span>Scan the QR Code to View the Latest Talspo E-Brochure </span>
             <span style={{fontWeight:"600", color:"#4f4f4f"}} className='mt-2' >Talspo E-Brochure Link: </span>
-            <span>To View the Latest Talspo E-Brochure: Click or Tap Here!: </span>
-            <a href="https://tinyurl.com/talspo-ebrochure" target="_blank">https://tinyurl.com/talspo-ebrochure</a>
+            <span>To View the Latest Talspo E-Brochure:            <a href="https://tinyurl.com/talspo-ebrochure" target="_blank">Click or Tap Here!</a>
+            </span>
           </div>
         </div>
         {/* ------------------------ */}
@@ -286,24 +287,28 @@ const DoPatnership = () => {
                 {errors.email && <small className="error-p">{errors.email[0]}</small>}
               </div>
               <div className="p-inp">
-                <input
-                  type="tel"
-                  name="phone_number"
-                  placeholder="Phone Number*"
-                  value={formData.phone_number}
-                  onChange={(e) => {
-                    const value = e.target.value.replace(/\D/g, ''); 
-                    if (value.length <= 10) {
-                      setFormData({
-                        ...formData,
-                        phone_number: value
-                      });
-                    }
-                  }}
-                  maxLength="10" // Limits the input to 10 digits
-                />
-                {errors.phone_number && <small className="error-p">{errors.phone_number[0]}</small>}
-              </div>
+  <PhoneInput
+    country={"in"} // Default country set to India
+    value={formData.phone_number}
+    onChange={(value) => {
+      setFormData({
+        ...formData,
+        phone_number: value
+      });
+    }}
+    placeholder="Phone Number*" // Custom placeholder if needed
+    maxLength="10" // This is handled by the library itself for correct number format
+    inputClass="phone-input-field" // You can add custom classes for styling
+    buttonClass="phone-input-button"
+    inputStyle={{
+      width: "100%",
+      height: "40px",
+      paddingLeft: "50px", // Add padding for the placeholder
+    }}
+  />
+  {errors.phone_number && <small className="error-p">{errors.phone_number[0]}</small>}
+</div>
+
 
               <div className="p-inp">
                 <input

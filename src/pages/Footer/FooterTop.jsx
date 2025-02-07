@@ -14,20 +14,20 @@ navigate("/app")
   }
   return (
  <div className='FooterTop-main'>
+  <h5 style={{fontWeight:"600"}}>Quick Links</h5>
 <div className="Footer-Top-page">
 
       <div className="footer1">
              <div className="f-Links">
                     <h5><a style={{textDecoration:"none", color:"red"}} href="">Talspo Here</a></h5>
-                  <h5><span>About Us : </span><a href="/about-us">About</a> | <a href="/how-it-works?">How It Work?</a> | <a href="/achievements">Achievement so far</a> | <a href="/">FAQs</a> | <a href="/our-team">Our Team</a> | <a href="/talspo-here">Talspo Search AI </a> | <a href="/">Talspo API</a> | <a href="/talfia">Talfia(*sub brand of talspo)</a> | <a href="/">Talspo Affiliate Programe: become a part of our growth story (Let's grow together)</a></h5>   
-                  <h5><span>Services: </span> <a href="/services">Students/Learner Model Srvices</a> | <a href="/">Professional + Trainers Model Services</a> | <a href="/">Corporate + Organization Model Services</a> | <a href="">Co-Working Spaces + Co-works&Co-live & Events Model Services</a></h5>   
-                    <h5><span>Join Us : </span> <a href="/join">Find Opportunities(*Career)at Talspo</a> | <a href="/partners">Do Partnership</a> | <a href="/tca">Talspo Campus Ambassador(TCA)</a></h5>
+                  <h5><span>About Us : </span><a href="/about-us">About</a> | <a href="/how-it-works?">How It Work?</a> | <a href="/achievements">Achievement so far</a> | <a href="/faq">FAQs</a> | <a href="/our-team">Our Team</a> | <a href="/talspo-here">Talspo Search AI </a> | <a href="/talspo-api">Talspo API</a> | <a href="/talfia">Talfia(*sub brand of talspo)</a> | <a href="/talspo-affiliate">Talspo Affiliate Programe: become a part of our growth story (Let's grow together)</a></h5>   
+                  <h5><span>Services: </span><a href="/services">Services</a> | <a href="/service-detail/1">Students/Learner Model Services</a> | <a href="/service-detail/2">Professional + Trainers Model Services</a> | <a href="/service-detail/3">Corporate + Organization Model Services</a> | <a href="/service-detail/4">Co-Working Spaces + Co-works&Co-live & Events Model Services</a></h5>   
+                    <h5><span>Join Us : </span> <a href="/join">Join Us</a> | <a href="/opportunities">Find Opportunities(*Career)at Talspo</a> | <a href="/partners">Do Partnership</a> | <a href="/tca">Talspo Campus Ambassador(TCA)</a></h5>
                     <h5><span>Blog : </span> <a href="/blog">Read Our Blogs</a> | <a href="/"> <span>Become a Talspo Blogger : </span> User Blogger Registration (Your bloga are read in offline network connection) </a></h5>
           
              </div>
       </div>   
       <div className="footer2">
-      <h6>Quick Links</h6>
 
           <h5>ADD TALSPO TO YOUR HOME SCREEN</h5>
              <div className="f_btn">

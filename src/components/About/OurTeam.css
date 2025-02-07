@@ -246,115 +246,179 @@
   gap: 2vmax;
  }
 
-@media (max-width:600px) {
+
+ @media (max-width:600px) {
   .OurTeam-main {
     width: 100%;
-  }
-
-  .OurTeam-main .ourteam {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 13vmax
+    padding-top: 10vmax;
   }
 
   .OurTeam-main .ourteam .team-top {
-    width: 100%;
-    height: auto;
+    padding: 1vmax;
   }
-
-  .OurTeam-main .ourteam .team-btm {
-    width: 100%;
+  .OurTeam-main .ourteam .team-top h5 {
+    width: 95%;
+    font-size: 2.8vmax;
   }
-
-  .OurTeam-main .ourteam .team-btm .one {
-    width: 40%;
-    margin-top: 0vmax;
+  .OurTeam-main .ourteam .team-top p {
+    width: 95%;
+    font-size:1.4vmax;
+   text-transform: none;
   }
 
   .OurTeam-main .ourteam .team-btm .one {
     width: 95%;
   }
-
   .OurTeam-main .ourteam .team-btm .one h5 {
-    font-size: 3.5vmax;
+    font-size: 2.7vmax;
   }
-
   .OurTeam-main .ourteam .team-btm .one p {
-    text-align: center;
+    font-size: 2vmax;
   }
-
   .OurTeam-main .ourteam .team-btm .two {
     width: 95%;
-    margin-top: 0vmax;
+
   }
 
   .OurTeam-main .ourteam .team-btm .two h5 {
-    font-size: 4vmax;
-    align-items: center;
-    text-align: center;
+    font-size: 3vmax;
   }
-
-  .OurTeam-main .ourteam .team-btm .two .btns-tab {
-    width: 100%;
-    gap: 2vmax;
-    align-items: center;
-    justify-content: center;
-
-  }
-
-  .OurTeam-main .ourteam .team-btm .two .btns-tab .Founder,
-  .OurTeam-main .ourteam .team-btm .two .btns-tab .Co-Founder,
-  .OurTeam-main .ourteam .team-btm .two .btns-tab .Advisors,
-  .OurTeam-main .ourteam .team-btm .two .btns-tab .Investors,
-  .OurTeam-main .ourteam .team-btm .two .btns-tab .previous,
-  .OurTeam-main .ourteam .team-btm .two .btns-tab .Current,
-  .OurTeam-main .ourteam .team-btm .two .btns-tab .Previous-int,
-  .OurTeam-main .ourteam .team-btm .two .btns-tab .Current-int {
-    font-size: 2vmax;
-    padding: 1vmax 1.5vmax;
-  }
-
   /* ---------------------------------------------------------------------------------- */
+  
   .OurTeam-main .ourteam .team-btm .two .leader {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
-
   .OurTeam-main .ourteam .team-btm .two .leader .tab-box {
-    width: 90%;
+    width: 100%;
     height: auto;
   }
-
   .OurTeam-main .ourteam .team-btm .two .leader .tab-box .img {
     width: 100%;
     height: auto;
   }
-
   .OurTeam-main .ourteam .team-btm .two .leader .tab-box .img img {
     width: 100%;
     height: auto;
   }
-
   .OurTeam-main .ourteam .team-btm .two .leader .tab-box .text-tab {
-    width: 100%;
     height: auto;
   }
-
+  
   .OurTeam-main .ourteam .team-btm .two .leader .tab-box .text-tab h6 {
-    font-weight: 600;
+    font-size: 3vmax;
   }
-
   .OurTeam-main .ourteam .team-btm .two .leader .tab-box .text-tab span {
     font-size: 2vmax;
   }
-
+   .OurTeam-main .join-btn-team button{
+    padding: 1.3vmax 2vmax;
+   }
   .OurTeam-main .ourteam .team-last-videos {
     width: 95%;
+  }
+   .OurTeam-main .ourteam .team-last-videos .team-v{
     flex-direction: column;
+   }
+  
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Founder,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Co-Founder,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Advisors,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Investors,
+
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Previous,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Current,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Previous-int,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Current-int {
+  font-size: 2vmax;
+  padding: 0.7vmax 1vmax;
+  border-radius: 50px;
+}
+ }
+
+ @media (min-width:600px) and (max-width:1050px) {
+  .OurTeam-main {
+    width: 100%;
+    padding-top: 10vmax;
   }
 
+  .OurTeam-main .ourteam .team-top {
+    padding: 1vmax;
+  }
+  .OurTeam-main .ourteam .team-top h5 {
+    width: 95%;
+    font-size: 2.8vmax;
+  }
+  .OurTeam-main .ourteam .team-top p {
+    width: 95%;
+    font-size:1.4vmax;
+   text-transform: none;
+  }
+
+  .OurTeam-main .ourteam .team-btm .one {
+    width: 95%;
+  }
+  .OurTeam-main .ourteam .team-btm .one h5 {
+    font-size: 2.7vmax;
+  }
+  .OurTeam-main .ourteam .team-btm .one p {
+    font-size: 2vmax;
+  }
+  .OurTeam-main .ourteam .team-btm .two {
+    width: 95%;
+
+  }
+
+  .OurTeam-main .ourteam .team-btm .two h5 {
+    font-size: 3vmax;
+  }
+  /* ---------------------------------------------------------------------------------- */
+  
+  .OurTeam-main .ourteam .team-btm .two .leader {
+    flex-direction: column;
+  }
+  .OurTeam-main .ourteam .team-btm .two .leader .tab-box {
+    width: 100%;
+    height: auto;
+  }
+  .OurTeam-main .ourteam .team-btm .two .leader .tab-box .img {
+    width: 100%;
+    height: auto;
+  }
+  .OurTeam-main .ourteam .team-btm .two .leader .tab-box .img img {
+    width: 100%;
+    height: auto;
+  }
+  .OurTeam-main .ourteam .team-btm .two .leader .tab-box .text-tab {
+    height: auto;
+  }
+  
+  .OurTeam-main .ourteam .team-btm .two .leader .tab-box .text-tab h6 {
+    font-size: 3vmax;
+  }
+  .OurTeam-main .ourteam .team-btm .two .leader .tab-box .text-tab span {
+    font-size: 2vmax;
+  }
+   .OurTeam-main .join-btn-team button{
+    padding: 1.3vmax 2vmax;
+   }
+  .OurTeam-main .ourteam .team-last-videos {
+    width: 95%;
+  }
+   .OurTeam-main .ourteam .team-last-videos .team-v{
+    flex-direction: column;
+   }
+  
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Founder,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Co-Founder,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Advisors,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Investors,
+
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Previous,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Current,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Previous-int,
+.OurTeam-main .ourteam .team-btm .two .btns-tab .Current-int {
+  font-size: 2vmax;
+  padding: 0.7vmax 1vmax;
+  border-radius: 50px;
 }
+ }

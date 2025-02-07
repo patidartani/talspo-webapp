@@ -188,7 +188,6 @@
 .carousel-control-next {
         right: -50px;
 }
-
 .carousel-item {
         padding: 10px;
 }
@@ -209,22 +208,18 @@
 .AboutUs-container .about-content .about-btm .journey-data .scroll-line {
         width: 1%;
         height: auto;
-        /* Adjust height as needed */
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
 }
-
 .AboutUs-container .about-content .about-btm .journey-data .scroll-line .scroll-indicator {
         width: 20%;
         height: 30px;
         background: #393939;
         position: absolute;
         transition: top 0.3s ease;
-        /* Smooth animation when changing position */
 }
-
 .AboutUs-container .about-content .about-btm .journey-data .journey-left {
         width: 15%;
         height: auto;
@@ -234,7 +229,6 @@
         flex-direction: column;
         gap: 1vmax;
 }
-
 .AboutUs-container .about-content .about-btm .journey-data .journey-left h6 {
         cursor: pointer;
         background-color: #003266;
@@ -255,13 +249,11 @@
         align-items: flex-start;
         justify-content: flex-start;
         flex-direction: column;
-        /* overflow: hidden; */
 }
 
 .AboutUs-container .about-content .about-btm .journey-data .journey-right .journey-scroll {
         width: 100%;
         height: auto;
-        /* overflow-y: auto; */
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;
@@ -279,9 +271,6 @@
 .AboutUs-container .about-content .about-btm .journey-data .journey-right .j-one img {
         width: 90%;
 }
-.AboutUs-container .recognition-tab-content{
-        background: #000;
-}
 /* ---------------------------------------------------------------------- */
 .AboutUs-container .extra-content {
         width: 70%;
@@ -291,17 +280,14 @@
         font-size: 1.7vmax;
         font-weight: 600;
 }
-
 .AboutUs-container .extra-content p {
         font-size: 1.3vmax;
         font-weight: 600;
 }
-
 .AboutUs-container .extra-content small {
         font-size: 1vmax;
         letter-spacing: 0.5px;
 }
-
 .AboutUs-container .extra-content .extra-two {
         margin-top: 2.5vmax;
 }
@@ -361,22 +347,18 @@
       
       .AboutUs-container     .slider-container {
         width: 70%;
-        /* max-width: 90%; */
         overflow: hidden;
         position: relative;
       }
-      
       .AboutUs-container     .slick-slider {
         margin: 0 auto;
       }
-      
       .AboutUs-container    .slick-track {
         display: flex !important;
         align-items: center;
         gap: 0.5vmax !important;
         ;    
-  }
-      
+  }  
   .AboutUs-container     .slick-slide {
         display: flex !important;
         justify-content: center;
@@ -384,7 +366,6 @@
         flex-direction: row;
         box-sizing: border-box;
       }
-      
       .AboutUs-container     .extra-slide {
         width: 330px !important;
         height: 200px;
@@ -406,7 +387,6 @@
         align-items: center;
         justify-content: center;
       }
-      
       .AboutUs-container    .extra-slide img {
         width: 70%;
         height: auto;
@@ -446,7 +426,6 @@
 .AboutUs-container .qr-code-about img {
         width: 20%;
 }
-
 .AboutUs-container  .qr-code-about .about-signUp{
         color: red;
         font-weight: 600;
@@ -547,12 +526,13 @@
                 background-color: #003266;
                 color: #fff !important;
         }
-
+        .about-tab-content h6{
+                font-size: 3vmax !important;
+        } 
         .ipr-tab-content,
         .recognition-tab-content {
                 width: 100%;
         }
-
         .ipr-tab-content h6,
         .recognition-tab-content h6 {
 
@@ -604,44 +584,31 @@
             }
 
 /* ---------------------------------------------- */
-        .AboutUs-container .qr-code-about {
-                width: 80%;
-        }
+.AboutUs-container .qr-code-about {
+        width: 95%;
+}
+.AboutUs-container .qr-code-about img {
+        width: 80%;
+}
 
-        .AboutUs-container .qr-code-about img {
-                width: 90%;
-        }
+.AboutUs-container  .qr-code-about .about-signUp{
+        padding: 1.2vmax 2.4vmax;
+}
 
-        .AboutUs-container .qr-code-about button {
-                padding: 1.4vmax 2vmax;
-                margin-top: 2vmax;
-        }
-
-        .AboutUs-container .qr-code-about h6 {
-                font-size: 3vmax;
-        }
-
-        .AboutUs-container .qr-code-about h5 {
-                width: 100%;
-                overflow: hidden;
-                flex-wrap: wrap;
-        }
-
-        .AboutUs-container .qr-code-about h5 a {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-        }
-
-        .AboutUs-container .qr-code-about h5 a img {
-                width: 10%;
-        }
-
-
-        /* ---------------------------------------------------------------------- */
-
-
+.AboutUs-container .qr-code-about h6 {
+        font-size: 2vmax;
+}
+.AboutUs-container .qr-code-about h5 {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+}
+.AboutUs-container .qr-code-about h5 a {
+        width: 40%;
+}
+.AboutUs-container .qr-code-about h5 a img {
+        width: 30%;
+}
         .AboutUs-container .extra-content {
                 width: 90%;
         }
@@ -679,8 +646,6 @@
         .AboutUs-container .extra-content h4 {
                 font-size: 1.7vmax;
         }
-
-
 }
 @media (min-width:600px) and (max-width:1150px) {
 
@@ -768,17 +733,19 @@
         .recognition-tab-content img {
                 width: 100%;
         }
-
-
         /* ---------------------------slider about---------------------------- */
 
-      
         .AboutUs-container .slider-about {
                 width: 100%;
                 padding: 2vmax 0;
                 gap: 1vmax;
                 margin-top: 2vmax;
               }
+
+              .AboutUs-container .extra-slide {
+                width: 250px !important;
+                height: 200px;
+            }
               
               .AboutUs-container     .slider-container {
                 width: 100%;
@@ -802,44 +769,31 @@
                font-size: 4vmax;
             }
 
-        .AboutUs-container .qr-code-about {
+            .AboutUs-container .qr-code-about {
+                width: 95%;
+        }
+        .AboutUs-container .qr-code-about img {
                 width: 80%;
         }
-
-        .AboutUs-container .qr-code-about img {
-                width: 90%;
+        
+        .AboutUs-container  .qr-code-about .about-signUp{
+                padding: 1.2vmax 2.4vmax;
         }
-
-        .AboutUs-container .qr-code-about button {
-                padding: 1.4vmax 2vmax;
-                margin-top: 2vmax;
-        }
-
+        
         .AboutUs-container .qr-code-about h6 {
-                font-size: 3vmax;
+                font-size: 2vmax;
         }
-
         .AboutUs-container .qr-code-about h5 {
                 width: 100%;
-                overflow: hidden;
+                flex-direction: row;
                 flex-wrap: wrap;
         }
-
         .AboutUs-container .qr-code-about h5 a {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                width: 20%;
         }
-
         .AboutUs-container .qr-code-about h5 a img {
-                width: 10%;
+                width: 20%;
         }
-
-
-        /* ---------------------------------------------------------------------- */
-
-
         .AboutUs-container .extra-content {
                 width: 90%;
         }
@@ -877,6 +831,4 @@
         .AboutUs-container .extra-content h4 {
                 font-size: 1.7vmax;
         }
-
-
 }

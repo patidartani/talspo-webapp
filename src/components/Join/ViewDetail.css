@@ -8,7 +8,7 @@
           width: 90%;
           height: 600px;
           display: flex;
-          align-items: stretch; /* Ensures children stretch to the parent's height */
+          align-items: stretch;
           justify-content: center;
           flex-direction: row;
           margin-top: 8vmax;
@@ -16,26 +16,29 @@
       }
       .ViewDetail .detail-page .view-left {
           width: 60%;
-          height: 100%; /* Occupies full height for proper scrolling */
+          height: 100%; 
           display: flex;
           flex-direction: column;
-          overflow-y: auto; /* Enables scrolling */
-          padding: 2vmax;
+          padding: 1vmax;
           box-sizing: border-box;
+         background-attachment: fixed;
       }    
-      .ViewDetail .detail-page .view-left::-webkit-scrollbar {
-          display: none; /* Hides the scrollbar */
-      }    
-      .ViewDetail .detail-page .view-left {
-          scrollbar-width: none; /* Hides the scrollbar */
-      }    
+     
       .ViewDetail .detail-page .view-left .vl-det {
           width: 100%;
           display: flex;
           flex-direction: column;
-          padding: 10px;
+          padding: 15px;
           gap: 1vmax;
-      }    
+          border-radius: 10px;
+          overflow-y: auto; 
+      } 
+      .ViewDetail .detail-page .view-left .vl-det::-webkit-scrollbar {
+        display: none;
+    }    
+    .ViewDetail .detail-page .view-left .vl-det {
+        scrollbar-width: none;
+    }       
       .ViewDetail .detail-page .view-left .vl-det h5 {
           font-size: 1.7vmax;
           font-weight: 600;
@@ -66,16 +69,7 @@
           font-family: Arial, Helvetica, sans-serif;
           margin-bottom: 1vmax;
       }    
-      .ViewDetail .detail-page .view-left .vl-det .responsibilities .res {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          margin-top: 0.5vmax;
-      }
-          .ViewDetail .detail-page .view-left .vl-det .responsibilities .res span {
-          font-size: 1vmax;
-          font-weight: 600;
-      }    
+    
       .ViewDetail .detail-page .view-right {
           width: 40%;
           height: 600px;
@@ -183,9 +177,7 @@
                 .ViewDetail .detail-page .view-left .vl-det .key-skills  span {
                     font-size: 2vmax;
                 }    
-                    .ViewDetail .detail-page .view-left .vl-det .responsibilities .res span {
-                    font-size: 2vmax;
-                }    
+                   
                 .ViewDetail .detail-page .view-right {
                     width: 100%;
                     height: auto;
@@ -240,9 +232,7 @@
                 .ViewDetail .detail-page .view-left .vl-det .key-skills  span {
                     font-size: 2vmax;
                 }    
-                    .ViewDetail .detail-page .view-left .vl-det .responsibilities .res span {
-                    font-size: 2vmax;
-                }    
+                  
                 .ViewDetail .detail-page .view-right {
                     width: 100%;
                     height: auto;

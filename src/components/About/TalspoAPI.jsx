@@ -13,7 +13,7 @@ const TalspoAPI = () => {
           <Row>
             <Col md={6} sm={12}>
               <div className="service_head">
-                <h1>Coming Soon.....</h1>
+                <h1 style={{color:"red"}}>Coming Soon.....</h1>
               </div>
             </Col>
             <Col md={6} sm={12}>

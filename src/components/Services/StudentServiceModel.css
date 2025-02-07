@@ -66,3 +66,48 @@
  color: #ffffff;
  border-radius: 10px;
 }
+@media (max-width:600px) {
+  .StudentServiceModel{
+    width: 100%;
+    padding-top: 20vmax;
+    margin-bottom: 0vmax;
+  }
+  .StudentServiceModel .students-learner{
+    width: 95%;
+  }
+  .StudentServiceModel .students-learner h5{
+   font-size: 2.7vmax
+  }
+.StudentServiceModel .students-learner .student-icon img{
+  width: 15%;
+}
+ .StudentServiceModel .students-learner .student-btm p{
+  font-size: 2.4vmax;
+ }
+.StudentServiceModel .students-learner  .how-services button{
+ padding: 1.3vmax 1.2vmax;
+}
+}
+@media (min-width:600px) and (max-width:1050px){
+  .StudentServiceModel{
+    width: 100%;
+    padding-top: 20vmax;
+    margin-bottom: 0vmax;
+  }
+  .StudentServiceModel .students-learner{
+    width: 95%;
+  }
+  .StudentServiceModel .students-learner h5{
+   font-size: 3.4vmax
+  }
+.StudentServiceModel .students-learner .student-icon img{
+  width: 15%;
+}
+ .StudentServiceModel .students-learner .student-btm p{
+  font-size: 2.4vmax;
+ }
+.StudentServiceModel .students-learner  .how-services button{
+ padding: 2vmax 2vmax;
+ font-size: 2vmax;
+}
+}

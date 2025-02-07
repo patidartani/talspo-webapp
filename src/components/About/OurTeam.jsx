@@ -27,7 +27,6 @@ const OurTeam = () => {
     const fetchTeamData = async () => {
       try {
         const response = await ourTeam();
-        console.log('response tea,', response)
         setTeamData(response.records || []);
         setIsLoading(false);
       } catch (error) {
@@ -82,15 +81,16 @@ const OurTeam = () => {
               <div className="teamOne">
                 <h5>Leadership</h5>
                 <div className="btns-tab">
-                  {["Founder", "Co-Founder", "Advisors", "Investors"].map((tab) => (
-                    <button
-                      key={tab}
-                      className={`${tab} ${activeTabs.leadership === tab ? "active" : ""}`}
-                      onClick={() => handleTabChange("leadership", tab)}
-                    >
-                      {tab.charAt(0).toUpperCase() + tab.slice(1).replace("-", " ")}
-                    </button>
-                  ))}
+                {["Founder", "Co-Founder", "Advisors", "Investors"].map((tab) => (
+  <button
+    key={tab}
+    className={`${tab} ${activeTabs.leadership === tab ? "active" : ""}`}
+    onClick={() => handleTabChange("leadership", tab)}
+  >
+    {tab}
+  </button>
+))}
+
                 </div>
                 <div className="leadership-tab-content">
                   <div className="leader">

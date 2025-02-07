@@ -1,7 +1,6 @@
 .Home-main {
   width: 100%;
 }
-
 .Home-main .Home-page {
   width: 100%;
   display: flex;
@@ -19,7 +18,6 @@
   justify-content: center;
   margin-top: 0.4vmax;
 }
-
 .Home .left {
   width: 50%;
   height: 400px;
@@ -31,36 +29,30 @@
   gap: 0.5vmax;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 .Home .left span {
   font-weight: 600;
   font-size: 1.1vmax;
   letter-spacing: 1px;
   text-transform: uppercase;
-  margin-top: 2vmax;
+  margin-top: 1vmax;
 }
-
 .Home .left small {
   color: red;
 }
-
 .Home .left h6 {
   font-weight: 700;
   font-size: 2.2vmax;
   color: #000;
   letter-spacing: 0.2px;
 }
-
-.Home .left p {
+.Home .left h5 {
   font-size: 1.1vmax;
 }
-
 .Home .left .home-btns {
   display: flex;
   margin-top: 1.3vmax;
   gap: 1.1vmax;
 }
-
 .Home .left .home-btns .join-free {
   background-color: #003266;
   border: 2px solid #003266;
@@ -68,7 +60,6 @@
   font-weight: 600;
   border-radius: 5px;
 }
-
 .Home .left .home-btns .join-free button {
   padding: 10px 20px;
   font-size: 0.9rem;
@@ -78,7 +69,6 @@
   border-radius: 10px;
   cursor: pointer;
 }
-
 .Home .left .home-btns .moree {
   color: #003266;
   border: 2px solid #003266;
@@ -88,13 +78,11 @@
   font-size: 0.9rem;
    background:none;
 }
-
 .Home .left .home-btns .moree:hover {
   background-color: #003f80;
   color: #fff;
   border-color: #003f80;
 }
-
 .Home .right {
   width: 50%;
   height: 500px;
@@ -104,7 +92,6 @@
   position: relative;
   padding-right: 3vmax;
 }
-
 .Home .right iframe,
 .swiper-image-container img,
 .video-container iframe {
@@ -112,7 +99,6 @@
   height: 400px;
   object-fit: contain;
 }
-
 .home-arrows {
   position: absolute;
   bottom: -10px;
@@ -122,22 +108,18 @@
   gap: 10px;
   z-index: 10;
 }
-
 .home-arrows svg {
   font-size: 2rem;
   color: #003266;
   cursor: pointer;
 }
-
 .swiper-image-container,
 .video-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 /* ----------------------------------------------- */
-
 .home-two {
   width: 100%;
   display: flex;
@@ -145,7 +127,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .home-two h5 {
   font-size: 2vmax;
   font-weight: 700;
@@ -155,13 +136,11 @@
   display: flex;
   justify-content: center;
 }
-
 .home-two p {
   width: 80%;
   display: flex;
   justify-content: center;
 }
-
 .home-two .home-two-btm {
   width: 90%;
   height: 550px;
@@ -174,20 +153,17 @@
   gap: 1vmax;
   padding-top: 1vmax;
 }
-
 .home-two .home2-left {
   width: 45%;
   display: flex;
   justify-content: center;
   overflow: hidden;
 }
-
 .home-two .home2-left img {
   width: 90%;
   height: 500px;
 
 }
-
 .home-two .home2-right {
   width: 55%;
   display: flex;
@@ -195,7 +171,6 @@
   gap: 1vmax;
   align-items: center;
 }
-
 .home-two .linee {
   width: 80%;
   padding: 0.2vmax 1vmax ;
@@ -218,7 +193,6 @@
   letter-spacing: 0.2px;
 }
 /* ----------------------------------------------- */
-
 .home-three {
   width: 90%;
   display: flex;
@@ -230,28 +204,24 @@
   border-bottom: 1px solid #b4b4b4;
   margin-top: 2vmax;
 }
-
 .home-three h5 {
   font-size: 1.8vmax;
   margin-top: 3vmax;
   font-weight: 700;
   color: #003266;
 }
-
 .h3-tbm {
   width: 85%;
   position: relative;
   margin-top: 2vmax;
   overflow: hidden;
 }
-
 .h3-top {
   display: flex;
   white-space: nowrap;
   gap: 1vmax;
   animation: scroll 35s linear infinite;
 }
-
 .line {
   border: 1px solid #868686df;
   padding: 1vmax 2.5vmax;
@@ -261,11 +231,9 @@
   justify-content: center;
   border-radius: 5px;
 }
-
 .line img {
   height: 70px;
 }
-
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -279,20 +247,25 @@
     width: 100%;
     height: auto;
     flex-direction: column;
-    margin-top: 7vmax;
+    margin-top: 10vmax;
   }
   .Home .left,
   .Home .right {
     width: 95%;
     height: 300px;
     padding: 0;
+  gap: 0.1vmax;
+
   }
   .Home .left h6 {
-    font-size: 3vmax;
+    font-size: 2.8vmax;
+    overflow: hidden;
   }
-  .Home .left p {
-    font-size: 2.5vmax;
+  .Home .left h5{
+    font-size: 1.7vmax !important;
+    letter-spacing: 0.2px;
   }
+ 
   .Home .right iframe {
     width: 100%;
     height: 300px;

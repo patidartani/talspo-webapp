@@ -5,6 +5,8 @@
           justify-content: center;
           margin-bottom: 3vmax;
 }
+
+    
 .Blog-main .blogs{
           width: 80%;
           display: flex;
@@ -85,9 +87,10 @@
    }
    .Blog-main .blogs .blog2 .b-two .blog-box{
           width: 49%;
+          height: 300px;
           display: flex;
           align-items: flex-start;
-          justify-content: center;
+          justify-content: flex-start;
           flex-direction: column;
           background: #fff;
              padding: 1.2vmax;
@@ -246,7 +249,7 @@
       font-size: 1vmax;
       color: #333;
       margin: 0;
-      padding-bottom: 1vmax;
+      /* padding-bottom: 1vmax; */
     }
     .Blog-main .blogs     .blog-container     .Blogs_img{
           width: 20%;
@@ -316,6 +319,19 @@ flex-direction: column
      }
      .Blog-main .blogs .blog2 .b-two .blog-box{
             width: 100%;
+            height: auto;
+            padding-bottom: 3vmax !important;
+      }
+      .Blog-main .blogs .blog2 .b-two .blog-box .tpp {
+            overflow: auto !important;
+            display: -webkit-box;
+            -webkit-line-clamp: 8 !important; 
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+        }
+        
+      .Blog-main .blogs .blog2 .b-two .blog-box a {
+            font-size: 2vmax !important;
       }
       .Blog-main .blogs .blog2 .b-two .blog-box h6{
            font-size: 2vmax;
@@ -349,6 +365,16 @@ flex-direction: column
             height: auto;
             gap: 1vmax;
       }
+      .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg .tttt{
+            overflow: auto !important;
+            display: -webkit-box;
+            -webkit-line-clamp: 10 !important; 
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+        }
+        .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg .tttt a{
+          font-size: 2vmax !important;
+        }
       .Blog-main .blogs     .blog-container   .blog-content   .blog_list    .list-blg .bl-img{
             width: 100%;
             height: 200px;
@@ -358,10 +384,10 @@ flex-direction: column
             height: auto;
       }
       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text h5{
-           font-size: 3.3vmax;
+           font-size: 2.7vmax;
       }
       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text p{
-            font-size: 1.8vmax;
+            font-size: 1.5vmax;
        }
       .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num{
            gap: 1vmax;
@@ -384,10 +410,11 @@ flex-direction: column
             justify-content: flex-start;
           }
        .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num h1{
-           font-size: 2.5vmax;
+           font-size: 2vmax;
+           font-weight: lighter;
         }
         .tttt{
-            padding-bottom: 2vmax !important;
+            padding-bottom: 1vmax !important;
             margin-bottom: 3vmax !important;
         }
       .Blog-main .blogs     .blog-container   .blog-content   .Blogs_img{
@@ -432,6 +459,9 @@ flex-direction: column
   .Blog-main .blogs .blog2{
             width: 100%;
   }
+  .Blog-main .blogs .blog2 .b-two .blog-box span {
+      font-size: 2vmax;
+  }
   .Blog-main .blogs .blog2 .b-one{
             width: 90%;
   }
@@ -448,12 +478,27 @@ flex-direction: column
      }
      .Blog-main .blogs .blog2 .b-two .blog-box{
             width: 100%;
+            height: auto;
+
       }
+      .Blog-main .blogs .blog2 .b-two .blog-box .tpp {
+            overflow: auto !important;
+            display: -webkit-box;
+            -webkit-line-clamp: 12 !important; 
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            font-size: 2.5vmax;
+        }
+      
+        .Blog-main .blogs .blog2 .b-two .blog-box .tpp a{
+            font-size: 2.5vmax !important;
+        }
+     
       .Blog-main .blogs .blog2 .b-two .blog-box h6{
            font-size: 3vmax;
       }
       .Blog-main .blogs .blog2 .b-two .blog-box p{
-            font-size: 1.8vmax;
+            font-size: 2vmax;
        }
   
       .Blog-main .blogs  .Blog-searchs{
@@ -509,6 +554,7 @@ flex-direction: column
            padding: 0.3vmax 1vmax;
            font-size: 2vmax;
           }
+         
        .Blog-main .blogs  .blog-container .blog-content .blog_list .list-blg  .bl-text .num h1{
            font-size: 3vmax;
         }
@@ -527,5 +573,14 @@ flex-direction: column
       .Blog-main .blogs     .blog-container   .blog-content   .Blogs_img img{
             margin-top: 0vmax;
       }
+      .tttt {
+            padding-bottom: 1vmax !important;
+            font-size: 2.3vmax;
+        }
+        .tttt a{
+         
+            font-size: 2.3vmax !important;
+        }
+    
     
 }

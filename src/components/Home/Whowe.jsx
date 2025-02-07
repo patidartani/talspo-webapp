@@ -3,17 +3,16 @@ import "./Whowe.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { fetchTalspoSkilledView, fetchSearchSuggestions } from "../../apiService";
+import { fetchTalspoSkilledView } from "../../apiService";
 import talspoIcon from "/assets/images/logo-icon.png";
 import FormHr from "./FormHr";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FaCheck } from 'react-icons/fa';
+
 import {
   faChevronRight,
   faChevronLeft,
-  faClosedCaptioning,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Whowe = () => {
@@ -22,13 +21,15 @@ const Whowe = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
   const [filteredSkills, setFilteredSkills] = useState([]);
-  const [sortOption, setSortOption] = useState("");
   const [showFullMap, setShowFullMap] = useState(false);
   const smallMapRef = useRef(null);
   const fullMapRef = useRef(null);
   const closeModal = () => setIsModalOpen(false);
   const openModal = () => setIsModalOpen(true);
   const toggleMapView = () => setShowFullMap(!showFullMap);
+
+  const apiUrl = "https://srninfotech.com/talspo/admin/api/search-filter";
+
 
   // -----------------------------------Currency Conversion api ----------------------------------------------------------
 
@@ -56,7 +57,7 @@ const Whowe = () => {
         }
         return response.json();
       })
-      .then((data) => setCurrencyRates(data.data))
+      .then((data) => setCurrencyRates(data?.data || {})) 
       .catch((error) => {
         console.error("API Error:", error.message); 
 
@@ -65,42 +66,12 @@ const Whowe = () => {
         } else {
           setError("Something went wrong. Please try again."); 
         }
+
+        setCurrencyRates({}); // ✅ Empty object to prevent crashes
       });
   }, []);
 
-  // --------------------------------------------------geo location sorting------------------------------------------------------------------
-  const getCurrentLocation = () => {
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          resolve({ latitude, longitude });
-        },
-        (error) => reject(error)
-      );
-    });
-  };
-  const calculateDistance = (lat1, lon1, lat2, lon2) => {
-    const R = 6371; // Radius of the Earth in km
-    const dLat = (lat2 - lat1) * (Math.PI / 180);
-    const dLon = (lon2 - lon1) * (Math.PI / 180);
-    const a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(lat1 * (Math.PI / 180)) *
-      Math.cos(lat2 * (Math.PI / 180)) *
-      Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const distance = R * c; 
-    return distance;
-  };
 
-  const handleNearbyFilterChange = (event) => {
-    const selectedOption = event.target.value;
-
-    if (selectedOption === "NEARBY") {
-      handleSearch();
-    }
-  };
   // --------------------------------------------------------------------------------------------------------------------
   const settings = {
     dots: false,
@@ -110,14 +81,12 @@ const Whowe = () => {
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 1500,
-       pauseOnHover: false,  // Prevents stopping on hover
-    pauseOnFocus: false, 
-    centerMode: false, 
-    initialSlide: 0,
+    centerMode: false,
+    autoplaySpeed: 2000,
+   
     responsive: [
       {
-        breakpoint: 1150,
+        breakpoint: 1050,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -163,99 +132,172 @@ const Whowe = () => {
 
       setFilteredSkills(updatedSkills);
     };
-
-
     fetchSkills();
   }, []);
-  // ---------------------------------------------------------------------------
-  const [suggestions, setSuggestions] = useState([]);
-  const [selectedTitle, setSelectedTitle] = useState(null);
-  const [selectedLocation, setSelectedLocation] = useState(null);
+  // --------------------------------------geo location----------------------------------------------
+    const [selectedNearby, setSelectedNearby] = useState('')
 
-  useEffect(() => {
-    const fetchSuggestions = async () => {
-      try {
-        const data = await fetchSearchSuggestions(searchTerm, location);
-        setSuggestions(data.data.data); 
-      } catch (error) {
-        console.error("Error fetching suggestions:", error);
-      }
+    const handleNearbyChange = (e) => {
+      setSelectedNearby(e.target.value);
     };
-
-    if ((searchTerm && !selectedTitle) || (location && !selectedLocation)) {
-      fetchSuggestions();
-    } else {
-      setSuggestions([]);
-    }
-  }, [searchTerm, location, selectedTitle, selectedLocation]);
-
-  const handleTitleSelect = (selectedTitle) => {
-    setSearchTerm(selectedTitle);
-    setSelectedTitle(selectedTitle);
-    setSuggestions([]);
-  };
-
-  const handleLocationSelect = (selectedLocation) => {
-    setLocation(selectedLocation);
-    setSelectedLocation(selectedLocation);
-    setSuggestions([]);
-  };
-
-  const handleSearch = async () => {
-    setSuggestions([]);
-    try {
-      const apiUrl = `https://srninfotech.com/talspo/admin/api/search-filter?title=${encodeURIComponent(selectedTitle || "")}&location=${encodeURIComponent(selectedLocation || "")}`;
-      // console.log("API URL:", apiUrl);
-
-      const response = await fetch(apiUrl, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status} - ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      const skills = data?.data?.data || [];
-
-      if (skills.length === 0) {
-        console.log("No results found");
-      }
-
-      // Fetch user's current location
-      const { latitude: userLat, longitude: userLon } = await getCurrentLocation();
-
-      // Calculate distance for each skill/job and add it to the skill object
-      const skillsWithDistance = skills.map((skill) => {
-        const distance = calculateDistance(
-          userLat,
-          userLon,
-          parseFloat(skill.latitude),
-          parseFloat(skill.longitude)
-        );
-        return { ...skill, distance };
-      });
-
-      const sortedSkills = skillsWithDistance.sort((a, b) => a.distance - b.distance);
-
-      const filteredSkills = sortedSkills.filter((skill) => {
-        return (
-          (selectedTitle ? skill.title.includes(selectedTitle) : true) &&
-          (selectedLocation ? skill.location.includes(selectedLocation) : true)
+    
+    const getCurrentLocation = () => {
+      return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            resolve({ latitude, longitude });
+          },
+          (error) => reject(error)
         );
       });
+    };
+    
+    const calculateDistance = (lat1, lon1, lat2, lon2) => {
+      const R = 6371; // Radius of the Earth in km
+      const dLat = (lat2 - lat1) * (Math.PI / 180);
+      const dLon = (lon2 - lon1) * (Math.PI / 180);
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * (Math.PI / 180)) *
+        Math.cos(lat2 * (Math.PI / 180)) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const distance = R * c; // Distance in km
+      return distance;
+    };
+    
 
-      setFilteredSkills(filteredSkills);
-      setSearchTerm("");  
-      setLocation("");    
-      setSelectedTitle(""); 
-      setSelectedLocation("");
-    } catch (error) {
-      console.error("Error fetching filtered skills:", error);
-    }
-  };
+  // ---------------------------------------------------------------------------
+  const [suggestions, setSuggestions] = useState({ 
+          titles: [],
+          locations: [],
+          sortBy: {
+            experience: [],
+            actively_looking: [],
+            verified: [],
+          },
+        });
+        
+        const [selectedSort, setSelectedSort] = useState('');  // Default value is empty string
+
+        const handleSortChange = (e) => {
+          const value = e.target.value;
+          setSelectedSort(value); // Update selected sort state
+          console.log("Selected Value:", value);
+          handleSearch(); // Apply search with the updated sort
+        };
+        
+        const fetchSuggestions = async (searchTerm, location, selectedSort) => {
+          try {
+            const response = await fetch(apiUrl, {
+              headers: {
+                "Content-Type": "application/json",
+              },
+            });
+        
+            if (!response.ok) {
+              throw new Error(`Error: ${response.status} - ${response.statusText}`);
+            }
+        
+            const data = await response.json();
+        
+            // Filter titles and locations based on search input
+            let filteredTitles = data.titles;
+            if (searchTerm) {
+              filteredTitles = filteredTitles.filter((title) =>
+                title.toLowerCase().includes(searchTerm.toLowerCase())
+              );
+            }
+        
+            let filteredLocations = data.locations;
+            if (location) {
+              filteredLocations = filteredLocations.filter((loc) =>
+                loc.toLowerCase().includes(location.toLowerCase())
+              );
+            }
+        
+            // Filter sort response based on selected value
+            let filteredSortData = selectedSort ? data.sort_by[selectedSort] || [] : [];
+                
+    
+            // Update the suggestions state with filtered data
+            setSuggestions({
+              titles: filteredTitles,
+              locations: filteredLocations,
+              sortBy: filteredSortData, // Only selected value's data
+            });
+          } catch (error) {
+            console.error("Error fetching suggestions:", error);
+          }
+        };
+        
+        const handleSearchTermChange = (e) => {
+          setSearchTerm(e.target.value);
+          fetchSuggestions(e.target.value, location);
+        };
+        
+        const handleLocationChange = (e) => {
+          setLocation(e.target.value);
+          fetchSuggestions(searchTerm, e.target.value);
+        };
+        
+        const handleTitleSelect = (title) => {
+          setSearchTerm(title);
+          setSuggestions({ titles: [], locations: [] });
+        };
+        
+        const handleLocationSelect = (loc) => {
+          setLocation(loc);
+          setSuggestions({ titles: [], locations: [] });
+        };
+
+        
+        const handleSearch = async () => {
+          try {
+            const { latitude: userLat, longitude: userLon } = await getCurrentLocation();
+        
+            const skillsWithDistance = skills.map((skill) => {
+              const distance = calculateDistance(
+                userLat,
+                userLon,
+                parseFloat(skill.latitude) || 0, // Ensure latitude is a valid number
+                parseFloat(skill.longitude) || 0 // Ensure longitude is a valid number
+              );
+              return { ...skill, distance };
+            });
+        
+            const sortedSkills = skillsWithDistance.sort((a, b) => a.distance - b.distance);
+        
+            // Ensure searchTerm and location are safe strings
+            const safeSearchTerm = searchTerm ? searchTerm.toLowerCase() : "";
+            const safeLocation = location ? location.toLowerCase() : "";
+        
+            // **Fix: Check if skill.title and skill.location exist**
+            let filtered = sortedSkills.filter((skill) => {
+              const title = skill.title ? skill.title.toLowerCase() : "";
+              const loc = skill.location ? skill.location.toLowerCase() : "";
+              return title.includes(safeSearchTerm) && loc.includes(safeLocation);
+            });
+        
+            // Apply sorting filters
+            if (selectedSort === "actively_looking") {
+              filtered = filtered.filter((skill) => skill.actively_looking === "yes");
+            } else if (selectedSort === "verified") {
+              filtered = filtered.filter((skill) => skill.verified === "true");
+            } else if (selectedSort === "experience") {
+              filtered = filtered.filter((skill) => skill.experience === "5+ Year");
+            }
+        
+            setFilteredSkills(filtered);
+          } catch (error) {
+            console.error("Error in handleSearch:", error);
+          }
+        };
+        
+        
+        
+// ---------------------------------------------search functionality end --------------------------------------------------------------------------------------
 
   const getCoordinates = async (location) => {
     const response = await fetch(
@@ -263,7 +305,7 @@ const Whowe = () => {
     );
     const data = await response.json();
     if (data.features && data.features.length > 0) {
-      return data.features[0].geometry.coordinates; // [longitude, latitude]
+      return data.features[0].geometry.coordinates;
     }
     return [0, 0];
   };
@@ -295,7 +337,7 @@ const Whowe = () => {
                   <div>
                     <img src="${skill.image}" alt="Skill Image" style="width: 100%; height: auto;" />
                     <p style="margin-bottom: 8px;"><strong>${skill.title}</strong></p>
-                    <p style="margin-bottom: 8px;"><strong>Description:</strong> ${skill.description}</p>
+                    <p style="margin-bottom: 8px;"><strong>Experience:</strong> ${skill.experience}</p>
                     <div style="display: flex; justify-content: space-evenly; align-items: center; margin-top: 5px;">
                       <p style="margin-bottom: 8px;"><strong>Salary:</strong> ₹${skill.salary}</p>
                       <p style="margin-bottom: 8px;"><strong>Status:</strong> ${skill.status}</p>
@@ -370,104 +412,146 @@ const Whowe = () => {
           </span>
           {/* ----------------------------------------------------------------------------------------- */}
           <div className="search-bar-skill">
-            <div className="skill-ipt">
-              <input
-                type="text"
-                placeholder="Search for Developers, Designers..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
-              {searchTerm && !selectedTitle && Array.isArray(suggestions) && (
-                <ul className="suggestions-list">
-                  {suggestions.map((item, index) => (
-                    <li key={index} onClick={() => handleTitleSelect(item.title)}>
-                      {item.title} {/* Display title suggestions */}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-            <div className="skill-ipt">
-              <input
-                type="text"
-                placeholder="Search by Location (Pin Code, Area, City, etc.)"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-              />
-              <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
-              {location && !selectedLocation && Array.isArray(suggestions) && (
-                <ul className="suggestions-list">
-                  {suggestions.map((item, index) => (
-                    <li key={index} onClick={() => handleLocationSelect(item.location)}>
-                      {item.location} 
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+    <div className="skill-ipt">
+      <input
+        type="text"
+        placeholder="Search for Developers, Designers..."
+        value={searchTerm}
+        onChange={handleSearchTermChange} // Dynamically fetch suggestions while typing
+      />
+      <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+      {searchTerm && Array.isArray(suggestions.titles) && (
+        <ul className="suggestions-list">
+          {suggestions.titles.map((item, index) => (
+            <li key={index} onClick={() => handleTitleSelect(item)}>
+              {item} {/* Display title suggestions */}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
 
-            <div className="sort-dropdown">
-              <div className="dropdown-wrapper">
-                <select onChange={handleNearbyFilterChange}>
-                  <option value="" disabled>Filtered Jobs</option>
-                  {/* <option value="">Salary</option> */}
-                  <option value="NEARBY">Nearby</option>
-                </select>
-              </div>
-            </div>
+    <div className="skill-ipt">
+      <input
+        type="text"
+        placeholder="Search by Location (Pin Code, Area, City, etc.)"
+        value={location}
+        onChange={handleLocationChange} // Dynamically fetch location suggestions while typing
+      />
+      <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+      {location && Array.isArray(suggestions.locations) && (
+        <ul className="suggestions-list">
+          {suggestions.locations.map((item, index) => (
+            <li key={index} onClick={() => handleLocationSelect(item)}>
+              {item} {/* Display location suggestions */}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
 
-            <div className="sort-dropdown">
-              <select >
-                <option value="" disabled>
-                  Sort by
-                </option>
-                <option value="jobType"> Experience</option>
-                <option value="salary">Trusted/Verified Candidates</option>
-                <option value="active">Actively Looking</option>
-              </select>
-            </div>
+    <div className="sort-dropdown">
+      <div className="dropdown-wrapper">
+      <select onChange={handleNearbyChange} value={selectedNearby}>
+  <option value="" disabled>
+    Filtered Jobs
+  </option>
+  <option value="NEARBY">Nearby</option>
+</select>
+      </div>
+    </div>
 
-            <div className="skill-btn">
-              <button onClick={handleSearch}>Search</button>
-            </div>
+    <div className="sort-dropdown">
+  <div className="dropdown-wrapper">
+    <select onChange={handleSortChange} value={selectedSort}>
+      <option value="" disabled>
+        Sort by
+      </option>
+      <option value="experience">Experience</option>
+      <option value="actively_looking">Actively Looking</option>
+      <option value="verified">Verified</option>
+    </select>
+  </div>
+</div>
 
+
+    <div className="skill-btn">
+      <button onClick={handleSearch}>Search</button>
+    </div>
           </div>
-          {/* ----------------------------------------------------------------------------------------- */}
-          {/* -------------responsive-skill--------- */}
-          <div className="search-bar-skill-responsive">
-            <div className="skill-ipt">
-              <input
-                type="text"
-                placeholder="Search for Developers,Designers..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
-            </div>
-            <div className="skill-ipt">
-              <input
-                type="text"
-                placeholder="Search by Location (Pin Code, Area, City, etc.)"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-              />
-              <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
-            </div>
-            <div className="sort-dropdown">
-              <select value={sortOption}>
-                <option value="">Sort by</option>
-                <option value="jobType"> Experience</option>
-                <option value="salary">Trusted/Verified Candidates</option>
-              </select>
-            </div>
-            <div className="skill-btn">
-              <button>Search</button>
-            </div>
+{/* ------------------responsive--search------------------------------ */}
+<div className="search-bar-skill-responsive">
+    <div className="skill-ipt">
+      <input
+        type="text"
+        placeholder="Search for Developers, Designers..."
+        value={searchTerm}
+        onChange={handleSearchTermChange} // Dynamically fetch suggestions while typing
+      />
+      <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+      {searchTerm && Array.isArray(suggestions.titles) && (
+        <ul className="suggestions-list">
+          {suggestions.titles.map((item, index) => (
+            <li key={index} onClick={() => handleTitleSelect(item)}>
+              {item} {/* Display title suggestions */}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+
+    <div className="skill-ipt">
+      <input
+        type="text"
+        placeholder="Search by Location (Pin Code, Area, City, etc.)"
+        value={location}
+        onChange={handleLocationChange} // Dynamically fetch location suggestions while typing
+      />
+      <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+      {location && Array.isArray(suggestions.locations) && (
+        <ul className="suggestions-list">
+          {suggestions.locations.map((item, index) => (
+            <li key={index} onClick={() => handleLocationSelect(item)}>
+              {item} {/* Display location suggestions */}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+
+    <div className="sort-dropdown">
+      <div className="dropdown-wrapper">
+      <select onChange={handleNearbyChange} value={selectedNearby}>
+  <option value="" disabled>
+    Filtered Jobs
+  </option>
+  <option value="NEARBY">Nearby</option>
+</select>
+      </div>
+    </div>
+
+    <div className="sort-dropdown">
+  <div className="dropdown-wrapper">
+    <select onChange={handleSortChange} value={selectedSort}>
+      <option value="" disabled>
+        Sort by
+      </option>
+      <option value="experience">Experience</option>
+      <option value="actively_looking">Actively Looking</option>
+      <option value="verified">Verified</option>
+    </select>
+  </div>
+</div>
+
+
+    <div className="skill-btn">
+      <button onClick={handleSearch}>Search</button>
+    </div>
           </div>
+
           {/* -------------------------------------------- */}
           <div className="who-slide">
-          <div  className="slider-container">
+          <div className="slider-container">
   {filteredSkills.length > 0 ? (
     <Slider {...settings}>
       {filteredSkills.map((skill, index) => {
@@ -501,7 +585,12 @@ const Whowe = () => {
                   <small>Location: {skill.location}</small>
                   <small>Status: {skill.status}</small>
                 </div>
+                <div className="ss">
                 <span>Experience: {skill.experience}</span>
+                <span>JobType:{skill.jobtype}</span>
+                </div>
+              
+
                 <span>Actively Looking: {skill.actively_looking}</span>
 
                 <div className="hh">
@@ -511,17 +600,17 @@ const Whowe = () => {
                 </div>
 
                 <select
-                  style={{ outline: "none" }}
-                  className="custom-select mt-1 w-100"
-                  value={selectedCurrency}
-                  onChange={(e) => handleCurrencyChange(skill.id, e.target.value)}
-                >
-                  {supportedCurrencies.map((currency, idx) => (
-                    <option key={idx} value={currency}>
-                      {currency}
-                    </option>
-                  ))}
-                </select>
+  style={{ outline: "none" }}
+  className="custom-select mt-1 w-100"
+  value={selectedCurrency || ""}
+  onChange={(e) => handleCurrencyChange(skill.id, e.target.value)}
+>
+  {(supportedCurrencies || []).map((currency, idx) => (
+    <option key={idx} value={currency}>
+      {currency}
+    </option>
+  ))}
+</select>
 
                 <button className="get" onClick={openModal}>
                   Connect
@@ -543,7 +632,7 @@ const Whowe = () => {
       {/* <p>{error}</p> */}
     </div>
   )}
-          </div>
+</div>
 
 
             <div className="home-map">

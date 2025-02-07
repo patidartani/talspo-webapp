@@ -88,11 +88,12 @@
           justify-content: flex-start;
           flex-direction: column;
           overflow-y: auto;
-          scrollbar-width: none;
+          padding-right: 1vmax;
+          /* scrollbar-width: none; */
  }
- .Form_details .form-content .content-right .container_data .data_form::-webkit-scrollbar {
+ /* .Form_details .form-content .content-right .container_data .data_form::-webkit-scrollbar {
           display: none;
-      }
+      } */
 .Form_details .form-content  .content-right .container_data form{
           width: 100%;
           gap: 1vmax;
@@ -115,7 +116,15 @@ display: flex;
 flex-direction: column;
 width: 100%;
 }
-.Form_details .form-content  .content-right .container_data form .form-ipt input{
+.Form_details .form-content .content-right .container_data form .form-ipt .error-div select{
+        width: 100%;
+        padding: 0.5vmax 1vmax;
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid #c3c3c3;
+        }
+.Form_details .form-content  .content-right .container_data form .form-ipt input,
+.Form_details .form-content  .content-right .container_data form .text-ipt select{
             width: 100%;
             padding: 0.5vmax 1vmax;
             border-radius: 5px;
@@ -242,7 +251,9 @@ width: 100%;
           }
            .Form_details .form-content  .content-right .container_data .data_form{
                     width: 100%;
+                  padding-right: 0vmax;
            }
+         
           .Form_details .form-content  .content-right .container_data form .form-ipt{
                      flex-direction: column;
                      gap: 2vmax;

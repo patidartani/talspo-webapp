@@ -1,4 +1,3 @@
-import React from 'react'
 import "./SiteMap.css"
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from "../../pages/Footer/Footer"
@@ -21,19 +20,24 @@ const SiteMap = () => {
                    <a href="/faq"><span>Faq</span></a>
                    <a href="/our-team"><span>Our Team</span></a>
                    <a href="/achievements"><span>Achievements</span></a>
-                   <a href="/how-we-work"><span>How We Work</span></a>
+                   <a href="/how-it-works?"><span>How We Work</span></a>
                    <a href="/talspo-search"><span>Talspo Search AI</span></a>
                    <a href="/talspo-api"><span>Talspo API</span></a>
+                   <a href="/talspo-affiliate"><span>Talspo Affiliate Program</span></a>
+                   <a href="/talfia"><span>Talfia (*sub-brand of Talspo)</span></a>
+
            </div>
            <div className="site-box">
            <h5>Services</h5> 
-           <a href="/student-service"><span>Students/Learner Model Services</span></a>
-                   <a href="/professional-service"><span>Professional + Trainers Model Services</span></a>
-                   <a href="/corporate-service"><span>Corporate + Organization Model Services</span></a>
-                   <a href="/co-working"><span>Co-Working Spaces + Co-works & Co-live & Events Model Services</span></a>              
+           <a href="/services"><span> Services</span></a>
+           <a href="/service-detail/1"><span>Students/Learner Model Services</span></a>
+                   <a href="/service-detail/2"><span>Professional + Trainers Model Services</span></a>
+                   <a href="/service-detail/3"><span>Corporate + Organization Model Services</span></a>
+                   <a href="/service-detail/4"><span>Co-Working Spaces + Co-works & Co-live & Events Model Services</span></a>              
            </div>
            <div className="site-box">
            <h5>Join</h5> 
+           <a href="/join"><span>Join Us </span></a>
            <a href="/opportunities"><span>Find Opportunities </span></a>
                    <a href="/partners"><span>Do Partnership</span></a>
                    <a href="/tca"><span> Talspo Campus Ambassador</span></a>       

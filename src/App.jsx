@@ -80,7 +80,14 @@ const App = () => {
         <Route path="/join" element={<JoinTeam />} />
         <Route path="/talspo-affiliate" element={<TalspoAffiliate />} />
 
+
+        
+
         <Route path="/app" element={<DownloadApp />} />
+
+         
+
+
       </Routes>
     </div>
   )

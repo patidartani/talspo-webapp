@@ -169,7 +169,55 @@
 @media (max-width:600px) {
     .TalspoHere-main {
         width: 100%;
-        height: 300px;
+        height: auto;
+    }
+    .talspo-p {
+        width: 95%;
+        margin-top: 10vmax;
+        letter-spacing: 0.3px;
+        text-align: center;
+    }
+    .TalspoHere-main .Talspo-page {
+        width: 100%;
+        height: auto;
+    }
+    .TalspoHere-main .Talspo-page .talspo-text {
+        width: 100%;
+    }
+    .TalspoHere-main .Talspo-page .talspo-text h5 {
+        font-size: 4vmax;
+    }
+    .TalspoHere-main .Talspo-page .talspo-text p {
+        font-size: 2vmax;
+    }
+    .search {
+        width: 2.5vmax;
+        height: 3vmax;
+    }
+
+    .TalspoHere-main .Talspo-page .talspo-text .map4 {
+        flex-direction: column;
+        gap: 1vmax;
+    }
+    
+    .TalspoHere-main .Talspo-page .talspo-text .map4 button {
+        padding: 1.3vmax 3.5vmax;
+        flex-direction: column;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .TalspoHere-main .Talspo-page .talspo-text .map4 button a {
+        font-size: 1.9vmax;
+    
+    }
+}
+@media (min-width:600px) and (max-width:1050px){
+    .TalspoHere-main {
+        width: 100%;
+        height: auto;
     }
     .talspo-p {
         width: 95%;
@@ -177,9 +225,12 @@
         letter-spacing: 0.3px;
         text-align: center;
     }
+    .talspo-p p{
+      font-size: 2.4vmax;
+    }
     .TalspoHere-main .Talspo-page {
         width: 100%;
-        height: 300px;
+        height: auto;
     }
     .TalspoHere-main .Talspo-page .talspo-text {
         width: 100%;
@@ -187,28 +238,26 @@
     .TalspoHere-main .Talspo-page .talspo-text h5 {
         font-size: 3vmax;
     }
-    .search {
-        width: 2.5vmax;
-        height: 3vmax;
-    }
-}
-@media (min-width:600px) and (max-width:1050px){
-    .TalspoHere-main {
-        width: 100%;
-        height: 1000px;
-    }
-    .TalspoHere-main .Talspo-page {
-        width: 100%;
-        height: 300px;
-    }
-    .TalspoHere-main .Talspo-page .talspo-text {
-        width: 100%;
-    }
-    .TalspoHere-main .Talspo-page .talspo-text h5 {
+    .TalspoHere-main .Talspo-page .talspo-text p {
         font-size: 3vmax;
     }
     .search {
-        width: 2.5vmax;
-        height: 3vmax;
+        width: 5vmax;
+        height: 5vmax;
     }
+   
+    .TalspoHere-main .Talspo-page .talspo-text .map4 button {
+        padding: 1.3vmax 3vmax;
+        flex-direction: column;
+        gap: 1vmax;
+    }
+    
+    .TalspoHere-main .Talspo-page .talspo-text .map4 button a {
+        font-size: 1.8vmax;
+    
+    }
+    .TalspoHere-main .Talspo-page .talspo-text .talspo-search .search-input {
+        padding: 2.1vmax 1vmax;
+    }
+    
 }

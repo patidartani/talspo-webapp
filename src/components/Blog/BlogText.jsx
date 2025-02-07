@@ -71,7 +71,9 @@ const BlogText = () => {
           <small>3. <b>Approval Process:</b> Once approved, you’ll receive access to Talspo’s blogging guidelines and resources</small>
           <small>4. <b>Start Writing:</b> Create and publish content that aligns with Talspo’s vision and resonates with its audience.</small>
         </div>
-
+         
+         <p className='mt-4'>Kindly click the below mentioned “Become Talspo Blogger” button for the 
+         registration process.</p>
         <div className="blog-btns">
           <button>Become Talspo Blogger</button>
         </div>
