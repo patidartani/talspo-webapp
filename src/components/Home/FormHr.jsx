@@ -263,17 +263,18 @@ const FormHr = ({ closeModal }) => {
           )}
         </div>
         <div className="e-ipt half">
-          <input
-            type="date"
-            name="date_of_birth"
-            value={jobDetails.date_of_birth ? new Date(jobDetails.date_of_birth).toISOString().split('T')[0] : ''}
-            onChange={handleJobInputChange}
-          />
+         <input
+  type="text"
+  name="date_of_birth"
+  value={jobDetails.date_of_birth ? new Date(jobDetails.date_of_birth).toISOString().split('T')[0] : ''}
+  onChange={handleJobInputChange}
+  onFocus={(e) => e.target.type = "date"} // Forces date picker
+  placeholder="DD/MM/YYYY"
+/>
           {fieldErrors.error?.date_of_birth && (
             <span className="error-text">{fieldErrors.error?.date_of_birth[0]}</span>
           )}
         </div>
-
 
         {/* Contact Information */}
         <div className="e-ipt full">

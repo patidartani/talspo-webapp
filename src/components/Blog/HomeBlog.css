@@ -52,7 +52,7 @@
 }
 
 .HomeBlog-main .home-blog .home-blog-right .h-blg-right h5 {
-        font-size: 1.3vmax;
+        font-size: 1.1vmax;
         margin-top: 0.3vmax;
         padding-left: 0.5vmax;
 }
@@ -72,7 +72,7 @@
         color: rgb(59, 59, 59);
         margin-bottom: 0.6vmax;
         display: -webkit-box;
-        -webkit-line-clamp: 4; 
+        -webkit-line-clamp: 3; 
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -90,7 +90,7 @@
 
 }.view-blog-btn button {
         width: 100%;
-        padding: 0.6vmax 1vmax;
+        padding: 0.5vmax 0.7vmax;
         border-radius: 5px;
         border: none;
         font-weight: lighter;
@@ -135,7 +135,7 @@
                 height: auto;
         }
         .HomeBlog-main .home-blog .home-blog-right .h-blg-right h5 {
-                font-size: 3vmax;
+                font-size: 2.6vmax;
                 margin-top: 0.7vmax;
                 font-weight: 600;
         }
@@ -145,6 +145,7 @@
         }
         .HomeBlog-main .home-blog .home-blog-right .h-blg-right span {
                 font-size: 2vmax;
+                -webkit-line-clamp: 4 !important; 
         }
         .view-blog-btn {
                 width: 100%;
@@ -152,7 +153,7 @@
         }
         .view-blog-btn button {
                 width: 98%;
-                padding: 2vmax 1vmax;
+                padding: 1.3vmax 1vmax;
                 font-size: 2vmax;
                 margin-top: 2vmax;
                 margin-bottom: 1vmax;
@@ -176,10 +177,13 @@
         }
         .HomeBlog-main .home-blog .home-blog-right {
                 width: 100%;
+                gap: 3vmax;
         }
         .HomeBlog-main .home-blog .home-blog-right .h-blg-right {
                 width: 100%;
+                padding-bottom: 1.5vmax;
                 height: auto;
+                box-shadow: 2px 2px 5px 2px gray;
         }
         .HomeBlog-main .home-blog .home-blog-right .h-blg-right img {
                 width: 100%;

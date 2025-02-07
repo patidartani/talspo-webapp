@@ -504,6 +504,7 @@
   margin-bottom: 2vmax !important;
   cursor: grab; 
 }
+
 .slider-container:active {
   cursor: grabbing;  /* Changes cursor to grabbing when clicked */
 }
@@ -588,14 +589,15 @@
     font-size: 12px; 
     padding: 0.5vmax 0.3vmax;  
     letter-spacing: 1px;  
+    border: 1px solid #616161;
   }
 
 .slick-slide .w-box .text-panel  .get {
    width: 100%;
-   margin-top:1vmax;
+   margin-top:0.8vmax;
    background-color: green; 
    color: #fff; 
-   padding: 0.7vmax 1vmax;
+   padding: 0.6vmax 1vmax;
    border: none;
    border-radius: 5px;
 }
@@ -603,6 +605,11 @@
   background-color: #219a00; 
 }
 
+.slick-slide:only-child {
+  margin-left: 0 !important;
+}
+
+/* ---------------------------------------------------------- */
 @media (max-width:600px) {
     
     .Whowe-main {
@@ -630,12 +637,17 @@
     } 
    .modal-overlay-slide    .modal-content {
     width: 90%;
+    z-index: 8888888;
+    margin-top: 15vmax;
   }
    .modal-overlay-slide    .modal-content .modal-close {
  font-size: 3vmax;
   }
    .modal-overlay-slide    .modal-content  h5{
    font-size: 2vmax;
+     }
+     .modal-overlay-slide .modal-content .line-div{
+      font-size: 1.5vmax;
      }
      .modal-overlay-slide    .modal-content  form .e-ipt button {
         padding: 1.5vmax 1vmax;
@@ -693,9 +705,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #000;
+  /* background: #000; */
  }
 
+ .who-btm .search-bar-skill-responsive .dropdown-wrapper{
+  width: 100%;
+ }
 
 .who-btm .search-bar-skill-responsive .map-btn button,
 .who-btm .search-bar-skill-responsive .skill-btn button{
@@ -750,7 +765,7 @@
 .slick-slide .w-box .text-panel  .get {
   width: 100%;
   margin-top: 2vmax;
-  background-color: #003f80; 
+  background-color: green; 
   padding: 1.6vmax 1vmax;
 }
 .custom-select {
@@ -759,13 +774,14 @@
 
 }
 
-@media (min-width:600px) and (max-width:1150px) {
+@media (min-width:600px) and (max-width:1050px) {
     
   .Whowe-main {
       width: 100%;
-      padding-bottom: 3vmax;
       border-bottom: 1px solid #000;
-      overflow: hidden;
+      overflow: auto !important;
+      height: auto !important;
+
   }
   .who-page {
       width: 95%;
@@ -796,6 +812,7 @@ font-size: 3vmax;
       padding: 1.5vmax 1vmax;
       }            
  
+
 .who-btm .search-bar-skill{
 display: none;
 }
@@ -806,7 +823,6 @@ display: none;
   flex-direction: column;
   gap: 1vmax;
 margin-top: 1vmax;
-
 }
 
 .who-btm .search-bar-skill-responsive .skill-ipt {
@@ -816,7 +832,7 @@ position: relative;
 
 .who-btm .search-bar-skill-responsive .skill-ipt input {
 width: 100%;
-padding: 1.7vmax 1vmax;
+padding: 1.3vmax 1vmax;
 padding-right: 2.5vmax;
 outline: none;
 border: 1px solid #848484;
@@ -848,6 +864,11 @@ width: 100%;
 display: flex;
 align-items: center;
 justify-content: center;
+/* background: #000; */
+}
+
+.who-btm .search-bar-skill-responsive .dropdown-wrapper{
+width: 100%;
 }
 
 .who-btm .search-bar-skill-responsive .map-btn button,
@@ -857,7 +878,8 @@ background: #003266;
 color: #fff;
 border: none;
 border-radius: 5px;
-padding: 1.8vmax 1vmax;
+padding: 1.4vmax 1vmax;
+font-size: 2vmax;
 }
 
 .who-btm .search-bar-skill-responsive .sort-dropdown select {
@@ -866,58 +888,67 @@ padding: 1.5vmax 1vmax;
 width: 100%;
 border-radius: 5px;
 }
+.slick-slide .w-box {
+  height: auto;
+  border: 1px solid #000;
+}
+.slick-slide .w-box img {
+  height: 400px;
+}
+
+
+.slick-slide .w-box .text-panel{
+  width: 95%;
+  height: auto;
+
+}
 
 .who-btm .who-slide{
 display: flex;
 flex-direction: column;
+position: relative;
 height: auto;
+
+}
+.slick-slide .w-box .text-panel .ss small {
+  font-size: 2vmax;
+}
+.small, small {
+  font-size: 2vmax;
 }
 .who-slide .home-map{
-  width: 100%;
-  height: auto;
+width: 100%;
+height: auto !important;
+background-color: #05f421 !important;
+
 }
 .slider-container{
 width: 100%;
 }
-.slick-slide .w-box {
-  height: auto;
 
-}
-.slick-slide .w-box img {
-  width: 100%;
-  height: auto;
 
-}
-.slick-slide .w-box .text-panel{
-  width: 95%;
-  height: auto;
-}
 .slick-slide .w-box .text-panel h5 {
-  font-size: 3.5vmax;
-}
-.slick-slide .w-box .text-panel p {
   font-size: 3vmax;
 }
-.slick-slide .w-box span{
-  font-size: 2.5vmax;
-}
-.slick-slide .w-box .text-panel .ss{
- font-size: 2.5vmax;
-}
-.slick-slide .w-box .text-panel .hh small{
-  font-size: 2.5vmax;
+
+.slick-slide .w-box .text-panel p {
+  font-size: 2vmax;
 }
 
+.slick-slide .w-box span{
+  font-size: 2vmax;
+
+}
 .slick-slide .w-box .text-panel  .get {
 width: 100%;
 margin-top: 2vmax;
-background-color: #003f80; 
-font-size: 2.3vmax;
+background-color: green; 
 padding: 1.6vmax 1vmax;
+font-size: 2.5vmax;
 }
 .custom-select {
-padding: 1.2vmax 0.3vmax;
-font-size: 1.7vmax;
+padding: 1vmax 0.3vmax;  
+font-size: 2vmax;
 }
 
 }

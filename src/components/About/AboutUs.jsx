@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import React from "react";
 import "./AboutUs.css";
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
-import AboutTopImg from "/assets/images/aboutusTop.webp";
 import Footer from "../../pages/Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import { HiOutlineArrowSmallRight, HiOutlineArrowSmallLeft } from "react-icons/hi2";
@@ -151,7 +150,6 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="a-right">
-              {/* <img src={AboutTopImg} alt="About Us" /> */}
               <iframe src="https://www.youtube.com/embed/hMjaZKCh3Nc?autoplay=1&mute=1&loop=1&playlist=hMjaZKCh3Nc" frameborder="0"></iframe>
             </div>
           </div>
@@ -200,7 +198,8 @@ const AboutUs = () => {
                   <h6 style={{ fontWeight: "600", fontSize: "1.3vmax" }}>
                     {knowUsData.length > 0 && knowUsData[0].title}
                   </h6>
-                  <p>{knowUsData.length > 0 && knowUsData[0].description}</p>
+          <div dangerouslySetInnerHTML={{ __html: knowUsData[0]?.description }} />
+
                 </div>
               )}
               {activeTab === "journey" && (
@@ -275,14 +274,33 @@ const AboutUs = () => {
               {activeTab === "ipr" && (
                 <div className="ipr-tab-content">
                   <h6>{patentData.length > 0 && patentData[0].title}</h6>
-                  <p> {patentData?.length > 0 && patentData[0].description && (
-                    <div
-                      className="rendered-content"
-                      dangerouslySetInnerHTML={{ __html: patentData[0].description }}
-                    />
-                  )}</p>
+                  <p>
+  {patentData?.length > 0 && patentData[0].description && (
+    <div
+      className="rendered-content"
+      dangerouslySetInnerHTML={{ __html: patentData[0].description }}
+    />
+  )}
+</p>
 
-                  <img src={patentData.length > 0 ? patentData[0].image : ""} alt="Patent" />
+<a  style={{color:"#000"
+}}
+  href="https://iprsearch.ipindia.gov.in/RQStatus/PatentCertificatePDF.aspx?AppNo=MjAxOTIxMDE4NDc1&FullPath=LVBhdGVudENlcnRpZmljYXRlMjEtMDMtMjAyMi5wZGY="
+  target="_blank"
+  rel="noopener noreferrer"
+>
+Patent Certificate Legal Status: Inforce</a>
+<br />
+<a  style={{color:"#000", marginBottom:"1vmax"}}
+  href="https://patentscope.wipo.int/search/en/detail.jsf?docId=IN311134967&_cid=P10-LWAKS1-52076-1"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  View Patent Information on the WIPO (World Intellectual Property Organization) Portal
+</a>
+
+
+                  <img className="mt-3" src={patentData.length > 0 ? patentData[0].image : ""} alt="Patent" />
                 </div>
               )}
               {activeTab === "recognition" && (
@@ -397,7 +415,7 @@ const AboutUs = () => {
       <div className="slider-container">
         <Slider ref={sliderRef} {...settings}>
           {[
-            { label: "How We Work?", url: "/how-we-work" },
+            { label: "How It Work?", url: "/how-it-work?" },
             { label: "Achievements So Far", url: "/achievements" },
             { label: "FAQs", url: "/faq" },
             { label: "Our Team", url: "/our-team" },
@@ -445,7 +463,6 @@ const AboutUs = () => {
           <div className="connected">
             <h6>Stay Connected:
               <h5><a href="https://in.linkedin.com/company/talspo"><img src={linkdin} alt="linkdin" /></a>|<a href="https://x.com/talspogroup"><img src={XIcon} alt="xIcon" /></a>|<a href="https://www.youtube.com/@TalspoGroup "><img src={YouTube} alt="Youtube" style={{ width: '80px', height: '60px' }} /></a>|<a href="https://www.f6s.com/talspo"><img src={F6S} alt="f6s" /></a>|<a href="https://www.crunchbase.com/organization/talspo-explore-spot-connect"><img src={Crunchbase} alt="crunchbase" style={{ width: '100px', height: '100px' }} /></a>|<a href=""><img src={productHunt} alt="productHunt" style={{ width: '80px', height: '60px' }} /></a>|<a href="https://yourstory.com/companies/talspo"><img src={YourStory} alt="YourStory" style={{ width: '80px', height: '40px' }} /></a>  </h5>
-
             </h6>
           </div>
         </div>

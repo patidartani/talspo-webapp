@@ -279,7 +279,7 @@
                 margin-top: 18vmax;
                 background-position: left;
                 background-size: contain;
-                background-image: url(../../assets/images/join1New.jpg);
+                background-image: url(/assets/images/join1New.jpg);
         }
 
         .JoinTeam-main .join1 .join1-left {
@@ -314,7 +314,7 @@
                 /* Cover the full width */
                 background-position: center;
                 background-origin: content-box;
-                background-image: url(https://www.objectgears.eu/content20/img/cloud.svg);
+                background-image: url("/assets/images/joinTeamImg2.png");
         }
 
 

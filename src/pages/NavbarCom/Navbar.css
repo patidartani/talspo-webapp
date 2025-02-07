@@ -222,6 +222,13 @@
   flex-direction: row;
   color: red;
 }
+.nav-high{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
  .nav-highlight span {
   font-size: 0.8vmax;
   letter-spacing: 1px;
@@ -243,6 +250,14 @@
   width: 40% !important;
   margin-bottom: 2vmax;
 }
+.nav-highlight {
+  width: 100%;
+}
+
+.nav-highlight span {
+  font-size:0.8vmax;
+  letter-spacing: 0px;
+}
 }
 @media (min-width:600px) and (max-width:1150px) {
   .model-dropdown .model-text {
@@ -254,6 +269,13 @@
    width: 30% !important;
    margin-bottom: 2vmax;
  }
+ .nav-highlight {
+  width: 100%;
+}
+
+.nav-highlight span {
+  font-size:1vmax;
+}
  }
 /* Navbar.css */
 @media (max-width: 1150px) {

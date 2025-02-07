@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import "./HomeBlog.css";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for programmatic navigation
 import { featuredBlogPosts } from '../../apiService'; // Import the API function
 
 const HomeBlog = () => {
-   const navigate = useNavigate(); // Initialize the navigate function
-   const [blogs, setBlogs] = useState([]); // State to store blog posts
+   const navigate = useNavigate();
+   const [blogs, setBlogs] = useState([]);
 
    useEffect(() => {
       const fetchBlogs = async () => {
          try {
-            const posts = await featuredBlogPosts(); // Fetch the blog posts
-            setBlogs(posts || []); 
+            const posts = await featuredBlogPosts();
+            setBlogs(posts || []);
          } catch (error) {
             console.error("Failed to fetch blog posts:", error);
-            setBlogs([]); 
+            setBlogs([]);
          }
       };
 
@@ -40,14 +40,10 @@ const HomeBlog = () => {
                         <h6>{blog.category || "Uncategorized"}</h6>
                         <span>
   {blog.description
-    ? blog.description
-        .replace(/<\/?[^>]+(>|$)/g, "") 
-        .slice(0, 100) 
-        .concat(
-          blog.description.replace(/<\/?[^>]+(>|$)/g, "").length > 100 ? "..." : ""
-        ) 
+    ? blog.description.replace(/<\/?[^>]+(>|$)/g, "")
     : "No description available"}
 </span>
+
 
                         <div className="view-blog-btn">
                            <button onClick={() => handleReadMore(blog.id)}>Read More <i className="ri-arrow-right-line"></i></button>

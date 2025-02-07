@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Tca.css';
 import NavbarContainer from '../../pages/NavbarCom/NavBarContainer'
 import Footer from '../../pages/Footer/Footer';
@@ -8,7 +8,8 @@ import Swal from 'sweetalert2';
 import { campusFaq } from "../../apiService"
 import FooterTop from "../../pages/Footer/FooterTop"
 import TcaContent from './TcaContent';
-
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const Tca = () => {
 
@@ -37,16 +38,13 @@ const Tca = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-
   // ------------------------------------------------form-------------------------------------------------------------
   const [errors, setErrors] = useState({});
-
   const [formData, setFormData] = useState({
     first_name: '',
     middle_name: '',
     last_name: '',
     email: '',
-    country_code: '',
     phone_number: '',
     dob: '',
     gender: '',
@@ -74,36 +72,30 @@ const Tca = () => {
     answer_one: '',
     answer_two: '',
     answer_three: '',
+    consent :''
   });
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormData((prevFormData) => {
-      const updatedFormData = {
-        ...prevFormData,
-        [name]: value,
-      };
-
-      return updatedFormData;
-    });
+    const { name, type, checked, value } = event.target;
+  
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: type === "checkbox" ? (checked ? "true" : "false") : value,
+    }));
   };
-
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'https://dev.talspo.com/admin/api/registration-create-form',
+        'https://srninfotech.com/talspo/admin/api/registration-create-form',
         formData
       );
-      // Reset form data after successful submission
       setFormData({
         first_name: '',
         middle_name: '',
         last_name: '',
         email: '',
-        country_code: '',
         phone_number: '',
         dob: '',
         gender: '',
@@ -131,6 +123,7 @@ const Tca = () => {
         answer_one: '',
         answer_two: '',
         answer_three: '',
+        consent :''
       });
 
       Swal.fire({
@@ -146,7 +139,6 @@ const Tca = () => {
       setErrors(apiErrors);
     }
   };
-
 
   const tcaFormsContentRef = useRef(null);
   const handleApplyNowClick = () => {
@@ -183,7 +175,7 @@ const Tca = () => {
           ></iframe>
         </div>
 
-             <TcaContent />
+          <TcaContent />
         <div className="faq-btm">
           <h5>FAQs for Talspo Campus Ambassador Program</h5>
           <div className="questions">
@@ -263,52 +255,41 @@ const Tca = () => {
                 </div>
 
                 <div className="campus-ipt">
-                  <label>Country Code</label>
-                  <input
-                    type="tel" // Ensures the input is intended for phone numbers
-                    name="country_code"
-                    value={formData.country_code}
-                    placeholder="Country Code"
-                    onChange={(e) => {
-                      const numericValue = e.target.value.replace(/[^0-9]/g, '');
-                      setFormData({ ...formData, country_code: numericValue });
-                    }}
-                  />
-                  {errors.country_code && <p style={{ color: "red" }}>{errors.country_code[0]}</p>}
-                </div>
-
-
-                <div className="campus-ipt">
                   <label>Phone Number</label>
-                  <input
-                    type="tel"
-                    name="phone_number"
-                    placeholder="Phone Number"
+                  <PhoneInput
+                    country={"in"} 
                     value={formData.phone_number}
-                    onChange={(e) => {
-                      const value = e.target.value.replace(/\D/g, '');
-                      if (value.length <= 10) {
-                        setFormData({
-                          ...formData,
-                          phone_number: value
-                        });
-                      }
+                    onChange={(phone) => {
+                      setFormData({
+                        ...formData,
+                        phone_number: phone,
+                      });
                     }}
-                    maxLength="10"
+                    inputStyle={{
+                      width: "100%",
+                      height: "40px",
+                      paddingLeft: "50px",
+                    }}
+                    inputProps={{
+                      name: "phone_number",
+                      required: true,
+                    }}
+                    disableDropdown={false}
                   />
                   {errors.phone_number && <p style={{ color: "red" }}>{errors.phone_number[0]}</p>}
                 </div>
 
-
-                {/* Date of Birth */}
                 <div className="campus-ipt">
-                  <label>Date of Birth (Must be 13 years or older)</label>
-                  <input type="date" name='dob' value={formData.dob} onChange={handleChange} />
-                  {errors.dob && <p style={{ color: "red" }}>{errors.dob[0]}</p>}
-
-                </div>
-
-                {/* Gender Selection */}
+                        <label>Date of Birth (Must be 13 years or older)</label>
+                        <input 
+                          type="text" 
+                          name="dob" 
+                          value={formData.dob} 
+                          onChange={handleChange} 
+                          placeholder="DD/MM/YYYY"
+                        />
+                        {errors.dob && <p style={{ color: "red" }}>{errors.dob[0]}</p>}
+                      </div>
                 <div className="campus-ipt">
                   <label>Gender</label>
                   <select
@@ -350,7 +331,6 @@ const Tca = () => {
                     <div className='school-form'>
                       <h6 className='mb-1'>School Specific Form</h6>
 
-                      {/* School Name */}
                       <div className="campus-ipt">
                         <label htmlFor="">School Name</label>
                         <input
@@ -426,7 +406,6 @@ const Tca = () => {
                           onChange={handleChange}
                         />
                         {errors.city && <p style={{ color: "red" }}>{errors.city[0]}</p>}
-
                       </div>
 
                       <div className="campus-ipt">
@@ -437,7 +416,7 @@ const Tca = () => {
                           placeholder="Pin Code"
                           value={formData.pin_code}
                           onChange={(e) => {
-                            const numericValue = e.target.value.replace(/[^0-9]/g, ''); // Only allow numeric input
+                            const numericValue = e.target.value.replace(/[^0-9]/g, ''); 
                             setFormData({ ...formData, pin_code: numericValue });
                           }}
                         />
@@ -674,7 +653,7 @@ const Tca = () => {
                           placeholder="Pin Code"
                           value={formData.pin_code}
                           onChange={(e) => {
-                            const numericValue = e.target.value.replace(/[^0-9]/g, ''); // Only allow numeric input
+                            const numericValue = e.target.value.replace(/[^0-9]/g, '');
                             setFormData({ ...formData, pin_code: numericValue }); // Update state with numeric value
                           }}
                         />
@@ -790,8 +769,6 @@ const Tca = () => {
 
                     </div>
                   )}
-
-
                 </div>
 
                 <div className="campus-ipt mt-4">
@@ -831,25 +808,30 @@ const Tca = () => {
                 </div>
 
 
-                <div className="campus-ipt-end">
-                    <h6>
-                      Consent <span style={{ color: "red" }}>*</span>:
-                    </h6>
-                    <label>
-                      <input  style={{marginRight:"0.3vmax"}} className="mt-2" type="checkbox" name="consent" required />
-                      Agree to be contacted by Talspo via WhatsApp, SMS, or email.
-                    </label>  
-                  </div>
-
-                  <div className="campus-ipt-end">
-                  <h6>Subscribe:</h6>
-          <label>
-            <input style={{marginRight:"0.3vmax"}} type="checkbox" name="subscription" />
-            Agree to receive the latest news regarding the latest Talspo software services like recruitment, talent acquisition, human resources transformation, latest technologies(artificial intelligence, machine learning, deep learning, blockchain, etc.) services in Human Resources (HR), skill training and development services, events, etc.
-          </label>
-                  </div>
-
-
+                              <div className="campus-ipt-end">
+                              <h6>
+                                Consent <span style={{ color: 'red' }}>*</span>:
+                              </h6>
+                              <label>
+                                <input
+                                  style={{ marginRight: '0.3vmax' }}
+                                  className="mt-2"
+                                  type="checkbox"
+                                  name="consent"
+                                  checked={formData.consent === "true"}
+                                  onChange={handleChange}
+                                />
+                                Agree to be contacted by Talspo via WhatsApp, SMS, or email.
+                              </label>
+                              {errors.consent && <p style={{ color: 'red' }}>{errors.consent}</p>}
+                            </div>
+                                <div className="campus-ipt-end">
+                                <h6>Subscribe:</h6>
+                                    <label>
+                                      <input style={{marginRight:"0.3vmax"}} type="checkbox" name="subscription" />
+                                      Agree to receive the latest news regarding the latest Talspo software services like recruitment, talent acquisition, human resources transformation, latest technologies(artificial intelligence, machine learning, deep learning, blockchain, etc.) services in Human Resources (HR), skill training and development services, events, etc.
+                                    </label>
+                                </div>
                 <button className='submit-form'>Submit Form</button>
 
               </form>

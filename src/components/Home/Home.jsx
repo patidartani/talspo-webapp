@@ -49,7 +49,7 @@ const Home = () => {
         // Home Content data
         const homeData = homeContentResponse.records[0];
         if (homeData) {
-          const dynamicTexts = homeData.text.split(",").map(t => t.trim());
+          const dynamicTexts = homeData.text.match(/"([^"]+)"/g)?.map(t => t.replace(/"/g, "")) || [];
           const parsedMedia = JSON.parse(homeData.media).map(url => url.replace(/\\\//g, '/'));
           setHomeContent({
             ...homeData,
@@ -104,8 +104,13 @@ const Home = () => {
             {homeContent ? (
               <>
                 <h6>{homeContent.title || "Title not available"}</h6>
-                <p style={{ fontSize: '1.1vmax' }}>{homeContent.description || "Description not available"}</p>
-                <p style={{ fontSize: '1.1vmax' }}>{homeContent.subtext || "Subtext not available"}</p>
+                <h5
+  style={{ fontSize: "1.1vmax" }}
+  dangerouslySetInnerHTML={{
+    __html: homeContent.description || "Description not available",
+  }}
+></h5>
+                <h5 style={{ fontSize: '1.1vmax' }}>{homeContent.subtext || "Subtext not available"}</h5>
                 <div className="text-container">
                   <span className={`text ${animationClass}`}>{currentText || "No animation text available"}</span>
                 </div>

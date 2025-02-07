@@ -15,11 +15,11 @@ const ViewDetail = () => {
         const [loading, setLoading] = useState(true);
         const [error, setError] = useState(null);
       
-        useEffect(() => {
+                useEffect(() => {
                 const getJobDetail = async () => {
                   try {
                     const data = await fetchJobDetail(id);
-                    // console.log('Fetched Job Datail:', data); 
+                    console.log('Fetched Job Datail:', data); 
 
                     if (!data) throw new Error('No job details found.');
                     setJobDetail(data); 
@@ -48,10 +48,10 @@ const ViewDetail = () => {
             question_four: jobDetail.question_four,
             question_five: jobDetail.question_five,
             question_six: jobDetail.question_six,
-
+            question_seven: jobDetail.question_seven
            } });
         };
-        
+      
   return (
    <>
    <NavbarContainer />
@@ -64,47 +64,24 @@ const ViewDetail = () => {
                               <h6>Overview</h6>
                               <p>{jobDetail.subtitle}</p>
                           </div>
-                          
+                            
                           <div className="key-skills">
                               <h6>Key Skills</h6>
-                              <span> Html, Css , Java script, React Js, Bootstrap, Redux Toolkit</span>
+                              <span>{jobDetail.key_skills}</span>
                           </div>
 
                           <div className="responsibilities">
-                              <h6>Responsibilities</h6>
-                                <div className="res">
-                                        <span>1.Frontend Development</span>
-                                        <p>Develop and maintain dynamic, responsive, and scalable web applications using ReactJS.
-                                        Optimize components for maximum performance across a variety of devices and browsers.</p>
-                                </div>
-                                <div className="res">
-                                        <span>2.UI/UX Integration:</span>
-                                        <p>Collaborate with designers to ensure seamless integration of UI/UX designs.
-                                        Implement pixel-perfect design elements and maintain design consistency.</p>
-                                </div>
-                                <div className="res">
-                                        <span>3.API Integration:</span>
-                                        <p>Connect and interact with RESTful APIs or GraphQL for data retrieval and updates.
-                                        Ensure secure and efficient communication between the frontend and backend.</p>
-                                </div>
-
-                                <div className="res">
-                                        <span>4.API Integration:</span>
-                                        <p>Connect and interact with RESTful APIs or GraphQL for data retrieval and updates.
-                                        Ensure secure and efficient communication between the frontend and backend.</p>
-                                </div>
+                          <div dangerouslySetInnerHTML={{ __html: jobDetail?.responsibilities }} />
                           </div>
 
                           <div className="company-detail">
-                             <h6>Company Details:</h6>
-                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas eum incidunt odio laborum, quam eos accusantium at? Incidunt totam sint eligendi, veniam, amet magnam fugit unde error possimus doloribus nostrum?</p>
-                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio aut quibusdam in provident cum officia dicta, animi veritatis explicabo est.</p>
+                           {jobDetail.company_details}
                           </div>
                      </div>
                 </div> 
                 <div className="view-right">
                 <div className="job_details">
-                                <h5>Job Description:</h5>
+                                <h5>Job Profile & Requirements:</h5>
                               <div className="jb">
                                         <h6>Role</h6>
                                         <p>{jobDetail?.category}</p>

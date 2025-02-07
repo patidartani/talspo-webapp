@@ -11,6 +11,7 @@ import IconBlog from "/assets/images/logo-icon.png";
 import ReactPaginate from "react-paginate";
 import BlogText from "../../components/Blog/BlogText";
 import FooterTop from '../../pages/Footer/FooterTop';
+import { useNavigate } from 'react-router-dom';
 
 const Blog = () => {
   const blogsPerPage = 4;
@@ -22,6 +23,9 @@ const Blog = () => {
   const [loading, setLoading] = useState(true);
   const [showAllPosts, setShowAllPosts] = useState(false);
 
+  const [expandedBlogId, setExpandedBlogId] = useState(null);
+
+  const navigate = useNavigate();
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
   };
@@ -84,6 +88,7 @@ const Blog = () => {
   const pageCount = Math.ceil(currentBlogs.length / blogsPerPage);
   const displayedBlogs = currentBlogs.slice(offset, offset + blogsPerPage);
 
+
   return (
     <>
       <NavbarContainer />
@@ -101,7 +106,7 @@ const Blog = () => {
             </div>
           </div>
 
-         {/* ----------------- Recent Posts Section ----------------- */}
+          {/* ----------------- Recent Posts Section ----------------- */}
 <div className="blog2">
   <div className="b-one">
     <h5>Recent Posts</h5>
@@ -112,9 +117,9 @@ const Blog = () => {
   <div className="b-two">
     {Array.isArray(featuredBlogs) && featuredBlogs.length > 0 ? (
       featuredBlogs
-        .slice(0, showAllPosts ? featuredBlogs.length : 2)
+        .slice(0, showAllPosts ? 6 : 2)  // ✅ Show 2 by default, 6 when 'View All' is clicked
         .map((post, index) => (
-          <Link style={{textDecoration:"none", color:"#000"}} to={`/blog-detail/${post.id}`} key={index} className="blog-box">
+          <Link style={{ textDecoration: "none", color: "#000" }} to={`/blog-detail/${post.id}`} key={index} className="blog-box">
             <h6>{post.title}</h6>
             <span>
               {new Date(post.updated_at).toLocaleDateString("en-US", {
@@ -124,19 +129,40 @@ const Blog = () => {
               })}{" "}
               | {post.subtitle}
             </span>
-            <div
-              className="tpp"
-              style={{
-                display: "-webkit-box",
-                WebkitLineClamp: 4,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                marginBottom: "1vmax",
-                paddingBottom: "1vmax",
-              }}
-              dangerouslySetInnerHTML={{ __html: post.description }}
-            ></div>
+            <div className="tpp" style={{
+              display: "-webkit-box",
+              WebkitLineClamp: expandedBlogId === post.id ? "unset" : 6, 
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              marginBottom: "1vmax",
+              paddingBottom: "1vmax",
+            }}>
+              <div>
+                {expandedBlogId === post.id
+                  ? post.description.replace(/(<([^>]+)>)/gi, "")
+                  : post.description &&
+                  post.description
+                    .replace(/(<([^>]+)>)/gi, "")
+                    .split(" ")
+                    .slice(0, 30)
+                    .join(" ")}
+
+                {post.description && post.description.split(" ").length > 30 && (
+                  <a
+                    style={{ color: "green", marginLeft: "0.2vmax", textDecoration: "none", fontSize: "1vmax" }}
+                    href="#"
+                    className="read-more-link"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(`/blog-detail/${post.id}`);
+                    }}
+                  >
+                    Read More..
+                  </a>
+                )}
+              </div>
+            </div>
           </Link>
         ))
     ) : (
@@ -144,7 +170,6 @@ const Blog = () => {
     )}
   </div>
 </div>
-
           <div className="Blog-searchs">
             <div className="ipt-blgs">
               <input
@@ -177,23 +202,40 @@ const Blog = () => {
                             day: "numeric",
                           })}{" "}</h1>
 
-<span> <small>{blog.category}</small></span>
+                          <span> <small>{blog.category}</small></span>
 
                         </div>
-                        <div
-                          className='tttt'
-                          style={{
-                            display: "-webkit-box",
-                            WebkitLineClamp: 3,
-                            WebkitBoxOrient: "vertical",
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                            marginBottom: "1vmax",
-                            paddingBottom: "0.5vmax"
-                          }}
-                          dangerouslySetInnerHTML={{ __html: blog.description }}
-                        ></div>
+                        <div className="tttt">
+                          <div>
+                            {expandedBlogId === blog.id
+                              ? blog.description.replace(/(<([^>]+)>)/gi, "")
+                              : blog.description &&
+                              blog.description
+                                .replace(/(<([^>]+)>)/gi, "")
+                                .split(" ")
+                                .slice(0, 35)
+                                .join(" ")}
+
+                            {blog.description && blog.description.split(" ").length > 35 && (
+                              <a
+                                style={{ color: "green", marginLeft: "0.2vmax", fontSize: "1vmax", textDecoration: "none" }}
+                                href="#"
+                                className="read-more-link"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  navigate(`/blog-detail/${blog.id}`);
+                                }}
+                              >
+                                Read More..
+                              </a>
+
+                            )}
+                          </div>
+                        </div>
+
+
                       </div>
+
                     </Link>
                   ))
                 ) : (

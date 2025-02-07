@@ -1,4 +1,6 @@
 import "./Footer.css";
+import talspoIcon from "/assets/images/logo-icon.png"
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,7 +20,7 @@ const Footer = () => {
         {/* ---------------------------------------------------------- */}
         <div className="f-one">
           <div className="logo">
-            <img src="https://talspo.com/img/logo-icon.png" alt="" />
+            <img src={talspoIcon} alt="" />
           </div>
           <h6>
           

@@ -11,7 +11,7 @@ const Loading = () => {
       try {
         const response = await loadingData(); // Fetch the API data
         if (response && response.records && response.records[0]?.description) {
-          setDescription(response.records[0].description); // Correctly update state
+          setDescription(response.records[0].description); 
         }
       } catch (error) {
         console.error("Error fetching loading data:", error);
@@ -27,7 +27,7 @@ const Loading = () => {
         <img src={talspoIcon} alt="Loading..." className="loading-gif" />
       </div>
       <h5>Loading...</h5>
-      <div style={{fontWeight:"600",color:"red", fontSize:"1.5vmax"}} dangerouslySetInnerHTML={{ __html: description}} />
+      <div style={{fontWeight:"600",color:"red", fontSize:"1.5vmax", width:"60%", textAlign:"center"}} dangerouslySetInnerHTML={{ __html: description}} />
     </div>
   );
 };

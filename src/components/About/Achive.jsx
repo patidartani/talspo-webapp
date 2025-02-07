@@ -23,7 +23,7 @@ const Achive = () => {
       } finally {
         setLoading(false);
       }
-    };
+    }; 
 
     fetchAchievements();
   }, []);
@@ -42,7 +42,7 @@ const Achive = () => {
             <p>The Story So far</p>
           </div>
 
-          {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message */}
+          {errorMessage && <div className="error-message">{errorMessage}</div>} 
 
           <div className="achive-flex">
             {achievements.map((achieve, index) => (

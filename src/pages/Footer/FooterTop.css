@@ -6,6 +6,7 @@
           padding-top: 2vmax;
           margin-top: 3vmax;
           border-top: 1px solid #b2b2b2;
+          flex-direction: column;
 }
 .FooterTop-main .Footer-Top-page{
           width: 85%;
@@ -55,13 +56,9 @@
           border-right: 1px solid #003266;
           padding: 2vmax;
           position: relative;
+          /* overflow: hidden; */
 }
-.FooterTop-main .Footer-Top-page .footer2 h6{
-     font-size: 1.5vmax;
-     font-weight: 600;
-      position: absolute;
-      bottom: 14vmax;
-}
+
 
 .FooterTop-main .Footer-Top-page .footer2 .f_btn{
           color: #003266;
@@ -89,7 +86,7 @@
 .FooterTop-main .Footer-Top-page .footer2 h5{
         font-weight: 600;
         text-align: center;
-}
+} 
 .FooterTop-main .Footer-Top-page .footer3{
           width: 35%;
           display: flex;

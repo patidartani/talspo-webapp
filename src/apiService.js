@@ -7,7 +7,6 @@ export const LOADING_DATA = `${BASE_URL}/loading-view`
 export const SIGNUP_URL = `${BASE_URL}/register`;
 export const LOGIN_URL = `${BASE_URL}/login-view`;
 export const NAVBAR_MODEL_DYNAMIC = 'https://srninfotech.com/talspo/admin/api/view-model_service';
-export const SKILL_FILTER_URL = `${BASE_URL}/search-filter`
 export const TESTIMONIALS = `${BASE_URL}/testimonial-view`;
 export const HOME_CONTENT = `${BASE_URL}/home_page_details-view`
 export const BLOG_POSTS_URL = `${BASE_URL}/recent-post-view`;
@@ -41,6 +40,8 @@ export const QR_HANDLER = `${BASE_URL}/view-qr_scanner`
 export const PARTNERSHIP_SCANER = `${BASE_URL}/view-partnersscaneer`
 export const Contact_QR_Api = `${BASE_URL}/view-qr_allscanner`
 export const OUR_SERVICES_URL = `${BASE_URL}/view-service`
+
+
 
 // --------------------- GDPR Policy ----------------------
 export const fetchEULAPolicy = async () => {
@@ -296,18 +297,7 @@ export const createDirectConnectHR = async (formData) => {
 
 // ---------------------home-skill filter-------------------------------------------------
 
-export const fetchSearchSuggestions = async () => {
-  try {
-    const response = await axios.get(SKILL_FILTER_URL);
 
-    const suggestions = response?.data;
-    // console.log('Suggestions:', suggestions);
-    return suggestions;
-  } catch (error) {
-    console.error("Error fetching Talspo Skilled data:", error);
-    return [];
-  }
-};
 
 // ------------------------------------Technology ----------------------------------------------
 
@@ -559,3 +549,6 @@ export const loadingData = async () => {
     return {};
   }
 };
+
+
+
