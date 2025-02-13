@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchJobPosts } from "../../apiService";
+import { fetchJobPosts , BASE_URL} from "../../apiService";
 import "./Opportunity.css";
 import NavbarContainer from "../../pages/NavbarCom/NavBarContainer";
 import Footer from "../../pages/Footer/Footer";
@@ -74,7 +74,7 @@ const Opportunity = () => {
 
   const fetchFilters = async () => {
     try {
-      const response = await fetch("https://srninfotech.com/talspo/admin/api/filterdata");
+      const response = await fetch(`${BASE_URL}/filterdata`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

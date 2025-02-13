@@ -5,7 +5,7 @@ import Footer from '../../pages/Footer/Footer';
 import campusImg from "/assets/images/faq.webp";
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { campusFaq } from "../../apiService"
+import { campusFaq , BASE_URL} from "../../apiService"
 import FooterTop from "../../pages/Footer/FooterTop"
 import TcaContent from './TcaContent';
 import PhoneInput from "react-phone-input-2";
@@ -82,6 +82,22 @@ const Tca = () => {
       ...prevFormData,
       [name]: type === "checkbox" ? (checked ? "true" : "false") : value,
     }));
+
+
+    if (name === "country") {
+      const selectedCountry = countries.find(country => country.country === value);
+      if (selectedCountry) {
+        setSelectedCountryId(selectedCountry.id);
+      }
+    }
+
+    if (name === "state") {
+      const selectedState = states.find(state => state.state === value);
+      if (selectedState) {
+        setSelectedStateId(selectedState.id);
+      }
+    }
+
   };
   
   const handleSubmit = async (e) => {
@@ -147,6 +163,81 @@ const Tca = () => {
       block: 'start',
     });
   };
+
+  // -------------------------------------------country state city api--------------------------------------------
+ const [countries, setCountries] = useState([]);
+  const [selectedCountryId, setSelectedCountryId] = useState(null);
+  const [states, setStates] = useState([]);
+  const [selectedStateId, setSelectedStateId] = useState(null);
+  const [cities, setCities] = useState([]);
+
+  const [countryError, setCountryError] = useState(null);
+  const [stateError, setStateError] = useState(null);  
+  const [cityError, setCityError] = useState(null);  
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetching countries
+        const countryResponse = await fetch(`${BASE_URL}/country`);
+        const countryData = await countryResponse.json();
+        console.log("countryData", countryData.records)
+  
+        if (!countryData.records || countryData.records.length === 0) {
+          setCountries([]);
+          setCountryError("No countries found.");
+        } else {
+          setCountries(countryData.records);
+          setCountryError(null);
+        }
+  
+        // Fetching states if country is selected
+        if (selectedCountryId) {
+          const stateResponse = await fetch(`${BASE_URL}/state`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ country_id: selectedCountryId }),
+          });
+          const stateData = await stateResponse.json();
+  
+          if (!stateData.records || stateData.records.length === 0) {
+            setStates([]);
+            setStateError("No states found for the selected country.");
+          } else {
+            setStates(stateData.records);
+            setStateError(null);
+          }
+        }
+  
+        // Fetching cities if state is selected
+        if (selectedStateId) {
+          const cityResponse = await fetch(`${BASE_URL}/city`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ state_id: selectedStateId }),
+          });
+          const cityData = await cityResponse.json();
+  
+          if (!cityData.records || cityData.records.length === 0) {
+            setCities([]);
+            setCityError("No cities found for the selected state.");
+          } else {
+            setCities(cityData.records);
+            setCityError(null);
+          }
+        }
+      } catch (error) {
+        // Handling errors
+        setCountryError("An error occurred while fetching countries.");
+        setStateError("An error occurred while fetching states.");
+        setCityError("An error occurred while fetching cities.");
+      }
+    };
+  
+    fetchData();
+  }, [selectedCountryId, selectedStateId]);
+  
 
   // -------------------------------------------------------------------------------------------------------------
   return (
@@ -373,39 +464,54 @@ const Tca = () => {
 
                       <div className="campus-ipt">
                         <label htmlFor="">Country</label>
-                        <input
-                          type="text"
-                          name="country"
-                          placeholder="Country"
-                          value={formData.country}
-                          onChange={handleChange}
-                        />
+                        <select
+                        name="country"
+                        value={formData.country}
+                        onChange={handleChange}
+                        placeholder="Mention Your Country*"
+                      >
+                        <option value="" disabled>Select Your Country*</option>
+                        {countries.map((country, index) => (
+                          <option key={index} value={country.country}>
+                            {country.country}
+                          </option>
+                        ))}
+                      </select>
                         {errors.country && <p style={{ color: "red" }}>{errors.country[0]}</p>}
+                        {countryError && !errors.country && <p className="error-form">{countryError}</p>} 
+                     
                       </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">State</label>
-                        <input
-                          type="text"
-                          name="state"
-                          value={formData.state}
-                          onChange={handleChange}
-                          placeholder="State"
-                        />
+                        <select
+                        name="state"
+                        value={formData.state}
+                        onChange={handleChange}
+                        placeholder="Mention Your State*"
+                      >
+                        <option value="" disabled>Select Your State*</option>
+                        {states.map((state, index) => (
+                          <option key={index} value={state.state}>
+                            {state.state}
+                          </option>
+                        ))}
+                      </select>
                         {errors.state && <p style={{ color: "red" }}>{errors.state[0]}</p>}
-
+                        {stateError && !errors.state && <p className="error-form">{stateError}</p>} 
                       </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">City</label>
-                        <input
-                          type="text"
-                          name="city"
-                          placeholder="City"
-                          value={formData.city}
-                          onChange={handleChange}
-                        />
+                        <select name="city" value={formData.city} onChange={handleChange}>
+                        <option value="" disabled>Select City*</option>
+                        {cities.map((city, index) => (
+                          <option key={index} value={city.city}>{city.city}</option>
+                        ))}
+                      </select>
                         {errors.city && <p style={{ color: "red" }}>{errors.city[0]}</p>}
+                        {cityError && !errors.city && <p className="error-form">{cityError}</p>} 
+                      
                       </div>
 
                       <div className="campus-ipt">
@@ -495,39 +601,53 @@ const Tca = () => {
                       </div>
 
                       <div className="campus-ipt">
-                        <label htmlFor="">Country</label>
-                        <input
-                          type="text"
-                          name="country"
-                          placeholder="Country"
-                          value={formData.country}
-                          onChange={handleChange}
-                        />
+                      <label htmlFor="">Country</label>
+                        <select
+                        name="country"
+                        value={formData.country}
+                        onChange={handleChange}
+                        placeholder="Mention Your Country*"
+                      >
+                        <option value="" disabled>Select Your Country*</option>
+                        {countries.map((country, index) => (
+                          <option key={index} value={country.country}>
+                            {country.country}
+                          </option>
+                        ))}
+                      </select>
                         {errors.country && <p style={{ color: "red" }}>{errors.country[0]}</p>}
+                        {countryError && !errors.country && <p className="error-form">{countryError}</p>} {/* Display country error */}
                       </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">State</label>
-                        <input
-                          type="text"
-                          name="state"
-                          value={formData.state}
-                          onChange={handleChange}
-                          placeholder="State"
-                        />
+                        <select
+                        name="state"
+                        value={formData.state}
+                        onChange={handleChange}
+                        placeholder="Mention Your State*"
+                      >
+                        <option value="" disabled>Select Your State*</option>
+                        {states.map((state, index) => (
+                          <option key={index} value={state.state}>
+                            {state.state}
+                          </option>
+                        ))}
+                      </select>
                         {errors.state && <p style={{ color: "red" }}>{errors.state[0]}</p>}
+                        {stateError && !errors.state && <p className="error-form">{stateError}</p>} {/* Display state error */}
                       </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">City</label>
-                        <input
-                          type="text"
-                          name="city"
-                          placeholder="City"
-                          value={formData.city}
-                          onChange={handleChange}
-                        />
+                        <select name="city" value={formData.city} onChange={handleChange}>
+                        <option value="" disabled>Select City*</option>
+                        {cities.map((city, index) => (
+                          <option key={index} value={city.city}>{city.city}</option>
+                        ))}
+                      </select>
                         {errors.city && <p style={{ color: "red" }}>{errors.city[0]}</p>}
+                        {cityError && !errors.city && <p className="error-form">{cityError}</p>} {/* Display city error */}
                       </div>
 
                       <div className="campus-ipt">
@@ -607,42 +727,53 @@ const Tca = () => {
                       </div>
 
                       <div className="campus-ipt">
-                        <label htmlFor="">Country</label>
-                        <input
-                          type="text"
-                          name="country"
-                          placeholder="Country"
-                          value={formData.country}
-                          onChange={handleChange}
-                        />
+                      <label htmlFor="">Country</label>
+                        <select
+                        name="country"
+                        value={formData.country}
+                        onChange={handleChange}
+                        placeholder="Mention Your Country*"
+                      >
+                        <option value="" disabled>Select Your Country*</option>
+                        {countries.map((country, index) => (
+                          <option key={index} value={country.country}>
+                            {country.country}
+                          </option>
+                        ))}
+                      </select>
                         {errors.country && <p style={{ color: "red" }}>{errors.country[0]}</p>}
-
+                        {countryError && !errors.country && <p className="error-form">{countryError}</p>} {/* Display country error */}
                       </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">State</label>
-                        <input
-                          type="text"
-                          name="state"
-                          value={formData.state}
-                          onChange={handleChange}
-                          placeholder="State"
-                        />
+                        <select
+                        name="state"
+                        value={formData.state}
+                        onChange={handleChange}
+                        placeholder="Mention Your State*"
+                      >
+                        <option value="" disabled>Select Your State*</option>
+                        {states.map((state, index) => (
+                          <option key={index} value={state.state}>
+                            {state.state}
+                          </option>
+                        ))}
+                      </select>
                         {errors.state && <p style={{ color: "red" }}>{errors.state[0]}</p>}
-
+                        {stateError && !errors.state && <p className="error-form">{stateError}</p>} {/* Display state error */}
                       </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">City</label>
-                        <input
-                          type="text"
-                          name="city"
-                          placeholder="City"
-                          value={formData.city}
-                          onChange={handleChange}
-                        />
+                        <select name="city" value={formData.city} onChange={handleChange}>
+                        <option value="" disabled>Select City*</option>
+                        {cities.map((city, index) => (
+                          <option key={index} value={city.city}>{city.city}</option>
+                        ))}
+                      </select>
                         {errors.city && <p style={{ color: "red" }}>{errors.city[0]}</p>}
-
+                        {cityError && !errors.city && <p className="error-form">{cityError}</p>} {/* Display city error */}
                       </div>
 
                       <div className="campus-ipt">
@@ -714,42 +845,55 @@ const Tca = () => {
                       </div>
 
                       <div className="campus-ipt">
-                        <label htmlFor="">Country</label>
-                        <input
-                          type="text"
-                          name="country"
-                          placeholder="Country"
-                          value={formData.country}
-                          onChange={handleChange}
-                        />
+                      <label htmlFor="">Country</label>
+                        <select
+                        name="country"
+                        value={formData.country}
+                        onChange={handleChange}
+                        placeholder="Mention Your Country*"
+                      >
+                        <option value="" disabled>Select Your Country*</option>
+                        {countries.map((country, index) => (
+                          <option key={index} value={country.country}>
+                            {country.country}
+                          </option>
+                        ))}
+                      </select>
                         {errors.country && <p style={{ color: "red" }}>{errors.country[0]}</p>}
+                        {countryError && !errors.country && <p className="error-form">{countryError}</p>} {/* Display country error */}
 
                       </div>
 
                       <div className="campus-ipt">
                         <label htmlFor="">State</label>
-                        <input
-                          type="text"
-                          name="state"
-                          value={formData.state}
-                          onChange={handleChange}
-                          placeholder="State"
-                        />
+                        <select
+                        name="state"
+                        value={formData.state}
+                        onChange={handleChange}
+                        placeholder="Mention Your State*"
+                      >
+                        <option value="" disabled>Select Your State*</option>
+                        {states.map((state, index) => (
+                          <option key={index} value={state.state}>
+                            {state.state}
+                          </option>
+                        ))}
+                      </select>
                         {errors.state && <p style={{ color: "red" }}>{errors.state[0]}</p>}
+                        {stateError && !errors.state && <p className="error-form">{stateError}</p>} {/* Display state error */}
 
                       </div>
 
                       <div className="campus-ipt">
-                        <label htmlFor="">City</label>
-                        <input
-                          type="text"
-                          name="city"
-                          placeholder="City"
-                          value={formData.city}
-                          onChange={handleChange}
-                        />
+                      <label htmlFor="">City</label>
+                        <select name="city" value={formData.city} onChange={handleChange}>
+                        <option value="" disabled>Select City*</option>
+                        {cities.map((city, index) => (
+                          <option key={index} value={city.city}>{city.city}</option>
+                        ))}
+                      </select>
                         {errors.city && <p style={{ color: "red" }}>{errors.city[0]}</p>}
-
+                        {cityError && !errors.city && <p className="error-form">{cityError}</p>} {/* Display city error */}
                       </div>
 
                       <div className="campus-ipt">

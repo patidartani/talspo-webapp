@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import "./Loading.css";
 import talspoIcon from "/assets/images/logo-icon.png";
 import { loadingData } from "../../apiService";
 
 const Loading = () => {
-  const [description, setDescription] = useState(""); // Empty state initially
+  const [description, setDescription] = useState(""); 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await loadingData(); // Fetch the API data
+        const response = await loadingData(); 
         if (response && response.records && response.records[0]?.description) {
           setDescription(response.records[0].description); 
         }
@@ -17,7 +17,6 @@ const Loading = () => {
         console.error("Error fetching loading data:", error);
       }
     };
-
     fetchData();
   }, []);
 

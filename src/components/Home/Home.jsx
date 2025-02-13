@@ -105,11 +105,11 @@ const Home = () => {
               <>
                 <h6>{homeContent.title || "Title not available"}</h6>
                 <h5
-  style={{ fontSize: "1.1vmax" }}
-  dangerouslySetInnerHTML={{
-    __html: homeContent.description || "Description not available",
-  }}
-></h5>
+                  style={{ fontSize: "1.1vmax" }}
+                  dangerouslySetInnerHTML={{
+                    __html: homeContent.description || "Description not available",
+                  }}
+                ></h5>
                 <h5 style={{ fontSize: '1.1vmax' }}>{homeContent.subtext || "Subtext not available"}</h5>
                 <div className="text-container">
                   <span className={`text ${animationClass}`}>{currentText || "No animation text available"}</span>
@@ -147,7 +147,7 @@ const Home = () => {
                       allow="autoplay; encrypted-media"
                       allowFullScreen
                       title={`Media Slide ${index + 1}`}
-                      loading="lazy"  
+                      loading="lazy"
                     ></iframe>
                   </div>
                 </SwiperSlide>

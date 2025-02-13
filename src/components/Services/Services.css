@@ -12,7 +12,6 @@
           flex-direction: column;
           margin-bottom: 2vmax;
           margin-top: 7vmax
-
 }
 .Services-main .Services-page .service-top {
           width: 100%;
@@ -42,11 +41,9 @@
           color: #fff;
           font-size: 1.2vmax;
           text-transform: uppercase;
-          letter-spacing: 1px;
-   
+          letter-spacing: 1px;  
           font-weight: lighter;
 }
-
 .Services-main .Services-page .services-mid{
         width: 60%;
         margin-top: 2vmax;
@@ -80,17 +77,18 @@
           align-items: flex-end;
           flex-direction: column;
 }
-.one {
-          width: 65%;
-          height: 130px;
+.one{
+          width: 80%;
+          height: auto;
           display: flex;
           justify-content: space-between;
           align-items: center;
           flex-direction: row;
+
 }
 .s-left {
-          width: 30%;
-          height: 130px;
+          width: 25%;
+          height: auto;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -117,7 +115,7 @@
 }
 .s-right {
           width: 70%;
-          height: 130px;
+          height: auto;
           display: flex;
           justify-content: center;
           align-items: flex-start;
@@ -128,16 +126,12 @@
           font-weight: 700;
           letter-spacing: 0.5px;
 }
-
-
 .Services-main .Services-page h4 {
        margin-top: 5vmax;
        font-size: 2vmax;
        font-weight: 600;
        color: red;
 }
-
-
 /* ------------------------------------------ */
 @media (max-width:600px) {
           .Services-main {
@@ -209,14 +203,14 @@
 @media (min-width:600px) and (max-width:1150px){
         .Services-main {
                   width: 100%;
-                  padding-top: 1vmax;
+                  padding-top: 5vmax;
         }
         .Services-main .Services-page .service-top h5 {
                   font-size: 3vmax;
                 
         }
         .Services-main .Services-page .service-top p {
-                  font-size: 2vmax;
+                  font-size: 1.5vmax;
         }
         .Services-main .Services-page .services-mid{
               width: 95%;
