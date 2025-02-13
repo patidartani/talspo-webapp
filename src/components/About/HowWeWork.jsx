@@ -67,23 +67,7 @@ const HowWeWork = () => {
           {howWeWorkData && howWeWorkData.length > 0 && (
             <img src={howWeWorkData[0].image} alt={howWeWorkData[0].title} />
           )}
-          {/* {howWeWorkData && howWeWorkData[0] && howWeWorkData[0].media && (
-    (() => {
-      const mediaUrl = JSON.parse(howWeWorkData[0].media)[0];
-      const videoId = mediaUrl.split('v=')[1]; 
-
-      return (
-        <iframe 
-          width="100%" 
-          height="400" 
-          src={`https://www.youtube.com/embed/${videoId}`} 
-          frameBorder="0" 
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-          allowFullScreen
-        ></iframe>
-      );
-    })()
-  )} */}
+         
         </div>
         <div className="how-btm">
           <div className="work-box">

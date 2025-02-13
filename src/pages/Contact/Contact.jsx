@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import Select from 'react-select';
-import { contactQrApi } from "../../apiService";
+import { contactQrApi, BASE_URL } from "../../apiService";
 import "./Contact.css";
 import NavBarContainer from "../../pages/NavbarCom/NavBarContainer";
 import Footer from "../../pages/Footer/Footer";
 import FooterTop from '../Footer/FooterTop';
 
-const MESSAGE_URL = "https://srninfotech.com/talspo/admin/api/massage-create";
+const MESSAGE_URL = `${BASE_URL}/massage-create`;
 const SITE_KEY = "6LcllLsqAAAAALQLFF51ImmdUT5rklD3CLIzIrgU";
 
 const Contact = () => {

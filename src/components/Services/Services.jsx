@@ -9,9 +9,9 @@ import Loading from "../../pages/loading/Loading"; // Import Loading component
 
 const Services = () => {
   const [ourService, setOurService] = useState([]);
-  const [errorMessage, setErrorMessage] = useState(null); // State for error message
-  const [loading, setLoading] = useState(true); // State for loading
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [errorMessage, setErrorMessage] = useState(null); 
+  const [loading, setLoading] = useState(true); 
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchServices = async () => {
@@ -19,7 +19,7 @@ const Services = () => {
         const response = await ourServices();
 
         if (response.records.length === 0) {
-          setErrorMessage("No data found for services."); // Set error message if no services are returned
+          setErrorMessage("No data found for services."); 
         } else {
           setOurService(response.records); 
         }
@@ -27,7 +27,7 @@ const Services = () => {
         console.error("Error fetching services data:", error.message);
         setErrorMessage("Error fetching data. Please try again later."); 
       } finally {
-        setLoading(false); // Set loading to false when data fetching is complete
+        setLoading(false);
       }
     };
 
@@ -41,17 +41,15 @@ const Services = () => {
         <div className="Services-page">
           <div className="service-top">
             <h5>Our Services</h5>
-            <p>Explore Our Job Portal Services</p>
+            <p>Explore the Power of Our Innovative Human Resources (HR) Talent Acquisition and Skilling SaaS Solutions to Transform Human Generation in the Age of Rapid Evolving Advanced Technologies!</p>
           </div>
 
-          {/* Display error message */}
           {errorMessage && (
             <div style={{ color: 'red', textAlign: 'center', marginBottom: '20px' }}>
               {errorMessage}
             </div>
-          )}
+          )} 
 
-          {/* Display Loading component if data is being fetched */}
           {loading && <Loading />}
 
           <div className="services-mid">

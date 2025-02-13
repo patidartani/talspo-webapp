@@ -427,7 +427,9 @@
      .DoPatnership-main .partner-four .partner-form h6{
             font-size: 2vmax;
      }
-       .DoPatnership-main .partner-four .partner-form  form .p-inp input{
+       .DoPatnership-main .partner-four .partner-form  form .p-inp input,
+       .DoPatnership-main .partner-four .partner-form  form .p-inp select{
+
               padding: 1.5vmax 1vmax;
        }
        .DoPatnership-main .partner-four .partner-form  form .p-inp p{
@@ -568,7 +570,9 @@
             .DoPatnership-main .partner-four .partner-form h6{
                    font-size: 2vmax;
             }
-              .DoPatnership-main .partner-four .partner-form  form .p-inp input{
+              .DoPatnership-main .partner-four .partner-form  form .p-inp input,
+       .DoPatnership-main .partner-four .partner-form  form .p-inp select{
+
                      padding: 1.5vmax 1vmax;
               }
               .DoPatnership-main .partner-four .partner-form  form .p-inp p{

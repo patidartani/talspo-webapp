@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import NavModel from '../NavbarCom/NavModel';
 import NavHigh from '../NavbarCom/NavHigh';
 import axios from 'axios';
+import { BASE_URL } from '../../apiService';
 
 const Navbar = () => {
   
@@ -31,13 +32,13 @@ const Navbar = () => {
 
     if (searchQuery.length > 0) {
       axios
-        .get(`https://srninfotech.com/talspo/admin/api/home-search?title=${searchQuery}`)
+      .get(`${BASE_URL}/home-search?title=${searchQuery}`)
         .then((response) => {
           console.log("new Response:", response.data.data.data);
 
 
           if (response.data.data && Array.isArray(response.data.data.data)) {
-            setSuggestions(response.data.data.data); // Update suggestions
+            setSuggestions(response.data.data.data); 
             console.log("Suggestions:", response.data.data.data);
             // console.log("title suggetst:", response.data.data.data?.[0].title);
 

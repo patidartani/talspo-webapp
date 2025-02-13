@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import './ResponsiveNav.css';
 import talspoIcons from "/assets/images/logo-icon.png"
 import { FaBars } from 'react-icons/fa';
@@ -9,6 +9,7 @@ import NavModel from './NavModel';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import mainLogo from "/assets/images/NewMainLogo.png"
+import { BASE_URL } from '../../apiService';
 
 const ResponsiveNav = () => {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ const ResponsiveNav = () => {
 
     if (searchQuery.length > 0) {
       axios
-        .get(`https://srninfotech.com/talspo/admin/api/home-search?title=${searchQuery}`)
+      .get(`${BASE_URL}/home-search?title=${searchQuery}`)
         .then((response) => {
           // console.log("new Response:", response.data.data.data);
 

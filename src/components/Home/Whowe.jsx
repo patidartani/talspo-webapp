@@ -3,7 +3,7 @@ import "./Whowe.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { fetchTalspoSkilledView } from "../../apiService";
+import { fetchTalspoSkilledView, BASE_URL } from "../../apiService";
 import talspoIcon from "/assets/images/logo-icon.png";
 import FormHr from "./FormHr";
 import mapboxgl from "mapbox-gl";
@@ -28,8 +28,7 @@ const Whowe = () => {
   const openModal = () => setIsModalOpen(true);
   const toggleMapView = () => setShowFullMap(!showFullMap);
 
-  const apiUrl = "https://srninfotech.com/talspo/admin/api/search-filter";
-
+  const apiUrl = `${BASE_URL}/search-filter`;
 
   // -----------------------------------Currency Conversion api ----------------------------------------------------------
 
@@ -52,22 +51,22 @@ const Whowe = () => {
       .then((response) => {
         if (!response.ok) {
           return response.json().then((errorData) => {
-            throw new Error(errorData.message); 
+            throw new Error(errorData.message);
           });
         }
         return response.json();
       })
-      .then((data) => setCurrencyRates(data?.data || {})) 
+      .then((data) => setCurrencyRates(data?.data || {}))
       .catch((error) => {
-        console.error("API Error:", error.message); 
+        console.error("API Error:", error.message);
 
         if (error.message === "You used all your monthly requests. Please upgrade your plan at https://app.currencyapi.com/subscription") {
-          setError("Sorry, we have reached the request limit. Please try again later."); 
+          setError("Sorry, we have reached the request limit. Please try again later.");
         } else {
-          setError("Something went wrong. Please try again."); 
+          setError("Something went wrong. Please try again.");
         }
 
-        setCurrencyRates({}); // ✅ Empty object to prevent crashes
+        setCurrencyRates({});
       });
   }, []);
 
@@ -83,7 +82,7 @@ const Whowe = () => {
     autoplay: true,
     centerMode: false,
     autoplaySpeed: 2000,
-   
+
     responsive: [
       {
         breakpoint: 1050,
@@ -110,7 +109,6 @@ const Whowe = () => {
     return uniqueSkills;
   };
 
-
   useEffect(() => {
     const fetchSkills = async () => {
       const skillsData = await fetchTalspoSkilledView();
@@ -135,169 +133,167 @@ const Whowe = () => {
     fetchSkills();
   }, []);
   // --------------------------------------geo location----------------------------------------------
-    const [selectedNearby, setSelectedNearby] = useState('')
+  const [selectedNearby, setSelectedNearby] = useState('')
 
-    const handleNearbyChange = (e) => {
-      setSelectedNearby(e.target.value);
-    };
-    
-    const getCurrentLocation = () => {
-      return new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const { latitude, longitude } = position.coords;
-            resolve({ latitude, longitude });
-          },
-          (error) => reject(error)
-        );
-      });
-    };
-    
-    const calculateDistance = (lat1, lon1, lat2, lon2) => {
-      const R = 6371; // Radius of the Earth in km
-      const dLat = (lat2 - lat1) * (Math.PI / 180);
-      const dLon = (lon2 - lon1) * (Math.PI / 180);
-      const a =
-        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(lat1 * (Math.PI / 180)) *
-        Math.cos(lat2 * (Math.PI / 180)) *
-        Math.sin(dLon / 2) * Math.sin(dLon / 2);
-      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      const distance = R * c; // Distance in km
-      return distance;
-    };
-    
+  const handleNearbyChange = (e) => {
+    setSelectedNearby(e.target.value);
+  };
 
+  const getCurrentLocation = () => {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          resolve({ latitude, longitude });
+        },
+        (error) => reject(error)
+      );
+    });
+  };
+
+  const calculateDistance = (lat1, lon1, lat2, lon2) => {
+    const R = 6371; // Radius of the Earth in km
+    const dLat = (lat2 - lat1) * (Math.PI / 180);
+    const dLon = (lon2 - lon1) * (Math.PI / 180);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * (Math.PI / 180)) *
+      Math.cos(lat2 * (Math.PI / 180)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const distance = R * c; // Distance in km
+    return distance;
+  };
   // ---------------------------------------------------------------------------
-  const [suggestions, setSuggestions] = useState({ 
-          titles: [],
-          locations: [],
-          sortBy: {
-            experience: [],
-            actively_looking: [],
-            verified: [],
-          },
-        });
-        
-        const [selectedSort, setSelectedSort] = useState('');  // Default value is empty string
+  const [suggestions, setSuggestions] = useState({
+    titles: [],
+    locations: [],
+    sortBy: {
+      experience: [],
+      actively_looking: [],
+      verified: [],
+    },
+  });
 
-        const handleSortChange = (e) => {
-          const value = e.target.value;
-          setSelectedSort(value); // Update selected sort state
-          console.log("Selected Value:", value);
-          handleSearch(); // Apply search with the updated sort
-        };
-        
-        const fetchSuggestions = async (searchTerm, location, selectedSort) => {
-          try {
-            const response = await fetch(apiUrl, {
-              headers: {
-                "Content-Type": "application/json",
-              },
-            });
-        
-            if (!response.ok) {
-              throw new Error(`Error: ${response.status} - ${response.statusText}`);
-            }
-        
-            const data = await response.json();
-        
-            // Filter titles and locations based on search input
-            let filteredTitles = data.titles;
-            if (searchTerm) {
-              filteredTitles = filteredTitles.filter((title) =>
-                title.toLowerCase().includes(searchTerm.toLowerCase())
-              );
-            }
-        
-            let filteredLocations = data.locations;
-            if (location) {
-              filteredLocations = filteredLocations.filter((loc) =>
-                loc.toLowerCase().includes(location.toLowerCase())
-              );
-            }
-        
-            // Filter sort response based on selected value
-            let filteredSortData = selectedSort ? data.sort_by[selectedSort] || [] : [];
-                
-    
-            // Update the suggestions state with filtered data
-            setSuggestions({
-              titles: filteredTitles,
-              locations: filteredLocations,
-              sortBy: filteredSortData, // Only selected value's data
-            });
-          } catch (error) {
-            console.error("Error fetching suggestions:", error);
-          }
-        };
-        
-        const handleSearchTermChange = (e) => {
-          setSearchTerm(e.target.value);
-          fetchSuggestions(e.target.value, location);
-        };
-        
-        const handleLocationChange = (e) => {
-          setLocation(e.target.value);
-          fetchSuggestions(searchTerm, e.target.value);
-        };
-        
-        const handleTitleSelect = (title) => {
-          setSearchTerm(title);
-          setSuggestions({ titles: [], locations: [] });
-        };
-        
-        const handleLocationSelect = (loc) => {
-          setLocation(loc);
-          setSuggestions({ titles: [], locations: [] });
-        };
+  const [selectedSort, setSelectedSort] = useState('');
 
-        
-        const handleSearch = async () => {
-          try {
-            const { latitude: userLat, longitude: userLon } = await getCurrentLocation();
-        
-            const skillsWithDistance = skills.map((skill) => {
-              const distance = calculateDistance(
-                userLat,
-                userLon,
-                parseFloat(skill.latitude) || 0, // Ensure latitude is a valid number
-                parseFloat(skill.longitude) || 0 // Ensure longitude is a valid number
-              );
-              return { ...skill, distance };
-            });
-        
-            const sortedSkills = skillsWithDistance.sort((a, b) => a.distance - b.distance);
-        
-            // Ensure searchTerm and location are safe strings
-            const safeSearchTerm = searchTerm ? searchTerm.toLowerCase() : "";
-            const safeLocation = location ? location.toLowerCase() : "";
-        
-            // **Fix: Check if skill.title and skill.location exist**
-            let filtered = sortedSkills.filter((skill) => {
-              const title = skill.title ? skill.title.toLowerCase() : "";
-              const loc = skill.location ? skill.location.toLowerCase() : "";
-              return title.includes(safeSearchTerm) && loc.includes(safeLocation);
-            });
-        
-            // Apply sorting filters
-            if (selectedSort === "actively_looking") {
-              filtered = filtered.filter((skill) => skill.actively_looking === "yes");
-            } else if (selectedSort === "verified") {
-              filtered = filtered.filter((skill) => skill.verified === "true");
-            } else if (selectedSort === "experience") {
-              filtered = filtered.filter((skill) => skill.experience === "5+ Year");
-            }
-        
-            setFilteredSkills(filtered);
-          } catch (error) {
-            console.error("Error in handleSearch:", error);
-          }
-        };
-        
-        
-        
-// ---------------------------------------------search functionality end --------------------------------------------------------------------------------------
+  const handleSortChange = (e) => {
+    const value = e.target.value;
+    setSelectedSort(value); // Update selected sort state
+    console.log("Selected Value:", value);
+    handleSearch();
+  };
+
+  const fetchSuggestions = async (searchTerm, location, selectedSort) => {
+    try {
+      const response = await fetch(apiUrl, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      }
+
+      const data = await response.json();
+
+      // Filter titles and locations based on search input
+      let filteredTitles = data.titles;
+      if (searchTerm) {
+        filteredTitles = filteredTitles.filter((title) =>
+          title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+      }
+
+      let filteredLocations = data.locations;
+      if (location) {
+        filteredLocations = filteredLocations.filter((loc) =>
+          loc.toLowerCase().includes(location.toLowerCase())
+        );
+      }
+
+      // Filter sort response based on selected value
+      let filteredSortData = selectedSort ? data.sort_by[selectedSort] || [] : [];
+
+
+      // Update the suggestions state with filtered data
+      setSuggestions({
+        titles: filteredTitles,
+        locations: filteredLocations,
+        sortBy: filteredSortData,
+      });
+    } catch (error) {
+      console.error("Error fetching suggestions:", error);
+    }
+  };
+
+  const handleSearchTermChange = (e) => {
+    setSearchTerm(e.target.value);
+    fetchSuggestions(e.target.value, location);
+  };
+
+  const handleLocationChange = (e) => {
+    setLocation(e.target.value);
+    fetchSuggestions(searchTerm, e.target.value);
+  };
+
+  const handleTitleSelect = (title) => {
+    setSearchTerm(title);
+    setSuggestions({ titles: [], locations: [] });
+  };
+
+  const handleLocationSelect = (loc) => {
+    setLocation(loc);
+    setSuggestions({ titles: [], locations: [] });
+  };
+
+
+  const handleSearch = async () => {
+    try {
+      const { latitude: userLat, longitude: userLon } = await getCurrentLocation();
+
+      const skillsWithDistance = skills.map((skill) => {
+        const distance = calculateDistance(
+          userLat,
+          userLon,
+          parseFloat(skill.latitude) || 0, // Ensure latitude is a valid number
+          parseFloat(skill.longitude) || 0 // Ensure longitude is a valid number
+        );
+        return { ...skill, distance };
+      });
+
+      const sortedSkills = skillsWithDistance.sort((a, b) => a.distance - b.distance);
+
+      // Ensure searchTerm and location are safe strings
+      const safeSearchTerm = searchTerm ? searchTerm.toLowerCase() : "";
+      const safeLocation = location ? location.toLowerCase() : "";
+
+      // **Fix: Check if skill.title and skill.location exist**
+      let filtered = sortedSkills.filter((skill) => {
+        const title = skill.title ? skill.title.toLowerCase() : "";
+        const loc = skill.location ? skill.location.toLowerCase() : "";
+        return title.includes(safeSearchTerm) && loc.includes(safeLocation);
+      });
+
+      // Apply sorting filters
+      if (selectedSort === "actively_looking") {
+        filtered = filtered.filter((skill) => skill.actively_looking === "yes");
+      } else if (selectedSort === "verified") {
+        filtered = filtered.filter((skill) => skill.verified === "true");
+      } else if (selectedSort === "experience") {
+        filtered = filtered.filter((skill) => skill.experience === "5+ Year");
+      }
+
+      setFilteredSkills(filtered);
+    } catch (error) {
+      console.error("Error in handleSearch:", error);
+    }
+  };
+
+
+
+  // ---------------------------------------------search functionality end --------------------------------------------------------------------------------------
 
   const getCoordinates = async (location) => {
     const response = await fetch(
@@ -324,8 +320,8 @@ const Whowe = () => {
 
         filteredSkills.forEach((skill, index) => {
           if (!skill.longitude || !skill.latitude) {
-            skill.longitude = 78.9629;  
-            skill.latitude = 20.5937;   
+            skill.longitude = 78.9629;
+            skill.latitude = 20.5937;
           }
           if (skill.longitude && skill.latitude) {
             const marker = new mapboxgl.Marker({
@@ -412,227 +408,227 @@ const Whowe = () => {
           </span>
           {/* ----------------------------------------------------------------------------------------- */}
           <div className="search-bar-skill">
-    <div className="skill-ipt">
-      <input
-        type="text"
-        placeholder="Search for Developers, Designers..."
-        value={searchTerm}
-        onChange={handleSearchTermChange} // Dynamically fetch suggestions while typing
-      />
-      <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
-      {searchTerm && Array.isArray(suggestions.titles) && (
-        <ul className="suggestions-list">
-          {suggestions.titles.map((item, index) => (
-            <li key={index} onClick={() => handleTitleSelect(item)}>
-              {item} {/* Display title suggestions */}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+            <div className="skill-ipt">
+              <input
+                type="text"
+                placeholder="Search for Developers, Designers..."
+                value={searchTerm}
+                onChange={handleSearchTermChange} // Dynamically fetch suggestions while typing
+              />
+              <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+              {searchTerm && Array.isArray(suggestions.titles) && (
+                <ul className="suggestions-list">
+                  {suggestions.titles.map((item, index) => (
+                    <li key={index} onClick={() => handleTitleSelect(item)}>
+                      {item} {/* Display title suggestions */}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
 
-    <div className="skill-ipt">
-      <input
-        type="text"
-        placeholder="Search by Location (Pin Code, Area, City, etc.)"
-        value={location}
-        onChange={handleLocationChange} // Dynamically fetch location suggestions while typing
-      />
-      <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
-      {location && Array.isArray(suggestions.locations) && (
-        <ul className="suggestions-list">
-          {suggestions.locations.map((item, index) => (
-            <li key={index} onClick={() => handleLocationSelect(item)}>
-              {item} {/* Display location suggestions */}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+            <div className="skill-ipt">
+              <input
+                type="text"
+                placeholder="Search by Location (Pin Code, Area, City, etc.)"
+                value={location}
+                onChange={handleLocationChange}
+              />
+              <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+              {location && Array.isArray(suggestions.locations) && (
+                <ul className="suggestions-list">
+                  {suggestions.locations.map((item, index) => (
+                    <li key={index} onClick={() => handleLocationSelect(item)}>
+                      {item} {/* Display location suggestions */}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
 
-    <div className="sort-dropdown">
-      <div className="dropdown-wrapper">
-      <select onChange={handleNearbyChange} value={selectedNearby}>
-  <option value="" disabled>
-    Filtered Jobs
-  </option>
-  <option value="NEARBY">Nearby</option>
-</select>
-      </div>
-    </div>
+            <div className="sort-dropdown">
+              <div className="dropdown-wrapper">
+                <select onChange={handleNearbyChange} value={selectedNearby}>
+                  <option value="" disabled>
+                    Filtered Jobs
+                  </option>
+                  <option value="NEARBY">Nearby</option>
+                </select>
+              </div>
+            </div>
 
-    <div className="sort-dropdown">
-  <div className="dropdown-wrapper">
-    <select onChange={handleSortChange} value={selectedSort}>
-      <option value="" disabled>
-        Sort by
-      </option>
-      <option value="experience">Experience</option>
-      <option value="actively_looking">Actively Looking</option>
-      <option value="verified">Verified</option>
-    </select>
-  </div>
-</div>
+            <div className="sort-dropdown">
+              <div className="dropdown-wrapper">
+                <select onChange={handleSortChange} value={selectedSort}>
+                  <option value="" disabled>
+                    Sort by
+                  </option>
+                  <option value="experience">Experience</option>
+                  <option value="actively_looking">Actively Looking</option>
+                  <option value="verified">Verified</option>
+                </select>
+              </div>
+            </div>
 
 
-    <div className="skill-btn">
-      <button onClick={handleSearch}>Search</button>
-    </div>
+            <div className="skill-btn">
+              <button onClick={handleSearch}>Search</button>
+            </div>
           </div>
-{/* ------------------responsive--search------------------------------ */}
-<div className="search-bar-skill-responsive">
-    <div className="skill-ipt">
-      <input
-        type="text"
-        placeholder="Search for Developers, Designers..."
-        value={searchTerm}
-        onChange={handleSearchTermChange} // Dynamically fetch suggestions while typing
-      />
-      <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
-      {searchTerm && Array.isArray(suggestions.titles) && (
-        <ul className="suggestions-list">
-          {suggestions.titles.map((item, index) => (
-            <li key={index} onClick={() => handleTitleSelect(item)}>
-              {item} {/* Display title suggestions */}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+          {/* ------------------responsive--search------------------------------ */}
+          <div className="search-bar-skill-responsive">
+            <div className="skill-ipt">
+              <input
+                type="text"
+                placeholder="Search for Developers, Designers..."
+                value={searchTerm}
+                onChange={handleSearchTermChange}
+              />
+              <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+              {searchTerm && Array.isArray(suggestions.titles) && (
+                <ul className="suggestions-list">
+                  {suggestions.titles.map((item, index) => (
+                    <li key={index} onClick={() => handleTitleSelect(item)}>
+                      {item} {/* Display title suggestions */}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
 
-    <div className="skill-ipt">
-      <input
-        type="text"
-        placeholder="Search by Location (Pin Code, Area, City, etc.)"
-        value={location}
-        onChange={handleLocationChange} // Dynamically fetch location suggestions while typing
-      />
-      <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
-      {location && Array.isArray(suggestions.locations) && (
-        <ul className="suggestions-list">
-          {suggestions.locations.map((item, index) => (
-            <li key={index} onClick={() => handleLocationSelect(item)}>
-              {item} {/* Display location suggestions */}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+            <div className="skill-ipt">
+              <input
+                type="text"
+                placeholder="Search by Location (Pin Code, Area, City, etc.)"
+                value={location}
+                onChange={handleLocationChange} // Dynamically fetch location suggestions while typing
+              />
+              <img src={talspoIcon} alt="Talspo Icon" className="input-icon" />
+              {location && Array.isArray(suggestions.locations) && (
+                <ul className="suggestions-list">
+                  {suggestions.locations.map((item, index) => (
+                    <li key={index} onClick={() => handleLocationSelect(item)}>
+                      {item} {/* Display location suggestions */}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
 
-    <div className="sort-dropdown">
-      <div className="dropdown-wrapper">
-      <select onChange={handleNearbyChange} value={selectedNearby}>
-  <option value="" disabled>
-    Filtered Jobs
-  </option>
-  <option value="NEARBY">Nearby</option>
-</select>
-      </div>
-    </div>
+            <div className="sort-dropdown">
+              <div className="dropdown-wrapper">
+                <select onChange={handleNearbyChange} value={selectedNearby}>
+                  <option value="" disabled>
+                    Filtered Jobs
+                  </option>
+                  <option value="NEARBY">Nearby</option>
+                </select>
+              </div>
+            </div>
 
-    <div className="sort-dropdown">
-  <div className="dropdown-wrapper">
-    <select onChange={handleSortChange} value={selectedSort}>
-      <option value="" disabled>
-        Sort by
-      </option>
-      <option value="experience">Experience</option>
-      <option value="actively_looking">Actively Looking</option>
-      <option value="verified">Verified</option>
-    </select>
-  </div>
-</div>
+            <div className="sort-dropdown">
+              <div className="dropdown-wrapper">
+                <select onChange={handleSortChange} value={selectedSort}>
+                  <option value="" disabled>
+                    Sort by
+                  </option>
+                  <option value="experience">Experience</option>
+                  <option value="actively_looking">Actively Looking</option>
+                  <option value="verified">Verified</option>
+                </select>
+              </div>
+            </div>
 
 
-    <div className="skill-btn">
-      <button onClick={handleSearch}>Search</button>
-    </div>
+            <div className="skill-btn">
+              <button onClick={handleSearch}>Search</button>
+            </div>
           </div>
 
           {/* -------------------------------------------- */}
           <div className="who-slide">
-          <div className="slider-container">
-  {filteredSkills.length > 0 ? (
-    <Slider {...settings}>
-      {filteredSkills.map((skill, index) => {
-        let supportedCurrencies = [];
+            <div className="slider-container">
+              {filteredSkills.length > 0 ? (
+                <Slider {...settings}>
+                  {filteredSkills.map((skill, index) => {
+                    let supportedCurrencies = [];
 
-        try {
-          supportedCurrencies = JSON.parse(skill.supportedcurrencies);
-        } catch (error) {
-          if (typeof skill.supportedcurrencies === 'string') {
-            supportedCurrencies = skill.supportedcurrencies.split(','); // Split the string into an array
-          } else {
-            console.error(`Error parsing supported currencies for skill ID ${skill.id}:`, error);
-          }
-        }
+                    try {
+                      supportedCurrencies = JSON.parse(skill.supportedcurrencies);
+                    } catch (error) {
+                      if (typeof skill.supportedcurrencies === 'string') {
+                        supportedCurrencies = skill.supportedcurrencies.split(','); // Split the string into an array
+                      } else {
+                        console.error(`Error parsing supported currencies for skill ID ${skill.id}:`, error);
+                      }
+                    }
 
-        const selectedCurrency = selectedCurrencies[skill.id] || skill.basecurrency;
+                    const selectedCurrency = selectedCurrencies[skill.id] || skill.basecurrency;
 
-        const rate = currencyRates[selectedCurrency] ? currencyRates[selectedCurrency].value : 1;
-        const convertedSalary = skill.salary * rate;
+                    const rate = currencyRates[selectedCurrency] ? currencyRates[selectedCurrency].value : 1;
+                    const convertedSalary = skill.salary * rate;
 
-        return (
-          <div key={`${skill.id}-${index}`}>
-            <div className="w-box">
-              <img src={skill.image} alt={skill.name} />
-              {skill.verified === "true" && (
-                <div className="verified-icon">✅</div>
+                    return (
+                      <div key={`${skill.id}-${index}`}>
+                        <div className="w-box">
+                          <img src={skill.image} alt={skill.name} />
+                          {skill.verified === "true" && (
+                            <div className="verified-icon">✅</div>
+                          )}
+                          <div className="text-panel">
+                            <h5>{skill.title}</h5>
+                            <div className="ss">
+                              <small>Location: {skill.location}</small>
+                              <small>Status: {skill.status}</small>
+                            </div>
+                            <div className="ss">
+                              <span>Experience: {skill.experience}</span>
+                              <span>JobType:{skill.jobtype}</span>
+                            </div>
+
+
+                            <span>Actively Looking: {skill.actively_looking}</span>
+
+                            <div className="hh">
+                              <small>
+                                Salary: {convertedSalary.toFixed(2)} {selectedCurrency}
+                              </small>
+                            </div>
+
+                            <select
+                              style={{ outline: "none" }}
+                              className="custom-select mt-1 w-100"
+                              value={selectedCurrency || ""}
+                              onChange={(e) => handleCurrencyChange(skill.id, e.target.value)}
+                            >
+                              {(supportedCurrencies || []).map((currency, idx) => (
+                                <option key={idx} value={currency}>
+                                  {currency}
+                                </option>
+                              ))}
+                            </select>
+
+                            <button className="get" onClick={openModal}>
+                              Connect
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </Slider>
+              ) : (
+                <div className="error-message">
+                  <p>No Results Found</p>
+                </div>
               )}
-              <div className="text-panel">
-                <h5>{skill.title}</h5>
-                <div className="ss">
-                  <small>Location: {skill.location}</small>
-                  <small>Status: {skill.status}</small>
+
+              {error && (
+                <div className="error-message">
+                  {/* <p>{error}</p> */}
                 </div>
-                <div className="ss">
-                <span>Experience: {skill.experience}</span>
-                <span>JobType:{skill.jobtype}</span>
-                </div>
-              
-
-                <span>Actively Looking: {skill.actively_looking}</span>
-
-                <div className="hh">
-                  <small>
-                    Salary: {convertedSalary.toFixed(2)} {selectedCurrency}
-                  </small>
-                </div>
-
-                <select
-  style={{ outline: "none" }}
-  className="custom-select mt-1 w-100"
-  value={selectedCurrency || ""}
-  onChange={(e) => handleCurrencyChange(skill.id, e.target.value)}
->
-  {(supportedCurrencies || []).map((currency, idx) => (
-    <option key={idx} value={currency}>
-      {currency}
-    </option>
-  ))}
-</select>
-
-                <button className="get" onClick={openModal}>
-                  Connect
-                </button>
-              </div>
+              )}
             </div>
-          </div>
-        );
-      })}
-    </Slider>
-  ) : (
-    <div className="error-message">
-      <p>No Results Found</p>
-    </div>
-  )}
-
-  {error && (
-    <div className="error-message">
-      {/* <p>{error}</p> */}
-    </div>
-  )}
-</div>
 
 
             <div className="home-map">

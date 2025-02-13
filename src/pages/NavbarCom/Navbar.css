@@ -13,12 +13,11 @@
   gap: 0.2vmax;
 }
 
-
 /* -----------------suggetion list------------------------ */
 /* Suggestions container */
 .suggestions-container {
   position: absolute;
-  top: 100%; /* Position directly below the input */
+  top: 100%; 
   left: 0;
   width: calc(100% - 5px); 
   max-height: 200px; 
@@ -280,14 +279,13 @@
 /* Navbar.css */
 @media (max-width: 1150px) {
           .Navbar-main {
-            display: none; /* Hide the desktop navbar */
+            display: none; 
           }
         }
         
-        /* ResponsiveNav.css */
         @media (min-width: 1151px) {
           .ResponsiveNav-content {
-            display: none; /* Hide the responsive navbar */
+            display: none; 
           }
         }
         

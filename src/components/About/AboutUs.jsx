@@ -120,7 +120,7 @@ const AboutUs = () => {
       }
     };
 
-    fetchTabsData();  // Calling the function to fetch data on component mount
+    fetchTabsData();  
   }, []);
 
 

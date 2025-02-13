@@ -383,7 +383,7 @@ const DoPatnership = () => {
                       name="driveLink"
                       value={driveLink}
                       onChange={handleDriveLinkChange}
-                      placeholder="Google Drive Link*"
+                      placeholder="Cloud Drive Link*"
                     />
                   </div>
                 ) : (

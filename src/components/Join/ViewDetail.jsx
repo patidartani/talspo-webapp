@@ -19,7 +19,7 @@ const ViewDetail = () => {
                 const getJobDetail = async () => {
                   try {
                     const data = await fetchJobDetail(id);
-                    console.log('Fetched Job Datail:', data); 
+                    // console.log('Fetched Job Datail:', data); 
 
                     if (!data) throw new Error('No job details found.');
                     setJobDetail(data); 

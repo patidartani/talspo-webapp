@@ -6,7 +6,7 @@ export const LOADING_DATA = `${BASE_URL}/loading-view`
 
 export const SIGNUP_URL = `${BASE_URL}/register`;
 export const LOGIN_URL = `${BASE_URL}/login-view`;
-export const NAVBAR_MODEL_DYNAMIC = 'https://srninfotech.com/talspo/admin/api/view-model_service';
+export const NAVBAR_MODEL_DYNAMIC = `${BASE_URL}/view-model_service`;
 export const TESTIMONIALS = `${BASE_URL}/testimonial-view`;
 export const HOME_CONTENT = `${BASE_URL}/home_page_details-view`
 export const BLOG_POSTS_URL = `${BASE_URL}/recent-post-view`;
@@ -40,7 +40,6 @@ export const QR_HANDLER = `${BASE_URL}/view-qr_scanner`
 export const PARTNERSHIP_SCANER = `${BASE_URL}/view-partnersscaneer`
 export const Contact_QR_Api = `${BASE_URL}/view-qr_allscanner`
 export const OUR_SERVICES_URL = `${BASE_URL}/view-service`
-
 
 
 // --------------------- GDPR Policy ----------------------
@@ -226,6 +225,7 @@ export const fetchTalspoSkilledView = async () => {
     return [];
   }
 };
+
 // ------------------Blogs Apis------------------------------------------------
 export const recentBlogPosts = async () => {
   try {
@@ -265,7 +265,7 @@ export const fetchBlogDetail = async (id) => {
 
 export const searchBlog = async (query, category) => {
   try {
-    const response = await axios.get('https://srninfotech.com/talspo/admin/api/search_blog', {
+    const response = await axios.get(`${BASE_URL}/search_blog`,{
       params: {
         title: query,
         category: category,  // Include category as parameter
@@ -294,10 +294,6 @@ export const createDirectConnectHR = async (formData) => {
     throw error.response?.data || { message: "Something went wrong" };
   }
 };
-
-// ---------------------home-skill filter-------------------------------------------------
-
-
 
 // ------------------------------------Technology ----------------------------------------------
 
