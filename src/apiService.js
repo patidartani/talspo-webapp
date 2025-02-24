@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const BASE_URL = "https://srninfotech.com/talspo/admin/api";
+export const BASE_URL = "https://dev.talspo.com/admin/api";
 
 export const LOADING_DATA = `${BASE_URL}/loading-view`
 
@@ -39,6 +39,7 @@ export const CREATE_DIRECT_CONNECT_HR_URL = `${BASE_URL}/create-darect-canect-hr
 export const QR_HANDLER = `${BASE_URL}/view-qr_scanner`
 export const PARTNERSHIP_SCANER = `${BASE_URL}/view-partnersscaneer`
 export const Contact_QR_Api = `${BASE_URL}/view-qr_allscanner`
+export  const Contact_SecondApi = `${BASE_URL}/qr_scannercontact`
 export const OUR_SERVICES_URL = `${BASE_URL}/view-service`
 
 
@@ -475,7 +476,17 @@ export const contactQrApi = async () => {
     const response = await axios.get(Contact_QR_Api);
     return response.data;
   } catch (error) {
-    console.error("Error fetching contact  qr:", error);
+    console.error("Error fetching qr:", error);
+    return {};
+  }
+};
+
+export const contactSecondApi = async () => {
+  try {
+    const response = await axios.get(Contact_SecondApi);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching contact qr:", error);
     return {};
   }
 };

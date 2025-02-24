@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import "./HomeBlog.css";
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for programmatic navigation
-import { featuredBlogPosts } from '../../apiService'; // Import the API function
+import { useNavigate } from 'react-router-dom'; 
+import { featuredBlogPosts } from '../../apiService'; 
 
 const HomeBlog = () => {
    const navigate = useNavigate();
@@ -38,12 +38,7 @@ const HomeBlog = () => {
                         <img src={blog.image || 'default-image-url.jpg'} alt={blog.title} />
                         <h5>{blog.title || "Untitled Blog"}</h5>
                         <h6>{blog.category || "Uncategorized"}</h6>
-                        <span>
-  {blog.description
-    ? blog.description.replace(/<\/?[^>]+(>|$)/g, "")
-    : "No description available"}
-</span>
-
+                        <span dangerouslySetInnerHTML={{ __html: blog.description || "No description available" }} />
 
                         <div className="view-blog-btn">
                            <button onClick={() => handleReadMore(blog.id)}>Read More <i className="ri-arrow-right-line"></i></button>

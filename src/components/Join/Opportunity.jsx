@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { fetchJobPosts , BASE_URL} from "../../apiService";
+import { fetchJobPosts, BASE_URL } from "../../apiService";
 import "./Opportunity.css";
 import NavbarContainer from "../../pages/NavbarCom/NavBarContainer";
 import Footer from "../../pages/Footer/Footer";
 import ReactPaginate from "react-paginate";
 import { useNavigate } from "react-router-dom";
-import iconSearch from "/assets/images/talspoIcon.png";
+import iconSearch from "/assets/images/logo-icon.png";
 import Loading from "../../pages/loading/Loading";
 import { formatDistanceToNow } from "date-fns";
 import opt1Img from "/assets/images/opt1.png";
@@ -35,6 +35,8 @@ const Opportunity = () => {
   const [loading, setLoading] = useState(true);
   const [jobTitleSuggestions, setJobTitleSuggestions] = useState([]);
 
+  const experienceOptions = Array.from({ length: 25 }, (_, i) => `${i + 1} Year`);
+
   const navigate = useNavigate();
   const ITEMS_PER_PAGE = 5;
   const [currentPage, setCurrentPage] = useState(0);
@@ -46,7 +48,7 @@ const Opportunity = () => {
   useEffect(() => {
     const loadJobs = async () => {
       try {
-        const fetchedJobs = await fetchJobPosts();  
+        const fetchedJobs = await fetchJobPosts();
         setJobs(fetchedJobs);
         setAllJobs(fetchedJobs);
         setLoading(false);
@@ -90,7 +92,6 @@ const Opportunity = () => {
     setSearchInput(inputValue);
 
     if (inputValue.length > 0) {
-      // Filter job titles based on the search input
       const filteredTitles = filterData.job_title.filter(title =>
         title.toLowerCase().includes(inputValue.toLowerCase())
       );
@@ -99,7 +100,6 @@ const Opportunity = () => {
       setJobTitleSuggestions([]);
     }
   };
-
 
   const handleSuggestionClick = (selectedTitle) => {
     setSearchInput(selectedTitle);
@@ -118,9 +118,15 @@ const Opportunity = () => {
     if (selectedLocation) {
       filteredJobs = filteredJobs.filter(job => job.location && job.location === selectedLocation);
     }
+    // if (selectedExperience) {
+    //   filteredJobs = filteredJobs.filter(job => job.experience && job.experience === selectedExperience);
+    // }
     if (selectedExperience) {
-      filteredJobs = filteredJobs.filter(job => job.experience && job.experience === selectedExperience);
+      filteredJobs = filteredJobs.filter(job =>
+        job.experience && parseInt(job.experience) === parseInt(selectedExperience)
+      );
     }
+
     if (selectedJobtype) {
       filteredJobs = filteredJobs.filter(job => job.job_type && job.job_type === selectedJobtype);
     }
@@ -180,7 +186,7 @@ const Opportunity = () => {
   };
 
   const haversineDistance = (lat1, lon1, lat2, lon2) => {
-    const R = 6371; // Radius of Earth in kilometers
+    const R = 6371;
     const dLat = ((lat2 - lat1) * Math.PI) / 180;
     const dLon = ((lon2 - lon1) * Math.PI) / 180;
     const a =
@@ -207,9 +213,9 @@ const Opportunity = () => {
         } else {
           return { ...job, distance: Infinity };
         }
-      }).sort((a, b) => a.distance - b.distance); 
+      }).sort((a, b) => a.distance - b.distance);
 
-      setJobs(sortedJobs); 
+      setJobs(sortedJobs);
     } catch (error) {
       console.error("Error fetching location or sorting jobs:", error);
     }
@@ -307,18 +313,19 @@ const Opportunity = () => {
                       <div className="experience-search">
                         <select value={selectedExperience} onChange={(e) => setSelectedExperience(e.target.value)}>
                           <option value="" disabled>Select Experience</option>
-                          {filterData.experiences.length > 0 ? (
-                            filterData.experiences.map((exp, index) => (
+                          {experienceOptions.length > 0 ? (
+                            experienceOptions.map((exp, index) => (
                               <option key={index} value={exp}>
                                 {exp}
                               </option>
                             ))
                           ) : (
-                            <option value="" disabled>No Experience Levels Available</option>
+                            <option value="" disabled>No Experience Available</option>
                           )}
                         </select>
                       </div>
                     </div>
+
 
                     <div className="job-type">
                       <h4>Job Type</h4>

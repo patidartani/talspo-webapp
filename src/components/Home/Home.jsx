@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+// import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import { useState, useEffect, useRef } from 'react';
@@ -40,13 +40,11 @@ const Home = () => {
           technologyApi()
         ]);
 
-        // "Why Choose Talspo" data
         setItems(whyChooseResponse.records);
         if (whyChooseResponse.records.length > 0) {
           setSelectedImage(whyChooseResponse.records[0].image);
         }
 
-        // Home Content data
         const homeData = homeContentResponse.records[0];
         if (homeData) {
           const dynamicTexts = homeData.text.match(/"([^"]+)"/g)?.map(t => t.replace(/"/g, "")) || [];
@@ -129,11 +127,11 @@ const Home = () => {
           <div className="right">
             <Swiper
               ref={swiperRef}
-              modules={[Autoplay]}
+              // modules={[Autoplay]}
               spaceBetween={30}
               slidesPerView={1}
               loop
-              autoplay={{ delay: 10000, disableOnInteraction: false }}
+              // autoplay={{ delay: 10000, disableOnInteraction: false }}
               speed={2000}
             >
               {homeContent?.media?.map((mediaLink, index) => (

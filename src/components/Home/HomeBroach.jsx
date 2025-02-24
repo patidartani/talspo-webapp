@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./HomeBroach.css";
 import { qrHandler } from "../../apiService";
+import { useNavigate } from "react-router-dom";
 
 const HomeBroach = () => {
-  const [image1, setImage1] = useState(""); // State for the first image
-  const [image2, setImage2] = useState(""); // State for the second image
-  const [noData, setNoData] = useState(false); // State to track if no data is found
+  const [image1, setImage1] = useState(""); 
+  const [image2, setImage2] = useState(""); 
+  const [noData, setNoData] = useState(false); 
+
+  const navigate = useNavigate();
+
+  const contactHandler = () => {
+    navigate("/contact-us")
+  }
 
   useEffect(() => {
     const homeQrHandler = async () => {
@@ -13,14 +20,14 @@ const HomeBroach = () => {
         const response = await qrHandler(); // Fetch QR data
         const records = response.records || [];
         if (records.length > 0) {
-          setImage1(records[0]?.image || ""); // Set the first image
-          setImage2(records[1]?.image || ""); // Set the second image (if available)
+          setImage1(records[0]?.image || "");
+          setImage2(records[1]?.image || ""); 
         } else {
-          setNoData(true); // Set noData to true if no records are found
+          setNoData(true);
         }
       } catch (error) {
         console.error("Error fetching QR data:", error.message);
-        setNoData(true); // Set noData to true if there is an error
+        setNoData(true); 
       }
     };
 
@@ -31,7 +38,6 @@ const HomeBroach = () => {
     <div className="HomeBroach-main">
       <div className="homebroch">
         {noData ? (
-          // Show "No Results Found" message when no data is available
           <div className="no-data">
             <p style={{ color: "red", textAlign: "center" }}>No Results Found</p>
           </div>
@@ -47,7 +53,7 @@ const HomeBroach = () => {
 
             <div className="broch3">
               <h6>Connect with us</h6>
-              <button>CONTACT US</button>
+              <button onClick={contactHandler}>CONTACT US</button>
               <img
                 src={image2 || "default-placeholder.jpg"}
                 alt="Contact QR Code"

@@ -248,7 +248,7 @@
 @media (max-width:600px) {
           .Contact-main{
                     width: 100%;
-                    padding-top: 7vmax;
+                    padding-top: 8vmax;
           }
           .Contact-main .contact-page{
                     width: 100%;
@@ -256,6 +256,7 @@
           }
           .Contact-main .contact-page .contact-top{
                     width: 100%;
+                    padding-top: 8vmax;
           }
           .Contact-main .contact-page .contact-top h5{
                     width: 90%;
@@ -330,7 +331,7 @@
 
 @media (min-width:600px) and (max-width:1150px) {
     .Contact-main .contact-page .contact-top{
-              padding-top:3vmax;
+              padding-top:10vmax;
     }
     .Contact-main .contact-page .contact-top h5{
               width: 95%;

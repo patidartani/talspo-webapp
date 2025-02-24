@@ -34,7 +34,6 @@ const Blog = () => {
     const loadFeaturedBlogs = async () => {
       try {
         const featuredPosts = await featuredBlogPosts();
-        console.log("fghj", featuredBlogs)
         setFeaturedBlogs(featuredPosts);
         setCurrentBlogs(featuredPosts);
       } catch (error) {
@@ -117,7 +116,7 @@ const Blog = () => {
   <div className="b-two">
     {Array.isArray(featuredBlogs) && featuredBlogs.length > 0 ? (
       featuredBlogs
-        .slice(0, showAllPosts ? 6 : 2)  // ✅ Show 2 by default, 6 when 'View All' is clicked
+        .slice(0, showAllPosts ? 6 : 2) 
         .map((post, index) => (
           <Link style={{ textDecoration: "none", color: "#000" }} to={`/blog-detail/${post.id}`} key={index} className="blog-box">
             <h6>{post.title}</h6>

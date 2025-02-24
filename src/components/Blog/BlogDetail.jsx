@@ -12,13 +12,11 @@ const BlogDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  // Function to parse the description and return cleaned text with images
   const parseDescription = (html) => {
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = html;
     const images = Array.from(tempDiv.querySelectorAll('img')).map((img) => img.src);
 
-    // Replace images in description with <img> elements
     const cleanTextWithImages = tempDiv.innerHTML;
 
     return { cleanTextWithImages, images };
@@ -61,9 +59,9 @@ const BlogDetail = () => {
             <div className="year-d">
               <small>{blogDetail?.category}</small> <span>{blogDetail?.subtitle}</span>
             </div>
+            <div className="description-text" dangerouslySetInnerHTML={{ __html: cleanTextWithImages }} />
             <h6>{blogDetail?.contant}</h6>
 
-            <div className="description-text" dangerouslySetInnerHTML={{ __html: cleanTextWithImages }} />
           </div>
         </div>
       </div>

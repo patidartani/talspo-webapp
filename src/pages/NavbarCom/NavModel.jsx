@@ -8,7 +8,7 @@ const NavModel = () => {
  const [isOpen, setIsOpen] = useState(false);
 
  const handleToggle = () => {
-   setIsOpen(prevState => !prevState); // Toggle open/close on each click of h6
+   setIsOpen(prevState => !prevState); 
  };
 
 const [navbarData, setNavbarData] = useState({});
@@ -18,7 +18,6 @@ useEffect(() => {
   const fetchNavbarData = async () => {
     try {
       const data = await navModelDynamic();
-      // console.log('data nav model', data.records)
       setNavbarData(data.records);
     } catch (error) {
       console.error('Error fetching navbar data:', error);
@@ -37,10 +36,9 @@ useEffect(() => {
               {navbarData.length > 0 ? (
                 navbarData.map((item, index) => (
                   <div key={index}>
-                    <img src={item.image} alt={item.title} style={{ width: '70%' }} />
+                    <img src={item.image} alt='' style={{ width: '70%' }} />
                     <small>
                       <div dangerouslySetInnerHTML={{ __html: item?.title }} />
-  
                     </small>
                   </div>
                 ))

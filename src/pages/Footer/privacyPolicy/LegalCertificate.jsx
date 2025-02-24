@@ -87,7 +87,6 @@ const LegalCertificate = () => {
       <NavBarContainer />
       <div className="legal_heading">
         <h1>Legal Certification</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, dolorem?</p>
       </div>
       <Container>
         <div className="legal_con">
