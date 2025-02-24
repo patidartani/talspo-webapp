@@ -34,20 +34,16 @@ const ResponsiveNav = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
-  // Fetch suggestions when the search query changes
   useEffect(() => {
-    console.log("Search Query:", searchQuery);
 
     if (searchQuery.length > 0) {
       axios
       .get(`${BASE_URL}/home-search?title=${searchQuery}`)
         .then((response) => {
-          // console.log("new Response:", response.data.data.data);
 
           if (response.data.data && Array.isArray(response.data.data.data)) {
-            setSuggestions(response.data.data.data); // Update suggestions
-            // console.log("Suggestions:", response.data.data.data); 
-            // console.log("title suggetst:", response.data.data.data?.[0].title); 
+            setSuggestions(response.data.data.data);
+           
           }
         })
         .catch((error) => {
@@ -55,7 +51,6 @@ const ResponsiveNav = () => {
         });
     } else {
       setSuggestions([]);
-      // console.log("No search query. Suggestions cleared.");
     }
   }, [searchQuery]);
 
@@ -148,7 +143,7 @@ const ResponsiveNav = () => {
                 <li>
                   <Link to="/achievements">Achievements</Link>
                 </li> <li>
-                  <Link to="/how-it-works?">How It Work?</Link>
+                  <Link to="/how-it-works?">How It Works?</Link>
                 </li> <li>
                   <Link to="/talspo-search">Talspo Search AI</Link>
                 </li>

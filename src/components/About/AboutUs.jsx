@@ -23,10 +23,10 @@ import WhyChooseData from "./WhyChooseData";
 
 const AboutUs = () => {
 
-  const sliderRef = React.useRef(null); // Create a reference for the slider
+  const sliderRef = React.useRef(null); 
 
   const handleClick = (url) => {
-    window.location.href = url; // Redirect to the given URL
+    window.location.href = url; 
   };
 
   const settings = {
@@ -36,7 +36,7 @@ const AboutUs = () => {
     slidesToScroll: 1,
     centerMode: false,
     centerPadding: "20px",
-    arrows: false, // Disable default arrows
+    arrows: false, 
     responsive: [
       {
         breakpoint: 1200,
@@ -126,10 +126,8 @@ const AboutUs = () => {
 
   const years = journeyData.map((record) => record.year);
 
-  // Get the data for the active year
   const activeRecord = journeyData.find((record) => record.year === activeYear);
 
-  // Calculate the position of the scroll indicator dynamically
   const getIndicatorPosition = () => {
     const yearIndex = years.indexOf(activeYear);
     const gap = 300 / years.length; // Adjust based on the total height of the scroll line
@@ -415,7 +413,7 @@ Patent Certificate Legal Status: Inforce</a>
       <div className="slider-container">
         <Slider ref={sliderRef} {...settings}>
           {[
-            { label: "How It Work?", url: "/how-it-work?" },
+            { label: "How It Works?", url: "/how-it-work?" },
             { label: "Achievements So Far", url: "/achievements" },
             { label: "FAQs", url: "/faq" },
             { label: "Our Team", url: "/our-team" },
@@ -441,13 +439,13 @@ Patent Certificate Legal Status: Inforce</a>
       <div className="about-slider-btns">
         <div
           className="left-btn-about"
-          onClick={() => sliderRef.current.slickPrev()} // Trigger previous slide
+          onClick={() => sliderRef.current.slickPrev()} 
         >
           <i className="ri-arrow-left-line"></i>
         </div>
         <div
           className="right-btn-about"
-          onClick={() => sliderRef.current.slickNext()} // Trigger next slide
+          onClick={() => sliderRef.current.slickNext()} 
         >
           <i className="ri-arrow-right-line"></i>
         </div>
@@ -462,7 +460,7 @@ Patent Certificate Legal Status: Inforce</a>
 
           <div className="connected">
             <h6>Stay Connected:
-              <h5><a href="https://in.linkedin.com/company/talspo"><img src={linkdin} alt="linkdin" /></a>|<a href="https://x.com/talspogroup"><img src={XIcon} alt="xIcon" /></a>|<a href="https://www.youtube.com/@TalspoGroup "><img src={YouTube} alt="Youtube" style={{ width: '80px', height: '60px' }} /></a>|<a href="https://www.f6s.com/talspo"><img src={F6S} alt="f6s" /></a>|<a href="https://www.crunchbase.com/organization/talspo-explore-spot-connect"><img src={Crunchbase} alt="crunchbase" style={{ width: '100px', height: '100px' }} /></a>|<a href=""><img src={productHunt} alt="productHunt" style={{ width: '80px', height: '60px' }} /></a>|<a href="https://yourstory.com/companies/talspo"><img src={YourStory} alt="YourStory" style={{ width: '80px', height: '40px' }} /></a>  </h5>
+              <h5><a href="https://in.linkedin.com/company/talspo"><img src={linkdin} alt="linkdin" /></a>|<a href="https://x.com/talspogroup"><img src={XIcon} alt="xIcon" /></a>|<a href="https://www.youtube.com/@TalspoGroup "><img src={YouTube} alt="Youtube" style={{ width: '80px', height: '60px' }} /></a>|<a href="https://www.f6s.com/talspo"><img src={F6S} alt="f6s" /></a>|<a href="https://www.crunchbase.com/organization/talspo-explore-spot-connect"><img src={Crunchbase} alt="crunchbase" style={{ width: '100px', height: '100px' }} /></a>|<a href="https://www.producthunt.com/@talspo"><img src={productHunt} alt="productHunt" style={{ width: '80px', height: '60px' }} /></a>|<a href="https://yourstory.com/companies/talspo"><img src={YourStory} alt="YourStory" style={{ width: '80px', height: '40px' }} /></a>  </h5>
             </h6>
           </div>
         </div>

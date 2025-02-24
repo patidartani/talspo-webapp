@@ -273,7 +273,7 @@ flex-direction: column
 @media (max-width : 600px) {
       .Blog-main{
             width: 100%;
-            padding-top: 10vmax;
+            padding-top: 13vmax;
 
   }
   .Blog-main .blogs{

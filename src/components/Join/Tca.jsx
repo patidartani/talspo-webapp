@@ -182,7 +182,7 @@ const Tca = () => {
         // Fetching countries
         const countryResponse = await fetch(`${BASE_URL}/country`);
         const countryData = await countryResponse.json();
-        console.log("countryData", countryData.records)
+        // console.log("countryData", countryData.records)
   
         if (!countryData.records || countryData.records.length === 0) {
           setCountries([]);
@@ -216,7 +216,7 @@ const Tca = () => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ state_id: selectedStateId }),
-          });
+          }); 
           const cityData = await cityResponse.json();
   
           if (!cityData.records || cityData.records.length === 0) {
@@ -238,7 +238,6 @@ const Tca = () => {
     fetchData();
   }, [selectedCountryId, selectedStateId]);
   
-
   // -------------------------------------------------------------------------------------------------------------
   return (
     <>
@@ -371,16 +370,23 @@ const Tca = () => {
                 </div>
 
                 <div className="campus-ipt">
-                        <label>Date of Birth (Must be 13 years or older)</label>
-                        <input 
-                          type="text" 
-                          name="dob" 
-                          value={formData.dob} 
-                          onChange={handleChange} 
-                          placeholder="DD/MM/YYYY"
-                        />
-                        {errors.dob && <p style={{ color: "red" }}>{errors.dob[0]}</p>}
-                      </div>
+  <label>Date of Birth (Must be 13 years or older)</label>
+  <input
+    type="text"
+    name="dob"
+    value={formData.dob ? new Date(formData.dob).toISOString().split('T')[0] : ''}
+    onChange={handleChange}
+    onFocus={(e) => {
+      e.target.type = "date"; 
+      e.target.max = new Date(new Date().setFullYear(new Date().getFullYear() - 13)).toISOString().split('T')[0]; // Max date set karega
+    }}
+    onBlur={(e) => (e.target.type = "text")}
+    placeholder="DD/MM/YYYY"
+  />
+  {errors.dob && <p style={{ color: "red" }}>{errors.dob[0]}</p>}
+</div>
+
+
                 <div className="campus-ipt">
                   <label>Gender</label>
                   <select

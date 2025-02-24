@@ -10,7 +10,7 @@ const SiteMap = () => {
     <div className='SiteMap-main'>
           <div className="site_top">
           <h5>SiteMap</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, ducimus?</p>
+          <p>Discover the connections on each page by exploring the sitemap menu provided below, this is essential for gaining a deeper understanding of Talspo Application(s)</p>
           </div>
           <div className="site-map">
   {/* --------------------------------------------------*/}
@@ -20,12 +20,11 @@ const SiteMap = () => {
                    <a href="/faq"><span>Faq</span></a>
                    <a href="/our-team"><span>Our Team</span></a>
                    <a href="/achievements"><span>Achievements</span></a>
-                   <a href="/how-it-works?"><span>How We Work</span></a>
+                   <a href="/how-it-works?"><span>How It Works?</span></a>
                    <a href="/talspo-search"><span>Talspo Search AI</span></a>
                    <a href="/talspo-api"><span>Talspo API</span></a>
                    <a href="/talspo-affiliate"><span>Talspo Affiliate Program</span></a>
                    <a href="/talfia"><span>Talfia (*sub-brand of Talspo)</span></a>
-
            </div>
            <div className="site-box">
            <h5>Services</h5> 
@@ -37,21 +36,19 @@ const SiteMap = () => {
            </div>
            <div className="site-box">
            <h5>Join</h5> 
-           <a href="/join"><span>Join Us </span></a>
-           <a href="/opportunities"><span>Find Opportunities </span></a>
+                        <a href="/join"><span>Join Us </span></a>
+                        <a href="/opportunities"><span>Find Opportunities </span></a>
                    <a href="/partners"><span>Do Partnership</span></a>
                    <a href="/tca"><span> Talspo Campus Ambassador</span></a>       
           </div>
           <div className="site-box">
            <h5>Blogs</h5>   
            <a href="/blog"><span>Blog</span></a>
-
           </div>
           <div className="site-box">
                     <h5>Other</h5>
                    <a href="/talspo-here"><span>Talspo Here</span></a>
                    <a href="/contact-us"><span>Contact Us</span></a>
-
              </div>
  
              <div className="site-box">
@@ -67,7 +64,6 @@ const SiteMap = () => {
                    <a href="/dmca-policy"><span> IPR Compilance & Other Compilance</span></a>
                    <a href="/gdbr-policy"><span> GPR Compilance</span></a>
                    <a href="/eula-policy"><span>EULA</span></a>
-
 
              </div>
  

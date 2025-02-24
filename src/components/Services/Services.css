@@ -136,7 +136,7 @@
 @media (max-width:600px) {
           .Services-main {
                     width: 100%;
-                    padding-top: 7vmax;
+                    padding-top: 10vmax;
           }
           .Services-main .Services-page .service-top h5 {
                     font-size: 3vmax;

@@ -39,7 +39,7 @@ const ViewDetail = () => {
       
         const FormHandler = () => {
           navigate('/form', { state: { 
-             postId: jobDetail.id,
+            postId: jobDetail.id,
             subtitle: jobDetail.subtitle,
             title: jobDetail.title,
             question_one: jobDetail.question_one,
@@ -71,12 +71,10 @@ const ViewDetail = () => {
                           </div>
 
                           <div className="responsibilities">
-                          <div dangerouslySetInnerHTML={{ __html: jobDetail?.responsibilities }} />
+                          <h6>Description and Responsibilities:</h6>
+                          <div dangerouslySetInnerHTML={{ __html: jobDetail?.description }} />
                           </div>
-
-                          <div className="company-detail">
-                           {jobDetail.company_details}
-                          </div>
+                         
                      </div>
                 </div> 
                 <div className="view-right">

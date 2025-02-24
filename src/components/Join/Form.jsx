@@ -79,15 +79,19 @@ const Form = () => {
     setErrors({});
 
     try {
-      console.log("Form Data being sent:", formData);
       const response = await submitJobApplication(formData);
-      console.log("Response from API:", response);
       if (response.error === false && response.message) {
         Swal.fire({
-          title: 'Success!',
-          text: response.message,
+          title: 'Thank you for applying!',
+          text: 'We appreciate your interest. We will review your application and get back to you soon. Redirecting in 10 seconds...',
           icon: 'success',
-          confirmButtonText: 'OK'
+          timer: 10000,
+          showConfirmButton: false,
+          allowOutsideClick: false,
+          didClose: () => {
+            window.location.href = "https://dev.talspo.com/opportunities";
+          },
+          footer: '<a href="https://dev.talspo.com">Go Back to Home</a>'
         });
       }
 

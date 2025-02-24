@@ -115,3 +115,45 @@
    
 
 }
+
+@media (min-width:600px) and (max-width:1150px){
+     .BlogDetail-main {
+          width: 100%;
+     }
+
+     .BlogDetail-main .blog-detail {
+          width: 95%;
+          margin-top: 18vmax;
+          margin-bottom: 3vmax;
+     }
+
+     .BlogDetail-main .blog-detail h5 {
+          font-size: 3vmax;
+     }
+
+     .BlogDetail-main .blog-detail .year-d {
+          width: 100%;
+          gap: 0vmax;
+          flex-direction: column;
+     }
+
+     .BlogDetail-main .blog-detail .year-d small {
+          padding: 1vmax 1.5vmax;
+     }
+
+     .BlogDetail-main .blog-detail .year-d span {
+          margin-top: 2vmax;
+     }
+
+     .BlogDetail-main .blog-detail .img-d {
+          width: 100%;
+          height: auto;
+     }
+
+     .BlogDetail-main .blog-detail .img-d img {
+          width: 100%;
+          height: auto;
+     }
+   
+
+}

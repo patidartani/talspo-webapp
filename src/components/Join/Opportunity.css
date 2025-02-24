@@ -98,7 +98,7 @@
      width: 20px;
      height: 23px;
      pointer-events: none;
-     animation: rotateSearch 1.5s infinite linear;
+     animation: rotateSearch 0.9s infinite linear;
    }
    .Opportunity-main .opportunity-page .opportunity2 .job-search .suggestions-list {
      position: absolute;
@@ -209,9 +209,9 @@
  }
  .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .duration .duration-search select,
  .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .work-from-home .work-search select,
-     .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .location .location-search select,
-          .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .experience .experience-search select,
-               .Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .job-type .job-type-search select{
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .location .location-search select,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .experience .experience-search select,
+.Opportunity-main .opportunity-page .opportunity2 .opt2-btm .Filter-page  .filter-btm .job-type .job-type-search select{
 
       width: 100%;
       outline: none;
@@ -531,7 +531,7 @@
 @media (max-width:600px) {
      .Opportunity-main{
           width: 100%;
-          padding-top: 5vmax;
+          padding-top: 8vmax;
 }
 .Opportunity-main .opportunity-page{
           width: 95%;

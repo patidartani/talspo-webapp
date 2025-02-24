@@ -5,7 +5,6 @@ import Swal from "sweetalert2"; // Importing SweetAlert
 
 const FormHr = ({ closeModal }) => {
   // ------------------ States ---------------------
-  //   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [countryCode, setCountryCode] = useState("+91");
   const [fieldErrors, setFieldErrors] = useState({});
@@ -60,7 +59,7 @@ const FormHr = ({ closeModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setLoading(true); // Set loading to true when submitting
+    setLoading(true); 
 
     const formData = new FormData();
     Object.keys(jobDetails).forEach((key) => {
@@ -70,13 +69,12 @@ const FormHr = ({ closeModal }) => {
     try {
       const response = await createDirectConnectHR(formData);
 
-      console.log("API Response:", response);  // Log the full API response
+      // console.log("API Response:", response);  
 
-      // Check if the response indicates success
       if (response.error === false) {
         Swal.fire({
           title: "Success!",
-          text: response.message || "Form submitted successfully!", // Use the success message from the API
+          text: response.message || "Form submitted successfully!", 
           icon: "success",
           confirmButtonText: "OK",
         });
